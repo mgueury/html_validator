@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Accessibilité&nbsp;3.5.2.2</title>
+    <link rel="stylesheet" type="text/css" href="tidy_help2.css" media="screen, projection"/>
+  </head>
+  <body>
+    <div id="bodyContent">
+      <h2> Accessibilité&nbsp;: [3.5.2.2]&nbsp;: Pourrait être un sous-titre (italique)</h2>
+      <p class="priorite">Priorité 2</p>
+      <h3> Cause&nbsp;: </h3>
+      <p>Vous utilisez du texte en italique. Si cela est voulu, pensez qu'il pourrait être confondu visuellement avec un sous-titre (second titre) ou une en-tête. Sinon,il faut envisager de le modifier et d'en faire un sous-titre.<br />
+      Il faut utiliser des entêtes d'éléments (&lt;h1&gt;, &lt;h2&gt;) pour indiquer la structure d'un document et il faut les utiliser selon les spécifications.
+      </p>
+      <h3> Exemple&nbsp;: </h3>
+        <table class='bad' title='Bad'>
+          <tr>
+            <td width='22' valign='top'>
+              <img src='../../../skin/error.png' alt='Error'/>
+            </td>
+            <td>
+              <code>
+                &lt;p&gt;&lt;em&gt;Ceci pourrait être un sous-titre.&lt;/em&gt;&lt;/p&gt;
+              </code>
+            </td>
+          </tr>
+        </table>
+        <table class='good' title='Good'>
+          <tr>
+            <td width='22' valign='top'>
+              <img src='../../../skin/good.png' alt='Good'/>
+            </td>
+            <td>
+              <code>
+                &lt;h3&gt;Ceci pourrait être un sous-titre.&lt;h3&gt;
+              </code>
+            </td>            
+          </tr>
+        </table>
+
+      <h3> Solution&nbsp;: </h3>
+      <p>Il faut envisager de modifier votre texte soit pour en faire un sous-titre, soit pour enlever l'italique.
+      </p>
+      <h3> Références&nbsp;: </h3>
+      <ul>
+        <li> W3C WAI&nbsp;: <a href="http://www.w3.org/WAI/">http://www.w3.org/WAI/</a>
+        </li>
+        <li> Techniques HTML pour le WAI 1.0: <a href="http://www.w3.org/TR/WCAG10-HTML-TECHS/">http://www.w3.org/TR/WCAG10-HTML-TECHS/</a>
+        </li>
+      </ul>
+      <p>.
+      </p>
+    </div>
+  </body>
+</html>

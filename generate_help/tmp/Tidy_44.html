@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Tidy 44 - Htmlpedia</title>
+    <link rel="stylesheet" type="text/css" href="/w/skins/tidy_help2.css" media="screen, projection"/>
+  </head>
+<body>
+  <div id="bodyContent">
+    <!-- start content -->
+    <table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1"><a href="#Tidy:_Warning:__missing_.3C.21DOCTYPE.3E_declaration"><span class="tocnumber">1</span> <span class="toctext">Tidy: Warning:  missing &lt;!DOCTYPE&gt; declaration</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Cause:"><span class="tocnumber">1.1</span> <span class="toctext">Cause:</span></a></li>
+<li class="toclevel-2"><a href="#Examples:"><span class="tocnumber">1.2</span> <span class="toctext">Examples:</span></a></li>
+<li class="toclevel-2"><a href="#Solution:"><span class="tocnumber">1.3</span> <span class="toctext">Solution:</span></a></li>
+<li class="toclevel-2"><a href="#References:"><span class="tocnumber">1.4</span> <span class="toctext">References:</span></a></li>
+</ul>
+</li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="/w/index.php?title=Tidy_44&amp;action=edit&amp;section=1" title="Edit section: Tidy: Warning:  missing &amp;lt;!DOCTYPE&amp;gt; declaration">edit</a>]</div><a name="Tidy:_Warning:__missing_.3C.21DOCTYPE.3E_declaration"></a><h2> Tidy: Warning:  missing &lt;!DOCTYPE&gt; declaration </h2>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="/w/index.php?title=Tidy_44&amp;action=edit&amp;section=2" title="Edit section: Cause:">edit</a>]</div><a name="Cause:"></a><h3> Cause: </h3>
+<p>A DOCTYPE Declaration is mandatory for most current markup languages and without one it is impossible to reliably validate a document. The DOCTYPE defines the version of the document like&nbsp;: HTML 4.0.1, XHTML 1.0, 1.1, ...
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="/w/index.php?title=Tidy_44&amp;action=edit&amp;section=3" title="Edit section: Examples:">edit</a>]</div><a name="Examples:"></a><h3> Examples: </h3>
+<table class='bad' title='Bad'><tr><td width='22' valign='top'><img src='/skin/error.gif' alt='Good'/></td><td><pre>&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;document without DOCTYPE&lt;/title&gt;
+&lt;/head&gt; ...</pre></td></tr></table>
+<table class='good' title='Good'><tr><td width='22' valign='top'><img src='/skin/good.gif' alt='Good'/></td><td><pre>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"&gt;
+&lt;head&gt;
+&lt;title&gt;XHTML-document&lt;/title&gt;
+&lt;/head&gt; ...</pre></td></tr></table>
+<table class='good' title='Good'><tr><td width='22' valign='top'><img src='/skin/good.gif' alt='Good'/></td><td><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" 
+  "http://www.w3.org/TR/html4/loose.dtd"&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+&lt;title&gt;HTML-document&lt;/title&gt;
+&lt;head&gt; ...</pre></td></tr></table>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="/w/index.php?title=Tidy_44&amp;action=edit&amp;section=4" title="Edit section: Solution:">edit</a>]</div><a name="Solution:"></a><h3> Solution: </h3>
+<p>Please place a DOCTYPE declaration as the very first thing in an HTML document.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="/w/index.php?title=Tidy_44&amp;action=edit&amp;section=5" title="Edit section: References:">edit</a>]</div><a name="References:"></a><h3> References: </h3>
+<ul><li> W3C spec: <a href="http://www.w3.org/TR/html4/struct/global.html#h-7.2" class="external free" title="http://www.w3.org/TR/html4/struct/global.html#h-7.2" rel="nofollow">http://www.w3.org/TR/html4/struct/global.html#h-7.2</a>
+</li><li> W3C faq: <a href="http://validator.w3.org/docs/help.html#faq-doctype" class="external free" title="http://validator.w3.org/docs/help.html#faq-doctype" rel="nofollow">http://validator.w3.org/docs/help.html#faq-doctype</a>
+</li><li> List of valid doctype: <a href="http://www.w3.org/QA/2002/04/valid-dtd-list.html" class="external free" title="http://www.w3.org/QA/2002/04/valid-dtd-list.html" rel="nofollow">http://www.w3.org/QA/2002/04/valid-dtd-list.html</a>
+</li><li> Choosing a doctype: <a href="http://htmlhelp.com/tools/validator/doctype.html" class="external free" title="http://htmlhelp.com/tools/validator/doctype.html" rel="nofollow">http://htmlhelp.com/tools/validator/doctype.html</a>
+</li></ul>
+
+<!-- Saved in parser cache with key htmlpediadb:pcache:idhash:1430-0!1!0!0!!en!2 and timestamp 20100119135311 -->
+<div class="printfooter">
+Retrieved from "<a href="http://www.htmlpedia.org/wiki/Tidy_44">http://www.htmlpedia.org/wiki/Tidy_44</a>"</div>
+    <!-- end content -->
+  </div>
+</body>
+</html>

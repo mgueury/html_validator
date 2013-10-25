@@ -1,0 +1,164 @@
+<?xml version="1.0"?>
+<!-- *************************************************************************
+  HTML Validator
+
+  File: tidyCleanup.xul
+  Description: contains the xul dialog box for cleanup window
+  Author : Marc Gueury
+  Licence : see licence.txt
+************************************************************************** -->
+
+<!DOCTYPE window [
+  <!ENTITY % tidyDTD SYSTEM "chrome://tidy/locale/tidy.dtd"> %tidyDTD;
+]>
+
+<?xml-stylesheet href="chrome://tidy/skin/tidy.css" type="text/css"?>
+<?xml-stylesheet href="chrome://global/skin" type="text/css"?>
+
+<window id="tidy-cleanup" 
+        xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+        title="&tidy.cleanup.title;"
+        screenX="10" screenY="10"
+        onload="onLoadTidyCleanup();"
+        persist="screenX screenY width height sizemode"
+> 
+
+  <script type="application/x-javascript" src="chrome://tidy/content/tidyLib.js" />
+  <script type="application/x-javascript" src="chrome://tidy/content/tidyUtil.js" />
+  <script type="application/x-javascript" src="chrome://tidy/content/tidyCleanup.js" />
+  <script type="application/x-javascript" src="chrome://global/content/globalOverlay.js"/>
+
+  <stringbundleset id="stringbundleset">
+    <stringbundle id="tidy.string.bundle" src="chrome://tidy/locale/tidy.properties"/>
+  </stringbundleset>
+
+  <keyset id="cleanupKeys">
+    <key id="key_copy" key="&tidy.menu.copy.key;" oncommand="goDoCommand('cmd_copy')" modifiers="accel"/>
+    <key id="key_selectall" key="&tidy.menu.selectall.key;" oncommand="goDoCommand('cmd_selectAll')" modifiers="accel"/>
+  </keyset>
+
+  <popup id="tidyCleanupContextMenu">
+    <menuitem id="menu_copy" label="&tidy.menu.copy.label;" accesskey="&tidy.menu.copy.accesskey;" 
+              key="key_copy" oncommand="goDoCommand('cmd_copy')"/>
+    <menuitem id="menu_selectAll" label="&tidy.menu.selectall.label;" accesskey="&tidy.menu.selectall.accesskey;"
+              key="key_selectall"  oncommand="goDoCommand('cmd_selectAll')"/>
+  </popup>
+
+  <vbox flex="1">
+    <hbox flex="1">
+      <tabbox flex="1">
+         <tabs id="tabs">
+           <tab id="tidy.cleanup.tab.clean.source" label="&tidy.cleanup.tab.clean.source;" />
+           <tab id="tidy.cleanup.tab.orig.source" label="&tidy.cleanup.tab.orig.source;" />
+           <tab id="tidy.cleanup.tab.clean.page" label="&tidy.cleanup.tab.clean.page;" />
+           <tab id="tidy.cleanup.tab.orig.page" label="&tidy.cleanup.tab.orig.page;" />
+         </tabs>
+         <tabpanels id="tabpanels" flex="1">
+           <tabpanel id="tidy.cleanup.panel.clean.source">
+             <browser id="tidy.cleanup.clean.source" name="tidy.cleanup.cleanup.source" 
+                      src="chrome://tidy/content/help/tidy_blank.html" flex="1"
+                      disablehistory="true" type="content"
+                      contextmenu="tidyCleanupContextMenu"
+             />
+           </tabpanel>
+
+           <tabpanel id="tidy.cleanup.panel.orig.source">
+             <browser id="tidy.cleanup.orig.source" name="tidy.cleanup.orig.source" 
+                      src="chrome://tidy/content/help/tidy_blank.html" flex="1"
+                      disablehistory="true" type="content"
+                      contextmenu="tidyCleanupContextMenu"
+             />
+           </tabpanel>
+          
+           <tabpanel id="tidy.cleanup.panel.clean.page">
+             <browser id="tidy.cleanup.clean.page" name="tidy.cleanup.clean.page" 
+                      src="chrome://tidy/content/help/tidy_blank.html" flex="1"
+                      disablehistory="true" type="content"
+                      onclick="return onTidyCleanupOnClick(event);"
+             />
+           </tabpanel>
+
+           <tabpanel id="tidy.cleanup.panel.orig.page">
+             <browser id="tidy.cleanup.orig.page" name="tidy.cleanup.orig.page" 
+                      src="chrome://tidy/content/help/tidy_blank.html" flex="1"
+                      disablehistory="true" type="content"
+                      onclick="return onTidyCleanupOnClick(event);"
+             />
+           </tabpanel>
+         </tabpanels>
+      </tabbox>
+
+
+      <vbox style="width: 200px">            
+        <groupbox>
+          <caption label="&tidy.options.group.layout;"/>
+          <vbox>
+            <checkbox id="tidy.options.indent"               label="&tidy.options.indent;" />
+            <hbox align="center">  
+              <label control="tidy.options.indent-spaces.label" value="&tidy.options.indent-spaces;"/> 
+              <textbox id="tidy.options.indent-spaces" size="5"/>  
+            </hbox>  
+            <checkbox id="tidy.options.uppercase-tags"       label="&tidy.options.uppercase-tags;" />
+            <checkbox id="tidy.options.uppercase-attributes" label="&tidy.options.uppercase-attributes;" />
+
+            <hbox align="center">  
+              <label control="tidy.options.wrap.label" value="&tidy.options.wrap;"/> 
+              <textbox id="tidy.options.wrap" size="5"/>  
+              <label control="tidy.options.wrap.label2" value="&tidy.options.wrap2;"/> 
+            </hbox>  
+          </vbox>            
+        </groupbox>
+
+        <groupbox>
+          <caption label="&tidy.options.group.format;"/>
+          <vbox>
+            <hbox align="center">
+              <label id="tidy.options.force_output.label" value="&tidy.options.force_output;"/> 
+              <menulist id="tidy.options.force_output">
+                <menupopup>
+                  <menuitem label="&tidy.options.none;" value="-"/>
+                  <menuitem label="&tidy.options.output-html;" value="html"/>
+                  <menuitem label="&tidy.options.output-xhtml;" value="xhtml"/>
+                </menupopup>
+              </menulist>
+            </hbox>
+
+            <hbox align="center">
+              <label id="tidy.options.output-encoding.label" value="&tidy.options.output-encoding;"/> 
+              <menulist id="tidy.options.output-encoding">
+                <menupopup>
+                  <menuitem label="ascii" value="ascii"/>
+                  <menuitem label="unicode" value="utf8"/>
+                </menupopup>
+              </menulist>
+            </hbox>
+
+            <hbox align="center">
+              <label id="tidy.options.doctype.label" value="&tidy.options.doctype;"/> 
+              <menulist id="tidy.options.doctype">
+                <menupopup>
+                  <menuitem label="auto" value="auto"/>
+                  <menuitem label="omit" value="omit"/>
+                  <menuitem label="strict" value="strict"/>
+                  <menuitem label="loose" value="loose"/>
+                  <menuitem label="transitional" value="transitional"/>
+                </menupopup>
+              </menulist>
+            </hbox>
+
+            <checkbox id="tidy.options.clean" label="&tidy.options.clean;" />
+          </vbox>            
+        </groupbox>
+
+        <button label="&tidy.button.refresh;" id="tidy-button-refresh" oncommand="oTidyCleanup.onRefresh();"/>
+      </vbox>            
+    </hbox>
+
+    <hbox align="right" valign="middle">
+      <progressmeter mode="undetermined" id="tidy-progress" flex="1"/>
+      <button label="&tidy.button.ok;" id="tidy-button-ok"
+              oncommand="oTidyCleanup.onOk();"/>
+    </hbox>
+  </vbox>  
+
+</window>

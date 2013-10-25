@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Sp 82 - Htmlpedia</title>
+    <link rel="stylesheet" type="text/css" href="tidy_help2.css" media="screen, projection"/>
+  </head>
+<body>
+  <div id="bodyContent">
+<h2> An attribute value must be a literal unless it contains only name characters </h2>
+<h3> Cause: </h3>
+<p>You have used a character that is not considered a "name character" in an
+attribute value. Which characters are considered "name characters" varies
+between the different document types, but a good rule of thumb is that
+unless the value contains <em>only</em> lower or upper case letters in the
+range a-z you must put quotation marks around the value. 
+</p>
+<h3> Example: </h3>
+<table class='bad' title='Bad'><tr><td width='22' valign='top'><img src='../../../skin/error.png' alt='Good'/></td><td>&lt;body bgcolor=#ffffff&gt;</td></tr></table>
+<table class='good' title='Good'><tr><td width='22' valign='top'><img src='../../../skin/good.png' alt='Good'/></td><td>&lt;body bgcolor="#ffffff"&gt;</td></tr></table>
+<h3> Solution: </h3>
+<p>Put double quotes around the value.
+</p><p>Unless you have <em>extreme</em> file size requirements it is a very good idea to <em>always</em> put quote marks around your attribute values. 
+</p>
+<h3> References: </h3>
+<ul><li> W3 validator: <a href="http://validator.w3.org/">http://validator.w3.org/</a>
+</li></ul>
+  </div>
+</body>
+</html>

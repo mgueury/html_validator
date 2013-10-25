@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Tidy 7 - Htmlpedia</title>
+    <link rel="stylesheet" type="text/css" href="/w/skins/tidy_help2.css" media="screen, projection"/>
+  </head>
+<body>
+  <div id="bodyContent">
+    <!-- start content -->
+    <table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1"><a href="#Tidy:_missing_.3C.2Faaa.3E_before_.3Cbbb.3E"><span class="tocnumber">1</span> <span class="toctext">Tidy: missing &lt;/aaa&gt; before &lt;bbb&gt;</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Cause:"><span class="tocnumber">1.1</span> <span class="toctext">Cause:</span></a></li>
+<li class="toclevel-2"><a href="#Example:"><span class="tocnumber">1.2</span> <span class="toctext">Example:</span></a></li>
+<li class="toclevel-2"><a href="#Solution:"><span class="tocnumber">1.3</span> <span class="toctext">Solution:</span></a></li>
+<li class="toclevel-2"><a href="#References:"><span class="tocnumber">1.4</span> <span class="toctext">References:</span></a></li>
+</ul>
+</li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="/w/index.php?title=Tidy_7&amp;action=edit&amp;section=1" title="Edit section: Tidy: missing &amp;lt;/aaa&amp;gt; before &amp;lt;bbb&amp;gt;">edit</a>]</div><a name="Tidy:_missing_.3C.2Faaa.3E_before_.3Cbbb.3E"></a><h2> Tidy: missing &lt;/aaa&gt; before &lt;bbb&gt; </h2>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="/w/index.php?title=Tidy_7&amp;action=edit&amp;section=2" title="Edit section: Cause:">edit</a>]</div><a name="Cause:"></a><h3> Cause: </h3>
+<p>A closing tag &lt;/aaa&gt; is missing before the opening of another tag &lt;bbb&gt;. This is probably due to a implicit close of the &lt;aaa&gt; tag due to the opening of the &lt;bbb&gt; tag.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="/w/index.php?title=Tidy_7&amp;action=edit&amp;section=3" title="Edit section: Example:">edit</a>]</div><a name="Example:"></a><h3> Example:</h3>
+<p>There are two types of tags in the body of a HTML file, <a href="http://www.w3.org/TR/html4/struct/global.html#h-7.5.3" class="external text" title="http://www.w3.org/TR/html4/struct/global.html#h-7.5.3" rel="nofollow">inline and block tags</a>.
+In the following sample, the <a href="http://www.w3.org/TR/html4/present/graphics.html#edef-FONT" class="external text" title="http://www.w3.org/TR/html4/present/graphics.html#edef-FONT" rel="nofollow">&lt;font&gt;</a> tag is an inline tag defined as containing only inline tags. But the &lt;p&gt; tag is a block tag. Thus:
+</p>
+<ul><li> a &lt;p&gt; tag cannot be contained in a &lt;font&gt; tag.
+</li><li> when seeing a &lt;p&gt; tag the font tag is implicitly closed.
+</li></ul>
+<table class='bad' title='Bad'><tr><td width='22' valign='top'><img src='/skin/error.gif' alt='Good'/></td><td>&lt;font size=2&gt;&lt;p&gt;abc&lt;/p&gt;&lt;/font&gt;</td></tr></table>
+<table class='good' title='Good'><tr><td width='22' valign='top'><img src='/skin/good.gif' alt='Good'/></td><td>&lt;p&gt;&lt;font size="2"&gt;abc&lt;/font&gt;&lt;/p&gt; </td></tr></table>
+<table class='good' title='Good'><tr><td width='22' valign='top'><img src='/skin/good.gif' alt='Good'/></td><td>&lt;p style="font-size: 80%"&gt;abc&lt;/p&gt; </td></tr></table>
+<table class='good' title='Good'><tr><td width='22' valign='top'><img src='/skin/good.gif' alt='Good'/></td><td>&lt;div style="font-size=80%"&gt;&lt;p&gt;abc&lt;/p&gt;&lt;/div&gt; </td></tr></table>
+<p>A &lt;font&gt; tag should be contained in a &lt;p&gt; tag and not the opposite. Also, a better way to define the graphical look of a HTML page is to use Cascading Style Sheets (CSS) and use HTML only for the content.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="/w/index.php?title=Tidy_7&amp;action=edit&amp;section=4" title="Edit section: Solution:">edit</a>]</div><a name="Solution:"></a><h3> Solution: </h3>
+<p>Move inline tags into block elements.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="/w/index.php?title=Tidy_7&amp;action=edit&amp;section=5" title="Edit section: References:">edit</a>]</div><a name="References:"></a><h3> References: </h3>
+<ul><li> HTML specification: <a href="http://www.w3.org/TR/html4/struct/global.html#h-7.5.3" class="external free" title="http://www.w3.org/TR/html4/struct/global.html#h-7.5.3" rel="nofollow">http://www.w3.org/TR/html4/struct/global.html#h-7.5.3</a>
+</li></ul>
+
+<!-- Saved in parser cache with key htmlpediadb:pcache:idhash:1407-0!1!0!0!!en!2 and timestamp 20100119144025 -->
+<div class="printfooter">
+Retrieved from "<a href="http://www.htmlpedia.org/wiki/Tidy_7">http://www.htmlpedia.org/wiki/Tidy_7</a>"</div>
+    <!-- end content -->
+  </div>
+</body>
+</html>

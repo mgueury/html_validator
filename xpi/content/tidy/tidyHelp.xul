@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<!-- *************************************************************************
+  HTML Validator
+
+  File: tidyHelp.xul
+  Description: contains the xul dialog box for "about..."
+  Author : Marc Gueury
+  Licence : see licence.txt
+************************************************************************** -->
+
+<!DOCTYPE window [
+  <!ENTITY % tidyDTD SYSTEM "chrome://tidy/locale/tidy.dtd"> %tidyDTD;
+]>
+
+<?xml-stylesheet href="chrome://tidy/skin/tidy.css" type="text/css"?>
+<?xml-stylesheet href="chrome://global/skin" type="text/css"?>
+
+<dialog xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+        xmlns:html="http://www.w3.org/1999/xhtml"
+        id="tidy.help"
+        buttons="accept" 
+        title="&tidy.help.title;">
+  <script type="application/x-javascript" src="chrome://tidy/content/tidyUtil.js" />
+  
+<vbox>
+  <label value="HTML Validator" style="font-size: 200%; font-weight: bold;"/>  
+  <label value="&tidy.help.version; 0.9.5.9  / Htmlpedia 2010-01-23"/>
+  <groupbox>
+    <caption label="&tidy.help.homepage; "/>
+    <hbox>
+      <image src="chrome://tidy/skin/toc.png"/>
+      <vbox>
+        <html:p>&tidy.help.homepage_desc;<html:br/></html:p>
+        <hbox>
+          <vbox>
+            <label value="&tidy.help.homepage;"/>
+            <label value="&tidy.help.userguide;"/>
+          </vbox>
+          <vbox>
+            <label value="http://users.skynet.be/mgueury/mozilla/" class="link" url="http://users.skynet.be/mgueury/mozilla/" onclick="tidyUtilOpenUrl(event,false);"/>
+            <label value="http://users.skynet.be/mgueury/mozilla/user_guide.html" class="link" url="http://users.skynet.be/mgueury/mozilla/user_guide.html" onclick="tidyUtilOpenUrl(event,false);"/>
+          </vbox>
+        </hbox>
+      </vbox>
+    </hbox>  
+  </groupbox>         
+  <groupbox>
+    <caption label="Htmlpedia"/>
+    <hbox>
+      <image src="chrome://tidy/skin/toc3.png"/>
+      <vbox>
+        <html:p>&tidy.help.htmlpedia_desc;<html:br/></html:p>
+        <hbox>
+          <vbox>
+            <label value="&tidy.help.htmlpedia;"/>
+            <label value="&tidy.help.htmlpedia_howto;"/>
+          </vbox>
+          <vbox>
+            <label value="http://www.htmlpedia.org/" class="link" url="http://www.htmlpedia.org/" onclick="tidyUtilOpenUrl(event,false);"/>
+            <label value="http://www.htmlpedia.org/wiki/How_to_modify_a_page" class="link" url="http://www.htmlpedia.org/wiki/How_to_modify_a_page" onclick="tidyUtilOpenUrl(event,false);"/>
+          </vbox>
+        </hbox>
+      </vbox>
+    </hbox>  
+  </groupbox>         
+  <groupbox>
+    <caption label="Forum"/>
+    <vbox>       
+      <hbox>
+        <label value="Forum:" style="width=30%;"/>
+        <label value="http://www.htmlpedia.org/phpBB/" class="link" url="http://www.htmlpedia.org/phpBB/" onclick="tidyUtilOpenUrl(event,false);"/>
+      </hbox>
+    </vbox>
+  </groupbox>         
+  <groupbox>
+    <caption label="&tidy.help.author;"/>
+    <vbox>       
+      <hbox>
+        <label value="&tidy.help.author;: Marc Gueury"/>
+        <label value="mgueury@skynet.be" class="link" url="mailto:mgueury@skynet.be" onclick="tidyUtilOpenUrl(event,false);"/>
+      </hbox>
+    </vbox>
+  </groupbox>         
+  <groupbox>
+    <caption label="&tidy.help.donation;"/>
+    <hbox align="center">       
+      <label value="&tidy.help.donation_text;    "/>
+      <html:form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+        <html:input name="cmd" value="_s-xclick" type="hidden"/>
+        <html:input value=" &tidy.help.donate; " type="submit"/> 
+        <html:input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----"/>
+     </html:form> 
+    </hbox>
+  </groupbox>         
+  <label value="&tidy.translator;" class="link" url="&tidy.translator.url;" onclick="tidyUtilOpenUrl(event,false);"/>
+</vbox>      
+</dialog>

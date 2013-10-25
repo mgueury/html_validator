@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<!-- *************************************************************************
+  HTML Validator
+
+  File: tidyOptions.xul
+  Description: contains the xul for the dialog box of the options window
+  Author : Marc Gueury
+  Licence : see licence.txt
+************************************************************************** -->
+
+<!DOCTYPE window [
+  <!ENTITY % tidyDTD SYSTEM "chrome://tidy/locale/tidy.dtd"> %tidyDTD;
+]>
+
+<?xml-stylesheet href="chrome://tidy/skin/tidy.css" type="text/css"?>
+<?xml-stylesheet href="chrome://global/skin" type="text/css"?>
+
+<window id="tidy-links" 
+        xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+        title="&tidy.links.title;"
+        onload="onLoadTidyLinks();"
+        persist="screenX screenY width height sizemode"        
+> 
+
+  <script type="application/x-javascript" src="chrome://tidy/content/tidyLib.js" />
+  <script type="application/x-javascript" src="chrome://tidy/content/tidyUtil.js" />
+  <script type="application/x-javascript" src="chrome://tidy/content/tidyLinks.js" />
+
+  <stringbundleset id="stringbundleset">
+    <stringbundle id="tidy.string.bundle" src="chrome://tidy/locale/tidy.properties"/>
+  </stringbundleset>
+
+  <popup id="tidyLinksContextMenu">
+    <menuitem id="tidy-links-tree-gotourl" label="Go to URL" oncommand="oTidyLinks.onGoToURL();"/>
+    <menuitem id="tidy-links-tree-copy" label="&tidy.menu.copy.label;" oncommand="oTidyLinks.onCopy();"/>
+  </popup>
+
+  <vbox style="height: 500px; width: 700px;" flex="1">
+    <caption id="tidy-links-url" label="XXXXXXXXX;"/>
+    <groupbox flex="1">
+      <caption label="Result"/>
+      <vbox flex="1">  
+        <tree id="tidy-links-tree" flex="1" seltype="single"
+              context="headerinfo-context"
+              onselect="oTidyLinks.onSelect();">
+          <treecols>
+            <treecol label="ID" id="col_id" persist="hidden width" flex="1"/>
+            <splitter class="tree-splitter" />
+            <treecol label="Url" id="col_url" persist="hidden width" flex="3" />
+            <splitter class="tree-splitter" />
+            <treecol label="Type" id="col_type" persist="hidden width" flex="1"/>
+            <splitter class="tree-splitter" />
+            <splitter class="tree-splitter" />
+            <treecol label="Size" id="col_size" persist="hidden width" flex="1"/>
+            <splitter class="tree-splitter" />
+            <treecol label="Status" id="col_status" persist="hidden width" flex="1"/>
+            <splitter class="tree-splitter" />
+            <treecol label="" id="col_icon" persist="hidden width" flex="1"/>
+            <splitter class="tree-splitter" />
+            <treecol label="Result" id="col_result" persist="hidden width" flex="3"/>
+            <splitter class="tree-splitter" />
+            <treecol label="Links in" id="col_link_in" persist="hidden width" flex="1"/>
+            <splitter class="tree-splitter" />
+            <treecol label="Links out" id="col_link_out" persist="hidden width" flex="1"/>
+            <splitter class="tree-splitter" />
+            <treecol label="Level" id="col_level" persist="hidden width" flex="1"/>
+          </treecols>
+          <treechildren flex="1" contextmenu="tidyLinksContextMenu"/>
+        </tree>      
+      </vbox>
+    </groupbox>
+
+    <groupbox>
+      <caption label="Detail"/>
+      <vbox>
+        <caption id="tidy-detail-url" label=""/>
+        <vbox>       
+           <caption label="List of Referer URL"/>
+           <listbox id="tidy.links.referer" flex="1" aclass="inset" seltype="single" rows="7" width="600"/>         
+        </vbox>
+        XXXXXXXXXXXXXXXXXXXXXXXXXXX
+        <button label="Go To url" oncommand="oTidyLinks.onGoToURL()"/>
+        <button label="Copy info to Clipboard" id="tidy-button"
+                oncommand="oTidyLinks.onOk();"/>     
+      </vbox>
+    </groupbox>
+    
+
+    <hbox align="right" valign="middle">
+      <button label="Background" oncommand="oTidyLinks.onBackground(0);"/>
+      <button label="&tidy.button.ok;" id="tidy-button-ok"
+              oncommand="oTidyLinks.onOk();"/>     
+    </hbox>
+  </vbox>  
+  
+</window>

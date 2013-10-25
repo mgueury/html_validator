@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Tidy 37 - Htmlpedia</title>
+    <link rel="stylesheet" type="text/css" href="tidy_help2.css" media="screen, projection"/>
+  </head>
+<body>
+  <div id="bodyContent">
+<h2> SYSTEM, PUBLIC, W3C, DTD, EN must be upper case </h2>
+<h3> Cause: </h3>
+<p>A DOCTYPE Declaration is mandatory for most current markup languages and without one it is impossible to reliably validate a document.
+The DOCTYPE defines the version of the document like&nbsp;: HTML 4.0.1, XHTML 1.0, 1.1, ...
+Certain Parts of this declaration must be written in upper case
+</p>
+<h3> Examples: </h3>
+<table class='bad' title='Bad'><tr><td width='22' valign='top'><img src='../../../skin/error.png' alt='Good'/></td><td><pre>&lt;!doctype html public "-//w3c//dtd xhtml 1.0 Strict//en" 
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"&gt;
+&lt;head&gt;
+&lt;title&gt;XHTML-document&lt;/title&gt;
+&lt;/head&gt; ...</pre></td></tr></table>
+<table class='good' title='Good'><tr><td width='22' valign='top'><img src='../../../skin/good.png' alt='Good'/></td><td><pre>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"&gt;
+&lt;head&gt;
+&lt;title&gt;XHTML-document&lt;/title&gt;
+&lt;/head&gt; ...</pre></td></tr></table>
+<p><br />
+</p>
+<table class='bad' title='Bad'><tr><td width='22' valign='top'><img src='../../../skin/error.png' alt='Good'/></td><td><pre>&lt;!doctype html public "-//w3c//dtd html 4.01 Transitional//en" 
+  "http://www.w3.org/TR/html4/loose.dtd"&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+&lt;title&gt;HTML-document&lt;/title&gt;
+&lt;head&gt; ...</pre></td></tr></table>
+<table class='good' title='Good'><tr><td width='22' valign='top'><img src='../../../skin/good.png' alt='Good'/></td><td><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" 
+  "http://www.w3.org/TR/html4/loose.dtd"&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+&lt;title&gt;HTML-document&lt;/title&gt;
+&lt;head&gt; ...</pre></td></tr></table>
+<h3> Solution: </h3>
+<p>Ensure that the correct parts of the DOCTYPE declaration are written in upper case.
+</p>
+<h3> References: </h3>
+<ul><li> W3C spec: <a href="http://www.w3.org/TR/html4/struct/global.html#h-7.2">http://www.w3.org/TR/html4/struct/global.html#h-7.2</a>
+</li><li> W3C faq: <a href="http://validator.w3.org/docs/help.html#faq-doctype">http://validator.w3.org/docs/help.html#faq-doctype</a>
+</li><li> List of valid doctype: <a href="http://www.w3.org/QA/2002/04/valid-dtd-list.html">http://www.w3.org/QA/2002/04/valid-dtd-list.html</a>
+</li><li> Choosing a doctype: <a href="http://htmlhelp.com/tools/validator/doctype.html">http://htmlhelp.com/tools/validator/doctype.html</a>
+</li></ul>
+  </div>
+</body>
+</html>

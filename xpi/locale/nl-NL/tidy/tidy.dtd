@@ -1,0 +1,138 @@
+<!ENTITY tidy-explain-error-label "Help">
+<!ENTITY tidy.browser.menu.about "Info...">
+<!ENTITY tidy.browser.menu.advanced "Geavanceerd">
+<!ENTITY tidy.browser.menu.cleanup "Opschonen...">
+<!ENTITY tidy.browser.menu.disable "Uitschakelen">
+<!ENTITY tidy.browser.menu.enable "Inschakelen">
+<!ENTITY tidy.browser.menu.error_clipboard "Kopiëer foutmeldingen naar Klembord">
+<!ENTITY tidy.browser.menu.html_clipboard "Kopiëer HTML naar Klembord">
+<!ENTITY tidy.browser.menu.innerHTML "Valideer nu (HTML-body na uitvoering Javascript-code)">
+<!ENTITY tidy.browser.menu.online.css "Online W3C CSS-validator">
+<!ENTITY tidy.browser.menu.online.html "Online W3C HTML-validator">
+<!ENTITY tidy.browser.menu.option "Opties...">
+<!ENTITY tidy.browser.menu.show "Toon">
+<!ENTITY tidy.browser.menu.view_source "Broncode">
+<!ENTITY tidy.browser.toolsmenu "HTML Validator opties...">
+<!ENTITY tidy.button.cancel "Annuleren">
+<!ENTITY tidy.button.ok "OK">
+<!ENTITY tidy.button.refresh "Vernieuwen">
+<!ENTITY tidy.choose_source.caption "Selecteer de pagina of een frame/iframe">
+<!ENTITY tidy.choose_source.title "">
+<!ENTITY tidy.cleanup.tab.clean.page "Opgeschoond browser">
+<!ENTITY tidy.cleanup.tab.clean.source "Opgeschoonde HTML">
+<!ENTITY tidy.cleanup.tab.orig.page "Origineel browser">
+<!ENTITY tidy.cleanup.tab.orig.source "Oorspronkelijke HTML">
+<!ENTITY tidy.cleanup.title "Pagina opschonen">
+<!ENTITY tidy.close.tooltip "HTML Validator sluiten">
+<!ENTITY tidy.help.archive "Archief">
+<!ENTITY tidy.help.author "Auteur">
+<!ENTITY tidy.help.donate "Doneren">
+<!ENTITY tidy.help.donation "Donatie">
+<!ENTITY tidy.help.donation_text "Uw donatie stelt mij in staat dit werk voort te zetten.">
+<!ENTITY tidy.help.homepage "Website">
+<!ENTITY tidy.help.homepage_desc "Voor meer informatie over deze extensie,">
+<!ENTITY tidy.help.htmlpedia "Wiki website">
+<!ENTITY tidy.help.htmlpedia_desc "Als u geinteresseerd bent in het verbeteren van de helpfunctie deze extensie, kunt u de documentatie op Htmlpedia bewerken.">
+<!ENTITY tidy.help.htmlpedia_howto "Hoe een pagina te veranderen">
+<!ENTITY tidy.help.mailing_list "Mailinglijst">
+<!ENTITY tidy.help.mailing_list_subscription "Aanmelding niet vereist">
+<!ENTITY tidy.help.title "Help - HTML Validator">
+<!ENTITY tidy.help.userguide "Handleiding">
+<!ENTITY tidy.help.version "Versie">
+<!ENTITY tidy.help.visit "Bezoek website">
+<!ENTITY tidy.hide.accesskey "H">
+<!ENTITY tidy.hide.commandkey "u">
+<!ENTITY tidy.hide.label "HTML Validator">
+<!ENTITY tidy.links.title "Links-validatie">
+<!ENTITY tidy.menu.copy.accesskey "C">
+<!ENTITY tidy.menu.copy.key "c">
+<!ENTITY tidy.menu.copy.label "Kopiëeren">
+<!ENTITY tidy.menu.selectall.accesskey "A">
+<!ENTITY tidy.menu.selectall.key "a">
+<!ENTITY tidy.menu.selectall.label "Selecteer alles">
+<!ENTITY tidy.no "Nee">
+<!ENTITY tidy.options.accessibility-check "Toegankelijkheidsniveau">
+<!ENTITY tidy.options.accessibility-check_0 "normaal">
+<!ENTITY tidy.options.accessibility-check_1 "1">
+<!ENTITY tidy.options.accessibility-check_2 "2">
+<!ENTITY tidy.options.accessibility-check_3 "3">
+<!ENTITY tidy.options.accessibility-check_none "geen">
+<!ENTITY tidy.options.algorithm_label "Algoritme">
+<!ENTITY tidy.options.algorithm_serial "Serieel">
+<!ENTITY tidy.options.algorithm_sp "SGML-parser">
+<!ENTITY tidy.options.algorithm_tidy "HTML Tidy">
+<!ENTITY tidy.options.browser "Browser">
+<!ENTITY tidy.options.browser_enable "Validatie in de browser inschakelen">
+<!ENTITY tidy.options.browser_hide "Pictogram verbergen">
+<!ENTITY tidy.options.browser_icon_label "Toon in statusbalk">
+<!ENTITY tidy.options.clean "vervang FONT, ... tags door CSS">
+<!ENTITY tidy.options.dbclick_action_label "Dubbelklikken op de statusbalk start:">
+<!ENTITY tidy.options.doctype "Doctype">
+<!ENTITY tidy.options.filter "Filter">
+<!ENTITY tidy.options.filter.hide.header "Verborgen foutmeldingen en waarschuwingen">
+<!ENTITY tidy.options.filter.hint "Tip: klik met de rechtermuisknop op een melding en kies 'Verbergen' om deze niet meer te tonen.">
+<!ENTITY tidy.options.filter.remove "Verwijderen">
+<!ENTITY tidy.options.force_output "Forceer uitvoer naar">
+<!ENTITY tidy.options.general "Algemeen">
+<!ENTITY tidy.options.group.format "Opties: formaat">
+<!ENTITY tidy.options.group.layout "Opties: lay-out">
+<!ENTITY tidy.options.highlight_line "Regels met fouten oplichten">
+<!ENTITY tidy.options.icon_only "Alleen pictogram">
+<!ENTITY tidy.options.icon_text "Pictogram en tekst">
+<!ENTITY tidy.options.indent "Inhoud van elementen in laten springen">
+<!ENTITY tidy.options.indent-spaces "Inspringspaties">
+<!ENTITY tidy.options.none "-">
+<!ENTITY tidy.options.output-encoding "Karakterset">
+<!ENTITY tidy.options.output-html "HTML">
+<!ENTITY tidy.options.output-xhtml "XHTML">
+<!ENTITY tidy.options.perm_list "Uitzonderingen...">
+<!ENTITY tidy.options.show-warnings "Toon waarschuwingen">
+<!ENTITY tidy.options.show_line_number "Toon regelnummers">
+<!ENTITY tidy.options.title "Opties">
+<!ENTITY tidy.options.uppercase-attributes "Attributen in hoofdletters">
+<!ENTITY tidy.options.uppercase-tags "Tags in hoofdletters">
+<!ENTITY tidy.options.viewsource "Broncode-scherm">
+<!ENTITY tidy.options.viewsource_enable "Validatie in het 'Bekijk bron'-scherm inschakelen">
+<!ENTITY tidy.options.welcome "Maak een keuze...">
+<!ENTITY tidy.options.wrap "Afbreken na">
+<!ENTITY tidy.options.wrap2 "karakters">
+<!ENTITY tidy.show_line_number.accesskey "N">
+<!ENTITY tidy.show_line_number.commandkey "n">
+<!ENTITY tidy.show_line_number.label "Toon regelnummers">
+<!ENTITY tidy.todo "Nee (in uitvoering)">
+<!ENTITY tidy.translator "Vertaling: Geert Wirken">
+<!ENTITY tidy.translator.url "www.gwirken.nl">
+<!ENTITY tidy.tree.column "Karakter">
+<!ENTITY tidy.tree.header "HTML-fouten en waarschuwingen">
+<!ENTITY tidy.tree.line "Regel">
+<!ENTITY tidy.tree.type "Type">
+<!ENTITY tidy.view_source.accesskey "H">
+<!ENTITY tidy.view_source.button.cleanup "Pagina opschonen...">
+<!ENTITY tidy.view_source.button.online "W3C online validatie">
+<!ENTITY tidy.view_source.button.options "Opties...">
+<!ENTITY tidy.view_source.menu "HTML Validator">
+<!ENTITY tidy.view_source.tree.hide "Verbergen...">
+<!ENTITY tidy.welcome.access "Toegankelijkheidscontrole">
+<!ENTITY tidy.welcome.better_for "Beter voor">
+<!ENTITY tidy.welcome.cleanup "Pagina opschonen">
+<!ENTITY tidy.welcome.clear_error "Foutmeldingen wissen">
+<!ENTITY tidy.welcome.desc "Beschrijving">
+<!ENTITY tidy.welcome.desc_serial "Beide algoritmes worden uitgevoerd:<html:br/>1: SGML-parser.<html:br/>2: Als er geen fout is, wordt HTML Tidy uitgevoerd.">
+<!ENTITY tidy.welcome.desc_sp "Hetzelfde algoritme (OpenSP) wordt gebruikt door validator.w3.org. Het is een SGML-parser gebaseerd op DTD's.">
+<!ENTITY tidy.welcome.desc_tidy "Algoritme is speciaal ontworpen om HTML en XHTML-syntax te controleren.">
+<!ENTITY tidy.welcome.good_help "Goede hulpfunctie">
+<!ENTITY tidy.welcome.h2 "HTML Validator: Welkom">
+<!ENTITY tidy.welcome.h3 "Kies een algoritme">
+<!ENTITY tidy.welcome.t1 "Het W3C heeft 2 programma's geschreven om de compatibiliteit van websites te controleren.">
+<!ENTITY tidy.welcome.t2 "Deze twee programma's zijn meegeleverd met de HTML Validator voor Firefox. Beide algoritmes hebben hun eigen voor- en nadelen.">
+<!ENTITY tidy.welcome.t3 "Lees de handleiding voor meer informatie.">
+<!ENTITY tidy.welcome.target "Doelpubliek">
+<!ENTITY tidy.welcome.target_all "Iedereen">
+<!ENTITY tidy.welcome.target_prof "Professionals">
+<!ENTITY tidy.welcome.title "HTML Validator: Kies een algoritme">
+<!ENTITY tidy.welcome.w3_validator "Zelfde foutmeldingen als validator.w3.org">
+<!ENTITY tidy.welcome.wai123 "WAI-niveau 1, 2 en 3">
+<!ENTITY tidy.window.title "Valideer HTML">
+<!ENTITY tidy.yes "Ja">
+<!ENTITY tidy.options.algorithm_online "Online">
+<!ENTITY tidy.options.algorithm_cse "CSE HTML Validator">

@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Sp 404 - Htmlpedia</title>
+    <link rel="stylesheet" type="text/css" href="tidy_help2.css" media="screen, projection"/>
+  </head>
+<body>
+  <div id="bodyContent">
+<h2> Character ... is the first character of a delimiter but occurred as data </h2>
+<h3> Cause: </h3>
+<p>This message may appear in several cases:
+</p>
+<ul><li> You tried to include the "&lt;" character in your page: you should escape it as "&amp;lt;"
+</li><li> You used an unescaped ampersand "&amp;": this may be valid in some contexts, but it is recommended to use "&amp;amp;", which is always safe.
+</li><li> Another possibility is that you forgot to close quotes in a previous tag.
+</li></ul>
+<h3> Example: </h3>
+<table class='bad' title='Bad'><tr><td width='22' valign='top'><img src='../../../skin/error.png' alt='Good'/></td><td>&lt;p&gt;The first character of an HTML element is &lt;&lt;/p&gt;</td></tr></table>
+<table class='good' title='Good'><tr><td width='22' valign='top'><img src='../../../skin/good.png' alt='Good'/></td><td>&lt;p&gt;The first character of an HTML element is &amp;lt;&lt;/p&gt;</td></tr></table>
+<h3> Solution: </h3>
+<p>Replace the character with a proper <a href="http://www.htmlpedia.org/wiki/Character_Entity">Character Entity</a>.
+</p>
+<h3> References: </h3>
+<ul><li> W3 validator: <a href="http://validator.w3.org/">http://validator.w3.org/</a>
+</li></ul>
+  </div>
+</body>
+</html>

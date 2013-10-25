@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Sp 139 - Htmlpedia</title>
+    <link rel="stylesheet" type="text/css" href="/w/skins/tidy_help2.css" media="screen, projection"/>
+  </head>
+<body>
+  <div id="bodyContent">
+    <!-- start content -->
+    <table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1"><a href="#OpenSP:_Non_SGML_character_number_..."><span class="tocnumber">1</span> <span class="toctext">OpenSP: Non SGML character number ...</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Cause:"><span class="tocnumber">1.1</span> <span class="toctext">Cause:</span></a></li>
+<li class="toclevel-2"><a href="#Example:"><span class="tocnumber">1.2</span> <span class="toctext">Example:</span></a></li>
+<li class="toclevel-2"><a href="#Solution:"><span class="tocnumber">1.3</span> <span class="toctext">Solution:</span></a></li>
+<li class="toclevel-2"><a href="#References:"><span class="tocnumber">1.4</span> <span class="toctext">References:</span></a></li>
+</ul>
+</li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="/w/index.php?title=Sp_139&amp;action=edit&amp;section=1" title="Edit section: OpenSP: Non SGML character number ...">edit</a>]</div><a name="OpenSP:_Non_SGML_character_number_..."></a><h2> OpenSP: Non SGML character number ... </h2>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="/w/index.php?title=Sp_139&amp;action=edit&amp;section=2" title="Edit section: Cause:">edit</a>]</div><a name="Cause:"></a><h3> Cause: </h3>
+<p>You have used an illegal character in your text.  This is commonly caused by pasting text from word processors into HTML documents - the "curly quotes" are not part of the HTML character set.
+</p><p>HTML uses the standard <a href="http://www.unicode.org/" class="external text" title="http://www.unicode.org/" rel="nofollow">UNICODE Consortium</a> character repertoire, and it leaves undefined (among others) 65 character codes (0 to 31 inclusive and 127 to 159 inclusive) that are sometimes used for typographical quote marks and similar in
+proprietary character sets. The validator has found one of these undefined characters in your document. The character may appear on your browser as a curly quote, or a trademark symbol, or some other fancy glyph; on a different computer, however, it will likely appear as a completely different character, or nothing at all.
+</p><p>This error can also be triggered by invisible formatting characters embedded in documents by some word processors. If you use a word processor to edit your HTML documents, be sure to use the "Save as ASCII" or similar command to save the document without formatting information.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="/w/index.php?title=Sp_139&amp;action=edit&amp;section=3" title="Edit section: Example:">edit</a>]</div><a name="Example:"></a><h3> Example: </h3>
+<table class='bad' title='Bad'><tr><td width='22' valign='top'><img src='/skin/error.gif' alt='Good'/></td><td>&lt;p&gt;&#8220;But I don&#8217;t want to go among mad people,&#8221; Alice remarked.&lt;/p&gt;</td></tr></table>
+<table class='bad' title='Bad'><tr><td width='22' valign='top'><img src='/skin/error.gif' alt='Good'/></td><td>&lt;p&gt;&amp;#8220;But I don&amp;#8217;t want to go among mad people,&amp;#8221; Alice remarked.&lt;/p&gt;</td></tr></table>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="/w/index.php?title=Sp_139&amp;action=edit&amp;section=4" title="Edit section: Solution:">edit</a>]</div><a name="Solution:"></a><h3> Solution: </h3>
+<p>Your best bet is to replace the character with the nearest equivalent ASCII character, or to use an appropriate <a href="/wiki/Character_Entity" title="Character Entity">Character Entity</a>.  Be aware that if you choose to use entities, they may not look equally good in all fonts.  (For example, the curly quotes in Times New Roman are nice and curly, whereas the ones in Arial are just straight, slanted lines.)
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="/w/index.php?title=Sp_139&amp;action=edit&amp;section=5" title="Edit section: References:">edit</a>]</div><a name="References:"></a><h3> References: </h3>
+<ul><li> W3 validator: <a href="http://validator.w3.org/" class="external free" title="http://validator.w3.org/" rel="nofollow">http://validator.w3.org/</a>
+</li><li> <a href="http://ppewww.ph.gla.ac.uk/%7Eflavell/charset/" class="external text" title="http://ppewww.ph.gla.ac.uk/%7Eflavell/charset/" rel="nofollow">HTML Character Set Issues</a> by <a href="http://ppewww.ph.gla.ac.uk/%7Eflavell/aflavell.html" class="external text" title="http://ppewww.ph.gla.ac.uk/%7Eflavell/aflavell.html" rel="nofollow">Alan Flavell</a>
+</li><li> <a href="http://www.alistapart.com/articles/emen/" class="external text" title="http://www.alistapart.com/articles/emen/" rel="nofollow">The Trouble With EM ân EN (and Other Shady Characters)</a> by Peter K Sheerin
+</li></ul>
+
+<!-- Saved in parser cache with key htmlpediadb:pcache:idhash:1462-0!1!0!0!!en!2 and timestamp 20100119144227 -->
+<div class="printfooter">
+Retrieved from "<a href="http://www.htmlpedia.org/wiki/Sp_139">http://www.htmlpedia.org/wiki/Sp_139</a>"</div>
+    <!-- end content -->
+  </div>
+</body>
+</html>

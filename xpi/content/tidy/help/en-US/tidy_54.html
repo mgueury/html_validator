@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Tidy 54 - Htmlpedia</title>
+    <link rel="stylesheet" type="text/css" href="tidy_help2.css" media="screen, projection"/>
+  </head>
+<body>
+  <div id="bodyContent">
+<h2> ... proprietary attribute value "..." </h2>
+<h3> Cause: </h3>
+<p>The value used in the attribute is a proprietary one from Netscape or Internet Explorer.
+</p>
+<h3> Example: </h3>
+<p>&lt;img&gt; proprietary attribute value "absmiddle"
+See&nbsp;: <a href="http://www.w3.org/TR/html4/struct/objects.html#adef-align-IMG">http://www.w3.org/TR/html4/struct/objects.html#adef-align-IMG</a>
+</p>
+<table class='bad' title='Bad'><tr><td width='22' valign='top'><img src='../../../skin/error.png' alt='Good'/></td><td>&lt;p&gt;&lt;img src="hello.gif" alt="hello" align="absmiddle"&gt;hello&lt;/p&gt;</td></tr></table>
+<table class='good' title='Good'><tr><td width='22' valign='top'><img src='../../../skin/good.png' alt='Good'/></td><td>&lt;p&gt;&lt;img src="hello.gif" alt="hello" align="middle"&gt; hello&lt;/p&gt; (**) </td></tr></table>
+<table class='good' title='Good'><tr><td width='22' valign='top'><img src='../../../skin/good.png' alt='Good'/></td><td>&lt;p&gt;&lt;img src="hello.gif" alt="hello" style="vertical-align: middle;"&gt; hello&lt;/p&gt; (**) </td></tr></table>
+<table class='good' title='Good'><tr><td width='22' valign='top'><img src='../../../skin/good.png' alt='Good'/></td><td>&lt;style type="text/css" media="all"&gt;<br/>
+<p><nowiki>*</nowiki> {padding: 0; margin: 0;}<br/>
+h1, p{margin: 0.5em;}<br/>
+p.flag img, span {vertical-align: middle;display: inline-block;}<br/>
+p.flag span {padding-left: 5px;}<br/>
+&lt;/style&gt;<br/>
+...<br/>
+&lt;p class="flag"&gt;&lt;img src="hello.gif" alt="hello"&gt;&lt;span&gt;hello&lt;/span&gt;&lt;/p&gt;<br/>
+</p>
+...</td></tr></table>
+<p>(**) Absmiddle and middle do not have exactly the same behavior.
+&gt; "absmiddle" align the center of the image with the vertical center of the text next to it.
+&gt; "middle" align the center of the image with the bottom of the text next to it.
+</p>
+<h3> Solution: </h3>
+<p>Use standard HTML attribute values or CSS instead.
+</p>
+<h3> References: </h3>
+<ul><li> HTML specification: <a href="http://www.w3.org/TR/html4/">http://www.w3.org/TR/html4/</a>
+</li></ul>
+  </div>
+</body>
+</html>

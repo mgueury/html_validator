@@ -1,0 +1,13 @@
+##NAME##
+--ENDTITLE--
+== OpenSP: ##TITLE## ==
+=== Cause: ===
+##TEXT##
+=== Example: ===
+<bad>textexample textexample</bad>
+<good>textexample textexample</good>
+=== Solution: ===
+textexample textexample
+=== References: ===
+* W3 validator: http://validator.w3.org/
+--ENDPAGE--

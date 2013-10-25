@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US">
+<head>
+	<title>tidy help - HTML Validator</title>
+	<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" xml:lang="en-US" />
+	<meta http-equiv="Content-Style-Type" content="text/css; charset=UTF-8" xml:lang="en-US" />
+	<link rel="stylesheet" type="text/css" href="tidy_help.css" media="screen, projection" charset="UTF-8" />
+</head>
+<body dir="ltr">
+	<h1>reference to entity %1 for which no system identifier could be generated</h1>
+	<h2>
+		Cause:
+	</h2>
+	<p>
+		      This is usually a cascading error caused by a an undefined entity
+      reference or use of an unencoded ampersand (&amp;) in an URL or body
+      text. See the previous message for further details.
+
+	</p>
+	<h2>
+		Example:
+	</h2>
+	<p>
+		textexample textexample
+	</p>
+	<dl>
+		<dt>
+			Bad:
+		</dt>
+		<dd class="bad" title="bad">
+			textexample<br />textexample
+		</dd>
+		<dt>
+			Good:
+		</dt>
+		<dd class="good" title="good">
+			textexample textexample
+		</dd>
+	</dl>
+	<h2>
+		Solution:
+	</h2>
+	<p>
+		textexample textexample
+	</p>
+	<h2>
+		References:
+	</h2>
+	<ul>
+          <li><a hreflang="en" href="validator.w3.org">W3 validator</a></li>
+	</ul>
+</body>
+</html>

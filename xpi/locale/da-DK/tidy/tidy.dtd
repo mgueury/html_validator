@@ -1,0 +1,138 @@
+<!ENTITY tidy.help.title "Hjælp - HTML Validator">
+<!ENTITY tidy.help.visit "Besøg hjemmeside">
+<!ENTITY tidy.help.version "Version">
+<!ENTITY tidy.help.homepage_desc "For yderligere information om udvidelsen,">
+<!ENTITY tidy.help.homepage "Hjemmeside">
+<!ENTITY tidy.help.userguide "Brugerguide">
+<!ENTITY tidy.help.htmlpedia_desc "Hvis du er interesseret i at forbedre hjælpen for udvidelsen, kan du redigere den med Htmlpedia">
+<!ENTITY tidy.help.htmlpedia "Wiki webside">
+<!ENTITY tidy.help.htmlpedia_howto "Hvordan man redigerer en side">
+<!ENTITY tidy.help.mailing_list "Mailingliste">
+<!ENTITY tidy.help.mailing_list_subscription "Intet abonnement påkrævet">
+<!ENTITY tidy.help.archive "Arkiv">
+<!ENTITY tidy.help.author "Forfatter">
+<!ENTITY tidy.help.donate "Donér">
+<!ENTITY tidy.help.donation "Donation">
+<!ENTITY tidy.help.donation_text "Din donation vil tillade mig at fortsætte mit arbejde.">
+<!ENTITY tidy.browser.toolsmenu "Html Validator indstillinger...">
+<!ENTITY tidy.browser.menu.option "Indstillinger...">
+<!ENTITY tidy.browser.menu.show "Vis">
+<!ENTITY tidy.browser.menu.disable "Slå fra">
+<!ENTITY tidy.browser.menu.enable "Slå til">
+<!ENTITY tidy.browser.menu.html_clipboard "Kopier HTML til klippebord">
+<!ENTITY tidy.browser.menu.error_clipboard "Kopier fejl til klippebord">
+<!ENTITY tidy.browser.menu.cleanup "Oprensning...">
+<!ENTITY tidy.browser.menu.view_source "Side kilde...">
+<!ENTITY tidy.browser.menu.about "Om...">
+<!ENTITY tidy.browser.menu.innerHTML "Validér nu (HTML Body efter JavaScaript-udførelse)...">
+<!ENTITY tidy.browser.menu.advanced "Avanceret">
+<!ENTITY tidy.browser.menu.online.html "Online W3c HTML validator...">
+<!ENTITY tidy.browser.menu.online.css "Online W3c CSS validator...">
+<!ENTITY tidy.cleanup.title "Oprens siden">
+<!ENTITY tidy.cleanup.tab.clean.source "Renset HTML">
+<!ENTITY tidy.cleanup.tab.orig.source "Original HTML">
+<!ENTITY tidy.cleanup.tab.clean.page "Renset browser">
+<!ENTITY tidy.cleanup.tab.orig.page "Original browser">
+<!ENTITY tidy.choose_source.title "">
+<!ENTITY tidy.choose_source.caption "Vælg siden eller en af dens rammer/iframes">
+<!ENTITY tidy.window.title "Validér HTML">
+<!ENTITY tidy.tree.header "HTML fejl og advarsler">
+<!ENTITY tidy.tree.type "Type">
+<!ENTITY tidy.tree.line "Linje">
+<!ENTITY tidy.tree.column "Kolonne">
+<!ENTITY tidy.view_source.button.cleanup "Oprens siden...">
+<!ENTITY tidy.view_source.button.options "Indstillinger...">
+<!ENTITY tidy.view_source.button.online "W3C Online Validering...">
+<!ENTITY tidy.view_source.tree.hide "Skjul...">
+<!ENTITY tidy.view_source.menu "Html Validator">
+<!ENTITY tidy.view_source.accesskey "H">
+<!ENTITY tidy-explain-error-label "Hjælp">
+<!ENTITY tidy.close.tooltip "Luk HTML Validator">
+<!ENTITY tidy.button.ok "Ok">
+<!ENTITY tidy.button.cancel "Annuller">
+<!ENTITY tidy.button.refresh "Opdatér">
+<!ENTITY tidy.options.title "Indstillinger">
+<!ENTITY tidy.options.general "Generel">
+<!ENTITY tidy.options.browser "Browser">
+<!ENTITY tidy.options.viewsource "Vis kilde">
+<!ENTITY tidy.options.filter "Filter">
+<!ENTITY tidy.options.group.format "Indstillinger: format">
+<!ENTITY tidy.options.group.layout "Indstillinger: layout">
+<!ENTITY tidy.options.viewsource_enable "Aktiver validering i Vis kildekode">
+<!ENTITY tidy.links.title "Validering af links">
+<!ENTITY tidy.options.indent "Indryk element indhold">
+<!ENTITY tidy.options.indent-spaces "Indrykningsmellemrum">
+<!ENTITY tidy.options.uppercase-tags "Tags med store bogstaver">
+<!ENTITY tidy.options.uppercase-attributes "Attributter med store bogstaver">
+<!ENTITY tidy.options.wrap "Ombryd efter">
+<!ENTITY tidy.options.wrap2 "tegn">
+<!ENTITY tidy.options.clean "erstat FONT, ... tags med CSS">
+<!ENTITY tidy.options.output-encoding "Tegnsæt">
+<!ENTITY tidy.options.doctype "Doktype">
+<!ENTITY tidy.options.highlight_line "Fremhæv linier med fejl">
+<!ENTITY tidy.options.show_line_number "Vis linjenumre">
+<!ENTITY tidy.options.dbclick_action_label "Dobbeltklik på statuslinje-ikoner starter:">
+<!ENTITY tidy.options.accessibility-check "Accessibility-niveau">
+<!ENTITY tidy.options.accessibility-check_none "intet">
+<!ENTITY tidy.options.accessibility-check_0 "normalt">
+<!ENTITY tidy.options.accessibility-check_1 "1">
+<!ENTITY tidy.options.accessibility-check_2 "2">
+<!ENTITY tidy.options.accessibility-check_3 "3">
+<!ENTITY tidy.options.force_output "Tving output til">
+<!ENTITY tidy.options.none "-">
+<!ENTITY tidy.options.output-html "HTML">
+<!ENTITY tidy.options.output-xhtml "XHTML">
+<!ENTITY tidy.options.show-warnings "Vis advarsler">
+<!ENTITY tidy.options.browser_enable "Aktiver validering i browseren">
+<!ENTITY tidy.options.perm_list "Undtagelser...">
+<!ENTITY tidy.options.browser_hide "Skjul ikon">
+<!ENTITY tidy.options.browser_icon_label "Vis i statuslinje">
+<!ENTITY tidy.options.icon_text "Ikon og tekst">
+<!ENTITY tidy.options.icon_only "Kun ikon">
+<!ENTITY tidy.options.filter.hide.header "Skjul fejl og advarsler">
+<!ENTITY tidy.options.filter.remove "Fjern">
+<!ENTITY tidy.options.filter.hint "Tip: For at skjule en meddelelse, højreklik på den meddelelse du ønsker at skjule i fejllisten og vælg Skjul.">
+<!ENTITY tidy.options.algorithm_label "Algoritme">
+<!ENTITY tidy.options.algorithm_tidy "HTML Tidy">
+<!ENTITY tidy.options.algorithm_sp "SGML Parser">
+<!ENTITY tidy.options.algorithm_serial "Seriel">
+<!ENTITY tidy.options.welcome "Vælg...">
+<!ENTITY tidy.hide.label "HTML Validator">
+<!ENTITY tidy.hide.accesskey "H">
+<!ENTITY tidy.hide.commandkey "u">
+<!ENTITY tidy.show_line_number.label "Vis linjenumre">
+<!ENTITY tidy.show_line_number.accesskey "n">
+<!ENTITY tidy.show_line_number.commandkey "n">
+<!ENTITY tidy.menu.copy.label "Kopiér">
+<!ENTITY tidy.menu.copy.accesskey "C">
+<!ENTITY tidy.menu.copy.key "c">
+<!ENTITY tidy.menu.selectall.label "Marker alt">
+<!ENTITY tidy.menu.selectall.accesskey "A">
+<!ENTITY tidy.menu.selectall.key "a">
+<!ENTITY tidy.translator "AlleyKat">
+<!ENTITY tidy.translator.url "http://babelzilla.org/">
+<!ENTITY tidy.welcome.title "HTML Validator : Vælg din algoritme">
+<!ENTITY tidy.welcome.h2 "HTML Validator : Velkommen">
+<!ENTITY tidy.welcome.h3 "Vælg din algoritme">
+<!ENTITY tidy.welcome.t1 "W3C har skrevet 2 programalgoritmer til at checke om en HTML-side overholder specifikationerne.">
+<!ENTITY tidy.welcome.t2 "Begge algoritmer er inkluderet i HTML Validator til Firefox. Begge har fordele og ulemper.">
+<!ENTITY tidy.welcome.t3 "For mere information, læs venligst brugerguiden.">
+<!ENTITY tidy.welcome.desc "Beskrivelse">
+<!ENTITY tidy.welcome.desc_tidy "Det er en algoritme designet til at tjekke HTML, XHTML syntaks">
+<!ENTITY tidy.welcome.desc_sp "Det er samme algoritme, OpenSP, som kører bag validator.w3.org. Det er en SGML-parser baseret på DTDer.">
+<!ENTITY tidy.welcome.desc_serial "Begge algoritmer køres efter hinanden:<html:br/>(1) SGML Parser.<html:br/>(2) Hvis ingen fejl, HTML Tidy">
+<!ENTITY tidy.welcome.better_for "Bedre til">
+<!ENTITY tidy.welcome.access "Handicapvenlighedscheck">
+<!ENTITY tidy.welcome.wai123 "WAI-niveau 1,2,3">
+<!ENTITY tidy.welcome.cleanup "Oprens siden">
+<!ENTITY tidy.welcome.good_help "God hjælp">
+<!ENTITY tidy.welcome.clear_error "Ryd fejlmeddelelser">
+<!ENTITY tidy.welcome.w3_validator "Samme fejlmeddelelser som validator.w3.org">
+<!ENTITY tidy.welcome.target "Målgruppe">
+<!ENTITY tidy.welcome.target_all "Alle">
+<!ENTITY tidy.welcome.target_prof "Professionel">
+<!ENTITY tidy.yes "Ja">
+<!ENTITY tidy.no "Nej">
+<!ENTITY tidy.todo "Nej (Todo)">
+<!ENTITY tidy.options.algorithm_online "Online">
+<!ENTITY tidy.options.algorithm_cse "CSE HTML Validator">

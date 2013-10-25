@@ -1,0 +1,138 @@
+<!ENTITY tidy.help.title "Pagalba - HTML Tikrintuvas">
+<!ENTITY tidy.help.visit "Atverti tinklapį">
+<!ENTITY tidy.help.version "Versija">
+<!ENTITY tidy.help.homepage_desc "Norėdami daugiau informacijos apie priedą,">
+<!ENTITY tidy.help.homepage "Tinklapis">
+<!ENTITY tidy.help.userguide "Naudojimosi gidas">
+<!ENTITY tidy.help.htmlpedia_desc "Jei jūs norėtumėte padėti pagerinti priedo žinyną, jūs galite jį redaguoti svetainėje Htmlpedia.">
+<!ENTITY tidy.help.htmlpedia "Wiki svetainė">
+<!ENTITY tidy.help.htmlpedia_howto "Kaip pakeisti puslapį">
+<!ENTITY tidy.help.mailing_list "Konferencijos">
+<!ENTITY tidy.help.mailing_list_subscription "Nereikia jokios registracijos">
+<!ENTITY tidy.help.archive "Archyvas">
+<!ENTITY tidy.help.author "Autorius">
+<!ENTITY tidy.help.donate "Aukoti">
+<!ENTITY tidy.help.donation "Aukojimas">
+<!ENTITY tidy.help.donation_text "Jūsų paaukojimas leis man tęsti darbą.">
+<!ENTITY tidy.browser.toolsmenu "HTML Tikrintuvo pasirinktys...">
+<!ENTITY tidy.browser.menu.option "Nustatymai...">
+<!ENTITY tidy.browser.menu.show "Rodyti">
+<!ENTITY tidy.browser.menu.disable "Išjungti">
+<!ENTITY tidy.browser.menu.enable "Įjungti">
+<!ENTITY tidy.browser.menu.html_clipboard "Kopijuoti HTML į iškarpinę">
+<!ENTITY tidy.browser.menu.error_clipboard "Kopijuoti klaidas į iškarpinę">
+<!ENTITY tidy.browser.menu.cleanup "Išvalyti...">
+<!ENTITY tidy.browser.menu.view_source "Puslapio pirminis tekstas...">
+<!ENTITY tidy.browser.menu.about "Apie...">
+<!ENTITY tidy.browser.menu.innerHTML "Tikrinti dabar (HTML pagrindą po JavaScript vykdymo)...">
+<!ENTITY tidy.browser.menu.advanced "Išsamiau">
+<!ENTITY tidy.browser.menu.online.html "W3c HTML Tikrintuvas internete...">
+<!ENTITY tidy.browser.menu.online.css "W3c CSS Tikrintuvas internete...">
+<!ENTITY tidy.cleanup.title "Išvalyti puslapį">
+<!ENTITY tidy.cleanup.tab.clean.source "Išvalytas HTML">
+<!ENTITY tidy.cleanup.tab.orig.source "Tikrasis HTML">
+<!ENTITY tidy.cleanup.tab.clean.page "Išvalyta naršyklė">
+<!ENTITY tidy.cleanup.tab.orig.page "Tikroji naršyklė">
+<!ENTITY tidy.choose_source.title ".">
+<!ENTITY tidy.choose_source.caption "Pasirinkite puslapį arba vieną iš jo rėmelių">
+<!ENTITY tidy.window.title "Tikrinti HTML">
+<!ENTITY tidy.tree.header "HTML klaidos ir įspėjimai">
+<!ENTITY tidy.tree.type "Tipas">
+<!ENTITY tidy.tree.line "Eilutė">
+<!ENTITY tidy.tree.column "Stulpelis">
+<!ENTITY tidy.view_source.button.cleanup "Išvalyti puslapį...">
+<!ENTITY tidy.view_source.button.options "Nustatymai...">
+<!ENTITY tidy.view_source.button.online "W3C tikrinimas internete...">
+<!ENTITY tidy.view_source.tree.hide "Slėpti...">
+<!ENTITY tidy.view_source.menu "HTML Tikrintuvas">
+<!ENTITY tidy.view_source.accesskey "T">
+<!ENTITY tidy-explain-error-label "Pagalba">
+<!ENTITY tidy.close.tooltip "Užverti HTML Tikrintuvą">
+<!ENTITY tidy.button.ok "Gerai">
+<!ENTITY tidy.button.cancel "Atšaukti">
+<!ENTITY tidy.button.refresh "Atnaujinti">
+<!ENTITY tidy.options.title "Nustatymai">
+<!ENTITY tidy.options.general "Bendra">
+<!ENTITY tidy.options.browser "Naršyklė">
+<!ENTITY tidy.options.viewsource "Rodyti pirminį tekstą">
+<!ENTITY tidy.options.filter "Filtras">
+<!ENTITY tidy.options.group.format "Nustatymai: formatas">
+<!ENTITY tidy.options.group.layout "Nustatymai: išdėstymas">
+<!ENTITY tidy.options.viewsource_enable "Įjungti tikrinimą Pirminio teksto rodinyje">
+<!ENTITY tidy.links.title "Nuorodų tikrinimas">
+<!ENTITY tidy.options.indent "Atitraukti elementų turinį">
+<!ENTITY tidy.options.indent-spaces "Atitraukimo tarpai">
+<!ENTITY tidy.options.uppercase-tags "Žymės didžiosiomis raidėmis">
+<!ENTITY tidy.options.uppercase-attributes "Atributai didžiosiomis raidėmis">
+<!ENTITY tidy.options.wrap "Nauja eilutė po">
+<!ENTITY tidy.options.wrap2 "simbolių">
+<!ENTITY tidy.options.clean "pakeisti FONT, ... žymes su CSS">
+<!ENTITY tidy.options.output-encoding "Koduotė">
+<!ENTITY tidy.options.doctype "DOCTYPE">
+<!ENTITY tidy.options.highlight_line "Paryškinti eilutes su klaidomis">
+<!ENTITY tidy.options.show_line_number "Rodyti eilučių numerius">
+<!ENTITY tidy.options.dbclick_action_label "Būsenos juostos dvigubas paspaudimas paleidžia:">
+<!ENTITY tidy.options.accessibility-check "Prieinamumo lygis">
+<!ENTITY tidy.options.accessibility-check_none "joks">
+<!ENTITY tidy.options.accessibility-check_0 "normalus">
+<!ENTITY tidy.options.accessibility-check_1 "1">
+<!ENTITY tidy.options.accessibility-check_2 "2">
+<!ENTITY tidy.options.accessibility-check_3 "3">
+<!ENTITY tidy.options.force_output "Pakeisti formatą į">
+<!ENTITY tidy.options.none "-">
+<!ENTITY tidy.options.output-html "HTML">
+<!ENTITY tidy.options.output-xhtml "XHTML">
+<!ENTITY tidy.options.show-warnings "Rodyti įspėjimus">
+<!ENTITY tidy.options.browser_enable "Įjungti tikrinimą naršyklėje">
+<!ENTITY tidy.options.perm_list "Išimtys...">
+<!ENTITY tidy.options.browser_hide "Slėpti piktogramą">
+<!ENTITY tidy.options.browser_icon_label "Rodyti būsenos juostoje">
+<!ENTITY tidy.options.icon_text "Piktograma ir tekstas">
+<!ENTITY tidy.options.icon_only "Tik piktograma">
+<!ENTITY tidy.options.filter.hide.header "Paslėptos klaidos ir įspėjimai">
+<!ENTITY tidy.options.filter.remove "Šalinti">
+<!ENTITY tidy.options.filter.hint "Patarimas: Norėdami paslėpti pranešimą, spustelėkite dešiniuoju mygtuku ant pranešimo, kurį norite paslėpti, klaidų sąraše ir pasirinkite Slėpti.">
+<!ENTITY tidy.options.algorithm_label "Algoritmas">
+<!ENTITY tidy.options.algorithm_tidy "HTML Tidy">
+<!ENTITY tidy.options.algorithm_sp "SGML Parser">
+<!ENTITY tidy.options.algorithm_serial "Nuoseklus">
+<!ENTITY tidy.options.welcome "Pasirinkti...">
+<!ENTITY tidy.hide.label "HTML Tikrintojas">
+<!ENTITY tidy.hide.accesskey "H">
+<!ENTITY tidy.hide.commandkey "u">
+<!ENTITY tidy.show_line_number.label "Rodyti eilučių numerius">
+<!ENTITY tidy.show_line_number.accesskey "N">
+<!ENTITY tidy.show_line_number.commandkey "n">
+<!ENTITY tidy.menu.copy.label "Kopijuoti">
+<!ENTITY tidy.menu.copy.accesskey "K">
+<!ENTITY tidy.menu.copy.key "c">
+<!ENTITY tidy.menu.selectall.label "Pažymėti viską">
+<!ENTITY tidy.menu.selectall.accesskey "V">
+<!ENTITY tidy.menu.selectall.key "a">
+<!ENTITY tidy.translator "Vertė Edgaras Janušauskas">
+<!ENTITY tidy.translator.url "mailto:edgaras.janusauskas@gmail.com?subject=HTML&#37;20Validator&#37;20translation">
+<!ENTITY tidy.welcome.title "HTML Tikrintuvas: Pasirinkite algoritmą">
+<!ENTITY tidy.welcome.h2 "HTML Tikrintuvas: Sveiki">
+<!ENTITY tidy.welcome.h3 "Pasirinkite algoritmą">
+<!ENTITY tidy.welcome.t1 "W3C yra parašiusi 2 algoritmus, skirtus tikrinti HTML puslapio suderinamumą.">
+<!ENTITY tidy.welcome.t2 "Abu algoritmai yra įtraukti į HTML Tikrintuvą. Abu turi privalumų ir trūkumų.">
+<!ENTITY tidy.welcome.t3 "Daugiau informacijos rasite naudotojo gide.">
+<!ENTITY tidy.welcome.desc "Aprašymas">
+<!ENTITY tidy.welcome.desc_tidy "Tai algoritmas skirtas tikrinti HTML, XHTML sintaksę">
+<!ENTITY tidy.welcome.desc_sp "Tai tas pats algoritmas (OpenSP), vykdomas svetainėje validator.w3.org. Tai SGML Parser pagal DTD.">
+<!ENTITY tidy.welcome.desc_serial "Abu algoritmai bus vykdomi vienas po kito:<html:br/>(1) SGML Parser.<html:br/>(2) Tada, jei nėra klaidų, HTML Tidy">
+<!ENTITY tidy.welcome.better_for "Geriau">
+<!ENTITY tidy.welcome.access "Prieinamumo tikrinimas">
+<!ENTITY tidy.welcome.wai123 "WAI lygis 1,2,3">
+<!ENTITY tidy.welcome.cleanup "Išvalyti puslapį">
+<!ENTITY tidy.welcome.good_help "Gera pagalba">
+<!ENTITY tidy.welcome.clear_error "Išvalyti klaidų pranešimus">
+<!ENTITY tidy.welcome.w3_validator "Tos pačios klaidos kaip ir validator.w3.org">
+<!ENTITY tidy.welcome.target "Paskirtis">
+<!ENTITY tidy.welcome.target_all "Visiems">
+<!ENTITY tidy.welcome.target_prof "Profesionalams">
+<!ENTITY tidy.yes "Taip">
+<!ENTITY tidy.no "Ne">
+<!ENTITY tidy.todo "Ne (Todo)">
+<!ENTITY tidy.options.algorithm_online "Online">
+<!ENTITY tidy.options.algorithm_cse "CSE HTML Validator">

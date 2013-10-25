@@ -1,0 +1,138 @@
+<!ENTITY tidy.help.title "Ajutor - Validator HTML">
+<!ENTITY tidy.help.visit "Viziteaza pagina oficiala">
+<!ENTITY tidy.help.version "Versiune">
+<!ENTITY tidy.help.homepage_desc "Pentru mai multe informatii despre extensie,">
+<!ENTITY tidy.help.homepage "Pagina oficiala">
+<!ENTITY tidy.help.userguide "Ghid utilizator">
+<!ENTITY tidy.help.htmlpedia_desc "Daca esti interesat sa ajuti la imbunatatirea extensiei, o poti edita cu Htmlpedia.">
+<!ENTITY tidy.help.htmlpedia "Pagina Wiki">
+<!ENTITY tidy.help.htmlpedia_howto "Cum sa modific o pagina">
+<!ENTITY tidy.help.mailing_list "Lista de e-mail-uri">
+<!ENTITY tidy.help.mailing_list_subscription "Subscrierea nu este obligatorie">
+<!ENTITY tidy.help.archive "Arhiva">
+<!ENTITY tidy.help.author "Autor">
+<!ENTITY tidy.help.donate "Doneaza">
+<!ENTITY tidy.help.donation "Donatie">
+<!ENTITY tidy.help.donation_text "Donatia ta ma va ajuta sa-mi continui munca.">
+<!ENTITY tidy.browser.toolsmenu "Optiuni Validator HTML">
+<!ENTITY tidy.browser.menu.option "Optiuni...">
+<!ENTITY tidy.browser.menu.show "Arata">
+<!ENTITY tidy.browser.menu.disable "Dezactiveaza">
+<!ENTITY tidy.browser.menu.enable "Activeaza">
+<!ENTITY tidy.browser.menu.html_clipboard "Copiaza HTML in Clipboard">
+<!ENTITY tidy.browser.menu.error_clipboard "Copiaza erorile in Clipboard">
+<!ENTITY tidy.browser.menu.cleanup "Curata...">
+<!ENTITY tidy.browser.menu.view_source "Sursa pagina...">
+<!ENTITY tidy.browser.menu.about "Ajutor...">
+<!ENTITY tidy.browser.menu.innerHTML "Valideaza acum (HTML Body dupa Executie JavaScript)">
+<!ENTITY tidy.browser.menu.advanced "Avansat">
+<!ENTITY tidy.browser.menu.online.html "Validator online W3c HTML">
+<!ENTITY tidy.browser.menu.online.css "Validator online W3c CSS">
+<!ENTITY tidy.cleanup.title "Curata pagina">
+<!ENTITY tidy.cleanup.tab.clean.source "HTML curatat">
+<!ENTITY tidy.cleanup.tab.orig.source "HTML original">
+<!ENTITY tidy.cleanup.tab.clean.page "Pagina curatata">
+<!ENTITY tidy.cleanup.tab.orig.page "Pagina originala">
+<!ENTITY tidy.choose_source.title "Vizualizare sursa">
+<!ENTITY tidy.choose_source.caption "Alege pagina sau una dintre frame/iframe-urile ei">
+<!ENTITY tidy.window.title "Valideaza HTML">
+<!ENTITY tidy.tree.header "Erori si avertismente HTML">
+<!ENTITY tidy.tree.type "Tip">
+<!ENTITY tidy.tree.line "Linie">
+<!ENTITY tidy.tree.column "Coloana">
+<!ENTITY tidy.view_source.button.cleanup "Curata pagina...">
+<!ENTITY tidy.view_source.button.options "Optiuni...">
+<!ENTITY tidy.view_source.button.online "Validare HTML online">
+<!ENTITY tidy.view_source.tree.hide "Ascunde...">
+<!ENTITY tidy.view_source.menu "Validator HTML">
+<!ENTITY tidy.view_source.accesskey "H">
+<!ENTITY tidy-explain-error-label "Ajutor">
+<!ENTITY tidy.close.tooltip "Inchide Validatorul HTML">
+<!ENTITY tidy.button.ok "OK">
+<!ENTITY tidy.button.cancel "Anuleaza">
+<!ENTITY tidy.button.refresh "Reimprospateaza">
+<!ENTITY tidy.options.title "Optiuni Validator HTML">
+<!ENTITY tidy.options.general "General">
+<!ENTITY tidy.options.browser "Browser">
+<!ENTITY tidy.options.viewsource "Vizualizare sursa">
+<!ENTITY tidy.options.filter "Filtru">
+<!ENTITY tidy.options.group.format "Optiuni: format">
+<!ENTITY tidy.options.group.layout "Optiuni: aspect">
+<!ENTITY tidy.options.viewsource_enable "Activeaza validarea in Vizualizare Sursa (View Source)">
+<!ENTITY tidy.links.title "Validare legaturi">
+<!ENTITY tidy.options.indent "Indentare continut element">
+<!ENTITY tidy.options.indent-spaces "Spatii indentare">
+<!ENTITY tidy.options.uppercase-tags "Etichete cu majuscule">
+<!ENTITY tidy.options.uppercase-attributes "Atribute cu majuscule">
+<!ENTITY tidy.options.wrap "Taie dupa">
+<!ENTITY tidy.options.wrap2 "caractere">
+<!ENTITY tidy.options.clean "inlocuieste etichetele FONT, ... prin CSS">
+<!ENTITY tidy.options.output-encoding "Codificare caractere">
+<!ENTITY tidy.options.doctype "Doctype">
+<!ENTITY tidy.options.highlight_line "Evidentiaza liniile cu erori">
+<!ENTITY tidy.options.show_line_number "Arata numarul liniilor">
+<!ENTITY tidy.options.dbclick_action_label "Dublu-clic pe iconita barei de stare porneste:">
+<!ENTITY tidy.options.accessibility-check "Nivel accesibilitate">
+<!ENTITY tidy.options.accessibility-check_none "niciunul">
+<!ENTITY tidy.options.accessibility-check_0 "normal">
+<!ENTITY tidy.options.accessibility-check_1 "1">
+<!ENTITY tidy.options.accessibility-check_2 "2">
+<!ENTITY tidy.options.accessibility-check_3 "3">
+<!ENTITY tidy.options.force_output "Forteaza afisarea ca">
+<!ENTITY tidy.options.none "-">
+<!ENTITY tidy.options.output-html "HTML">
+<!ENTITY tidy.options.output-xhtml "XHTML">
+<!ENTITY tidy.options.show-warnings "Arata avertismentele">
+<!ENTITY tidy.options.browser_enable "Activeaza validarea in Browser">
+<!ENTITY tidy.options.perm_list "Exceptii...">
+<!ENTITY tidy.options.browser_hide "Ascunde iconita">
+<!ENTITY tidy.options.browser_icon_label "Arata in bara de stare">
+<!ENTITY tidy.options.icon_text "Iconita si Text">
+<!ENTITY tidy.options.icon_only "Doar iconita">
+<!ENTITY tidy.options.filter.hide.header "Ascunde erorile si avertismentele">
+<!ENTITY tidy.options.filter.remove "Elimina">
+<!ENTITY tidy.options.filter.hint "Sfat: Pentru ascunderea unui mesaj, da clic-dreapta pe mesajul din lista de erori pe care vrei sa-l ascunzi si alege Ascunde.">
+<!ENTITY tidy.options.algorithm_label "Algoritm">
+<!ENTITY tidy.options.algorithm_tidy "HTML Tidy">
+<!ENTITY tidy.options.algorithm_sp "Parser SGML">
+<!ENTITY tidy.options.algorithm_serial "Serial">
+<!ENTITY tidy.options.welcome "Alege...">
+<!ENTITY tidy.hide.label "Activeaza validarea in Vizualizare sursa">
+<!ENTITY tidy.hide.accesskey "H">
+<!ENTITY tidy.hide.commandkey "u">
+<!ENTITY tidy.show_line_number.label "Arata numarul liniilor">
+<!ENTITY tidy.show_line_number.accesskey "N">
+<!ENTITY tidy.show_line_number.commandkey "n">
+<!ENTITY tidy.menu.copy.label "Copiaza">
+<!ENTITY tidy.menu.copy.accesskey "C">
+<!ENTITY tidy.menu.copy.key "c">
+<!ENTITY tidy.menu.selectall.label "Selecteaza tot">
+<!ENTITY tidy.menu.selectall.accesskey "A">
+<!ENTITY tidy.menu.selectall.key "a">
+<!ENTITY tidy.translator "Nicolae CREFELEAN">
+<!ENTITY tidy.translator.url "http://www.forumit.ro/">
+<!ENTITY tidy.welcome.title "Validator HTML">
+<!ENTITY tidy.welcome.h2 "Validator HTML: Bun venit">
+<!ENTITY tidy.welcome.h3 "Alege algoritmul">
+<!ENTITY tidy.welcome.t1 "W3C a scris 2 algoritme pentru verificarea corectitudinii unei pagini HTML.">
+<!ENTITY tidy.welcome.t2 "Ambele algoritme sunt incluse in Validatorul HTML pentru Firefox. Ambele au avantaje si dezavantaje.">
+<!ENTITY tidy.welcome.t3 "Pentru mai multe informatii, va rog cititi ghidul utilizatorului.">
+<!ENTITY tidy.welcome.desc "Descriere">
+<!ENTITY tidy.welcome.desc_tidy "Este un algoritm proiectat pentru verificarea sintaxelor HTML si XHTML">
+<!ENTITY tidy.welcome.desc_sp "Este acelasi algoritm, OpenSP, care ruleaza in spatele validator.w3.org. Este un parser SGML bazat pe DTD-uri.">
+<!ENTITY tidy.welcome.desc_serial "Ambele algoritme sunt rulate, unul dupa altul:<html:br/>(1) SGML Parser.<html:br/>(2) Apoi, daca nu se gaseste nicio eroare, HTML Tidy">
+<!ENTITY tidy.welcome.better_for "Mai bun pentru">
+<!ENTITY tidy.welcome.access "Verificare accesibilitate">
+<!ENTITY tidy.welcome.wai123 "WAI nivel 1,2,3">
+<!ENTITY tidy.welcome.cleanup "Curatare pagina">
+<!ENTITY tidy.welcome.good_help "Ajutor bun">
+<!ENTITY tidy.welcome.clear_error "Eliminare mesaje de eroare">
+<!ENTITY tidy.welcome.w3_validator "Aceleasi erori ca validator.w3.org">
+<!ENTITY tidy.welcome.target "Audienta tinta">
+<!ENTITY tidy.welcome.target_all "Toata">
+<!ENTITY tidy.welcome.target_prof "Profesionala">
+<!ENTITY tidy.yes "Da">
+<!ENTITY tidy.no "Nu">
+<!ENTITY tidy.todo "Nu (De facut)">
+<!ENTITY tidy.options.algorithm_online "Online">
+<!ENTITY tidy.options.algorithm_cse "CSE HTML Validator">

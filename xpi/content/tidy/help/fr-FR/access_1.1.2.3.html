@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Accessibilité&nbsp;1.1.2.3</title>
+    <link rel="stylesheet" type="text/css" href="tidy_help2.css" media="screen, projection"/>
+  </head>
+  <body>
+    <div id="bodyContent">
+      <h2> Accessibilité&nbsp;: [1.1.2.3]&nbsp;: attribut <code>longdesc</code> manquant sur un élément <code>img</code></h2>
+      <p class="priorite">Priorité 1</p>
+      <h3> Cause&nbsp;: </h3>
+      <p>Si le texte alternatif (<code>alt</code>) ne peut pas décrire la fonction d'une image ou le but de celle-ci avec une courte description, proposez une description plus complète par l'intermédiaire de l'attribut <code>longdesc</code>. Vous devez également ajouter un lien descriptif (d-link) car beaucoup de navigateurs ne supportent pas l'attribut <code>longdesc</code>. L'avantage d'inclure une description longue dans un document actuel est que la description demeurera accessible quand de nouveaux navigateurs n'implémenteront plus les liens descriptifs.
+      </p>
+      <h3> Exemple&nbsp;: </h3>
+        <table class='bad' title='Bad'>
+          <tr>
+            <td width='22' valign='top'>
+              <img src='../../../skin/error.png' alt='Error'/>
+            </td>
+            <td>
+              <code>
+                &lt;img src="graphique-camembert.jpg" alt="Graphique camembert des dépenses fédérales"/&gt;
+&lt;a href="graphique-camembert.html"&gt;D&lt;/a&gt;
+              </code>
+            </td>
+          </tr>
+        </table>
+        <table class='good' title='Good'>
+          <tr>
+            <td width='22' valign='top'>
+              <img src='../../../skin/good.png' alt='Good'/>
+            </td>
+            <td>
+              <code>
+                &lt;img src="graphique-camembert.jpg" alt="Graphique camembert des dépenses fédérales" longdesc="graphique-camembert.html"/&gt;
+&lt;a href="graphique-camembert.html"&gt;D&lt;/a&gt;
+              </code>
+            </td>            
+          </tr>
+        </table>
+
+      <h3> Solution&nbsp;: </h3>
+      <p>Insérez la description longue manquante (par l'attribut 'longdesc').
+      </p>
+      <h3> Références&nbsp;: </h3>
+      <ul>
+        <li> W3C WAI&nbsp;: <a href="http://www.w3.org/WAI/">http://www.w3.org/WAI/</a>
+        </li>
+        <li> Techniques HTML pour le WAI 1.0: <a href="http://www.w3.org/TR/WCAG10-HTML-TECHS/">http://www.w3.org/TR/WCAG10-HTML-TECHS/</a>
+        </li>
+      </ul>
+      <p>.
+      </p>
+    </div>
+  </body>
+</html>

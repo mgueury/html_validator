@@ -1,0 +1,161 @@
+<!ENTITY tidy.help.title "Help - HTML Validator">
+<!ENTITY tidy.help.visit "Visit Home Page">
+<!ENTITY tidy.help.version "Version">
+<!ENTITY tidy.help.homepage_desc "For more information about the extension,">
+<!ENTITY tidy.help.homepage "Home Page">
+<!ENTITY tidy.help.userguide "User Guide">
+<!ENTITY tidy.help.htmlpedia_desc "If you are interested to improve the help of the extension, you can edit it with Htmlpedia.">
+<!ENTITY tidy.help.htmlpedia "Wiki Website">
+<!ENTITY tidy.help.htmlpedia_howto "How to modify a page">
+<!ENTITY tidy.help.mailing_list "Mailing list">
+<!ENTITY tidy.help.mailing_list_subscription "No subscription required">
+<!ENTITY tidy.help.archive "Archive">
+<!ENTITY tidy.help.author "Author">
+<!ENTITY tidy.help.donate "Donate">
+<!ENTITY tidy.help.donation "Donation">
+<!ENTITY tidy.help.donation_text "Your donations will allow me to continue my work.">
+
+<!ENTITY tidy.browser.toolsmenu "Html Validator options...">
+<!ENTITY tidy.browser.menu.option "Options...">
+<!ENTITY tidy.browser.menu.show "Show">
+<!ENTITY tidy.browser.menu.disable "Disable">
+<!ENTITY tidy.browser.menu.enable "Enable">
+<!ENTITY tidy.browser.menu.html_clipboard "Copy HTML to Clipboard">
+<!ENTITY tidy.browser.menu.error_clipboard "Copy Errors to Clipboard">
+<!ENTITY tidy.browser.menu.cleanup "Cleanup...">
+<!ENTITY tidy.browser.menu.view_source "Page Source...">
+<!ENTITY tidy.browser.menu.about "Help...">
+<!ENTITY tidy.browser.menu.innerHTML "Validate now (HTML Body after JavaScript Execution)...">
+<!ENTITY tidy.browser.menu.advanced "Advanced">
+<!ENTITY tidy.browser.menu.online.html "Online W3c HTML Validator...">
+<!ENTITY tidy.browser.menu.online.css "Online W3c CSS Validator...">
+
+<!ENTITY tidy.cleanup.title "Cleanup the page">
+<!ENTITY tidy.cleanup.tab.clean.source "Cleaned HTML">
+<!ENTITY tidy.cleanup.tab.orig.source "Original HTML">
+<!ENTITY tidy.cleanup.tab.clean.page "Cleaned Browser">
+<!ENTITY tidy.cleanup.tab.orig.page "Original Browser">
+
+<!ENTITY tidy.choose_source.title ".">
+<!ENTITY tidy.choose_source.caption "Select the page or one of its frames/iframes">
+
+<!ENTITY tidy.window.title "Validate Html">
+<!ENTITY tidy.tree.header "HTML errors and warnings">
+<!ENTITY tidy.tree.type "Type">
+<!ENTITY tidy.tree.line "Line">
+<!ENTITY tidy.tree.column "Column">
+<!ENTITY tidy.view_source.button.cleanup "Clean up the page...">
+<!ENTITY tidy.view_source.button.options "Options...">
+<!ENTITY tidy.view_source.button.online "W3C Online Validation...">
+<!ENTITY tidy.view_source.tree.hide "Hide...">
+<!ENTITY tidy.view_source.menu "Html Validator">
+<!ENTITY tidy.view_source.accesskey "H">
+<!ENTITY tidy-explain-error-label "Help">
+<!ENTITY tidy.close.tooltip "Close HTML Validator">
+<!ENTITY tidy.button.ok "OK">
+<!ENTITY tidy.button.cancel "Cancel">
+<!ENTITY tidy.button.refresh "Refresh">
+
+
+<!ENTITY tidy.options.title "Html Validator options">
+<!ENTITY tidy.options.general "General">
+<!ENTITY tidy.options.browser "Browser">
+<!ENTITY tidy.options.viewsource "View Source">
+<!ENTITY tidy.options.filter "Filter">
+<!ENTITY tidy.options.group.format "Options: format">
+<!ENTITY tidy.options.group.layout "Options: layout">
+<!ENTITY tidy.options.viewsource_enable "Enable validation in the View Source">
+
+<!ENTITY tidy.links.title "Links Validation">
+
+<!ENTITY tidy.options.indent "Indent element content">
+<!ENTITY tidy.options.indent-spaces "Indentation spaces">
+<!ENTITY tidy.options.uppercase-tags "Tags in upper case">
+<!ENTITY tidy.options.uppercase-attributes "Attributes in upper case">
+<!ENTITY tidy.options.wrap "Wrap after">
+<!ENTITY tidy.options.wrap2 "characters">
+<!ENTITY tidy.options.clean "replace FONT, ... tags by CSS">
+<!ENTITY tidy.options.output-encoding "Character encoding">
+<!ENTITY tidy.options.doctype "Doctype">
+<!ENTITY tidy.options.highlight_line "Highlight lines with errors">
+<!ENTITY tidy.options.show_line_number "Show line numbers">
+<!ENTITY tidy.options.dbclick_action_label "Double-click the status-bar icon starts: ">
+
+<!ENTITY tidy.options.accessibility-check "Accessibility level">
+<!ENTITY tidy.options.accessibility-check_none "none">
+<!ENTITY tidy.options.accessibility-check_0 "normal">
+<!ENTITY tidy.options.accessibility-check_1 "1">
+<!ENTITY tidy.options.accessibility-check_2 "2">
+<!ENTITY tidy.options.accessibility-check_3 "3">
+
+<!ENTITY tidy.options.force_output "Force output to">
+<!ENTITY tidy.options.none "-">
+<!ENTITY tidy.options.output-html "HTML">
+<!ENTITY tidy.options.output-xhtml "XHTML">
+
+<!ENTITY tidy.options.show-warnings "Show warnings">
+
+<!ENTITY tidy.options.browser_enable "Enable validation in the Browser">
+<!ENTITY tidy.options.perm_list "Exceptions...">
+<!ENTITY tidy.options.browser_hide "Hide Icon">
+<!ENTITY tidy.options.browser_icon_label "Show in status-bar">
+<!ENTITY tidy.options.icon_text "Icon and Text">
+<!ENTITY tidy.options.icon_only "Icon only">
+
+<!ENTITY tidy.options.filter.hide.header "Hidden errors and warnings">
+<!ENTITY tidy.options.filter.remove "Remove">
+<!ENTITY tidy.options.filter.hint "Hint: To hide a message, right click on the message you want to hide in the error list and choose hide.">
+
+<!ENTITY tidy.options.algorithm_label "Algorithm">
+<!ENTITY tidy.options.algorithm_tidy "HTML Tidy">
+<!ENTITY tidy.options.algorithm_sp "SGML Parser">
+<!ENTITY tidy.options.algorithm_serial "Serial">
+<!ENTITY tidy.options.algorithm_online "Online">
+<!ENTITY tidy.options.algorithm_cse "CSE HTML Validator">
+<!ENTITY tidy.options.welcome "Choose...">
+
+<!ENTITY tidy.hide.label         "Enable validation in the View Source">
+<!ENTITY tidy.hide.accesskey     "H">
+<!ENTITY tidy.hide.commandkey    "u">
+
+<!ENTITY tidy.show_line_number.label         "Show line Numbers">
+<!ENTITY tidy.show_line_number.accesskey     "N">
+<!ENTITY tidy.show_line_number.commandkey    "n">
+
+<!ENTITY tidy.menu.copy.label         "Copy">
+<!ENTITY tidy.menu.copy.accesskey     "C">
+<!ENTITY tidy.menu.copy.key           "c">
+
+<!ENTITY tidy.menu.selectall.label      "Select All">
+<!ENTITY tidy.menu.selectall.accesskey  "A">
+<!ENTITY tidy.menu.selectall.key        "a">
+
+<!ENTITY tidy.translator "">
+<!ENTITY tidy.translator.url "">
+
+<!ENTITY tidy.welcome.title "HTML Validator : Choose your algorithm">
+<!ENTITY tidy.welcome.h2 "HTML Validator : Welcome">
+<!ENTITY tidy.welcome.h3 "Choose your algorithm">
+<!ENTITY tidy.welcome.t1 "W3C has written two algorithms to check the compliance of an HTML page.">
+<!ENTITY tidy.welcome.t2 "Both algorithms are included in HTML Validator for Firefox. Both have advantages and disadvantages.">
+<!ENTITY tidy.welcome.t3 "For more information, please read the user guide.">
+
+<!ENTITY tidy.welcome.desc "Description">
+<!ENTITY tidy.welcome.desc_tidy "It is an algorithm designed for checking the HTML, XHTML syntax">
+<!ENTITY tidy.welcome.desc_sp "It is the same algorithm, OpenSP, running behind the validator.w3.org. It is a SGML parser based on DTDs.">
+<!ENTITY tidy.welcome.desc_serial "The algorithms execute in the following order:<html:br/>(1) SGML Parser.<html:br/>(2) Then if no error, HTML Tidy">
+
+<!ENTITY tidy.welcome.better_for "Better for">
+<!ENTITY tidy.welcome.access "Accessibility check">
+<!ENTITY tidy.welcome.wai123 "WAI level 1,2,3">
+<!ENTITY tidy.welcome.cleanup "Cleanup page">
+<!ENTITY tidy.welcome.good_help "Good help">
+<!ENTITY tidy.welcome.clear_error "Clear error messages">
+<!ENTITY tidy.welcome.w3_validator "Same errors as the validator.w3.org">
+<!ENTITY tidy.welcome.target "Target Audience">
+<!ENTITY tidy.welcome.target_all "All">
+<!ENTITY tidy.welcome.target_prof "Professional">
+
+<!ENTITY tidy.yes "Yes">
+<!ENTITY tidy.no "No">
+<!ENTITY tidy.todo "No (Todo)">

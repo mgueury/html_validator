@@ -1,0 +1,37 @@
+content tidy content/tidy/
+skin    tidy classic/1.0 skin/
+
+# Mozilla
+overlay chrome://navigator/content/viewSource.xul       chrome://tidy/content/tidyViewSourceMozilla.xul
+overlay chrome://navigator/content/viewSource.xul       chrome://tidy/content/tidyViewSource.xul
+overlay chrome://navigator/content/navigator.xul        chrome://tidy/content/tidyBrowser.xul
+
+# Firefox
+overlay chrome://global/content/viewSource.xul          chrome://tidy/content/tidyViewSourceFirefox.xul
+overlay chrome://global/content/viewSource.xul          chrome://tidy/content/tidyViewSource.xul        
+overlay chrome://browser/content/browser.xul            chrome://tidy/content/tidyBrowser.xul
+
+# Songbird
+overlay chrome://songbird/content/xul/mainScriptsOverlay.xul chrome://tidy/content/tidyBrowser.xul
+
+locale  tidy cs-CZ       locale/cs-CZ/tidy/
+locale  tidy da-DK       locale/da-DK/tidy/
+locale  tidy de-DE       locale/de-DE/tidy/
+locale  tidy en-US       locale/en-US/tidy/ 
+locale  tidy fi-FI       locale/fi-FI/tidy/
+locale  tidy fr-FR       locale/fr-FR/tidy/
+locale  tidy hu-HU       locale/hu-HU/tidy/
+locale  tidy it-IT       locale/it-IT/tidy/
+locale  tidy ja-JP       locale/ja-JP/tidy/
+locale  tidy ko-KR       locale/ko-KR/tidy/
+locale  tidy lt-LT       locale/lt-LT/tidy/
+locale  tidy nl-NL       locale/nl-NL/tidy/
+locale  tidy pl-PL       locale/pl-PL/tidy/
+locale  tidy pt-BR       locale/pt-BR/tidy/
+locale  tidy ro-RO       locale/ro-RO/tidy/
+locale  tidy ru-RU       locale/ru-RU/tidy/
+locale  tidy sk-SK       locale/sk-SK/tidy/
+locale  tidy sl-SI       locale/sl-SI/tidy
+locale  tidy zh-CN       locale/zh-CN/tidy/
+locale  tidy zh-TW       locale/zh-TW/tidy/
+

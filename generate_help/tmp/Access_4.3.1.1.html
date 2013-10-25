@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Access 4.3.1.1 - Htmlpedia</title>
+    <link rel="stylesheet" type="text/css" href="/w/skins/tidy_help2.css" media="screen, projection"/>
+  </head>
+<body>
+  <div id="bodyContent">
+    <!-- start content -->
+    <table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1"><a href="#Access:_.5B4.3.1.1.5D:_language_not_identified_.28Priority_3.29"><span class="tocnumber">1</span> <span class="toctext">Access: [4.3.1.1]: language not identified (Priority 3)</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Cause:"><span class="tocnumber">1.1</span> <span class="toctext">Cause:</span></a></li>
+<li class="toclevel-2"><a href="#Example:"><span class="tocnumber">1.2</span> <span class="toctext">Example:</span></a></li>
+<li class="toclevel-2"><a href="#Solution:"><span class="tocnumber">1.3</span> <span class="toctext">Solution:</span></a></li>
+<li class="toclevel-2"><a href="#References:"><span class="tocnumber">1.4</span> <span class="toctext">References:</span></a></li>
+</ul>
+</li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="/w/index.php?title=Access_4.3.1.1&amp;action=edit&amp;section=1" title="Edit section: Access: [4.3.1.1]: language not identified (Priority 3)">edit</a>]</div><a name="Access:_.5B4.3.1.1.5D:_language_not_identified_.28Priority_3.29"></a><h2> Access: [4.3.1.1]: language not identified (Priority 3) </h2>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="/w/index.php?title=Access_4.3.1.1&amp;action=edit&amp;section=2" title="Edit section: Cause:">edit</a>]</div><a name="Cause:"></a><h3> Cause: </h3>
+<p>Identify the primary language of each document to ensure that clients automatically
+retrieve web pages in their preferred language. Language can be specified either
+through <a href="/wiki/HTTP_Headers" title="HTTP Headers">HTTP headers</a> or html markup (i.e. '&lt;html lang="en"&gt;').  In <a href="/wiki/XHTML" title="XHTML">XHTML</a>, you should specify the language using the <a href="/w/index.php?title=XML&amp;action=edit" class="new" title="XML">XML</a> <a href="/wiki/Namespace" title="Namespace">namespace</a> (in XHTML 1.0 you can optionally keep using the plain (HTML namespaced) "lang" attribute, but it is disallowed in versions 1.1+). As a last resort, it is possible to specify the language using a <a href="/w/index.php?title=Meta_Tag&amp;action=edit" class="new" title="Meta Tag">meta tag</a>.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="/w/index.php?title=Access_4.3.1.1&amp;action=edit&amp;section=3" title="Edit section: Example:">edit</a>]</div><a name="Example:"></a><h3> Example: </h3>
+<table class='bad' title='Bad'><tr><td width='22' valign='top'><img src='/skin/error.gif' alt='Good'/></td><td><pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+	&lt;title&gt;aert1.0/4.3.1 - The HTML element does not contain a lang attribute&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre></td></tr></table>
+<table class='good' title='Good'><tr><td width='22' valign='top'><img src='/skin/good.gif' alt='Good'/></td><td><pre>
+&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"&gt;
+&lt;head&gt;
+	&lt;title&gt;Language identified.&lt;/title&gt;
+	&lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8" /&gt;
+	&lt;meta http-equiv="Content-Language" content="EN" /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre></td></tr></table>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="/w/index.php?title=Access_4.3.1.1&amp;action=edit&amp;section=4" title="Edit section: Solution:">edit</a>]</div><a name="Solution:"></a><h3> Solution: </h3>
+<p>Specify the language of your document using at least one of the following:
+</p>
+<ul><li> The "lang" attribute of the "html" element. (HTML 4 and XHTML 1.0)
+</li><li> The "lang" attribute of the "html" element using the XML namespace (i.e., xml:lang). (XHTML 1.0+)
+</li><li> The "lang" attribute not supported in XHTML 1.1+
+</li><li> A meta tag. (HTML 4 and XHTML)
+</li></ul>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="/w/index.php?title=Access_4.3.1.1&amp;action=edit&amp;section=5" title="Edit section: References:">edit</a>]</div><a name="References:"></a><h3> References: </h3>
+<ul><li> W3C WAI: <a href="http://www.w3.org/WAI/" class="external free" title="http://www.w3.org/WAI/" rel="nofollow">http://www.w3.org/WAI/</a>
+</li><li> HTML Techniques for WAI 1.0: <a href="http://www.w3.org/TR/WCAG10-HTML-TECHS/" class="external free" title="http://www.w3.org/TR/WCAG10-HTML-TECHS/" rel="nofollow">http://www.w3.org/TR/WCAG10-HTML-TECHS/</a>
+</li></ul>
+
+<!-- Saved in parser cache with key htmlpediadb:pcache:idhash:1521-0!1!0!0!!en!2 and timestamp 20100119144317 -->
+<div class="printfooter">
+Retrieved from "<a href="http://www.htmlpedia.org/wiki/Access_4.3.1.1">http://www.htmlpedia.org/wiki/Access_4.3.1.1</a>"</div>
+    <!-- end content -->
+  </div>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!ENTITY tidy.help.title "Pomoč - Preverjanje HTML">
+<!ENTITY tidy.help.visit "Obišči domačo stran">
+<!ENTITY tidy.help.version "Različica">
+<!ENTITY tidy.help.homepage_desc "Za več informacij o razširitvi">
+<!ENTITY tidy.help.homepage "Domača stran">
+<!ENTITY tidy.help.userguide "Uporabniški vodnik">
+<!ENTITY tidy.help.htmlpedia_desc "Če bi radi izboljšali pomoč za razširitev, jo lahko urejate z Htmlpedio.">
+<!ENTITY tidy.help.htmlpedia "Stran Wiki">
+<!ENTITY tidy.help.htmlpedia_howto "Kako spremeniti stran">
+<!ENTITY tidy.help.mailing_list "Dopisni seznam">
+<!ENTITY tidy.help.mailing_list_subscription "Prijava ni potrebna">
+<!ENTITY tidy.help.archive "Arhiv">
+<!ENTITY tidy.help.author "Avtor">
+<!ENTITY tidy.help.donate "Donirajte">
+<!ENTITY tidy.help.donation "Donacija">
+<!ENTITY tidy.help.donation_text "Vaša donacija bo omogočila nadaljevanje mojega dela.">
+<!ENTITY tidy.browser.toolsmenu "Možnosti za Preverjanje HTML ...">
+<!ENTITY tidy.browser.menu.option "Možnosti ...">
+<!ENTITY tidy.browser.menu.show "Pokaži">
+<!ENTITY tidy.browser.menu.disable "Onemogoči">
+<!ENTITY tidy.browser.menu.enable "Omogoči">
+<!ENTITY tidy.browser.menu.html_clipboard "Kopiraj HTML v odložišče">
+<!ENTITY tidy.browser.menu.error_clipboard "Kopiraj napake v odložišče">
+<!ENTITY tidy.browser.menu.cleanup "Počisti ...">
+<!ENTITY tidy.browser.menu.view_source "Izvorna koda strani ...">
+<!ENTITY tidy.browser.menu.about "Pomoč ...">
+<!ENTITY tidy.browser.menu.innerHTML "Preveri zdaj (telo HTML po izvedbi javascripta) ...">
+<!ENTITY tidy.browser.menu.advanced "Napredno">
+<!ENTITY tidy.browser.menu.online.html "Spletno preverjanje HTML W3c ...">
+<!ENTITY tidy.browser.menu.online.css "Spletni preverjanje CSS W3c ...">
+<!ENTITY tidy.cleanup.title "Počisti stran">
+<!ENTITY tidy.cleanup.tab.clean.source "Očiščeni HTML">
+<!ENTITY tidy.cleanup.tab.orig.source "Izvorni HTML">
+<!ENTITY tidy.cleanup.tab.clean.page "Brskalnik počiščen">
+<!ENTITY tidy.cleanup.tab.orig.page "Izvorni brskalnik">
+<!ENTITY tidy.choose_source.title ".">
+<!ENTITY tidy.choose_source.caption "Izberite stran ali enega od njenih okvirjev">
+<!ENTITY tidy.window.title "Preveri HTML">
+<!ENTITY tidy.tree.header "Napake in opozorila HTML">
+<!ENTITY tidy.tree.type "Vrsta">
+<!ENTITY tidy.tree.line "Vrstica">
+<!ENTITY tidy.tree.column "Stolpec">
+<!ENTITY tidy.view_source.button.cleanup "Počisti stran ...">
+<!ENTITY tidy.view_source.button.options "Možnosti ...">
+<!ENTITY tidy.view_source.button.online "Spletno preverjanje W3C ...">
+<!ENTITY tidy.view_source.tree.hide "Skrij ...">
+<!ENTITY tidy.view_source.menu "Preverjanje HTML">
+<!ENTITY tidy.view_source.accesskey "H">
+<!ENTITY tidy-explain-error-label "Pomoč">
+<!ENTITY tidy.close.tooltip "Zapri Preverjanje HTML">
+<!ENTITY tidy.button.ok "V redu">
+<!ENTITY tidy.button.cancel "Prekliči">
+<!ENTITY tidy.button.refresh "Osveži">
+<!ENTITY tidy.options.title "Možnosti preverjanja HTML">
+<!ENTITY tidy.options.general "Splošno">
+<!ENTITY tidy.options.browser "Brskalnik">
+<!ENTITY tidy.options.viewsource "Pokaži izvorno kodo">
+<!ENTITY tidy.options.filter "Filtriraj">
+<!ENTITY tidy.options.group.format "Možnosti: zapis">
+<!ENTITY tidy.options.group.layout "Možnosti: videz">
+<!ENTITY tidy.options.viewsource_enable "Omogoči preverjanje v izvorni kodi strani">
+<!ENTITY tidy.links.title "Preverjanje povezav">
+<!ENTITY tidy.options.indent "Zamakni vsebino elementa">
+<!ENTITY tidy.options.indent-spaces "Presledki zamika">
+<!ENTITY tidy.options.uppercase-tags "Oznake z velikimi črkami">
+<!ENTITY tidy.options.uppercase-attributes "Atributi z velikimi črkami">
+<!ENTITY tidy.options.wrap "Prelomi vrstico po">
+<!ENTITY tidy.options.wrap2 "znakih">
+<!ENTITY tidy.options.clean "Zamenjaj FONT, ... oznake z CSS">
+<!ENTITY tidy.options.output-encoding "Kodna stran">
+<!ENTITY tidy.options.doctype "Vrsta dokumenta (doctype)">
+<!ENTITY tidy.options.highlight_line "Poudari vrstice z napakami">
+<!ENTITY tidy.options.show_line_number "Pokaži številke vrstic">
+<!ENTITY tidy.options.dbclick_action_label "Dvoklik ikone v vrstici stanja zažene:">
+<!ENTITY tidy.options.accessibility-check "Raven dostopnosti">
+<!ENTITY tidy.options.accessibility-check_none "brez">
+<!ENTITY tidy.options.accessibility-check_0 "navadna">
+<!ENTITY tidy.options.accessibility-check_1 "1">
+<!ENTITY tidy.options.accessibility-check_2 "2">
+<!ENTITY tidy.options.accessibility-check_3 "3">
+<!ENTITY tidy.options.force_output "Vsili izpis v">
+<!ENTITY tidy.options.none "-">
+<!ENTITY tidy.options.output-html "HTML">
+<!ENTITY tidy.options.output-xhtml "XHTML">
+<!ENTITY tidy.options.show-warnings "Pokaži opozorila">
+<!ENTITY tidy.options.browser_enable "Omogoči preverjanje v brskalniku">
+<!ENTITY tidy.options.perm_list "Izjeme ...">
+<!ENTITY tidy.options.browser_hide "Skrij ikono">
+<!ENTITY tidy.options.browser_icon_label "Pokaži v vrstici stanja">
+<!ENTITY tidy.options.icon_text "Ikona in besedilo">
+<!ENTITY tidy.options.icon_only "Samo ikona">
+<!ENTITY tidy.options.filter.hide.header "Skrite napake in opozorila">
+<!ENTITY tidy.options.filter.remove "Odstrani">
+<!ENTITY tidy.options.filter.hint "Namig: Če želite skriti sporočilo, desno kliknite nanj na seznamu sporočil in izberite Skrij">
+<!ENTITY tidy.options.algorithm_label "Algoritem">
+<!ENTITY tidy.options.algorithm_tidy "Očedi HTML">
+<!ENTITY tidy.options.algorithm_sp "Razčlenjevalnik SGML">
+<!ENTITY tidy.options.algorithm_serial "Zaporedni">
+<!ENTITY tidy.options.welcome "Izberite ...">
+<!ENTITY tidy.hide.label "Omogoči preverjanje v Pokaži izvorno kodo">
+<!ENTITY tidy.hide.accesskey "S">
+<!ENTITY tidy.hide.commandkey "j">
+<!ENTITY tidy.show_line_number.label "Pokaži številke vrstic">
+<!ENTITY tidy.show_line_number.accesskey "š">
+<!ENTITY tidy.show_line_number.commandkey "š">
+<!ENTITY tidy.menu.copy.label "Kopiraj">
+<!ENTITY tidy.menu.copy.accesskey "K">
+<!ENTITY tidy.menu.copy.key "K">
+<!ENTITY tidy.menu.selectall.label "Izberi vse">
+<!ENTITY tidy.menu.selectall.accesskey "v">
+<!ENTITY tidy.menu.selectall.key "v">
+<!ENTITY tidy.translator ".">
+<!ENTITY tidy.translator.url ".">
+<!ENTITY tidy.welcome.title "Preverjanje HTML: Izberite algoritem">
+<!ENTITY tidy.welcome.h2 "Preverjanje HTML: Dobrodošli">
+<!ENTITY tidy.welcome.h3 "Izberite priljubljeni algoritem">
+<!ENTITY tidy.welcome.t1 "Pri W3C so pripravili dva algoritma za preverjanje usklajenosti strani HTML.">
+<!ENTITY tidy.welcome.t2 "Oba algoritma sta v Preverjanje HTML za Firefox vključena. Oba imata svoje prednosti in slabosti.">
+<!ENTITY tidy.welcome.t3 "Za več informacij si, prosimo, preberite uporabniški vodnik.">
+<!ENTITY tidy.welcome.desc "Opis">
+<!ENTITY tidy.welcome.desc_tidy "Algoritem za preverjanje skladnje HTML, XHTML.">
+<!ENTITY tidy.welcome.desc_sp "To je isti algoritem, OpenSP, ki ga uporablja validator.w3.org. Gre za razčlenjevalnik SGML, ki temelji na DTD.">
+<!ENTITY tidy.welcome.desc_serial "Oba algoritma bosta zagnana, eden za drugim:<html:br/>(1) Razčlenjevalnik SGML.<html:br/>(2) Če napak ni, še Očedi HTML.">
+<!ENTITY tidy.welcome.better_for "Boljše za">
+<!ENTITY tidy.welcome.access "Preverjanje dostopnosti">
+<!ENTITY tidy.welcome.wai123 "Raven WAI 1,2,3">
+<!ENTITY tidy.welcome.cleanup "Očisti stran">
+<!ENTITY tidy.welcome.good_help "Dobra pomoč">
+<!ENTITY tidy.welcome.clear_error "Počisti sporočila o napakah">
+<!ENTITY tidy.welcome.w3_validator "Enake napake kot z validator.w3.org">
+<!ENTITY tidy.welcome.target "Ciljno občinstvo">
+<!ENTITY tidy.welcome.target_all "vsi">
+<!ENTITY tidy.welcome.target_prof "stroka">
+<!ENTITY tidy.yes "Da">
+<!ENTITY tidy.no "Ne">
+<!ENTITY tidy.todo "Ne (drugič)">
+<!ENTITY tidy.options.algorithm_online "Online">
+<!ENTITY tidy.options.algorithm_cse "CSE HTML Validator">

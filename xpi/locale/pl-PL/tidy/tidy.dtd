@@ -1,0 +1,161 @@
+<!ENTITY tidy.help.title "Walidator HTML - Pomoc">
+<!ENTITY tidy.help.visit "Odwiedź stronę główną">
+<!ENTITY tidy.help.version "Wersja">
+<!ENTITY tidy.help.homepage_desc "Więcej informacji na temat tego rozszerzenia znajdziesz na poniższych stronach:">
+<!ENTITY tidy.help.homepage "Strona domowa:">
+<!ENTITY tidy.help.userguide "Podręcznik użytkownika:">
+<!ENTITY tidy.help.htmlpedia_desc "Jeśli jesteś zainteresowany ulepszeniem pomocy dołączonej do tego rozszerzenia, możesz pomoc edytując przygotowaną do tego celu Htmlpedię.">
+<!ENTITY tidy.help.htmlpedia "Strona Wiki:">
+<!ENTITY tidy.help.htmlpedia_howto "Jak modyfikować strony Htmlpedii:">
+<!ENTITY tidy.help.mailing_list "Lista dyskusyjna:">
+<!ENTITY tidy.help.mailing_list_subscription "Subskrypcja nie jest wymagana">
+<!ENTITY tidy.help.archive "Achiwum:">
+<!ENTITY tidy.help.author "Autor">
+<!ENTITY tidy.help.donate "Wesprzyj finansowo">
+<!ENTITY tidy.help.donation "Wsparcie finansowe">
+<!ENTITY tidy.help.donation_text "Przekazane fundusze pomogą kontynuować pracę nad Walidatorem HTML.">
+
+<!ENTITY tidy.browser.toolsmenu "Opcje Walidatora HTML">
+<!ENTITY tidy.browser.menu.option "Opcje">
+<!ENTITY tidy.browser.menu.show "Pokaż">
+<!ENTITY tidy.browser.menu.disable "Wyłącz">
+<!ENTITY tidy.browser.menu.enable "Włącz">
+<!ENTITY tidy.browser.menu.html_clipboard "Kopiuj kod HTML do schowka">
+<!ENTITY tidy.browser.menu.error_clipboard "Kopiuj informacje o błędach do schowka">
+<!ENTITY tidy.browser.menu.cleanup "Napraw kod strony">
+<!ENTITY tidy.browser.menu.view_source "Pokaż źródło strony">
+<!ENTITY tidy.browser.menu.about "O rozszerzeniu">
+<!ENTITY tidy.browser.menu.innerHTML "Sprawdź ponownie (sprawdza kod HTML po wykonaniu JavaScript)...">
+<!ENTITY tidy.browser.menu.advanced "Zaawansowane">
+<!ENTITY tidy.browser.menu.online.html "Walidator W3c HTML Online...">
+<!ENTITY tidy.browser.menu.online.css "Walidator W3c CSS Online...">
+
+<!ENTITY tidy.cleanup.title "Naprawa kodu strony">
+<!ENTITY tidy.cleanup.tab.clean.source "Poprawiony HTML">
+<!ENTITY tidy.cleanup.tab.orig.source "Oryginalny HTML">
+<!ENTITY tidy.cleanup.tab.clean.page "Podgląd poprawionej strony">
+<!ENTITY tidy.cleanup.tab.orig.page "Podgląd oryginalnej strony">
+
+<!ENTITY tidy.choose_source.title ".">
+<!ENTITY tidy.choose_source.caption "Zaznacz stronę lub jej ramkę/ramki">
+
+<!ENTITY tidy.window.title "Sprawdzanie kodu HTML">
+<!ENTITY tidy.tree.header "Lista błędów i ostrzeżeń">
+<!ENTITY tidy.tree.type "Typ">
+<!ENTITY tidy.tree.line "Linia">
+<!ENTITY tidy.tree.column "Kolumna">
+<!ENTITY tidy.view_source.button.cleanup "Napraw">
+<!ENTITY tidy.view_source.button.options "Opcje">
+<!ENTITY tidy.view_source.button.online "Walidacja W3C Online...">
+<!ENTITY tidy.view_source.tree.hide "Ukryj">
+<!ENTITY tidy.view_source.menu "Walidator HTML">
+<!ENTITY tidy.view_source.accesskey "H">
+<!ENTITY tidy-explain-error-label "Pomoc">
+<!ENTITY tidy.close.tooltip "Zamknij moduł Walidator HTML">
+<!ENTITY tidy.button.ok "OK">
+<!ENTITY tidy.button.cancel "Anuluj">
+<!ENTITY tidy.button.refresh "Odśwież">
+
+
+<!ENTITY tidy.options.title "Opcje Walidatora HTML">
+<!ENTITY tidy.options.general "Ogólne">
+<!ENTITY tidy.options.browser "Przeglądarka">
+<!ENTITY tidy.options.viewsource "Źródo strony">
+<!ENTITY tidy.options.filter "Filtr błędów i ostrzeżeń">
+<!ENTITY tidy.options.group.format "Formatowanie ">
+<!ENTITY tidy.options.group.layout "Wygląd ">
+<!ENTITY tidy.options.viewsource_enable "Włącz sprawdzanie kodu źródła strony">
+
+<!ENTITY tidy.links.title "Walidacja odnośników">
+
+<!ENTITY tidy.options.indent "Dodawaj akapity">
+<!ENTITY tidy.options.indent-spaces "Wielkość akapitu (spacje)">
+<!ENTITY tidy.options.uppercase-tags "Znaczniki pisane wielkimi literami">
+<!ENTITY tidy.options.uppercase-attributes "Atrybuty pisane wielkimi literami">
+<!ENTITY tidy.options.wrap "Zawijaj po">
+<!ENTITY tidy.options.wrap2 "znakach">
+<!ENTITY tidy.options.clean "FONT oraz inne znaczniki zastąp arkuszami CSS">
+<!ENTITY tidy.options.output-encoding "Kodowanie znaków">
+<!ENTITY tidy.options.doctype "Typ dokumentu (doctype)">
+<!ENTITY tidy.options.highlight_line "Podświetl linie zawierające błędy">
+<!ENTITY tidy.options.show_line_number "Numeruj wiersze">
+<!ENTITY tidy.options.dbclick_action_label "Podwójne kliknięcie na ikonę znajdującą się na pasku stanu uruchamia: ">
+
+<!ENTITY tidy.options.accessibility-check "Poziom dostępności">
+<!ENTITY tidy.options.accessibility-check_none "brak">
+<!ENTITY tidy.options.accessibility-check_0 "normalny">
+<!ENTITY tidy.options.accessibility-check_1 "1">
+<!ENTITY tidy.options.accessibility-check_2 "2">
+<!ENTITY tidy.options.accessibility-check_3 "3">
+
+<!ENTITY tidy.options.force_output "Wymuś utworzenie kodu jako">
+<!ENTITY tidy.options.none "brak">
+<!ENTITY tidy.options.output-html "HTML">
+<!ENTITY tidy.options.output-xhtml "XHTML">
+
+<!ENTITY tidy.options.show-warnings "Pokaż ostrzeżenia">
+
+<!ENTITY tidy.options.browser_enable "Włącz walidację w przeglądarce">
+<!ENTITY tidy.options.perm_list "Wyjątki...">
+<!ENTITY tidy.options.browser_hide "Ukryj ikonę">
+<!ENTITY tidy.options.browser_icon_label "Pokaż na pasku stanu">
+<!ENTITY tidy.options.icon_text "Ikonę i tekst">
+<!ENTITY tidy.options.icon_only "Tylko ikonę">
+
+<!ENTITY tidy.options.filter.hide.header "Ukryte błędy i ostrzeżenia">
+<!ENTITY tidy.options.filter.remove "Usuń">
+<!ENTITY tidy.options.filter.hint "Wskazówka: Aby ukryć komunikat, kliknij prawym klawiszem muszy na komunikacie, ktory chcesz ukryć i wybierz z listy Ukryj.">
+
+<!ENTITY tidy.options.algorithm_label "Algorytm:">
+<!ENTITY tidy.options.algorithm_tidy "Tidy HTML">
+<!ENTITY tidy.options.algorithm_sp "Parser SGML">
+<!ENTITY tidy.options.algorithm_serial "Obydwa">
+<!ENTITY tidy.options.welcome "Wybierz...">
+
+<!ENTITY tidy.hide.label         "Włącz walidację w oknie Źródła strony">
+<!ENTITY tidy.hide.accesskey     "O">
+<!ENTITY tidy.hide.commandkey    "o">
+
+<!ENTITY tidy.show_line_number.label         "Numeruj wiersze">
+<!ENTITY tidy.show_line_number.accesskey     "N">
+<!ENTITY tidy.show_line_number.commandkey    "n">
+
+<!ENTITY tidy.menu.copy.label         "Kopiuj">
+<!ENTITY tidy.menu.copy.accesskey     "K">
+<!ENTITY tidy.menu.copy.key           "c">
+
+<!ENTITY tidy.menu.selectall.label      "Zaznacz wszystko">
+<!ENTITY tidy.menu.selectall.accesskey  "A">
+<!ENTITY tidy.menu.selectall.key        "a">
+
+<!ENTITY tidy.translator "Mozillapl.org - tłumaczenie: Kuter Tomasz (Evolic)">
+<!ENTITY tidy.translator.url "http://www.mozillapl.org/katalogi_i_bazy/baza_dodatkow/rozszerzenia/dla_tworcow_stron/walidator_html">
+
+<!ENTITY tidy.welcome.title "Walidator HTML : wybór algorytmu">
+<!ENTITY tidy.welcome.h2 "Walidator HTML: Ekran powitalny">
+<!ENTITY tidy.welcome.h3 "Wybierz algorytm">
+<!ENTITY tidy.welcome.t1 "Konsorcjum W3C udostępniło 2 algorytmy służące do walidacji stron HTML.">
+<!ENTITY tidy.welcome.t2 "Oba algorytmy są dostępne w Walidatorze HTML będącym rozszrzeniem przeglądarki Firefox.<html:br/>Oba mają zarówno swoje mocne, jak i słabe strony.">
+<!ENTITY tidy.welcome.t3 "Więcej informacji na ten temat znaleźć można w Podręczniku użytkownika.">
+
+<!ENTITY tidy.welcome.desc "Opis">
+<!ENTITY tidy.welcome.desc_tidy "Algorytm został zaprojektowany by sprawdzać poprawność składni języków: HTML i XHTML">
+<!ENTITY tidy.welcome.desc_sp "Jest to ten sam algorytm (OpenSP), z którego korzysta validator.w3.org. Jest to parser SGML oparty na dokumentach DTD.">
+<!ENTITY tidy.welcome.desc_serial "Algorytmy są wykonywane w następującej kolejności: <html:br/>(1) Parser SGML.<html:br/>(2) Następnie, jeśli nie znaleziono błędów, Tidy HTML">
+
+<!ENTITY tidy.welcome.better_for "Lepsze dla">
+<!ENTITY tidy.welcome.access "Sprawdzanie dostępności">
+<!ENTITY tidy.welcome.wai123 "WAI poziom 1,2,3">
+<!ENTITY tidy.welcome.cleanup "Naprawa kodu">
+<!ENTITY tidy.welcome.good_help "Dobra pomoc">
+<!ENTITY tidy.welcome.clear_error "Usuwanie błędów z kodu">
+<!ENTITY tidy.welcome.w3_validator "Identyczne błędy jak w validator.w3.org">
+<!ENTITY tidy.welcome.target "Do kogo jest kierowane">
+<!ENTITY tidy.welcome.target_all "Dla każdego">
+<!ENTITY tidy.welcome.target_prof "Dla profesjonalistów">
+
+<!ENTITY tidy.yes "Tak">
+<!ENTITY tidy.no "Nie">
+<!ENTITY tidy.todo "Nie (do zrobienia)">
+<!ENTITY tidy.options.algorithm_online "Online">
+<!ENTITY tidy.options.algorithm_cse "CSE HTML Validator">

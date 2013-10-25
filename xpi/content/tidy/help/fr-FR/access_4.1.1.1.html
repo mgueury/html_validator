@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Accessibilité&nbsp;4.1.1.1</title>
+    <link rel="stylesheet" type="text/css" href="tidy_help2.css" media="screen, projection"/>
+  </head>
+  <body>
+    <div id="bodyContent">
+      <h2> Accessibilité&nbsp;: [4.1.1.1]&nbsp;: Il faut identifier clairement les changements de langue du texte</h2>
+      <p class="priorite">Priorité 1</p>
+      <h3> Cause&nbsp;: </h3>
+      <p>Vous utilisez des changements de langue sans les identifier avec les balises et attributs appropriés.
+      </p>
+      <h3> Exemple&nbsp;: </h3>
+        <table class='bad' title='Bad'>
+          <tr>
+            <td width='22' valign='top'>
+              <img src='../../../skin/error.png' alt='Error'/>
+            </td>
+            <td>
+              <code>
+                &lt;p&gt; Il faut utiliser le formulaire européen <br />
+                &lt;span lang="en"&gt; Fiscal Residence Form 111 &lt;/span&gt;<br />
+                pour cette déclaration.&lt;/p&gt;<br />
+              </code>
+            </td>
+          </tr>
+        </table>
+
+      <h3> Solution&nbsp;: </h3>
+      <p>Il faut identifier clairement les changements de langue du texte d'un document et de tous les
+équivalents textuels, comme les légendes. Lorsqu'une page comporte plus d'une langue, il faut
+s'assurer que les changements de langue sont identifiés avec l'attribut « lang ».
+      </p>
+      <h3> Références&nbsp;: </h3>
+      <ul>
+        <li> W3C WAI&nbsp;: <a href="http://www.w3.org/WAI/">http://www.w3.org/WAI/</a>
+        </li>
+        <li> Techniques HTML pour le WAI 1.0: <a href="http://www.w3.org/TR/WCAG10-HTML-TECHS/">http://www.w3.org/TR/WCAG10-HTML-TECHS/</a>
+        </li>
+      </ul>
+      <p>.
+      </p>
+    </div>
+  </body>
+</html>

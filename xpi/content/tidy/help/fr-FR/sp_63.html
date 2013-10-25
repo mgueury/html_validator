@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Sp 63 - Htmlpedia</title>
+    <link rel="stylesheet" type="text/css" href="tidy_help2.css" media="screen, projection"/>
+  </head>
+  <body>
+    <div id="bodyContent">
+      <h2>Sp 63&nbsp;:Les données ne sont pas autorisées ici</h2>
+      <h3> Cause&nbsp;: </h3>
+      <p>Vous utilisez des données à un emplacement dans le fichier où elle ne sont pas admises. <br />      
+      Vous avez par exemple placé des données dans le corps du fichier (entre les balises <code>&lt;body&gt;</code>) sans conteneur ("p" par exemple). Vous avez peut être omis les guillemets autour d'une valeur d'attribut contenant les caractères particuliers "%" et "/".
+      </p>
+      <h3> Exemple&nbsp;: </h3>
+        <table class='bad' title='Bad'>
+          <tr>
+            <td width='22' valign='top'>
+              <img src='../../../skin/error.png' alt='Error'/>
+            </td>
+            <td>
+              <code>
+                &lt;body&gt;<br>
+                  hello &lt;a href="test.html"&gt;world&lt;/a&gt;<br>
+                &lt;/body&gt;<br>
+              </code>
+            </td>
+          </tr>
+        </table>
+        <table class='good' title='Good'>
+          <tr>
+            <td width='22' valign='top'>
+              <img src='../../../skin/good.png' alt='Good'/>
+            </td>
+            <td>
+              <code>
+                &lt;body&gt;<br>
+                  &lt;p&gt;
+                    hello &lt;a href="test.html"&gt;world&lt;/a&gt;<br>
+                  &lt;/p&gt;
+                &lt;/body&gt;<br>
+              </code>
+            </td>            
+          </tr>
+        </table>
+
+      <h3> Solution&nbsp;: </h3>
+      <p>Ajoutez un conteneur ("p" pour paragraphe par exemple) ou placez la valeur de l'attribut entre guillemets.
+      </p>
+      <h3> Références&nbsp;: </h3>
+      <ul>
+        <li> W3 validator: <a href="http://validator.w3.org/">http://validator.w3.org/</a>
+        </li>
+      </ul>
+      <p>.
+      </p>
+    </div>
+  </body>
+</html>

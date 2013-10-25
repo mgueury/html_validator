@@ -1,0 +1,41 @@
+Source: opensp
+Section: text
+Priority: optional
+Maintainer: Adam Di Carlo <aph@debian.org>
+Standards-Version: 3.5.0
+Build-Depends: debhelper, automake, libtool, gettext, autoconf (>= 2.52-1)
+
+Package: opensp
+Architecture: any
+Depends: ${shlibs:Depends}, sgml-base
+Suggests: doc-base, sgml-data
+Description: OpenJade group's SGML parsing tools
+ This package is a collection of SGML/XML tools called OpenSP.
+ It is a fork from James Clark's SP suite.
+ .
+ These tools are used to parse, validate, and normalize SGML and XML
+ files.  The central programs included in this package are 'onsgmls',
+ which replaces sgmls, 'ospam', 'ospent', 'osgmlnorm', and 'osgml2xml'.
+
+Package: libosp2
+Architecture: any
+Section: libs
+Depends: ${shlibs:Depends}
+Conflicts: libosp1
+Description: Runtime library for OpenJade group's SP suite
+ This is the SP suite's shared library runtime support.  This C++
+ library contains entity management functions, parsing functions, and
+ other functions useful for SGML/XML/DSSSL development.
+ .
+ This shared library is used by the opensp and openjade packages.
+
+Package: libosp-dev
+Architecture: any
+Section: devel
+Depends: ${opensp:Version}, ${libosp:Version}, libc6-dev, libstdc++-dev
+Recommends: c++-compiler
+Description: OpenJade group's SP suite, developer support
+ This contains include files and the static library for libosp1.
+ This C++ library contains entity management functions, parsing functions,
+ and other functions useful for SGML/XML/DSSSL development. 
+

@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Tidy 52 - Htmlpedia</title>
+    <link rel="stylesheet" type="text/css" href="/w/skins/tidy_help2.css" media="screen, projection"/>
+  </head>
+<body>
+  <div id="bodyContent">
+    <!-- start content -->
+    <table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1"><a href="#Tidy:_.3C....3E_missing_.3E_for_end_of_tag"><span class="tocnumber">1</span> <span class="toctext">Tidy: &lt;...&gt; missing &gt; for end of tag</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Cause:"><span class="tocnumber">1.1</span> <span class="toctext">Cause:</span></a></li>
+<li class="toclevel-2"><a href="#Examples:"><span class="tocnumber">1.2</span> <span class="toctext">Examples:</span></a></li>
+<li class="toclevel-2"><a href="#Solution:"><span class="tocnumber">1.3</span> <span class="toctext">Solution:</span></a></li>
+<li class="toclevel-2"><a href="#References:"><span class="tocnumber">1.4</span> <span class="toctext">References:</span></a></li>
+</ul>
+</li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="/w/index.php?title=Tidy_52&amp;action=edit&amp;section=1" title="Edit section: Tidy: &amp;lt;...&amp;gt; missing &amp;gt; for end of tag">edit</a>]</div><a name="Tidy:_.3C....3E_missing_.3E_for_end_of_tag"></a><h2> Tidy: &lt;...&gt; missing &gt; for end of tag </h2>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="/w/index.php?title=Tidy_52&amp;action=edit&amp;section=2" title="Edit section: Cause:">edit</a>]</div><a name="Cause:"></a><h3> Cause: </h3>
+<p>The cause may be one of the following two:
+</p>
+<ol>
+<li>The tag of one element in your code may be written incorrectly.<br />
+Every valid element may be used at the appropriate places within an HTML document.<br />
+The correct syntax for this is "&lt;element-name&gt;content&lt;/element-name&gt;".<br />
+"&lt;element-name&gt;" and "&lt;/element-name&gt;" are called tag. The tag requires
+the two special characters "&lt;" and "&gt;" to be a tag.</li>
+<li>You may have not escaped a special character with an entity.<br />
+Since those two special characters are only used for tags in HTML,
+they must be escaped or replaced by the respective entities.</li>
+</ol>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="/w/index.php?title=Tidy_52&amp;action=edit&amp;section=3" title="Edit section: Examples:">edit</a>]</div><a name="Examples:"></a><h3> Examples: </h3>
+<p>&lt;p&gt; missing &gt; for end of tag<br />
+As described above, each tag requires a closing "&gt;".
+</p>
+<table class='bad' title='Bad'><tr><td width='22' valign='top'><img src='/skin/error.gif' alt='Good'/></td><td>&lt;p some text&lt;/p&gt;</td></tr></table> 
+<table class='good' title='Good'><tr><td width='22' valign='top'><img src='/skin/good.gif' alt='Good'/></td><td>&lt;p&gt;some text&lt;/p&gt;</td></tr></table>
+<p><br />
+</p><p>&lt;p&gt; missing &gt; for end of tag<br />
+Use entities for special characters.
+</p>
+<table class='bad' title='Bad'><tr><td width='22' valign='top'><img src='/skin/error.gif' alt='Good'/></td><td>This is only the case for 0&lt;p, because of some reasons.</td></tr></table> 
+<table class='good' title='Good'><tr><td width='22' valign='top'><img src='/skin/good.gif' alt='Good'/></td><td>This is only the case for 0&amp;lt;p, because of some reasons.</td></tr></table>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="/w/index.php?title=Tidy_52&amp;action=edit&amp;section=4" title="Edit section: Solution:">edit</a>]</div><a name="Solution:"></a><h3> Solution: </h3>
+<p>Insert missing "&gt;"<br />
+Replace "&lt;" with "&amp;lt;".
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="/w/index.php?title=Tidy_52&amp;action=edit&amp;section=5" title="Edit section: References:">edit</a>]</div><a name="References:"></a><h3> References: </h3>
+<ul><li> W3C spec on SGML elements and tags: <a href="http://www.w3.org/TR/html4/intro/sgmltut.html#h-3.2.1" class="external free" title="http://www.w3.org/TR/html4/intro/sgmltut.html#h-3.2.1" rel="nofollow">http://www.w3.org/TR/html4/intro/sgmltut.html#h-3.2.1</a>
+</li><li> W3C spec on character references: <a href="http://www.w3.org/TR/html4/intro/sgmltut.html#h-3.2.3" class="external free" title="http://www.w3.org/TR/html4/intro/sgmltut.html#h-3.2.3" rel="nofollow">http://www.w3.org/TR/html4/intro/sgmltut.html#h-3.2.3</a>
+</li></ul>
+
+<!-- Saved in parser cache with key htmlpediadb:pcache:idhash:1900-0!1!0!0!!en!2 and timestamp 20100119070320 -->
+<div class="printfooter">
+Retrieved from "<a href="http://www.htmlpedia.org/wiki/Tidy_52">http://www.htmlpedia.org/wiki/Tidy_52</a>"</div>
+    <!-- end content -->
+  </div>
+</body>
+</html>

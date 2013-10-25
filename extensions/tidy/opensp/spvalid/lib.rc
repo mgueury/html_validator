@@ -1,0 +1,5 @@
+
+// This is a dummy file to include the rc files of OpenSP.
+// It is a copy of ./opensp/lib/lib.res" with the path added.
+
+#include "../lib/lib.rc"

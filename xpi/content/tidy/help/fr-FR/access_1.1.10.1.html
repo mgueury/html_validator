@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Accessibilité&nbsp;1.1.10.1</title>
+    <link rel="stylesheet" type="text/css" href="tidy_help2.css" media="screen, projection"/>
+  </head>
+  <body>
+    <div id="bodyContent">
+      <h2> Accessibilité&nbsp;: [1.1.10.1]&nbsp;: Un script doit généralement être accompagné d'une section &lt;noscript&gt;</h2>
+      <p class="priorite">Priorité 1</p>
+      <h3> Cause&nbsp;: </h3>
+      <p>Vous utilisez un script. Il faut que les pages soient utilisables quand les scripts ou tout autre objet programmé sont désactivés ou non supportés.
+      </p>
+      <h3> Exemple&nbsp;: </h3>
+        <table class='bad' title='Bad'>
+          <tr>
+            <td width='22' valign='top'>
+              <img src='../../../skin/error.png' alt='Error'/>
+            </td>
+            <td>
+              <code>
+                &lt;script&gt;&lt;!-- faire quelque chose --&gt;&lt;/script&gt;
+              </code>
+            </td>
+          </tr>
+        </table>
+        <table class='good' title='Good'>
+          <tr>
+            <td width='22' valign='top'>
+              <img src='../../../skin/good.png' alt='Good'/>
+            </td>
+            <td>
+              <code>
+                &lt;script&gt;&lt;!-- faire quelque chose --&gt;&lt;/script&gt;<br />
+                &lt;noscript&gt;&lt;!-- faire quelque chose --&gt;&lt;/noscript&gt;
+              </code>
+            </td>            
+          </tr>
+        </table>
+
+      <h3> Solution&nbsp;: </h3>
+      <p>S'il n'est pas possible de construire une page utilisable sans script, il faut placer une équivalence avec l'élément &lt;noscript&gt;, ou utiliser un script côté serveur au lieu d'un script exécutable sur le poste client.
+      </p>
+      <h3> Références&nbsp;: </h3>
+      <ul>
+        <li> W3C WAI&nbsp;: <a href="http://www.w3.org/WAI/">http://www.w3.org/WAI/</a>
+        </li>
+        <li> Techniques HTML pour le WAI 1.0: <a href="http://www.w3.org/TR/WCAG10-HTML-TECHS/">http://www.w3.org/TR/WCAG10-HTML-TECHS/</a>
+        </li>
+      </ul>
+      <p>.
+      </p>
+    </div>
+  </body>
+</html>

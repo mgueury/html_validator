@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Accessibilité&nbsp;3.6.1.1</title>
+    <link rel="stylesheet" type="text/css" href="tidy_help2.css" media="screen, projection"/>
+  </head>
+  <body>
+    <div id="bodyContent">
+      <h2> Accessibilité&nbsp;: [3.6.1.1]&nbsp;: Utilisation invalide de l'élément &lt;ul&gt;</h2>
+      <p class="priorite">Priorité 2</p>
+      <h3> Cause&nbsp;: </h3>
+      <p>Vous utilisez une liste. Il ne faut pas utiliser les élément de listes pour créer des effets d'indentation. Il faut utiliser les feuilles de styles pour cela.
+      </p>
+      <h3> Exemple&nbsp;: </h3>
+        <table class='good' title='Good'>
+          <tr>
+            <td width='22' valign='top'>
+              <img src='../../../skin/good.png' alt='Good'/>
+            </td>
+            <td>
+              <code>
+                &lt;ul&gt;<br />
+                  &lt;li&gt;1er élément&lt;/li&gt;<br />
+                  &lt;li&gt;2ème élément&lt;/li&gt;<br />
+                &lt;/ul&gt;<br />
+                &lt;ol&gt;<br />
+                  &lt;li&gt;1er élément&lt;/li&gt;<br />
+                  &lt;li&gt;2ème élément&lt;/li&gt;<br />
+                &lt;/ol&gt;<br />
+                &lt;dl&gt;<br />
+                  &lt;dt&gt;Premier terme&lt;/dt&gt;<br />
+                  &lt;dd&gt;Définition du premier terme.&lt;/dd&gt;<br />
+                  &lt;dt&gt;Second terme&lt;/dt&gt;<br />
+                  &lt;dd&gt;Définition du second terme.&lt;/dd&gt;<br />
+                &lt;/dl&gt;<br />
+              </code>
+            </td>            
+          </tr>
+        </table>
+
+      <h3> Solution&nbsp;: </h3>
+      <p>Il faut baliser correctement les listes et leurs éléments. Il faut imbriquer les listes &lt;ol&gt;, &lt;ul&gt; et &lt;dl&gt; correctement, et ne pas s'en servir pour des effets de formatage comme de l'indentation.
+      </p>
+      <h3> Références&nbsp;: </h3>
+      <ul>
+        <li> W3C WAI&nbsp;: <a href="http://www.w3.org/WAI/">http://www.w3.org/WAI/</a>
+        </li>
+        <li> Techniques HTML pour le WAI 1.0: <a href="http://www.w3.org/TR/WCAG10-HTML-TECHS/">http://www.w3.org/TR/WCAG10-HTML-TECHS/</a>
+        </li>
+      </ul>
+      <p>.
+      </p>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Accessibilité&nbsp;6.1.1.1</title>
+    <link rel="stylesheet" type="text/css" href="tidy_help2.css" media="screen, projection"/>
+  </head>
+  <body>
+    <div id="bodyContent">
+      <h2> Accessibilité&nbsp;: [6.1.1.1]&nbsp;: Les feuilles de style nécessitent une vérification (lien)</h2>
+      <p class="priorite">Priorité 1</p>
+      <h3> Cause&nbsp;: </h3>
+      <p>Les styles doivent être externalisés. Vous utilisez une feuille de style externe, assurez-vous que la feuille de style pointée existe bien.
+      </p>
+      <h3> Exemple&nbsp;: </h3>
+        <table class='good' title='Good'>
+          <tr>
+            <td width='22' valign='top'>
+              <img src='../../../skin/good.png' alt='Good'/>
+            </td>
+            <td>
+              <code>
+                &lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"&gt;<br />
+                  &lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;<br />
+                    &lt;head&gt;<br />
+                      &lt;title&gt;Accessibilité&nbsp;6.1.1 - feuille de style externe&lt;/title&gt;<br />
+                      &lt;link rel="stylesheet" type="text/css" href="http://www.w3.org/StyleSheets/TR/W3C-WD"&gt;<br />
+                    &lt;/head&gt;<br />
+                    &lt;body&gt; <br />
+                    &lt;/body&gt;<br />
+                  &lt;/html&gt;<br />
+              </code>
+            </td>            
+          </tr>
+        </table>
+
+      <h3> Solution&nbsp;: </h3>
+      <p>
+        Assurez-vous que l'information demeure accessible lorsque les feuilles de style sont désactivées ou non prises en charge. Incluez une méthode de présentation des informations non visuelle et organisez les feuilles de style rationnellement.<br />
+        Assurez-vous que la feuille de style déclarée dans le code HTML existe bien.
+      </p>
+      <h3> Références&nbsp;: </h3>
+      <ul>
+        <li> W3C WAI&nbsp;: <a href="http://www.w3.org/WAI/">http://www.w3.org/WAI/</a>
+        </li>
+        <li> Techniques HTML pour le WAI 1.0: <a href="http://www.w3.org/TR/WCAG10-HTML-TECHS/">http://www.w3.org/TR/WCAG10-HTML-TECHS/</a>
+        </li>
+      </ul>
+      <p>.
+      </p>
+    </div>
+  </body>
+</html>

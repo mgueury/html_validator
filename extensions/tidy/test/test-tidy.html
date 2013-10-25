@@ -1,0 +1,79 @@
+
+<center><b><font size=+2>Test Tidy</font></b>
+
+<script>
+/* to use nsSample.js version, use "@mozilla.org/jssample;1" */
+netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
+var tidy = Components.classes["@mozilla.org/tidy;1"].createInstance();
+tidy = tidy.QueryInterface(Components.interfaces.nsITidy);
+dump("tidy = " + tidy + "\n");
+
+function get()
+{
+  netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");  var field = document.getElementById('Value');
+  field.value = tidy.version;
+}
+
+function set()
+{
+  netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");  var field = document.getElementById('Value');
+  tidy.version = field.value;
+}
+
+function validateHtml( aHtml )
+{
+  netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");  var field = document.getElementById('Value');
+  var nbError = {value:0};
+  var nbWarning = {value:0};
+  var nbAccessWarning = {value:0};
+  var error ={value:"---"};
+  tidy.getErrorsInHTML( aHtml, "",  -1, error, nbError, nbWarning, nbAccessWarning);
+
+  alert( "error: " + nbError.value + " / warning : " + nbWarning.value );
+  alert( error.value );
+}
+
+function validateABC()
+{
+  validateHtml( "<html><abc>йза</abc></html>" );
+}
+
+function validateThisPage()
+{
+  const oldURL  = window.content.document.URL;
+  const request = new XMLHttpRequest();
+
+  // This must be done to make generated content render
+  request.open("GET", oldURL, false);
+  request.send("");
+  validateHtml( request.responseText );
+}
+
+function testUtf8()
+{
+  var aHtml = "ази";
+  netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
+  var field = document.getElementById('Value');
+  var nbError = {value:0};
+  var nbWarning = {value:0};
+  var nbAccessWarning = {value:0};
+  var error ={value:"---"};
+  // tidy.testString( aHtml, "",  -1, error, nbError, nbWarning, nbAccessWarning); // OK
+  // tidy.testString2( "аиз" ); // OK
+  tidy.getErrorsInHTML( "аиз", "",  -1, error, nbError, nbWarning, nbAccessWarning);
+}
+
+</script>
+
+<p>
+<form name="form">
+<input type="button" value="Get" onclick="get();">
+<input type="button" value="Set" onclick="set();">
+<input type="button" value="validateABC" onclick="validateABC();">
+<input type="button" value="validateThisPage" onclick="validateThisPage();">
+<input type="button" value="testUtf8" onclick="testUtf8();">
+<input type="text" id="Value">
+<form>
+
+<hr>
+

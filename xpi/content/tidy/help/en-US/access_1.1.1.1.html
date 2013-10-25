@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Access 1.1.1.1 - Htmlpedia</title>
+    <link rel="stylesheet" type="text/css" href="tidy_help2.css" media="screen, projection"/>
+  </head>
+<body>
+  <div id="bodyContent">
+<h2> Access: [1.1.1.1]: &lt;img&gt; missing 'alt' text (Priority 1) </h2>
+<h3> Cause: </h3>
+<p>All images -- including transparent <a href="/w/index.php?title=GIF&amp;action=edit" class="new">GIFs</a> -- must have "alt" text (short for "alternate").  Alternate text describes the information in the image, which is useful for three important purposes:
+</p>
+<ul><li> Screen reading software uses the alt text to tell visually impaired visitors what the image contains.
+</li><li> Search engine spiders use the alt text to index the image so that it can be searched for.
+</li><li> Alt text replaces the image if it fails to load, so that the visitor can get an idea what it was about even though it's not there.
+</li></ul>
+<p>Some <a href="http://www.htmlpedia.org/wiki/User_Agent">user agents</a> render the alt text as a tool-tip: the little yellow box that pops up when you hold your mouse cursor over the image.
+</p><p>Alternate text should be concise (i.e. 10-12 words maximum containing no more than 150 characters including spaces and punctuation). For transparent images and spacers, use alt="" (NULL), alt="  " (spaces are acceptable), or alt="blank". Any words depicted in the image should also appear in the "alt" text description.
+</p>
+<h3> Example: </h3>
+<table class='bad' title='Bad'><tr><td width='22' valign='top'><img src='../../../skin/error.png' alt='Good'/></td><td>&lt;img src="banana.jpg"&gt;</td></tr></table>
+<table class='good' title='Good'><tr><td width='22' valign='top'><img src='../../../skin/good.png' alt='Good'/></td><td>&lt;img src="banana.jpg" alt="A picture of a banana."&gt;</td></tr></table>
+<h3> Solution: </h3>
+<p>Add a concise (no more than 150 characters) description of the image as an alt attribute.
+</p>
+<h3> References: </h3>
+<ul><li> W3C WAI: <a href="http://www.w3.org/WAI/">http://www.w3.org/WAI/</a>
+</li><li> HTML Techniques for WAI 1.0: <a href="http://www.w3.org/TR/WCAG10-HTML-TECHS/">http://www.w3.org/TR/WCAG10-HTML-TECHS/</a>
+</li></ul>
+<p>.
+</p>
+  </div>
+</body>
+</html>

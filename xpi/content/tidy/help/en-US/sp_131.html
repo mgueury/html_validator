@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Sp 131 - Htmlpedia</title>
+    <link rel="stylesheet" type="text/css" href="tidy_help2.css" media="screen, projection"/>
+  </head>
+<body>
+  <div id="bodyContent">
+<h2> Value of attribute ... cannot be ...; must be one of ... </h2>
+<h3> Cause: </h3>
+<p>The value of the attribute is defined to be one of a list of possible
+values but in the document it contained something that is not allowed
+for that type of attribute. For instance, the &ldquo;<code class="inline">selected</code>&rdquo; attribute must be either
+minimized as &ldquo;<code class="inline">selected</code>&rdquo;
+or spelled out in full as &ldquo;<code class="inline">selected="selected"</code>&rdquo;; a value like
+&ldquo;<code class="inline">selected="true"</code>&rdquo; is not
+allowed.
+</p>
+<h3> Example: </h3>
+<p>In XHTML, unlike in HTML, attribute minimization is not allowed:
+</p>
+<table class='bad' title='Bad'><tr><td width='22' valign='top'><img src='../../../skin/error.png' alt='Good'/></td><td>&lt;td nowrap&gt;</td></tr></table>
+<table class='good' title='Good'><tr><td width='22' valign='top'><img src='../../../skin/good.png' alt='Good'/></td><td>&lt;td nowrap="nowrap"&gt;</td></tr></table>
+<h3> Solution: </h3>
+<p>In XHML, the values of the attributes of attributes without values have changed like this:
+</p>
+<table border="1">
+<tr>
+<th> HTML </th><th> XHTML
+</th></tr>
+<tr>
+<td> compact </td><td> compact="compact"
+</td></tr>
+<tr>
+<td> checked </td><td> checked="checked"
+</td></tr>
+<tr>
+<td> declare </td><td> declare="declare"
+</td></tr>
+<tr>
+<td> defer </td><td> defer="defer"
+</td></tr>
+<tr>
+<td> disabled </td><td> disabled="disabled"
+</td></tr>
+<tr>
+<td> ismap </td><td> ismap="ismap"
+</td></tr>
+<tr>
+<td> multiple </td><td> multiple="multiple"
+</td></tr>
+<tr>
+<td> nohref </td><td> nohref="nohref"
+</td></tr>
+<tr>
+<td> noshade </td><td> noshade="noshade"
+</td></tr>
+<tr>
+<td> nowrap </td><td> nowrap="nowrap"
+</td></tr>
+<tr>
+<td> noresize </td><td> noresize="noresize"
+</td></tr>
+<tr>
+<td> readonly </td><td> readonly="readonly"
+</td></tr>
+<tr>
+<td> selected </td><td> selected="selected"
+</td></tr></table>
+<h3> References: </h3>
+<ul><li> W3 validator: <a href="http://validator.w3.org/">http://validator.w3.org/</a>
+</li><li> HTML Tags: <a href="http://www.w3.org/TR/html4/index/elements.html">http://www.w3.org/TR/html4/index/elements.html</a>
+</li><li> Difference with HTML 4: <a href="http://www.w3.org/TR/xhtml1/#h-4.5">http://www.w3.org/TR/xhtml1/#h-4.5</a>
+</li></ul>
+  </div>
+</body>
+</html>

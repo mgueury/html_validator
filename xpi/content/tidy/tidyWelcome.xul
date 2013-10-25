@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<!-- *************************************************************************
+  HTML Validator
+
+  File: tidyAbout.xul
+  Description: contains the xul dialog box for "about..."
+  Author : Marc Gueury
+  Licence : see licence.txt
+************************************************************************** -->
+
+<!DOCTYPE window [
+  <!ENTITY % tidyDTD SYSTEM "chrome://tidy/locale/tidy.dtd"> %tidyDTD;
+]>
+
+<?xml-stylesheet href="chrome://tidy/skin/tidy.css" type="text/css"?>
+<?xml-stylesheet href="chrome://global/skin" type="text/css"?>
+
+<window xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+        xmlns:html="http://www.w3.org/1999/xhtml"
+        id="tidy.welcome"
+        buttons="accept" 
+        title="&tidy.welcome.title;"
+        style="background-color: #fff;">
+
+  <script type="application/x-javascript" src="chrome://tidy/content/tidyUtil.js" />
+  <script type="application/x-javascript">
+    onLoadTidyUtil();
+  </script>
+    
+  <vbox style="width: 780px; padding: 10px;">
+  
+    <hbox>
+      <vbox style="padding-right:20px;">
+        <image src="chrome://tidy/skin/html_logo.png"/>
+      </vbox>
+      <vbox>
+        <html:h2 class="title">&tidy.welcome.h2;</html:h2>
+        <html:h3>&tidy.welcome.h3;</html:h3>
+        <html:p>
+          &tidy.welcome.t1;<html:br/>
+          &tidy.welcome.t2;<html:br/>
+          <html:br/>
+          &tidy.welcome.t3;
+        </html:p>
+      </vbox>
+    </hbox>
+        
+    <html:table>
+      <html:tr>
+      <html:th width="25%"></html:th>
+      <html:th width="25%">&tidy.options.algorithm_tidy;</html:th>
+      <html:th width="25%">&tidy.options.algorithm_sp;</html:th>
+      <html:th width="25%">&tidy.options.algorithm_serial;</html:th>
+    </html:tr><html:tr class="light">
+      <html:th>&tidy.welcome.desc;</html:th>
+      <html:td>&tidy.welcome.desc_tidy;</html:td>
+      <html:td>&tidy.welcome.desc_sp;</html:td>
+      <html:td>&tidy.welcome.desc_serial;</html:td>
+    </html:tr><html:tr class="dark">
+      <html:th>&tidy.welcome.better_for;</html:th>
+      <html:td>HTML</html:td>
+      <html:td>XHTML</html:td>
+      <html:td>-</html:td>
+    </html:tr><html:tr class="light">
+      <html:th>&tidy.welcome.access; <image src="chrome://tidy/skin/access.png"/></html:th>
+      <html:td>&tidy.welcome.wai123;</html:td>
+      <html:td>&tidy.no;</html:td>
+      <html:td>-</html:td>
+    </html:tr><html:tr class="dark">
+      <html:th>&tidy.welcome.cleanup;</html:th>
+      <html:td>&tidy.yes;</html:td>
+      <html:td>&tidy.no;</html:td>
+      <html:td>-</html:td>
+    </html:tr><html:tr class="light">
+      <html:th>&tidy.welcome.good_help;</html:th>
+      <html:td>&tidy.yes;</html:td>
+      <html:td>&tidy.todo;</html:td>
+      <html:td>-</html:td>
+    </html:tr><html:tr class="dark">
+      <html:th>&tidy.welcome.clear_error;</html:th>
+      <html:td>&tidy.yes;</html:td>
+      <html:td>&tidy.no;</html:td>
+      <html:td>-</html:td>
+    </html:tr><html:tr class="light">
+      <html:th>&tidy.welcome.w3_validator;</html:th>
+      <html:td>&tidy.no;</html:td>
+      <html:td>&tidy.yes;</html:td>
+      <html:td>-</html:td>
+    </html:tr><html:tr class="dark">
+      <html:th>&tidy.welcome.target;</html:th>
+      <html:td>&tidy.welcome.target_all;</html:td>
+      <html:td>&tidy.welcome.target_prof;</html:td>
+      <html:td>&tidy.welcome.target_prof;</html:td>
+      
+    </html:tr>
+    <html:tr>
+      <html:td></html:td>
+      <html:td><html:br/><button label="&tidy.options.algorithm_tidy;" id="tidy" oncommand="oTidyUtil.setCharPref('algorithm','tidy');window.close();"/></html:td>
+      <html:td><html:br/><button label="&tidy.options.algorithm_sp;" id="SGML" oncommand="oTidyUtil.setCharPref('algorithm','sp');window.close();"/></html:td>
+      <html:td><html:br/><button label="&tidy.options.algorithm_serial;" id="SGML" oncommand="oTidyUtil.setCharPref('algorithm','serial');window.close();"/></html:td>
+    </html:tr>
+    </html:table>
+    <html:br/>
+</vbox>
+</window>

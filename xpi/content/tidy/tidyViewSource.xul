@@ -1,0 +1,174 @@
+<?xml version="1.0"?>
+<!-- *************************************************************************
+  HTML Validator
+
+  File: tidyViewSource.xul
+  Description: contains the xul overlay for the view source window
+  Author : Marc Gueury
+  Licence : see licence.txt
+  !!!!!!!!!!! THIS FILE CONTAINS DOUBLE ENTRIES 
+         - ONE FOR FIRRFOX 1.0.x
+         - ONE FOR FIRRFOX 1.5.x
+************************************************************************** -->
+
+<?xml-stylesheet href="chrome://browser/skin/" type="text/css"?> 
+<?xml-stylesheet href="chrome://browser/content/browser.css" type="text/css"?>
+<?xml-stylesheet href="chrome://tidy/skin/tidy.css" type="text/css"?>
+
+<!DOCTYPE window SYSTEM "chrome://tidy/locale/tidy.dtd" >
+
+<overlay id="viewSourceAndValidateID" 
+         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+<script type="application/x-javascript" src="chrome://tidy/content/tidyLib.js" />
+<script type="application/x-javascript" src="chrome://tidy/content/tidyUtil.js" />
+<script type="application/x-javascript" src="chrome://tidy/content/tidyViewSource.js" />
+<script type="application/x-javascript" src="chrome://browser/content/utilityOverlay.js"/>
+
+<keyset id="viewSourceKeys">
+  <key id="key_hide_validator"  key="&tidy.hide.commandkey;" oncommand="tidyHideValidator();" modifiers="accel"/>
+</keyset>
+
+<window id="main-window"
+        onload="onLoadTidyViewSource();"
+>
+  <commandset id="mainCommandSet">
+    <command id="cmd_selectAll" oncommand="oTidyViewSource.selectAll()"/>
+  </commandset>
+
+  <stringbundleset id="tidy.stringbundleset">
+    <stringbundle id="tidy.string.bundle" src="chrome://tidy/locale/tidy.properties"/>
+  </stringbundleset>
+  
+  <vbox id="appcontent" style="height: 580px;"/>
+
+  <splitter id="tidy-splitter" orient="vertical" insertafter="appcontent"/>
+  
+  <vbox flex="1" id="tidy-view_source-box" insertbefore="status-bar" style="height: 320px;">
+    <hbox flex="1">
+      <vbox flex="1" style="min-width: 100px;">
+
+        <menupopup id="tidyTreeContextMenu">
+          <menuitem id="tidy-view_source-tree-copy" label="&tidy.menu.copy.label;" oncommand="oTidyViewSource.onTreeCopy();"/>
+          <menuitem id="tidy-view_source-tree-selectall" label="&tidy.menu.selectall.label;" oncommand="oTidyViewSource.onTreeSelectAll();"/>
+          <menuseparator/>
+          <menuitem id="tidy-view_source-tree-hide" label="&tidy.view_source.tree.hide;" oncommand="oTidyViewSource.onTreeHide();"/>
+        </menupopup>
+
+        <tree id="tidy-view_source-tree" flex="1" seltype="multiple"
+              hidecolumnpicker="true" context="headerinfo-context"
+              onselect="oTidyViewSource.onSelect();"
+              style="margin: 0px;">
+          <treecols>
+            <treecol label="&tidy.tree.type;" id="col_icon" persist="hidden width" style="width: 82px;"/>
+            <splitter class="tree-splitter" />
+            <treecol label="&tidy.tree.line;" id="col_line" persist="hidden width" style="width: 65px;"/>
+            <splitter class="tree-splitter" />
+            <treecol label="&tidy.tree.column;" id="col_column" persist="hidden width" style="width: 65px;"/>
+            <splitter class="tree-splitter" />
+            <treecol label="&tidy.tree.header;" id="col_data" persist="hidden width" flex="1" primary="true" style="width: 290px;" />
+          </treecols>
+          <treechildren flex="1" contextmenu="tidyTreeContextMenu"/>
+        </tree>
+        <scrollbar id="tidy-view_source-tree-scroll" curpos="0" maxpos="0" pageincrement="0" 
+                     orient="horizontal" />
+      </vbox>                    
+      
+      <splitter orient="horizontal"/>
+
+      <vbox flex="1">
+        <toolbox id="tidy-toolbar">
+          <toolbar align="center">
+            <label control="tidy-explain-error-label" value="&tidy-explain-error-label;"/>
+            <spacer flex="1"/>
+            <toolbarbutton label="Htmlpedia..." id="tidy-htmlpedia-button" oncommand="tidyHtmlPedia();"/>
+            <toolbarbutton label="&tidy.view_source.button.online;" id="tidy-online-button" oncommand="tidyOnline();" hidden="true"/>
+            <toolbarbutton label="&tidy.view_source.button.cleanup;" id="tidy-cleanup-button" oncommand="tidyCleanup();"/>          
+            <toolbarbutton label="&tidy.view_source.button.options;" id="tidy-options-button" oncommand="tidyOptions();"/>
+            <toolbarbutton class="tabs-closebutton" tooltiptext="&tidy.close.tooltip;" oncommand="tidyHideValidator();"/>             
+          </toolbar>
+        </toolbox>
+  
+        <browser id="tidy-explain-error" name="tidy-explain-error" 
+             src="chrome://tidy/content/help/tidy_blank.html" flex="1"
+             disablehistory="true" disablesecurity="true"
+             onclick="return tidyExplainErrorOnClick(event);"
+        />             
+      </vbox>
+    </hbox>
+  </vbox>
+</window>
+
+<window id="viewSource"
+        onload="onLoadTidyViewSource();"
+>
+  <commandset id="mainCommandSet">
+    <command id="cmd_selectAll" oncommand="oTidyViewSource.selectAll()"/>
+  </commandset>
+  <commandset id="editMenuCommands">
+    <command id="cmd_selectAll" oncommand="oTidyViewSource.selectAll()"/>
+  </commandset>
+  
+  <stringbundleset id="tidy.stringbundleset">
+    <stringbundle id="tidy.string.bundle" src="chrome://tidy/locale/tidy.properties"/>
+  </stringbundleset>
+  
+  <browser id="appcontent" style="height: 580px;"/>
+
+  <splitter id="tidy-splitter" orient="vertical" insertafter="appcontent"/>
+  
+  <vbox flex="1" id="tidy-view_source-box" insertbefore="status-bar" style="height: 320px;">
+    <hbox flex="1">
+      <vbox flex="1" style="min-width: 100px;">
+
+        <menupopup id="tidyTreeContextMenu">
+          <menuitem id="tidy-view_source-tree-copy" label="&tidy.menu.copy.label;" oncommand="oTidyViewSource.onTreeCopy();"/>
+          <menuitem id="tidy-view_source-tree-selectall" label="&tidy.menu.selectall.label;" oncommand="oTidyViewSource.onTreeSelectAll();"/>
+          <menuseparator/>
+          <menuitem id="tidy-view_source-tree-hide" label="&tidy.view_source.tree.hide;" oncommand="oTidyViewSource.onTreeHide();"/>
+        </menupopup>
+
+        <tree id="tidy-view_source-tree" flex="1" seltype="multiple"
+              hidecolumnpicker="true" context="headerinfo-context"
+              onselect="oTidyViewSource.onSelect();"
+              style="margin: 0px;">
+          <treecols>
+            <treecol label="&tidy.tree.type;" id="col_icon" persist="hidden width" style="width: 82px;"/>
+            <splitter class="tree-splitter" />
+            <treecol label="&tidy.tree.line;" id="col_line" persist="hidden width" style="width: 65px;"/>
+            <splitter class="tree-splitter" />
+            <treecol label="&tidy.tree.column;" id="col_column" persist="hidden width" style="width: 65px;"/>
+            <splitter class="tree-splitter" />
+            <treecol label="&tidy.tree.header;" id="col_data" persist="hidden width" flex="1" primary="true" style="width: 290px;" />
+          </treecols>
+          <treechildren flex="1" contextmenu="tidyTreeContextMenu"/>
+        </tree>
+        <scrollbar id="tidy-view_source-tree-scroll" curpos="0" maxpos="0" pageincrement="0" 
+                     orient="horizontal" />
+      </vbox>                    
+      
+      <splitter orient="horizontal"/>
+
+      <vbox flex="1">
+        <toolbox id="tidy-toolbar">
+          <toolbar align="center">
+            <label control="tidy-explain-error-label" value="&tidy-explain-error-label;"/>
+            <spacer flex="1"/>
+            <toolbarbutton label="Htmlpedia..." id="tidy-htmlpedia-button" oncommand="tidyHtmlPedia();"/>
+            <toolbarbutton label="&tidy.view_source.button.online;" id="tidy-online-button" oncommand="tidyOnline();" hidden="true"/>
+            <toolbarbutton label="&tidy.view_source.button.cleanup;" id="tidy-cleanup-button" oncommand="tidyCleanup();"/>          
+            <toolbarbutton label="&tidy.view_source.button.options;" id="tidy-options-button" oncommand="tidyOptions();"/>
+            <toolbarbutton class="tabs-closebutton" tooltiptext="&tidy.close.tooltip;" oncommand="tidyHideValidator();"/>             
+          </toolbar>
+        </toolbox>
+  
+        <browser id="tidy-explain-error" name="tidy-explain-error" flex="1"
+             disablehistory="true" disablesecurity="true"
+             onclick="return tidyExplainErrorOnClick(event);"
+        />             
+      </vbox>
+    </hbox>
+  </vbox>
+</window>
+
+</overlay>

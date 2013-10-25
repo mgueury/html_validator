@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Tidy 3 - Htmlpedia</title>
+    <link rel="stylesheet" type="text/css" href="tidy_help2.css" media="screen, projection"/>
+  </head>
+<body>
+  <div id="bodyContent">
+<h2> unescaped &amp; or unknown entity "&amp;..." </h2>
+<h3> Cause 1: </h3>
+<p>An ampersand was used on its own where the entity "&amp;amp;" should have been used, causing web browsers to think you were referring to an <a href="http://www.w3.org/TR/html4/sgml/entities.html#h-24.2.1">entity</a> beginning with whatever letters comes after the lone "&amp;".
+</p>
+<h3> Example: </h3>
+<p>Very often this is due to a link defined like this:
+</p>
+<table class='bad' title='Bad'><tr><td width='22' valign='top'><img src='../../../skin/error.png' alt='Good'/></td><td>&lt;a href="http://www.example.com/cgi?x=123&amp;y=456"&gt;</td></tr></table> 
+<table class='good' title='Good'><tr><td width='22' valign='top'><img src='../../../skin/good.png' alt='Good'/></td><td>&lt;a href="http://www.example.com/cgi?x=123&amp;amp;y=456"&gt;</td></tr></table>
+<p>All special characters in HREF should be encoded. "&amp;" is a reserved character that begins an <a href="http://www.w3.org/TR/html4/sgml/entities.html#h-24.2.1">entity</a>. (ex: &amp;nbsp;).  "&amp;" in an HREF field should be encoded as its equivalent entity "&amp;amp;", even when used as a separator for parameters in the URL. Before you make an opinion about this, please read this <a href="http://ppewww.ph.gla.ac.uk/%7Eflavell/www/formgetbyurl.html">page</a> carefully.
+</p>
+<h3> Solution: </h3>
+<p>Replace "&amp;" with "&amp;amp;".
+</p>
+<h3> References: </h3>
+<ul><li> W3C spec:  <a href="http://www.w3.org/TR/html4/appendix/notes.html#h-B.2.2">http://www.w3.org/TR/html4/appendix/notes.html#h-B.2.2</a>
+</li><li> W3C CDATA: <a href="http://www.w3.org/TR/html4/types.html#type-cdata">http://www.w3.org/TR/html4/types.html#type-cdata</a>
+</li><li> HtmlHelp: <a href="http://www.htmlhelp.com/tools/validator/problems.html#amp">http://www.htmlhelp.com/tools/validator/problems.html#amp</a>
+</li><li> Very interesting: <a href="http://www.htmlpedia.org/wiki/FormSubmissionByURL">FormSubmissionByURL</a>
+</li></ul>
+<h3> Cause 2: </h3>
+<p>You misspelled the name of a character <a href="http://www.w3.org/TR/html4/sgml/entities.html#h-24.2.1">entity</a> (a string beginning with "&amp;").
+</p>
+<h3> Example: </h3>
+<table class='bad' title='Bad'><tr><td width='22' valign='top'><img src='../../../skin/error.png' alt='Good'/></td><td>&amp;Arin;rhus University</td></tr></table> 
+<table class='good' title='Good'><tr><td width='22' valign='top'><img src='../../../skin/good.png' alt='Good'/></td><td>&amp;Aring;rhus University</td></tr></table>
+<h3> Solution: </h3>
+<p>Fix the spelling to match one of the names listed in <a href="http://www.w3.org/TR/html4/sgml/entities.html#h-24.2.1">Chapter 24 of the HTML 4 specification</a>.
+</p>
+<h3> References: </h3>
+<ul><li> W3C spec:  <a href="http://www.w3.org/TR/html4/sgml/entities.html#h-24.2.1">http://www.w3.org/TR/html4/sgml/entities.html#h-24.2.1</a>
+</li></ul>
+<h3> Cause 3: </h3>
+<p>(Error message is Tidy: unescaped &amp; or unknown entity "&amp;#...", where ... are digits or "x" followed by hex digits).
+</p><p>Tidy does not always recognize valid <a href="http://www.unicode.org|unicode">numeric character entities</a>.
+</p><p>This is a bug in Tidy and should be ignored.
+</p>
+<h3> Example: </h3>
+<p>This incorrect error occurs in cases such as the following, <b>all 3 examples are correct HTML, tidy is just wrong</b>:
+</p>
+<table class='bad' title='Bad'><tr><td width='22' valign='top'><img src='../../../skin/error.png' alt='Good'/></td><td>Just my &amp;#8364;0.02 (2 Eurocents)</td></tr></table> 
+<table class='bad' title='Bad'><tr><td width='22' valign='top'><img src='../../../skin/error.png' alt='Good'/></td><td>Just my &amp;#x20AC;0.02 (2 Eurocents)</td></tr></table> 
+<table class='good' title='Good'><tr><td width='22' valign='top'><img src='../../../skin/good.png' alt='Good'/></td><td>Just my $0.02 (2 dollar-cents)</td></tr></table>
+<h3> Solution: </h3>
+<p>Ignore the error message and hope someone fixes the bug in HTML tidy.
+</p>
+<h3> References: </h3>
+<ul><li> W3C spec:  <a href="http://www.w3.org/TR/html4/charset.html#h-5.3.1">http://www.w3.org/TR/html4/charset.html#h-5.3.1</a>
+</li></ul>
+  </div>
+</body>
+</html>

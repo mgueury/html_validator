@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Tidy 25 - Htmlpedia</title>
+    <link rel="stylesheet" type="text/css" href="tidy_help2.css" media="screen, projection"/>
+  </head>
+<body>
+  <div id="bodyContent">
+<h2> ... shouldn't be nested </h2>
+<h3> Cause: </h3>
+<p>Some tags can not be contained in themselves. For example, a FORM tag within a FORM tag.
+This message can also appear due to previous errors in the order of tags.
+</p>
+<h3> Example: </h3>
+<table class='bad' title='Bad'><tr><td width='22' valign='top'><img src='../../../skin/error.png' alt='Good'/></td><td>
+<p>&lt;form action="action.jsp" name="form"&gt;<br/>
+&lt;form action="action2.jsp" name="form2"&gt;<br/>
+&lt;/form&gt;<br/>
+&lt;/form&gt;
+</p>
+</td></tr></table>
+<table class='good' title='Good'><tr><td width='22' valign='top'><img src='../../../skin/good.png' alt='Good'/></td><td>
+<p>&lt;form action="action.jsp" name="form"&gt;<br/>
+&lt;/form&gt;<br/>
+&lt;form action="action2.jsp" name="form2"&gt;<br/>
+&lt;/form&gt;
+</p>
+</td></tr></table>
+<h3> Solution: </h3>
+<p>Remove the nesting of tags or correct the previous errors.
+</p>
+<h3> References: </h3>
+<ul><li> HTML specification: <a href="http://www.w3.org/TR/html4/">http://www.w3.org/TR/html4/</a>
+</li></ul>
+  </div>
+</body>
+</html>

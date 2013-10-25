@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Sp 46 - Htmlpedia</title>
+    <link rel="stylesheet" type="text/css" href="tidy_help2.css" media="screen, projection"/>
+  </head>
+  <body>
+    <div id="bodyContent">
+      <h2>Sp 46&nbsp;: caractère interdit dans le prologue</h2>
+      <h3> Cause&nbsp;: </h3>
+      <p>Des données ou une entité malformée se trouve dans le prologue. Le prologue est ce qui vient avant la déclaration du type de document.
+      </p>
+      <h3> Exemple&nbsp;: </h3>
+        <table class='bad' title='Bad'>
+          <tr>
+            <td width='22' valign='top'>
+              <img src='../../../skin/error.png' alt='Error'/>
+            </td>
+            <td>
+              <code>
+                Du texte dans le prologue&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;
+              </code>
+            </td>
+          </tr>
+        </table>
+        <table class='good' title='Good'>
+          <tr>
+            <td width='22' valign='top'>
+              <img src='../../../skin/good.png' alt='Good'/>
+            </td>
+            <td>
+              <code>
+                &lt;!-- Comments and whitespace are okay. --&gt;<br />
+                &lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;                
+              </code>
+            </td>            
+          </tr>
+        </table>
+        <table class='good' title='Good'>
+          <tr>
+            <td width='22' valign='top'>
+              <img src='../../../skin/good.png' alt='Good'/>
+            </td>
+            <td>
+              <code>
+                &lt;?xml version="1.0" encoding="UTF-8"?&gt;<br />
+                &lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;                
+              </code>
+            </td>            
+          </tr>
+        </table>
+
+      <h3> Solution&nbsp;: </h3>
+      <p>Retirez le prologue.<br />
+      En général il ne doit rien y avoir dans le prologue. Il y a cependant trois exceptions possibles&nbsp;:      
+      </p>
+      <ul><li>les espaces sont autorisés.</li>
+      <li>les commentaires HTML sont autorisés.</li>
+      <li>la déclaration XML de type de document peut précéder celle de type de document HTML.</li></ul>
+      <p>Il est préférable de ne rien placer dans le prologue à cause de certains bugs d'Internet Explorer&nbsp;: <p>
+      <ul><li>S'il y a des caractères dans le prologue, Internet Explorer restitue la page en <a href="/w/index.php?title=Quirks_Mode&amp;action=edit" class="new">Mode Quirks</a> ce qui va changer l'apparance de la page.</li>
+      <li>Si le serveur web envoie <code>Content-Type: application/xhtml+html</code> à Internet Explorer, alors Internet Explorer n'affichera pas du tout la page.</li>
+      <li>Un cas particulier est le bug de <a href="http://en.wikipedia.org/wiki/Byte_Order_Mark">"Byte Order Mark"</a>
+      
+      <h3> Références&nbsp;: </h3>
+      <ul>
+        <li> W3 validator: <a href="http://validator.w3.org/">http://validator.w3.org/</a>
+        </li>
+      </ul>
+      <p>.
+      </p>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Tidy 61 - Htmlpedia</title>
+    <link rel="stylesheet" type="text/css" href="tidy_help2.css" media="screen, projection"/>
+  </head>
+<body>
+  <div id="bodyContent">
+<h2>Tidy: URI reference contains backslash. Typo?</h2>
+<h3>Cause:</h3>
+<p>There is a backslash in a URI.
+</p><p>Although backslashes are acceptable in theory within URLs, in practice they are usually due to following the Windows custom of using backslashes as path separators instead of using forward slashes (the accepted path separator in a URI), or the Unix custom of escaping special characters by backslashes, instead of using percent-escaping (the accepted URI format).
+</p>
+<h3>Example:</h3>
+<table class='bad' title='Bad'><tr><td width='22' valign='top'><img src='../../../skin/error.png' alt='Good'/></td><td>&lt;img src="http:\\www.example.com\some\path\foobar.jpg"></td></tr></table>
+<table class='good' title='Good'><tr><td width='22' valign='top'><img src='../../../skin/good.png' alt='Good'/></td><td>&lt;img src="http://www.example.com/some/path/foobar.jpg"></td></tr></table>
+<dl><dd>
+</dd></dl>
+<table class='bad' title='Bad'><tr><td width='22' valign='top'><img src='../../../skin/error.png' alt='Good'/></td><td>&lt;a href="http://www.example.com/some/file with back\slash.html"></td></tr></table>
+<table class='good' title='Good'><tr><td width='22' valign='top'><img src='../../../skin/good.png' alt='Good'/></td><td>&lt;a href="http://www.example.com/some/file%20with%20back%5Cslash.html"></td></tr></table>
+<dl><dd>
+</dd></dl>
+<table class='bad' title='Bad'><tr><td width='22' valign='top'><img src='../../../skin/error.png' alt='Good'/></td><td>&lt;a href="http://www.example.com/path\ with\ spaces\ and\ \"quotes\".html"></td></tr></table>
+<table class='good' title='Good'><tr><td width='22' valign='top'><img src='../../../skin/good.png' alt='Good'/></td><td>&lt;a href="http://www.example.com/path%20with%20spaces%20and%20%22quotes%22.html"></td></tr></table>
+<dl><dd>
+</dd></dl>
+<table class='good' title='Good'><tr><td width='22' valign='top'><img src='../../../skin/good.png' alt='Good'/></td><td>&lt;a href="http://www.example.org/Trade%20marks%C2%AE%20and%20%C2%A9%20Copyrights.html"></td></tr></table>
+<h3>Solution:</h3>
+<ul><li> Make sure that only <b>forward</b> slashes are used as path separators in URIs
+</li><li> Special characters (normally not accepted in a URI) can be represented by their hex value preceded by a percent sign
+</li><li> As shown in the (somewhat contrived) last example above, for characters above 127 the <b>UTF-8 representation</b> is percent-escaped one byte at a time.
+</li></ul>
+  </div>
+</body>
+</html>

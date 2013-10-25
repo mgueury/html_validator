@@ -1,0 +1,138 @@
+<!ENTITY tidy.help.title "Справка по HTML Validator">
+<!ENTITY tidy.help.visit "посетите домашнюю страницу">
+<!ENTITY tidy.help.version "Версия">
+<!ENTITY tidy.help.homepage_desc "Для получения более подробной информации о расширении">
+<!ENTITY tidy.help.homepage "Домашняя страница">
+<!ENTITY tidy.help.userguide "Руководство пользователя">
+<!ENTITY tidy.help.htmlpedia_desc "Если вы хотите улучшить помощь по расширению, воспользуйтесь Htmlpedia.">
+<!ENTITY tidy.help.htmlpedia "Вики веб-сайт">
+<!ENTITY tidy.help.htmlpedia_howto "Как редактировать страницу">
+<!ENTITY tidy.help.mailing_list "Список рассылок">
+<!ENTITY tidy.help.mailing_list_subscription "Подписка не требуется">
+<!ENTITY tidy.help.archive "Архив">
+<!ENTITY tidy.help.author "Автор">
+<!ENTITY tidy.help.donate "Пожертвовать">
+<!ENTITY tidy.help.donation "Пожертвования">
+<!ENTITY tidy.help.donation_text "Ваши пожертвования позволяют мне продолжать работать.">
+<!ENTITY tidy.browser.toolsmenu "Настройки Html Validator...">
+<!ENTITY tidy.browser.menu.option "Настройки...">
+<!ENTITY tidy.browser.menu.show "Показать">
+<!ENTITY tidy.browser.menu.disable "Отключить">
+<!ENTITY tidy.browser.menu.enable "Включить">
+<!ENTITY tidy.browser.menu.html_clipboard "Копировать HTML в буфер обмена">
+<!ENTITY tidy.browser.menu.error_clipboard "Копировать ошибки в буфер обмена">
+<!ENTITY tidy.browser.menu.cleanup "Очистка...">
+<!ENTITY tidy.browser.menu.view_source "Исходный код...">
+<!ENTITY tidy.browser.menu.about "Помощь...">
+<!ENTITY tidy.browser.menu.innerHTML "Проверить сейчас (проверить HTML после выполнения JavaScript)">
+<!ENTITY tidy.browser.menu.advanced "Дополнительно">
+<!ENTITY tidy.browser.menu.online.html "Онлайн W3c проверка HTML...">
+<!ENTITY tidy.browser.menu.online.css "Онлайн W3c проверка CSS...">
+<!ENTITY tidy.cleanup.title "Очистка страницы">
+<!ENTITY tidy.cleanup.tab.clean.source "Очищенный HTML">
+<!ENTITY tidy.cleanup.tab.orig.source "Оригинальный HTML">
+<!ENTITY tidy.cleanup.tab.clean.page "Очищенный вид">
+<!ENTITY tidy.cleanup.tab.orig.page "Исходный вид">
+<!ENTITY tidy.choose_source.title ".">
+<!ENTITY tidy.choose_source.caption "Выберите страницу или один из её фреймов.">
+<!ENTITY tidy.window.title "Проверить HTML">
+<!ENTITY tidy.tree.header "HTML ошибки и предупреждения">
+<!ENTITY tidy.tree.type "Тип">
+<!ENTITY tidy.tree.line "Строка">
+<!ENTITY tidy.tree.column "Столбец">
+<!ENTITY tidy.view_source.button.cleanup "Очистить страницу...">
+<!ENTITY tidy.view_source.button.options "Настройки...">
+<!ENTITY tidy.view_source.button.online "Интерактивная W3C проверка...">
+<!ENTITY tidy.view_source.tree.hide "Скрыть...">
+<!ENTITY tidy.view_source.menu "Html Validator">
+<!ENTITY tidy.view_source.accesskey "H">
+<!ENTITY tidy-explain-error-label "Помощь">
+<!ENTITY tidy.close.tooltip "Закрыть HTML Validator">
+<!ENTITY tidy.button.ok "ОК">
+<!ENTITY tidy.button.cancel "Отмена">
+<!ENTITY tidy.button.refresh "Обновить">
+<!ENTITY tidy.options.title "Настройки Html Validator">
+<!ENTITY tidy.options.general "Основные">
+<!ENTITY tidy.options.browser "Браузер">
+<!ENTITY tidy.options.viewsource "Исходный код">
+<!ENTITY tidy.options.filter "Фильтр">
+<!ENTITY tidy.options.group.format "Настройки: формат вывода">
+<!ENTITY tidy.options.group.layout "Настройки: формат страницы">
+<!ENTITY tidy.options.viewsource_enable "Разрешить проверку в окне просмотра исходного кода">
+<!ENTITY tidy.links.title "Проверка ссылок">
+<!ENTITY tidy.options.indent "Отступ для содержимого элементов">
+<!ENTITY tidy.options.indent-spaces "Количество отступов">
+<!ENTITY tidy.options.uppercase-tags "Преобразовать теги в верхний регистр">
+<!ENTITY tidy.options.uppercase-attributes "Преобразовать атрибуты в верхний регистр">
+<!ENTITY tidy.options.wrap "Переходить на новую строку после">
+<!ENTITY tidy.options.wrap2 "символов">
+<!ENTITY tidy.options.clean "Использовать CSS вместо тегов FONT, ...">
+<!ENTITY tidy.options.output-encoding "Кодировка">
+<!ENTITY tidy.options.doctype "Doctype">
+<!ENTITY tidy.options.highlight_line "Подсвечивать строки с ошибками">
+<!ENTITY tidy.options.show_line_number "Показывать номера строк">
+<!ENTITY tidy.options.dbclick_action_label "Двойной щелчок на иконке открывает:">
+<!ENTITY tidy.options.accessibility-check "Уровень доступности">
+<!ENTITY tidy.options.accessibility-check_none "—">
+<!ENTITY tidy.options.accessibility-check_0 "нормальный">
+<!ENTITY tidy.options.accessibility-check_1 "1">
+<!ENTITY tidy.options.accessibility-check_2 "2">
+<!ENTITY tidy.options.accessibility-check_3 "3">
+<!ENTITY tidy.options.force_output "Выходной формат">
+<!ENTITY tidy.options.none "—">
+<!ENTITY tidy.options.output-html "HTML">
+<!ENTITY tidy.options.output-xhtml "XHTML">
+<!ENTITY tidy.options.show-warnings "Показывать предупреждения">
+<!ENTITY tidy.options.browser_enable "Разрешить проверку в браузере">
+<!ENTITY tidy.options.perm_list "Исключения...">
+<!ENTITY tidy.options.browser_hide "Скрыть значок">
+<!ENTITY tidy.options.browser_icon_label "Показывать в строке состояния">
+<!ENTITY tidy.options.icon_text "Значок и текст">
+<!ENTITY tidy.options.icon_only "Только значок">
+<!ENTITY tidy.options.filter.hide.header "Скрытые ошибки и предупреждения">
+<!ENTITY tidy.options.filter.remove "Удалить">
+<!ENTITY tidy.options.filter.hint "Подсказка: для того, чтобы скрыть сообщение, нажмите правой кнопкой на сообщении и выберите «Скрыть...».">
+<!ENTITY tidy.options.algorithm_label "Алгоритм">
+<!ENTITY tidy.options.algorithm_tidy "HTML Tidy">
+<!ENTITY tidy.options.algorithm_sp "SGML Parser">
+<!ENTITY tidy.options.algorithm_serial "Serial">
+<!ENTITY tidy.options.welcome "Выбрать...">
+<!ENTITY tidy.hide.label "Разрешить проверку в окне просмотра исходного кода">
+<!ENTITY tidy.hide.accesskey "е">
+<!ENTITY tidy.hide.commandkey "е">
+<!ENTITY tidy.show_line_number.label "Показывать номера строк">
+<!ENTITY tidy.show_line_number.accesskey "а">
+<!ENTITY tidy.show_line_number.commandkey "а">
+<!ENTITY tidy.menu.copy.label "Копировать">
+<!ENTITY tidy.menu.copy.accesskey "о">
+<!ENTITY tidy.menu.copy.key "о">
+<!ENTITY tidy.menu.selectall.label "Выделить всё">
+<!ENTITY tidy.menu.selectall.accesskey "и">
+<!ENTITY tidy.menu.selectall.key "и">
+<!ENTITY tidy.translator "">
+<!ENTITY tidy.translator.url "">
+<!ENTITY tidy.welcome.title "HTML Validator: Выберите алгоритм">
+<!ENTITY tidy.welcome.h2 "HTML Validator: Добро пожаловать">
+<!ENTITY tidy.welcome.h3 "Выберите алгоритм">
+<!ENTITY tidy.welcome.t1 "W3C создал 2 программных алгоритма для проверки кода HTML страницы на соответствие стандартам.">
+<!ENTITY tidy.welcome.t2 "HTML Validator может использовать оба алгоритма. У каждого есть свои достоинства и недостатки.">
+<!ENTITY tidy.welcome.t3 "Для получения более подробной информации ознакомьтесь с руководством пользователя.">
+<!ENTITY tidy.welcome.desc "Описание">
+<!ENTITY tidy.welcome.desc_tidy "Это алгоритм, предназначенный для проверки синтаксиса HTML и XHTML.">
+<!ENTITY tidy.welcome.desc_sp "Это тот же алгоритм (OpenSP), что используется и на validator.w3.org. Данный алгоритм проверяет SGML, основываясь на DTD.">
+<!ENTITY tidy.welcome.desc_serial "Алгоритмы запускаются один за другим: <html:br/>(1) SGML Parser.<html:br/>(2) Затем, если ошибок не обнаружено, HTML Tidy">
+<!ENTITY tidy.welcome.better_for "Лучше для">
+<!ENTITY tidy.welcome.access "Проверка доступности">
+<!ENTITY tidy.welcome.wai123 "Уровни WAI 1,2,3">
+<!ENTITY tidy.welcome.cleanup "Очищенная страница">
+<!ENTITY tidy.welcome.good_help "Хорошая справка">
+<!ENTITY tidy.welcome.clear_error "Очистить сообщения об ошибках">
+<!ENTITY tidy.welcome.w3_validator "Ошибки, аналогичные выдаваемым validator.w3.org">
+<!ENTITY tidy.welcome.target "Целевая аудитория">
+<!ENTITY tidy.welcome.target_all "Все">
+<!ENTITY tidy.welcome.target_prof "Профессионалы">
+<!ENTITY tidy.yes "Да">
+<!ENTITY tidy.no "Нет">
+<!ENTITY tidy.todo "Нет (планируется)">
+<!ENTITY tidy.options.algorithm_online "Online">
+<!ENTITY tidy.options.algorithm_cse "CSE HTML Validator">

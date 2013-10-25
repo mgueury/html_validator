@@ -1,0 +1,11 @@
+GIT
+---
+cd \my_prog\mozilla\src\tidy_jsc\html_validator
+git config --global user.name "mgueury"
+git config --global user.email "mgueury@skynet.be"
+
+git init
+git add build*
+
+
+git commit -m "0.959" 

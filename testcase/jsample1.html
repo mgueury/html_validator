@@ -1,0 +1,29 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>JSample1</title>
+</head>
+<body>
+Sample 1: DOM createElement / appendChild<br>
+<script type="text/javascript">
+
+var doc = window.content.document;
+var body = doc.body;
+
+body.appendChild( doc.createElement("br") );
+var center = doc.createElement("center");
+var div = doc.createElement("div");
+div.setAttribute("style", "width: 400px; background-color: #eee; border: solid 1px;");
+div.appendChild( doc.createElement("br") );
+div.appendChild( doc.createTextNode("Contacting the W3C Markup Validation Service"));
+div.appendChild( doc.createElement("br") );
+div.appendChild( doc.createTextNode("Please wait"));
+div.appendChild( doc.createElement("br") );
+div.appendChild( doc.createElement("br") );
+center.appendChild( div );
+body.appendChild( center );
+
+</script>
+
+</body>
+</html>

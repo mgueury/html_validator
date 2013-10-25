@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Sp 63 - Htmlpedia</title>
+    <link rel="stylesheet" type="text/css" href="tidy_help2.css" media="screen, projection"/>
+  </head>
+<body>
+  <div id="bodyContent">
+<h2> Character data is not allowed here </h2>
+<h3> Cause: </h3>
+<p>You have used character data somewhere it is not permitted to appear.
+Mistakes that can cause this error include putting text directly in the
+body of the document without wrapping it in a container element (such as
+a &lt;p&gt;aragraph&lt;/p&gt;) or forgetting to quote an attribute value
+(where characters such as "%" and "/" are common, but cannot appear
+without surrounding quotes).
+</p>
+<h3> Example: </h3>
+<table class='bad' title='Bad'><tr><td width='22' valign='top'><img src='../../../skin/error.png' alt='Good'/></td><td>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"&gt;<br />
+<p>&lt;html&gt;<br />
+&lt;head&gt;&lt;title&gt;Sample&lt;/title&gt;&lt;/head&gt;<br />
+&lt;body&gt;<br />
+hello &lt;a href="test.html"&gt;world&lt;/a&gt;<br />
+&lt;/body&gt;<br />
+&lt;/html&gt;
+</p>
+</td></tr></table>
+<table class='good' title='Good'><tr><td width='22' valign='top'><img src='../../../skin/good.png' alt='Good'/></td><td>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"&gt;<br />
+<p>&lt;html&gt;<br />
+&lt;head&gt;&lt;title&gt;Sample&lt;/title&gt;&lt;/head&gt;<br />
+&lt;body&gt;<br />
+&lt;p&gt;hello &lt;a href="test.html"&gt;world&lt;/a&gt;&lt;/p&gt;<br />
+&lt;/body&gt;<br />
+&lt;/html&gt;
+</p>
+</td></tr></table>
+<h3> Solution: </h3>
+<p>Add a paragraph &lt;p&gt; or set the <a href="http://www.htmlpedia.org/wiki/Doctype">doctype</a> to transitional.
+</p>
+<h3> References: </h3>
+<ul><li> W3 validator: <a href="http://validator.w3.org/">http://validator.w3.org/</a>
+</li></ul>
+  </div>
+</body>
+</html>

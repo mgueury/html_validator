@@ -1,0 +1,138 @@
+<!ENTITY tidy.help.title "도움말 - HTML 검증기">
+<!ENTITY tidy.help.visit "홈페이지 방문">
+<!ENTITY tidy.help.version "버전">
+<!ENTITY tidy.help.homepage_desc "확장기능에 대한 추가 정보">
+<!ENTITY tidy.help.homepage "홈페이지">
+<!ENTITY tidy.help.userguide "사용자 설명문">
+<!ENTITY tidy.help.htmlpedia_desc "확장기능의 도움말을 개선하는데 관심이 있다면, Htmlpedia를 통해 수정할 수 있습니다.">
+<!ENTITY tidy.help.htmlpedia "Wiki 웹사이트">
+<!ENTITY tidy.help.htmlpedia_howto "어떻게 페이지를 수정할까">
+<!ENTITY tidy.help.mailing_list "메일링 리스트">
+<!ENTITY tidy.help.mailing_list_subscription "신청이 필요하지 않음">
+<!ENTITY tidy.help.archive "아카이브">
+<!ENTITY tidy.help.author "저자">
+<!ENTITY tidy.help.donate "기부하기">
+<!ENTITY tidy.help.donation "기부자">
+<!ENTITY tidy.help.donation_text "당신의 기부가 나의 작업을 계속하게 할 것입니다.">
+<!ENTITY tidy.browser.toolsmenu "Html 검증기 선택사항…">
+<!ENTITY tidy.browser.menu.option "선택사항…">
+<!ENTITY tidy.browser.menu.show "표시">
+<!ENTITY tidy.browser.menu.disable "사용안함">
+<!ENTITY tidy.browser.menu.enable "사용함">
+<!ENTITY tidy.browser.menu.html_clipboard "클립보드로 HTML 복사">
+<!ENTITY tidy.browser.menu.error_clipboard "클립보드로 오류 복사">
+<!ENTITY tidy.browser.menu.cleanup "청소...">
+<!ENTITY tidy.browser.menu.view_source "페이지 소스...">
+<!ENTITY tidy.browser.menu.about "도움말...">
+<!ENTITY tidy.browser.menu.innerHTML "지금 검증(HTML 본문 뒤 JavaScript 제외)...">
+<!ENTITY tidy.browser.menu.advanced "고급">
+<!ENTITY tidy.browser.menu.online.html "온라인 W3C HTML 검증기...">
+<!ENTITY tidy.browser.menu.online.css "온라인 W3C CSS 검증기...">
+<!ENTITY tidy.cleanup.title "페이지 청소">
+<!ENTITY tidy.cleanup.tab.clean.source "정리된 HTML">
+<!ENTITY tidy.cleanup.tab.orig.source "원본 HTML">
+<!ENTITY tidy.cleanup.tab.clean.page "정리된 브라우저">
+<!ENTITY tidy.cleanup.tab.orig.page "원본 브라우저">
+<!ENTITY tidy.choose_source.title ".">
+<!ENTITY tidy.choose_source.caption "페이지나 이 페이지의 frames/iframe 중 하나를 선택">
+<!ENTITY tidy.window.title "Html 검증">
+<!ENTITY tidy.tree.header "HTML 오류 및 경고">
+<!ENTITY tidy.tree.type "형식">
+<!ENTITY tidy.tree.line "행">
+<!ENTITY tidy.tree.column "열">
+<!ENTITY tidy.view_source.button.cleanup "페이지 청소...">
+<!ENTITY tidy.view_source.button.options "선택사항...">
+<!ENTITY tidy.view_source.button.online "W3C 온라인 검증...">
+<!ENTITY tidy.view_source.tree.hide "감추기...">
+<!ENTITY tidy.view_source.menu "Html 검증기">
+<!ENTITY tidy.view_source.accesskey "H">
+<!ENTITY tidy-explain-error-label "도움말">
+<!ENTITY tidy.close.tooltip "HTML 검증기 닫기">
+<!ENTITY tidy.button.ok "확인">
+<!ENTITY tidy.button.cancel "취소">
+<!ENTITY tidy.button.refresh "새로고침">
+<!ENTITY tidy.options.title "Html 검증기 선택사항">
+<!ENTITY tidy.options.general "일반">
+<!ENTITY tidy.options.browser "브라우저">
+<!ENTITY tidy.options.viewsource "소스 보기">
+<!ENTITY tidy.options.filter "필터">
+<!ENTITY tidy.options.group.format "선택사항:형식">
+<!ENTITY tidy.options.group.layout "선택사항:배치">
+<!ENTITY tidy.options.viewsource_enable "소스 보기내 검증기능 사용">
+<!ENTITY tidy.links.title "링크 검증">
+<!ENTITY tidy.options.indent "컨덴츠 요소에 들여쓰기 사용">
+<!ENTITY tidy.options.indent-spaces "들여쓰기 여백">
+<!ENTITY tidy.options.uppercase-tags "태그를 대문자로">
+<!ENTITY tidy.options.uppercase-attributes "속성을 대문자로">
+<!ENTITY tidy.options.wrap "다음">
+<!ENTITY tidy.options.wrap2 "번 문제에서 줄 끊기">
+<!ENTITY tidy.options.clean "FONT 태그를 CSS 로 변경">
+<!ENTITY tidy.options.output-encoding "문자 인코딩">
+<!ENTITY tidy.options.doctype "문서형식">
+<!ENTITY tidy.options.highlight_line "오류가 있는 행 강조">
+<!ENTITY tidy.options.show_line_number "행 번호 표시">
+<!ENTITY tidy.options.dbclick_action_label "상태막대 아이콘 더블 클릭으로 시작:">
+<!ENTITY tidy.options.accessibility-check "접근성 (Accessibility level)">
+<!ENTITY tidy.options.accessibility-check_none "없음">
+<!ENTITY tidy.options.accessibility-check_0 "보통">
+<!ENTITY tidy.options.accessibility-check_1 "1">
+<!ENTITY tidy.options.accessibility-check_2 "2">
+<!ENTITY tidy.options.accessibility-check_3 "3">
+<!ENTITY tidy.options.force_output "다음으로 강제 출력">
+<!ENTITY tidy.options.none "-">
+<!ENTITY tidy.options.output-html "HTML">
+<!ENTITY tidy.options.output-xhtml "XHTML">
+<!ENTITY tidy.options.show-warnings "경고 표시">
+<!ENTITY tidy.options.browser_enable "브라우저내 검증기능 사용">
+<!ENTITY tidy.options.perm_list "예외목록...">
+<!ENTITY tidy.options.browser_hide "아이콘 숨기기">
+<!ENTITY tidy.options.browser_icon_label "상태막대 내 표시">
+<!ENTITY tidy.options.icon_text "아이콘 및 글자">
+<!ENTITY tidy.options.icon_only "아이콘 만">
+<!ENTITY tidy.options.filter.hide.header "에러와 경고를 숨김">
+<!ENTITY tidy.options.filter.remove "제거">
+<!ENTITY tidy.options.filter.hint "참고: 이 메세지를 숨기기 위해, 숨기기를 원하는 오류목록과 선택한 메세지을 오른쪽 클릭을 할 수 있습니다.">
+<!ENTITY tidy.options.algorithm_label "알고리즘">
+<!ENTITY tidy.options.algorithm_tidy "HTML Tidy">
+<!ENTITY tidy.options.algorithm_sp "SGML 파서">
+<!ENTITY tidy.options.algorithm_serial "병행">
+<!ENTITY tidy.options.welcome "선택...">
+<!ENTITY tidy.hide.label "소스 보기 내 검증기능 사용">
+<!ENTITY tidy.hide.accesskey "H">
+<!ENTITY tidy.hide.commandkey "u">
+<!ENTITY tidy.show_line_number.label "행 번호 표시">
+<!ENTITY tidy.show_line_number.accesskey "N">
+<!ENTITY tidy.show_line_number.commandkey "n">
+<!ENTITY tidy.menu.copy.label "복사">
+<!ENTITY tidy.menu.copy.accesskey "C">
+<!ENTITY tidy.menu.copy.key "c">
+<!ENTITY tidy.menu.selectall.label "모두 선택">
+<!ENTITY tidy.menu.selectall.accesskey "A">
+<!ENTITY tidy.menu.selectall.key "a">
+<!ENTITY tidy.translator "용오름(Wtspout)">
+<!ENTITY tidy.translator.url "Http://user.chol.com/~tornado2">
+<!ENTITY tidy.welcome.title "HTML 검증기: 알고리즘 선택">
+<!ENTITY tidy.welcome.h2 "HTML 검증기: 환영합니다">
+<!ENTITY tidy.welcome.h3 "알고리즘 선택">
+<!ENTITY tidy.welcome.t1 "W3C는 HTML 문서의 유연성을 검사하기 위하여 2개의 프로그램 알고리즘을 이용합니다.">
+<!ENTITY tidy.welcome.t2 "Firefox의 HTML 검증기에는 두 알고리즘이 모두 포함이 되어 있습니다. 둘 다 이익이 될 수도 있고, 손해가 될 수도 있습니다.">
+<!ENTITY tidy.welcome.t3 "더 많은 정보를 알고 싶다면, 사용자 안내를 읽으십시오.">
+<!ENTITY tidy.welcome.desc "설명">
+<!ENTITY tidy.welcome.desc_tidy "HTML, XHTML 문법을 검사하기 위하여 고안된 알고리즘 입니다.">
+<!ENTITY tidy.welcome.desc_sp "validator.w3.org 의 내부에서 작동하는 OpenSP 와 동일한 알고리즘으로, DTDs 기반의 SGML 파서 입니다.">
+<!ENTITY tidy.welcome.desc_serial "양쪽 모두의 알고리즘이 차례로 실행됩니다 : <html:br/>(1) SGML 파서<html:br/>(2) 오류가 없을시, HTML Tidy">
+<!ENTITY tidy.welcome.better_for "지향하는 서식">
+<!ENTITY tidy.welcome.access "접근성 검사">
+<!ENTITY tidy.welcome.wai123 "WAI level 1,2,3">
+<!ENTITY tidy.welcome.cleanup "페이지 청소">
+<!ENTITY tidy.welcome.good_help "좋은 도움말">
+<!ENTITY tidy.welcome.clear_error "모든 오류 메세지 청소">
+<!ENTITY tidy.welcome.w3_validator "validator.w3.org과 동일 오류">
+<!ENTITY tidy.welcome.target "대상">
+<!ENTITY tidy.welcome.target_all "모두">
+<!ENTITY tidy.welcome.target_prof "전문">
+<!ENTITY tidy.yes "예">
+<!ENTITY tidy.no "아니오">
+<!ENTITY tidy.todo "아니오 (Todo)">
+<!ENTITY tidy.options.algorithm_online "Online">
+<!ENTITY tidy.options.algorithm_cse "CSE HTML Validator">

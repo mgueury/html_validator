@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="en-US"><HEAD>
+<TITLE>Test: RDA Results</TITLE>
+<LINK rel="stylesheet" type="text/css" href="rda.css">
+</HEAD><BODY>
+<H1 id="Hdr1">Table of Content</H1>
+<DIV class="rda_toc">
+<UL>
+<LI><A href="#Hdr2">Heading 1</A>
+<UL>
+<LI><A href="#Hdr3">Heading 2</A>
+<UL>
+<LI><A href="#Hdr4">Heading 3</A>
+<UL>
+<LI><A href="#Hdr5">Heading 4</A>
+<UL>
+<UL>
+<LI><A href="#Hdr7">Heading 6</A>
+</UL>
+</UL>
+<LI><A href="#Hdr8">Heading 4a</A>
+<LI><A href="#Hdr9">Heading 4b<BR>on two lines</A>
+<LI><A href="#Hdr10">Heading 4c</A>
+</UL>
+</UL>
+</UL>
+</UL>
+</DIV>
+<P>
+<H1 id="Hdr2">Heading 1</H1>
+<H2 id="Hdr3">Heading 2</H2>
+<H3 id="Hdr4">Heading 3</H3>
+<H4 id="Hdr5">Heading 4</H4>
+<H5 id="Hdr6">Heading 5</H5>
+<H6 id="Hdr7">Heading 6</H6>
+<P>
+<A name="Anchor1">First anchor text</A>
+<PRE>
+&lt;B&gt;Some Text &amp;amp; tags&lt;/B&gt;
+</PRE>
+<PRE>
+<B>Some Text &amp; tags</B>
+</PRE>
+<P>
+A paragraph
+probably on a single line.
+<P>
+<A name="Anchor2"></A>
+Another paragraph<BR>on <SPAN class="rda_red">two</SPAN> lines.
+<P>
+<HR>
+<UL>
+<LI>Item 1
+<OL type="a">
+<LI>Sub item 1.1
+<LI>Sub item 1.2
+</OL>
+<LI>Item 2
+<UL>
+<LI>Sub item 2.1
+</UL>
+</UL>
+<OL type="1">
+<LI>Item h
+<OL type="i">
+<OL type="i">
+<LI>another list 1<BR>on two lines
+</OL>
+</OL>
+<OL type="A">
+<LI>Sub item 1.1
+<LI>Sub item 1.2
+<OL type="i">
+<LI>another sub list 1
+<LI>another sub list 2
+</OL>
+<LI>a last itesm
+</OL>
+<LI>Item 2
+<OL type="I">
+<LI>Sub item 2.1
+<LI>Sub         item 2.2
+</OL>
+</OL>
+       I Invalid list
+<P>
+Return to <A href="#Anchor1">First Anchor</A> or <A href="#Anchor2">Second Anchor</A> by clicking on the <SPAN class="rda_blue">link</SPAN>
+---
+That is just two extra lines<BR>as comments.
+<HR>
+<TABLE border=1 summary="RDA Table 1">
+<CAPTION>RDA result set 1</CAPTION>
+<TR>
+<TH align="LEFT" id="T1">column 1</TH>
+<TH align="CENTER" id="T2">column 2</TH>
+<TH align="RIGHT" id="T3">column 3</TH>
+</TR>
+<TR>
+<TD align="LEFT" headers="T1">val1</TD>
+<TD align="CENTER" headers="T2">val2</TD>
+<TD align="RIGHT" headers="T3">val3</TD>
+</TR>
+<TR>
+<TD align="CENTER" headers="T1" colspan=2>merged<BR>cells</TD>
+<TD align="LEFT" headers="T3">col3</TD>
+</TR>
+<TR>
+<TD align="RIGHT" headers="T1" colspan=3>one cell</TD>
+</TR>
+</TABLE>
+<P>
+<TABLE border=1 summary="RDA Table 2">
+<TR>
+<TD align="LEFT" headers="T4">cell1</TD>
+<TD align="LEFT" headers="T5">**</TD>
+</TR>
+</TABLE>
+||invalid|row|
+<P>
+<TABLE border=1 summary="RDA Table 3">
+<TR>
+<TH align="LEFT" id="T6">type</TH>
+<TH align="LEFT" id="T7">description</TH>
+</TR>
+<TR>
+<TH align="LEFT" id="T8">var1</TH>
+<TD align="LEFT" headers="T8">value1</TD>
+</TR>
+<TR>
+<TH align="LEFT" id="T9">var2</TH>
+<TD align="LEFT" headers="T9">value1</TD>
+</TR>
+<TR>
+<TH align="LEFT" id="T10">var3</TH>
+<TD align="LEFT" headers="T10">value1</TD>
+<TH align="LEFT" id="T11">var4</TH>
+<TD align="LEFT" headers="T11">value1</TD>
+</TR>
+</TABLE>
+<P>
+<HR>
+<H4 id="Hdr8">Heading 4a</H4>
+<OL type="a">
+<OL type="a">
+<LI>Sub item 1.1
+<LI>Sub item 1.2
+</OL>
+</OL>
+<H4 id="Hdr9">Heading 4b<BR>on two lines</H4>
+<H4 id="Hdr10">Heading 4c</H4>
+<P>
+%END%
+</BODY></HTML>

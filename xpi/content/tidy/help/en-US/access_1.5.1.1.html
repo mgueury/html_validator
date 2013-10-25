@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Access 1.5.1.1 - Htmlpedia</title>
+    <link rel="stylesheet" type="text/css" href="tidy_help2.css" media="screen, projection"/>
+  </head>
+<body>
+  <div id="bodyContent">
+<h2> Access: [1.5.1.1]: image map (client-side) missing text links (Priority 3) </h2>
+<h3> Cause: </h3>
+<p>Client-side image maps also include redundant text links to ensure users
+will be able to navigate through a site. When creating redundant text links
+for image maps, create text that identifies the destination of each link
+(i.e. Home Page, Search Engine, etc.)
+</p>
+<h3> Example: </h3>
+<table class='bad' title='Bad'><tr><td width='22' valign='top'><img src='../../../skin/error.png' alt='Good'/></td><td><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+&lt;title&gt;aert1.0/1.5.1&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;map name="imagemap"&gt;
+&lt;area shape="poly" coords="185,0,355,0,295,123" href="a.html" alt="Link a"/&gt;
+&lt;area shape="poly" coords="336,202,549,203,549" href="b.html"/&gt;
+&lt;area shape="rect" coords="0,10,172,10" href="c.html" alt="Service"/&gt;
+&lt;/map&gt;
+&lt;img src="imap.jpg" usemap="#imagemap" alt="navigation" longdesc="ld.html"/&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre></td></tr></table>
+<table class='good' title='Good'><tr><td width='22' valign='top'><img src='../../../skin/good.png' alt='Good'/></td><td><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+&lt;title&gt;aert1.0/1.5.1&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;map name="imagemap"&gt;
+&lt;area shape="poly" coords="185,0,355,0,295,123" href="a.html" alt="Link a"/&gt;
+&lt;area shape="poly" coords="336,202,549,203,549" href="b.html" alt="Link b"/&gt;
+&lt;area shape="rect" coords="0,10,172,10" href="c.html" alt="Service"/&gt;
+&lt;/map&gt;
+&lt;img src="imap.jpg" usemap="#imagemap" alt="navigation" longdesc="ld.html"/&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</td></tr></table>
+<h3> Solution: </h3>
+<h3> References: </h3>
+<ul><li> W3C WAI: <a href="http://www.w3.org/WAI/">http://www.w3.org/WAI/</a>
+</li><li> HTML Techniques for WAI 1.0: <a href="http://www.w3.org/TR/WCAG10-HTML-TECHS/">http://www.w3.org/TR/WCAG10-HTML-TECHS/</a>
+</li></ul>
+  </div>
+</body>
+</html>

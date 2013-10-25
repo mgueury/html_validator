@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Sp 187 - Htmlpedia</title>
+    <link rel="stylesheet" type="text/css" href="tidy_help2.css" media="screen, projection"/>
+  </head>
+<body>
+  <div id="bodyContent">
+<h2> No document type declaration; will parse without validation </h2>
+<h3> Cause: </h3>
+<p>No <a href="http://www.htmlpedia.org/wiki/DOCTYPE_Declaration">document type</a> specified at the begin of the document.
+</p>
+<h3> Example: </h3>
+<table class='bad' title='Bad'><tr><td width='22' valign='top'><img src='../../../skin/error.png' alt='Good'/></td><td><pre>
+&lt;html&gt;
+   &lt;head&gt;
+      &#9;&lt;title&gt;my_title&lt;/title&gt;
+      &#9;...
+   &lt;/head&gt;</pre></td></tr></table>
+<table class='good' title='Good'><tr><td width='22' valign='top'><img src='../../../skin/good.png' alt='Good'/></td><td><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"&gt;
+&lt;html&gt;
+   &lt;head&gt;
+      &#9;&lt;title&gt;my_title&lt;/title&gt;
+      &#9;...
+   &lt;/head&gt;</pre></td></tr></table>
+<h3> Solution: </h3>
+<p>Add a <a href="http://www.htmlpedia.org/wiki/DOCTYPE_Declaration">doctype</a> before the &lt;html&gt; tag.
+</p>
+<h3> References: </h3>
+<ul><li> W3C spec: <a href="http://www.w3.org/TR/html4/struct/global.html#h-7.2">http://www.w3.org/TR/html4/struct/global.html#h-7.2</a>
+</li></ul>
+  </div>
+</body>
+</html>

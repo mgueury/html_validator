@@ -1,0 +1,2394 @@
+access_1.1.1.1
+--ENDTITLE--
+== Access: [1.1.1.1]: &lt;img&gt; missing 'alt' text (Priority 1) ==
+
+=== Cause: ===
+All images -- including transparent gifs -- must have "alt" text.
+Alternate text should be concise (i.e. 10-12 words maximum). For
+transparent images and spacers, use alt="" (NULL), alt="  "
+(spaces are acceptable), or alt="blank". Any words depicted in the
+image should also appear in the "alt" text description.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/1.1.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;img src="noAlt.jpg"&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_1.1.1.2
+--ENDTITLE--
+== Access: [1.1.1.2]: suspicious 'alt' text (filename) (Priority 1) ==
+
+=== Cause: ===
+All images require text equivalents but "alt" text must also meet certain
+criteria otherwise it may be considered suspicious. For example, "alt"
+text may be deemed unacceptable if filenames and/or image file extensions
+(i.e. alt="xmas_tree.gif") are used in place of an actual text equivalent.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/1.1.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;img src="gifimage.gif" alt="gifimage.gif"/&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_1.1.1.3
+--ENDTITLE--
+== Access: [1.1.1.3]: suspicious 'alt' text (file size) (Priority 1) ==
+
+=== Cause: ===
+All images require text equivalents but "alt" text must also meet certain
+criteria otherwise it may be considered suspicious. For example, "alt"
+text may be considered unacceptable if it is used to convey file size
+information (i.e. alt="650 bytes"). 
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/1.1.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;img src="bytesImage.gif" alt="34K bytes"/&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_1.1.1.4
+--ENDTITLE--
+== Access: [1.1.1.4]: suspicious 'alt' text (placeholder) (Priority 1) ==
+
+=== Cause: ===
+All images require text equivalents but "alt" text must also meet certain
+criteria otherwise it may be considered suspicious. For example, using
+placeholder text (i.e. alt="image goes here") in place of an actual text
+equivalent is considered unacceptable.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/1.1.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;img src="animage.gif" alt="{short description of image}"/&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_1.1.1.10
+--ENDTITLE--
+== Access: [1.1.1.10]: suspicious 'alt' text (too long) (Priority 1) ==
+
+=== Cause: ===
+All images require text equivalents but "alt" text must also meet certain
+criteria otherwise it may be considered suspicious. If "alt" text exceeds
+150 characters, use the "longdesc" attribute along with a descriptive link
+(d-link) to describe the image.  
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/1.1.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;img src="hasAlt.gif" alt="0123456789 0123456789 0123456789 0123456789 0123456789 0123456789 0123456789 0123456789 0123456789 0123456789 0123456789 0123456789 0123456789 0123456789 0123456789"/&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_1.1.1.11
+--ENDTITLE--
+== Access: [1.1.1.11]: &lt;img&gt; missing 'alt' text (bullet) (Priority 1) ==
+
+=== Cause: ===
+All images require text equivalents including those used to identify items
+in a list. If an image is used as a bullet, it should include the following
+"alt" text: alt="*" or alt="bullet".
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/1.1.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;img src="star.jpg" width="5" height="5"&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_1.1.1.12
+--ENDTITLE--
+== Access: [1.1.1.12]: &lt;img&gt; missing 'alt' text (horizontal rule) (Priority 1) ==
+
+=== Cause: ===
+All images require text equivalents including those used to indicate breaks
+within a web page. If an image is used as a horizontal rule, it should
+include the following "alt" text: alt="*" or alt="horizontal rule".
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/1.1.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;img src="bar.gif" width="200" height="5"/&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_1.1.2.1
+--ENDTITLE--
+== Access: [1.1.2.1]: &lt;img&gt; missing 'longdesc' and d-link (Priority 1) ==
+
+=== Cause: ===
+If "alt" text cannot adequately describe an image's function or purpose,
+provide access to a more complete description via the "longdesc" attribute.
+Note you must also add a d-link (descriptive link) because many current
+browsers do not support the "longdesc" attribute. The advantage of including
+"longdesc" in current web documents is that the description will remain
+accessible when newer browsers deprecate d-links.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/1.1.2&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;img src="pie-chart.jpg" alt="Pie chart of federal expenditures"&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_1.1.2.2
+--ENDTITLE--
+== Access: [1.1.2.2]: &lt;img&gt; missing d-link (Priority 1) ==
+
+=== Cause: ===
+If "alt" text cannot adequately explain an image's function or purpose you
+must provide access to a more complete description. Because many current
+browsers do not support the "longdesc" attribute, including a d-link
+(descriptive link) ensures longer descriptions are accessible to all users.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;bobby/g13&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;img src="pie-chart.jpg" longdesc="pie-chart.html" alt="Pie chart of federal expenditures"/&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_1.1.2.3
+--ENDTITLE--
+== Access: [1.1.2.3]: &lt;img&gt; missing 'longdesc' (Priority 1) ==
+
+=== Cause: ===
+If "alt" text cannot adequately describe an image's function or purpose,
+provide access to a more complete description via the "longdesc" attribute.
+Note you must also add a d-link (descriptive link) because many current
+browsers do not support the "longdesc" attribute. The advantage of
+including "longdesc" in current web documents is that the description
+will remain accessible when newer browsers deprecate d-links.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/1.1.2&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;img src="pie-chart.jpg" alt="Pie chart of federal expenditures"/&gt;&lt;a href="pie-chart.html"&gt;D&lt;/a&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_1.1.3.1
+--ENDTITLE--
+== Access: [1.1.3.1]: &lt;img&gt; (button) missing 'alt' text (Priority 1) ==
+
+=== Cause: ===
+If an image is used as a button, it must include "alt" text. Do not describe the image
+itself but rather the destination or purpose of the link.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/1.1.3&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;input type="image" name="submit" src="submit.jpg"&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_1.1.4.1
+--ENDTITLE--
+== Access: [1.1.4.1]: &lt;applet&gt; missing alternate content (Priority 1) ==
+
+=== Cause: ===
+Applets must include alternate content to ensure the information is available to
+those who cannot access graphics. The alternate content should contain essentially
+the same information or serve a similar purpose as the applet itself. It may even be
+useful to describe the visual content or the sound effects accompanying the applet.
+You can either provide a link to a description or insert it directly into the document.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/1.1.4&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;applet code="applet.class"&gt;&lt;/applet&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_1.1.5.1
+--ENDTITLE--
+== Access: [1.1.5.1]: &lt;object&gt; missing alternate content (Priority 1) ==
+
+=== Cause: ===
+Objects must include alternate content to ensure that the information is available to
+those who cannot access graphics. The alternate content should contain essentially the
+same information or serve a similar purpose to the object itself. You can either provide
+a link to a description or insert it directly into the document.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/1.1.5&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;object classid="myclass.class" title="This is a bogus object"&gt;&lt;/object&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_1.1.6.1
+--ENDTITLE--
+== Access: [1.1.6.1]: audio missing text transcript (wav) (Priority 1) ==
+
+=== Cause: ===
+Web documents that contain audio files must also provide a text transcript that describes
+the sound or reproduces the content contained in the file. If the audio file contains an
+extensive amount of information, establish a link within the document that points to a
+complete text transcript of the sound file. This technique is suitable for reproducing song
+lyrics and excerpts from speeches.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/1.1.6&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;a href="clap.wav"&gt;The sound of one hand clapping (wav)&lt;/a&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_1.1.6.2
+--ENDTITLE--
+== Access: [1.1.6.2]: audio missing text transcript (au) (Priority 1) ==
+
+=== Cause: ===
+Web documents that contain audio files must also provide a text transcript that describes
+the sound or reproduces the content contained in the file. If the audio file contains an
+extensive amount of information, establish a link within the document that points to a
+complete text transcript of the sound file. This technique is suitable for reproducing song
+lyrics and excerpts from speeches.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/1.1.6&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;a href="clap.au"&gt;The sound of one hand clapping (au)&lt;/a&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_1.1.6.3
+--ENDTITLE--
+== Access: [1.1.6.3]: audio missing text transcript (aiff) (Priority 1) ==
+
+=== Cause: ===
+Web documents that contain audio files must also provide a text transcript that describes
+the sound or reproduces the content contained in the file. If the audio file contains an
+extensive amount of information, establish a link within the document that points to a
+complete text transcript of the sound file. This technique is suitable for reproducing song
+lyrics and excerpts from speeches.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/1.1.6&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;a href="clap.aiff"&gt;The sound of one hand clapping (aiff)&lt;/a&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_1.1.6.4
+--ENDTITLE--
+== Access: [1.1.6.4]: audio missing text transcript (snd) (Priority 1) ==
+
+=== Cause: ===
+Web documents that contain audio files must also provide a text transcript that describes
+the sound or reproduces the content contained in the file. If the audio file contains an
+extensive amount of information, establish a link within the document that points to a
+complete text transcript of the sound file. This technique is suitable for reproducing song
+lyrics and excerpts from speeches.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/1.1.6&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;a href="clap.snd"&gt;The sound of one hand clapping (snd)&lt;/a&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_1.1.6.5
+--ENDTITLE--
+== Access: [1.1.6.5]: audio missing text transcript (ra) (Priority 1) ==
+
+=== Cause: ===
+Web documents that contain audio files must also provide a text transcript that describes
+the sound or reproduces the content contained in the file. If the audio file contains an
+extensive amount of information, establish a link within the document that points to a
+complete text transcript of the sound file. This technique is suitable for reproducing song
+lyrics and excerpts from speeches.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/1.1.6&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;a href="clap.ra"&gt;The sound of one hand clapping (ra)&lt;/a&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_1.1.6.6
+--ENDTITLE--
+== Access: [1.1.6.6]: audio missing text transcript (rm) (Priority 1) ==
+
+=== Cause: ===
+Web documents that contain audio files must also provide a text transcript that describes
+the sound or reproduces the content contained in the file. If the audio file contains an
+extensive amount of information, establish a link within the document that points to a
+complete text transcript of the sound file. This technique is suitable for reproducing song
+lyrics and excerpts from speeches.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/1.1.6&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;a href="clap.rm"&gt;The sound of one hand clapping (rm)&lt;/a&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_1.1.8.1
+--ENDTITLE--
+== Access: [1.1.8.1]: &lt;frame&gt; may require 'longdesc' (Priority 1) ==
+
+=== Cause: ===
+If a frame cannot be adequately described in its title, include the "longdesc" attribute within
+the frame element to provide a link to additional information. The "longdesc" attribute can
+also be useful in helping to explain relationships between frames.
+
+=== Example: ===
+<bad><pre>&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;Frame elements missing valid long descriptions&lt;/title&gt;&lt;/head&gt;&lt;frameset rows="100,200"&gt;   &lt;frame src="TableData.htm"&gt;   &lt;frame src="TableLayout.htm" title="this frame title" longdesc="tl.htm"&gt;   &lt;frame src="TableLayout2.htm" title="this frame title" longdesc="tl2.htm"&gt;&lt;/frameset&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_1.1.9.1
+--ENDTITLE--
+== Access: [1.1.9.1]: &lt;area&gt; missing 'alt' text (Priority 1) ==
+
+=== Cause: ===
+You must include "alt" text for each &lt;area&gt; element within an image map. The "alt" text should
+indicate the destination of each link rather than provide a description of the image itself.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/1.1.9&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;map name="imagemap"&gt;&lt;area shape="poly" coords="185,0,355,0,295,123" href="a.html" alt="Link a"/&gt;&lt;area shape="poly" coords="336,202,549,203,549" href="b.html"/&gt;&lt;area shape="rect" coords="0,10,172,10" href="c.html" alt="Service"/&gt;&lt;/map&gt;&lt;img src="imap.jpg" usemap="#imagemap" alt="navigation" longdesc="ld.html"/&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_1.1.10.1
+--ENDTITLE--
+== Access: [1.1.10.1]: &lt;script&gt; missing &lt;noscript&gt; section (Priority 1) ==
+
+=== Cause: ===
+A text equivalent must be provided for all scripts. Adding the &lt;noscript&gt; element to documents
+that include scripts ensures the information will be available in a text format if the client's
+browser does not support scripts.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/1.1.10&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;script&gt;&lt;!-- do nothing --&gt;&lt;/script&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_1.1.12.1
+--ENDTITLE--
+== Access: [1.1.12.1]: ascii art requires description (Priority 1) ==
+
+=== Cause: ===
+Replace ascii art (illustrations created using keyboard symbols and characters) with actual
+images whenever possible. If the ascii artwork cannot be replaced, you must include an equivalent
+description to ensure the information is accessible to users who rely on audio-based and text-only
+browsers. A text equivalent is not required if the ascii image is explained in the document's
+content.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/1.1.12&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;pre&gt;   %   __ __ __ __ __ __ __ __ __ __ __ __ __ __   100 |             *                             | 90 |                *  *                       | 80 |          *           *                    | 70 |             @           *                 | 60 |          @                 *              | 50 |       *        @              *           | 40 |                   @              *        | 30 |    *  @              @  @           *     | 20 |                                           | 10 |    @                       @  @  @  @     |      0  5 10 15 20 25 30 35 40 45 50 55 60 65 70      Flash frequency (Hertz)&lt;/pre&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_1.2.1.1
+--ENDTITLE--
+== Access: [1.2.1.1]: image map (server-side) requires text links (Priority 1) ==
+
+=== Cause: ===
+All server-side image maps must include redundant text links. Alt text is not available with
+server-side image maps unless redundant text links have been created. Redundant text links
+should describe the destination of each link (i.e. Home Page, Search Engine, etc.) rather
+than the actual image. If the map itself requires a explanation, use the "longdesc" attribute
+(and accompanying d-link) to provide a more detailed description.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/1.2.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;a href="myhouse.map"&gt;&lt;img ismap alt="server-side imagemap" width="400" height="250" src="myhouse.gif"&gt;&lt;/a&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_1.4.1.1
+--ENDTITLE--
+== Access: [1.4.1.1]: multimedia requires synchronized text equivalents (Priority 1) ==
+
+=== Cause: ===
+All time-based multimedia presentations (i.e. movie clips, animations,
+slide shows) must include synchronized text equivalents for both the
+audio and visual content. If captions and visual descriptions are not
+synchronized with the main presentation, content can become confusing
+and potentially meaningless.  
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/1.4.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;a href="babywalk.mpg"&gt;Baby Walking&lt;/a&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_1.5.1.1
+--ENDTITLE--
+== Access: [1.5.1.1]: image map (client-side) missing text links (Priority 3) ==
+
+=== Cause: ===
+Client-side image maps also include redundant text links to ensure users
+will be able to navigate through a site. When creating redundant text links
+for image maps, create text that identifies the destination of each link
+(i.e. Home Page, Search Engine, etc.)
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/1.5.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;map name="imagemap"&gt;&lt;area shape="poly" coords="185,0,355,0,295,123" href="a.html" alt="Link a"/&gt;&lt;area shape="poly" coords="336,202,549,203,549" href="b.html"/&gt;&lt;area shape="rect" coords="0,10,172,10" href="c.html" alt="Service"/&gt;&lt;/map&gt;&lt;img src="imap.jpg" usemap="#imagemap" alt="navigation" longdesc="ld.html"/&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_2.1.1.1
+--ENDTITLE--
+== Access: [2.1.1.1]: ensure information not conveyed through color alone (image) (Priority 1) ==
+
+=== Cause: ===
+When information is conveyed using color, that information must also be
+made available through alternate means either through the context in
+which the information is presented or its markup properties. Ensure
+there is sufficient contrast between images and the background color.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/2.1.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;img src="rex.jpg" alt="big cat"&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_2.1.1.2
+--ENDTITLE--
+== Access: [2.1.1.2]: ensure information not conveyed through color alone (applet) (Priority 1) ==
+
+=== Cause: ===
+When information is conveyed using color, that information must also be
+made available through alternate means either through the context in
+which the information is presented or its markup properties. Ensure
+there is sufficient contrast between images and the background color.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/2.1.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;applet&gt;&lt;/applet&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_2.1.1.3
+--ENDTITLE--
+== Access: [2.1.1.3]: ensure information not conveyed through color alone (object) (Priority 1) ==
+
+=== Cause: ===
+When information is conveyed using color, that information must also be
+made available through alternate means either through the context in
+which the information is presented or its markup properties. Ensure
+there is sufficient contrast between images and the background color.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/2.1.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;object&gt;&lt;/object&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_2.1.1.4
+--ENDTITLE--
+== Access: [2.1.1.4]: ensure information not conveyed through color alone (script) (Priority 1) ==
+
+=== Cause: ===
+When information is conveyed using color, that information must also be
+made available through alternate means either through the context in
+which the information is presented or its markup properties. Ensure
+there is sufficient contrast between images and the background color.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/2.1.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;script&gt;&lt;/script&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_2.1.1.5
+--ENDTITLE--
+== Access: [2.1.1.5]: ensure information not conveyed through color alone (input) (Priority 1) ==
+
+=== Cause: ===
+When information is conveyed using color, that information must also be
+made available through alternate means either through the context in
+which the information is presented or its markup properties. Ensure
+there is sufficient contrast between images and the background color.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/2.1.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;input&gt;&lt;/input&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_2.2.1.1
+--ENDTITLE--
+== Access: [2.2.1.1]: poor color contrast (text) (Priority 3) ==
+
+=== Cause: ===
+Ensure there is sufficient contrast between text and background colors
+for individuals with a color deficiency.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;Foreground and background color do not contrast sufficiently&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;body bgcolor="#ffffff" text="#ff88ff" link="#000000" alink="#000000" vlink="#000000"&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_2.2.1.2
+--ENDTITLE--
+== Access: [2.2.1.2]: poor color contrast (link) (Priority 3) ==
+
+=== Cause: ===
+Ensure there is sufficient contrast between text and background colors
+for individuals with a color deficiency.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;Foreground and background color do not contrast sufficiently&lt;/title&gt;&lt;/head&gt;&lt;body bgcolor="#ffffff" text="#000000" link="#ff88ff" alink="#000000" vlink="#000000"&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_2.2.1.3
+--ENDTITLE--
+== Access: [2.2.1.3]: poor color contrast (active link) (Priority 3) ==
+
+=== Cause: ===
+Ensure there is sufficient contrast between text and background colors
+for individuals with a color deficiency.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;Foreground and background color do not contrast sufficiently&lt;/title&gt;&lt;/head&gt;&lt;body bgcolor="#ffffff" text="#000000" link="#000000" alink="#ff88ff" vlink="#000000"&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_2.2.1.4
+--ENDTITLE--
+== Access: [2.2.1.4]: poor color contrast (visited link) (Priority 3) ==
+
+=== Cause: ===
+Ensure there is sufficient contrast between text and background colors
+for individuals with a color deficiency.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;Foreground and background color do not contrast sufficiently&lt;/title&gt;&lt;/head&gt;&lt;body bgcolor="#ffffff" text="#000000" link="#000000" alink="#000000" vlink="#ff88ff"&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_3.2.1.1
+--ENDTITLE--
+== Access: [3.2.1.1]: &lt;doctype&gt; missing (Priority 2) ==
+
+=== Cause: ===
+All documents must begin with a Document Type Declaration &lt;doctype&gt;
+or DTD. The <doctype> informs a validator which version of HTML to
+use when verifying a document's syntax. The most commonly used DTD
+is HTML 4.01 Transitional.
+
+=== Example: ===
+<bad><pre>&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;Document missing doctype&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_3.3.1.1
+--ENDTITLE--
+== Access: [3.3.1.1]: use style sheets to control presentation (Priority 2) ==
+
+=== Cause: ===
+Use Cascading Style Sheets (CSS) to apply stylistic effects
+(i.e. font color, font size, paragraph indentation, etc.) and
+control positioning of content (i.e. page layout) within web
+documents.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/3.3.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;Does not use stylesheets.&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_3.5.1.1
+--ENDTITLE--
+== Access: [3.5.1.1]: headers improperly nested (Priority 2) ==
+
+=== Cause: ===
+Organize or "nest" headers in an ordered and logical fashion. Headers
+that are not structured in sequential order or those used to apply font
+effects can creating difficulties in navigation and comprehension for
+the visually impaired.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/3.5.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;h1&gt;First Heading&lt;/h1&gt;&lt;h3&gt;Next Heading&lt;/h3&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_3.5.2.1
+--ENDTITLE--
+== Access: [3.5.2.1]: potential header (bold) (Priority 2) ==
+
+=== Cause: ===
+If a lead sentence or paragraph is italicized consider converting it into
+a header. If a text element occurs within a paragraph and the paragraph
+is less than ten words containing only text items or formatting elements
+it is also potentially a header.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/3.5.2&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;&lt;strong&gt;This may be a header.&lt;/strong&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_3.5.2.2
+--ENDTITLE--
+== Access: [3.5.2.2]: potential header (italics) (Priority 2) ==
+
+=== Cause: ===
+If a lead sentence or paragraph is italicized consider converting it into
+a header. If a text element occurs within a paragraph and the paragraph
+is less than ten words containing only text items or formatting elements
+it is also potentially a header.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/3.5.2&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;&lt;em&gt;This may be a header.&lt;/em&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_3.5.2.3
+--ENDTITLE--
+== Access: [3.5.2.3]: potential header (underline) (Priority 2) ==
+
+=== Cause: ===
+If a lead sentence or paragraph is underlined consider converting it into a header.
+If a text element occurs within a paragraph and the paragraph is less than ten
+words containing only text items or formatting elements it is also potentially a header.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/3.5.2&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;&lt;u&gt;This may be a header.&lt;/u&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_3.6.1.1
+--ENDTITLE--
+== Access: [3.6.1.1]: list usage invalid &lt;ul&gt; (Priority 2) ==
+
+=== Cause: ===
+Avoid using list markup to create formatting effects. Do not use 'ul'
+(unordered list) to indent text, use Cascading Style Sheets (CSS) instead.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/3.6.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;ul&gt;   This is only for the indent.&lt;br/&gt;   And this as well.   &lt;ul&gt;       A further indent.   &lt;/ul&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_3.6.1.2
+--ENDTITLE--
+== Access: [3.6.1.2]: list usage invalid &lt;ol&gt; (Priority 2) ==
+
+=== Cause: ===
+Avoid using list markup to create formatting effects. Do not use 'ol'
+(ordered list) to indent text, use Cascading Style Sheets (CSS) instead.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/3.6.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;ol&gt;   This is only for the indent.&lt;br/&gt;   And this as well.   &lt;ol&gt;       A further indent.   &lt;/ol&gt;&lt;/ol&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_3.6.1.4
+--ENDTITLE--
+== Access: [3.6.1.4]: list usage invalid &lt;li&gt; (Priority 2) ==
+
+=== Cause: ===
+Avoid using list markup to create formatting effects. Do not use 'li'
+(list item) to indent text, use Cascading Style Sheets (CSS) instead.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/3.6.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;li&gt;Just an li by itself&lt;/li&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_4.1.1.1
+--ENDTITLE--
+== Access: [4.1.1.1]: indicate changes in language (Priority 1) ==
+
+=== Cause: ===
+Indicate changes in the primary language of a document through HTML markup.
+If changes in language are not marked, a speech synthesizer will attempt
+to pronounce a foreign word or phrase in the document's original primary
+language. Encapsulate short words or phrases with 'span lang="(indicate language here)"
+' and use 'Q lang="(indicate language here)"' for quotes.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/4.1.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;In Luis Bunuel's 1967 film, "Belle de Jour", the stunning Catherine Deneuve portrays a woman leading a double life.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_4.3.1.1
+--ENDTITLE--
+== Access: [4.3.1.1]: language not identified (Priority 3) ==
+
+=== Cause: ===
+Identify the primary language of each document to ensure that clients automatically
+retrieve web pages in their preferred language. Language can be specified either
+through http headers or html markup (i.e. 'html lang="en"').
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html&gt;&lt;head&gt;&lt;title&gt;aert1.0/4.3.1 - The HTML element does not contain a lang attribute&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_4.3.1.2
+--ENDTITLE--
+== Access: [4.3.1.2]: language attribute invalid (Priority 3) ==
+
+=== Cause: ===
+Ensure the language specified in either the http header or html markup
+(i.e. 'html lang="en"') is valid.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="blah"&gt;&lt;head&gt;&lt;title&gt;aert1.0/4.3.1 - The HTML element does not contain a valid lang attribute&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_5.1.2.1
+--ENDTITLE--
+== Access: [5.1.2.1]: data &lt;table&gt; missing row/column headers (all) (Priority 1) ==
+
+=== Cause: ===
+Data tables must include headers for each row and column. Use the "headers"
+attribute to attach labels to table rows and columns via the "id" attribute.
+This creates a link between headings and their associated data cells.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/5.1.2&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;table summary="This data table is missing row/column headers"&gt;	&lt;caption&gt;This data table is missing row/column headers&lt;/caption&gt;		&lt;tr&gt;		&lt;td&gt;age&lt;/td&gt;&lt;td&gt;height&lt;/td&gt;&lt;td&gt;weight&lt;/td&gt;	&lt;/tr&gt;	&lt;tr&gt;		&lt;td&gt;10&lt;/td&gt;&lt;td&gt;1.3 m&lt;/td&gt;&lt;td&gt;50 kg.&lt;/td&gt;	&lt;/tr&gt;	&lt;tr&gt;		&lt;td&gt;15&lt;/td&gt;&lt;td&gt;1.8 m&lt;/td&gt;&lt;td&gt;75 kg.&lt;/td&gt;	&lt;/tr&gt;	&lt;tr&gt;		&lt;td&gt;20&lt;/td&gt;&lt;td&gt;2.1 m&lt;/td&gt;&lt;td&gt;100 kg.&lt;/td&gt;	&lt;/tr&gt;&lt;/table&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_5.1.2.2
+--ENDTITLE--
+== Access: [5.1.2.2]: data &lt;table&gt; missing row/column headers (1 col) (Priority 1) ==
+
+=== Cause: ===
+Data tables must include headers for each row and column. Use the "headers"
+attribute to attach labels to table rows and columns via the "id" attribute.
+This creates a link between headings and their associated data cells.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/5.1.2&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;table summary="This data table is missing one column headers"&gt;	&lt;caption&gt;This data table is missing one column headers&lt;/caption&gt;		&lt;tr&gt;		&lt;th&gt;age&lt;/th&gt;&lt;td&gt;height&lt;/td&gt;&lt;th&gt;weight&lt;/th&gt;	&lt;/tr&gt;	&lt;tr&gt;		&lt;td&gt;10&lt;/td&gt;&lt;td&gt;1.3 m&lt;/td&gt;&lt;td&gt;50 kg.&lt;/td&gt;	&lt;/tr&gt;	&lt;tr&gt;		&lt;td&gt;15&lt;/td&gt;&lt;td&gt;1.8 m&lt;/td&gt;&lt;td&gt;75 kg.&lt;/td&gt;	&lt;/tr&gt;	&lt;tr&gt;		&lt;td&gt;20&lt;/td&gt;&lt;td&gt;2.1 m&lt;/td&gt;&lt;td&gt;100 kg.&lt;/td&gt;	&lt;/tr&gt;&lt;/table&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_5.1.2.3
+--ENDTITLE--
+== Access: [5.1.2.3]: data &lt;table&gt; missing row/column headers (1 row) (Priority 1) ==
+
+=== Cause: ===
+Data tables must include headers for each row and column. Use the "headers"
+attribute to attach labels to table rows and columns via the "id" attribute.
+This creates a link between headings and their associated data cells.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/5.1.2&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;table summary="This data table is missing one row header"&gt;	&lt;caption&gt;This data table is missing one row header&lt;/caption&gt;		&lt;tr&gt;		&lt;th&gt;age&lt;/th&gt;&lt;td&gt;10&lt;/td&gt;&lt;td&gt;15&lt;/td&gt;&lt;td&gt;20&lt;/td&gt;	&lt;/tr&gt;	&lt;tr&gt;		&lt;td&gt;height&lt;/td&gt;&lt;td&gt;1.3 m&lt;/td&gt;&lt;td&gt;1.8 m&lt;/td&gt;&lt;td&gt;2.1 m&lt;/td&gt;	&lt;/tr&gt;	&lt;tr&gt;		&lt;th&gt;weight&lt;/th&gt;&lt;td&gt;50 kg&lt;/td&gt;&lt;td&gt;75 kg.&lt;/td&gt;&lt;td&gt;100 kg.&lt;/td&gt;	&lt;/tr&gt;&lt;/table&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_5.2.1.1
+--ENDTITLE--
+== Access: [5.2.1.1]: data &lt;table&gt; may require markup (column headers) (Priority 1) ==
+
+=== Cause: ===
+If a data table has two or more logical levels of row or column headings,
+use html markup to link data cells with their corresponding headers.
+To identify groups of rows, use the 'thead', 'tfoot', and 'tbody' elements.
+To group columns, use 'col' and 'colgroup'.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/5.2.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;table summary="This data table should use markup to associate multiple levels of row and column headers"&gt;	&lt;caption&gt;This data table should use markup to associate multiple levels of row and column headers&lt;/caption&gt;	&lt;tr&gt;		&lt;th&gt;ID&lt;/th&gt;&lt;th colspan="2"&gt;System&lt;br/&gt;Color or Name&lt;/th&gt;&lt;th&gt;Required&lt;/th&gt;	&lt;/tr&gt;	&lt;tr&gt;		&lt;td&gt;a-1&lt;/td&gt;&lt;td&gt;blue&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;yes&lt;/td&gt;	&lt;/tr&gt;	&lt;tr&gt;		&lt;td&gt;a-2&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;Susan&lt;/td&gt;&lt;td&gt;yes&lt;/td&gt;	&lt;/tr&gt;	&lt;tr&gt;		&lt;td&gt;a-3&lt;/td&gt;&lt;td&gt;green&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;no&lt;/td&gt;	&lt;/tr&gt;	&lt;tr&gt;		&lt;td&gt;a-4&lt;/td&gt;&lt;td&gt;orange&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;no&lt;/td&gt;	&lt;/tr&gt;	&lt;tr&gt;		&lt;td&gt;a-5&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;Frank&lt;/td&gt;&lt;td&gt;yes&lt;/td&gt;	&lt;/tr&gt;	&lt;tr&gt;		&lt;td&gt;a-6&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;Harold&lt;/td&gt;&lt;td&gt;no&lt;/td&gt;	&lt;/tr&gt;&lt;/table&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_5.2.1.2
+--ENDTITLE--
+== Access: [5.2.1.2]: data &lt;table&gt; may require markup (row headers) (Priority 1) ==
+
+=== Cause: ===
+If a data table has two or more logical levels of row or column headings,
+use html markup to link data cells with their corresponding headers. To
+identify groups of rows, use the 'thead', 'tfoot', and 'tbody' elements.
+To group columns, use the 'col' and 'colgroup' elements.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/5.2.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;table summary="This data table should use markup to associate multiple levels of row and column headers"&gt;	&lt;caption&gt;This data table should use markup to associate multiple levels of row and column headers&lt;/caption&gt;	&lt;tr&gt;		&lt;th&gt;System&lt;/th&gt;&lt;td&gt;a-1&lt;/td&gt;&lt;td&gt;Susan&lt;/td&gt;&lt;td&gt;Macintosh&lt;/td&gt;	&lt;/tr&gt;	&lt;tr&gt;		&lt;th rowspan="2"&gt;ID&lt;br&gt;location or code&lt;/th&gt;&lt;td&gt;Local&lt;/td&gt;&lt;td&gt;Building 1&lt;/td&gt;&lt;td&gt;Front Desk&lt;/td&gt;	&lt;/tr&gt;	&lt;tr&gt;		&lt;td&gt;Local&lt;/td&gt;&lt;td&gt;Building 2&lt;/td&gt;&lt;td&gt;Back Desk&lt;/td&gt;	&lt;/tr&gt;	&lt;tr&gt;		&lt;th&gt;Required&lt;/th&gt;&lt;td&gt;yes&lt;/td&gt;yes&lt;td&gt;&lt;/td&gt;&lt;td&gt;no&lt;/td&gt;	&lt;/tr&gt;&lt;/table&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_5.3.1.1
+--ENDTITLE--
+== Access: [5.3.1.1]: verify layout tables linearize properly (Priority 2) ==
+
+=== Cause: ===
+If tables are used for layout purposes ensure the content remains
+intelligible when the table is linearized (i.e. the content is converted
+into standard paragraphs). When tables are used to present text in
+word-wrapped, parallel columns the information may become jumbled when
+rendered by a screen reader.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/5.3.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;table summary="This layout table should make sense when linearized"&gt;	&lt;caption&gt;Does this layout table make sense when linearized?&lt;/caption&gt;	&lt;tr&gt;		&lt;td&gt;Here is some text that is in a column.&lt;/td&gt;&lt;td&gt;Here is some more text that is also in a column.&lt;/td&gt;	&lt;/tr&gt;&lt;/table&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_5.4.1.1
+--ENDTITLE--
+== Access: [5.4.1.1]: invalid markup used in layout &lt;table&gt; (Priority 2) ==
+
+=== Cause: ===
+Avoid using structural markup to apply style to text within data cells in
+tables used for layout purposes. Use Cascading Style Sheets (CSS)
+to format text, instead.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/5.4.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;table summary="This layout table is using TH for formatting"&gt;	&lt;caption&gt;This layout table is using TH for formatting.&lt;/caption&gt;	&lt;tr&gt;		&lt;th&gt;Here is some text.&lt;/th&gt;&lt;th&gt;More text is this.&lt;/th&gt;	&lt;/tr&gt;	&lt;tr&gt;		&lt;td&gt;Here is some text that is in a column.&lt;/td&gt;&lt;td&gt;Here is some more text that is also in a column.&lt;/td&gt;	&lt;/tr&gt;&lt;/table&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_5.5.1.1
+--ENDTITLE--
+== Access: [5.5.1.1]: &lt;table&gt; missing summary (Priority 3) ==
+
+=== Cause: ===
+Tables must include a "summary" attribute in the table element. The summary
+should describe the relationship among table cells and cells that span
+multiple columns and/or rows. It is also useful in describing how the
+information contained in the table relates to other information in the document.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/5.5.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;table&gt;	&lt;caption&gt;This table has no summary&lt;/caption&gt;	&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;2&lt;/td&gt;&lt;/tr&gt;	&lt;tr&gt;&lt;td&gt;3&lt;/td&gt;&lt;td&gt;4&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_5.5.1.2
+--ENDTITLE--
+== Access: [5.5.1.2]: &lt;table&gt; summary invalid (null) (Priority 3) ==
+
+=== Cause: ===
+Table summaries must include an actual value (i.e. summary="" or null is not
+acceptable). The summary should describe the relationship among table cells
+and cells that span multiple columns and/or rows. It is also useful in
+describing how the information contained in the table relates to other
+information in the document.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/5.5.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;table summary=""&gt;	&lt;caption&gt;This table has an invalid summary (NULL)&lt;/caption&gt;	&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;2&lt;/td&gt;&lt;/tr&gt;	&lt;tr&gt;&lt;td&gt;3&lt;/td&gt;&lt;td&gt;4&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_5.5.1.3
+--ENDTITLE--
+== Access: [5.5.1.3]: &lt;table&gt; summary invalid (spaces) (Priority 3) ==
+
+=== Cause: ===
+Table summaries must contain an actual value (i.e. summary="     " with
+spaces is not acceptable). The summary should describe the relationship
+among table cells and cells that span multiple columns and/or rows. It
+is also useful in describing how the information contained in the table
+relates to other information in the document.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/5.5.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;table summary="       "&gt;	&lt;caption&gt;This table has an invalid summary (all spaces)&lt;/caption&gt;	&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;2&lt;/td&gt;&lt;/tr&gt;	&lt;tr&gt;&lt;td&gt;3&lt;/td&gt;&lt;td&gt;4&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_5.5.1.6
+--ENDTITLE--
+== Access: [5.5.1.6]: &lt;table&gt; summary invalid (placeholder text) (Priority 3) ==
+
+=== Cause: ===
+Table summaries must contain an actual description. Placeholder text
+(i.e. summary="table summary") is not acceptable. The summary should describe
+the relationship among table cells and cells that span multiple columns and/or
+rows. It is also useful in describing how the information contained in the
+table relates to other information in the document.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/5.5.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;table summary="table summary"&gt;	&lt;caption&gt;This table has an invalid summary (placeholder 'table summary')&lt;/caption&gt;	&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;2&lt;/td&gt;&lt;/tr&gt;	&lt;tr&gt;&lt;td&gt;3&lt;/td&gt;&lt;td&gt;4&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_5.5.2.1
+--ENDTITLE--
+== Access: [5.5.2.1]: &lt;table&gt; missing &lt;caption&gt; (Priority 2) ==
+
+=== Cause: ===
+Captions are used to describe the nature of the table in one to three sentences.
+Insert the caption below the table element. A caption is not always necessary.
+If a caption is not provided, use the "title" attribute to briefly describe the
+purpose of a table.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/5.5.2&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;table summary="This simple data table has no caption."&gt;        &lt;tr&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;2&lt;/td&gt;&lt;/tr&gt;        &lt;tr&gt;&lt;td&gt;3&lt;/td&gt;&lt;td&gt;4&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_5.6.1.1
+--ENDTITLE--
+== Access: [5.6.1.1]: &lt;table&gt; may require header abbreviations (Priority 3) ==
+
+=== Cause: ===
+Provide abbreviations for table headers to reduce useless repetition and reading
+time for those relying on screen readers and other speech technologies. Include
+the "abbr" attribute in the table's 'th' element and condense the heading to one
+or two key words.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/5.6.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;table summary="These table headers require abbreviations"&gt;	&lt;caption&gt;These table headers require abbreviations&lt;/caption&gt;	&lt;tr&gt;&lt;th&gt;Age Of All Recent Residents Of The GTA&lt;/th&gt;&lt;th&gt;Income Level Specified In English Pounds&lt;/th&gt;&lt;/tr&gt;	&lt;tr&gt;&lt;td&gt;19&lt;/td&gt;&lt;td&gt;7000&lt;/td&gt;&lt;/tr&gt;	&lt;tr&gt;&lt;td&gt;29&lt;/td&gt;&lt;td&gt;19000&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_5.6.1.2
+--ENDTITLE--
+== Access: [5.6.1.2]: &lt;table&gt; header abbreviations invalid (null) (Priority 3) ==
+
+=== Cause: ===
+Abbreviations for table headers must contain an actual value (i.e.
+'th abbr=""' is not acceptable). Condense the heading to one or two key words.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/5.6.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;table summary="These table headers have invalid abbreviations"&gt;	&lt;caption&gt;These table headers have invalid abbreviations (NULL)&lt;/caption&gt;	&lt;tr&gt;&lt;th abbr=""&gt;Age Of All Recent Residents Of The GTA&lt;/th&gt;&lt;th abbr=""&gt;Income Level Specified In English Pounds&lt;/th&gt;&lt;/tr&gt;	&lt;tr&gt;&lt;td&gt;19&lt;/td&gt;&lt;td&gt;7000&lt;/td&gt;&lt;/tr&gt;	&lt;tr&gt;&lt;td&gt;29&lt;/td&gt;&lt;td&gt;19000&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_5.6.1.3
+--ENDTITLE--
+== Access: [5.6.1.3]: &lt;table&gt; header abbreviations invalid (spaces) (Priority 3) ==
+
+=== Cause: ===
+Abbreviations for table headers must contain an actual value (i.e. 'th abbr="   "'
+is not acceptable). Condense the heading to one or two key words.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/5.6.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;table summary="These table headers have invalid abbreviations"&gt;	&lt;caption&gt;These table headers have invalid abbreviations (spaces)&lt;/caption&gt;	&lt;tr&gt;&lt;th abbr="    "&gt;Age Of All Recent Residents Of The GTA&lt;/th&gt;&lt;th abbr="    "&gt;Income Level Specified In English Pounds&lt;/th&gt;&lt;/tr&gt;	&lt;tr&gt;&lt;td&gt;19&lt;/td&gt;&lt;td&gt;7000&lt;/td&gt;&lt;/tr&gt;	&lt;tr&gt;&lt;td&gt;29&lt;/td&gt;&lt;td&gt;19000&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_6.1.1.1
+--ENDTITLE--
+== Access: [6.1.1.1]: style sheets require testing (link) (Priority 1) ==
+
+=== Cause: ===
+If style sheets are used for formatting content and/or controlling page layout,
+be sure the information remains accessible when style sheets are disabled or not
+supported. Include a non-visual method of presenting the information and
+organize style sheets logically.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/6.1.1 - This page uses a stylesheet&lt;/title&gt;&lt;link rel="stylesheet" type="text/css" href="http://www.w3.org/StyleSheets/TR/W3C-WD"&gt;&lt;/head&gt;&lt;body&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_6.1.1.2
+--ENDTITLE--
+== Access: [6.1.1.2]: style sheets require testing (style element) (Priority 1) ==
+
+=== Cause: ===
+If style sheets are used for formatting content and/or controlling page layout,
+be sure the information remains accessible when style sheets are disabled or
+not supported. Include a non-visual method of presenting the information and
+organize style sheets logically.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/6.1.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;style&gt;&lt;!--p {text-align:justify}--&gt;&lt;/style&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_6.1.1.3
+--ENDTITLE--
+== Access: [6.1.1.3]: style sheets require testing (style attribute) (Priority 1) ==
+
+=== Cause: ===
+If style sheets are used for formatting content and/or controlling page layout,
+be sure the information remains accessible when style sheets are disabled or not
+supported. Include a non-visual method of presenting the information and
+organize style sheets logically.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/6.1.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;p style="color: green"&gt;hello&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_6.2.1.1
+--ENDTITLE--
+== Access: [6.2.1.1]: &lt;frame&gt; source invalid (Priority 1) ==
+
+=== Cause: ===
+Make the source of each frame a valid html document. If an image file is used
+as the source of a frame, you will not be able to include "alt" text with the
+graphic. Also, do not use the "title" attribute to describe the contents of a
+frame. If the content changes, the "title" will no longer be applicable.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/6.2.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;frame src="rex.jpg"&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_6.2.2.1
+--ENDTITLE--
+== Access: [6.2.2.1]: text equivalents require updating (applet) (Priority 1) ==
+
+=== Cause: ===
+Whenever dynamic content changes, text equivalents must also be updated. If an
+applet is used to generate dynamic content, provide a text equivalent between
+the opening and closing applet elements or via the "alt" attribute.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/6.2.2&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;applet code="applet.class"&gt;&lt;/applet&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_6.2.2.2
+--ENDTITLE--
+== Access: [6.2.2.2]: text equivalents require updating (script) (Priority 1) ==
+
+=== Cause: ===
+Whenever dynamic content changes, text equivalents must also be updated. If a
+script is used to generate dynamic content, provide a text equivalent by
+including a &lt;noscript&gt; section in the document.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/6.2.2&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;script&gt;&lt;!-- the script --&gt;&lt;/script&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_6.2.2.3
+--ENDTITLE--
+== Access: [6.2.2.3]: text equivalents require updating (object) (Priority 1) ==
+
+=== Cause: ===
+Whenever dynamic content changes, text equivalents must also be updated.
+If 'object' is used to generate dynamic content, include a text equivalent
+between the open and closing object elements.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/6.2.2&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;object&gt;&lt;/object&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_6.3.1.1
+--ENDTITLE--
+== Access: [6.3.1.1]: programmatic objects require testing (script) (Priority 1) ==
+
+=== Cause: ===
+Verify content remain accessible when programmatic objects are disabled or not supported.
+If a script is used to generate content, provide a text equivalent by including a
+&lt;noscript&gt; section in the document. Another option is to use server-side rather than
+client-side scripts. As a last resort, create a text-based alternative for the entire
+document.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/6.3.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;script&gt;&lt;!-- the script --&gt;&lt;/script&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_6.3.1.2
+--ENDTITLE--
+== Access: [6.3.1.2]: programmatic objects require testing (object) (Priority 1) ==
+
+=== Cause: ===
+Verify content remain accessible when programmatic objects are disabled or not supported.
+If &lt;object&gt; is used to generate content, provide a text equivalent between the opening
+and closing object elements.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/6.3.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;object&gt;&lt;/object&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_6.3.1.3
+--ENDTITLE--
+== Access: [6.3.1.3]: programmatic objects require testing (embed) (Priority 1) ==
+
+=== Cause: ===
+Verify that content remains accessible when programmatic objects are disabled or not supported.
+This element allows different data types (i.e. movies, audio files, etc.) to be embedded in
+an html document. Regardless the data type, an appropriate text equivalent must also be included.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/6.3.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;embed&gt;&lt;/embed&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_6.3.1.4
+--ENDTITLE--
+== Access: [6.3.1.4]: programmatic objects require testing (applet) (Priority 1) ==
+
+=== Cause: ===
+Verify content remain accessible when programmatic objects are disabled or not supported. If an
+applet is used to generate dynamic content, provide a text equivalent between the opening and
+closing applet elements or via the "alt" attribute.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/6.3.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;script&gt;&lt;!-- the script --&gt;&lt;/script&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_6.5.1.1
+--ENDTITLE--
+== Access: [6.5.1.1]: &lt;frameset&gt; missing &lt;noframes&gt; section (Priority 2) ==
+
+=== Cause: ===
+Each &lt;frameset&gt; must include a valid &lt;noframes&gt; section which has at least one word of text or
+accessible html code and all links required to navigate the site. Do not use the &lt;noframes&gt;
+section to inform users that they must upgrade to a browser that supports frames. 
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/6.5.1&lt;/title&gt;&lt;/head&gt;&lt;frameset rows="100, 200"&gt;&lt;/frameset&gt;&lt;body&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_6.5.1.2
+--ENDTITLE--
+== Access: [6.5.1.2]: &lt;noframes&gt; section invalid (no value) (Priority 2) ==
+
+=== Cause: ===
+A valid &lt;noframes&gt; section includes at least one word of text or accessible html code and
+all links required to navigate the site. Do not use the &lt;noframes&gt; section to inform users
+that they must upgrade to a browser that supports frames.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/6.5.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;frameset&gt;	&lt;noframes&gt;	&lt;/noframes&gt;&lt;/frameset&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_6.5.1.3
+--ENDTITLE--
+== Access: [6.5.1.3]: &lt;noframes&gt; section invalid (content) (Priority 2) ==
+
+=== Cause: ===
+Do not use the &lt;noframes&gt; section to inform users that they must upgrade to a browser that
+supports frames. A valid &lt;noframes&gt; section includes at least one word of text or accessible
+html code and all links required to navigate the site.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/6.5.1&lt;/title&gt;&lt;/head&gt;&lt;frameset&gt;	&lt;noframes&gt;	&lt;p&gt;Upgrade your browser to one that supports frames!&lt;/p&gt;	&lt;/noframes&gt;&lt;/frameset&gt;&lt;body&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_6.5.1.4
+--ENDTITLE--
+== Access: [6.5.1.4]: &lt;noframes&gt; section invalid (link) (Priority 2) ==
+
+=== Cause: ===
+All links must be enclosed in the &lt;noframes&gt; section. A valid &lt;noframes&gt; section has at least one word
+of text or accessible html code. In addition, &lt;noframes&gt; should not be used to inform users that they
+must upgrade to a browser that supports frames.
+Testfile 6.5.1.4:  &lt;noframes&gt; section invalid (link). 
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/6.5.1&lt;/title&gt;&lt;/head&gt;&lt;frameset&gt;	&lt;a href="mike.html"&gt;hello&lt;/a&gt;	&lt;noframes&gt;	&lt;p&gt;content within noframes&lt;/p&gt;	&lt;/noframes&gt;&lt;/frameset&gt;&lt;body&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_7.1.1.1
+--ENDTITLE--
+== Access: [7.1.1.1]: remove flicker (script) (Priority 1) ==
+
+=== Cause: ===
+Ensure scripts do not cause on-screen flickering. It can trigger epileptic seizures in people with
+photosensitive epilepsy. At present, browsers do not allow screen flicker to be disabled by the user.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/7.1.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;script&gt;&lt;!-- the script goes here --&gt;&lt;/script&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_7.1.1.2
+--ENDTITLE--
+== Access: [7.1.1.2]: remove flicker (object) (Priority 1) ==
+
+=== Cause: ===
+Ensure objects do not cause on-screen flickering. It can trigger epileptic seizures in people with
+photosensitive epilepsy. At present, browsers do not allow screen flickering to be disabled by the user.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/7.1.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;object&gt;&lt;/object&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_7.1.1.3
+--ENDTITLE--
+== Access: [7.1.1.3]: remove flicker (embed) (Priority 1) ==
+
+=== Cause: ===
+Ensure embedded items such as movies, audio files, etc. do not cause on-screen flickering. It can
+trigger epileptic seizures in people with photosensitive epilepsy. At present, browsers do not allow
+screen flickering to be disabled by the user.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/7.1.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;embed&gt;&lt;/embed&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_7.1.1.4
+--ENDTITLE--
+== Access: [7.1.1.4]: remove flicker (applet) (Priority 1) ==
+
+=== Cause: ===
+Ensure applets do not cause on-screen flickering. It can trigger epileptic seizures in people with
+photosensitive epilepsy. At present, browsers do not allow screen flickering to be disabled by the user.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/7.1.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;applet&gt;&lt;/applet&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_7.1.1.5
+--ENDTITLE--
+== Access: [7.1.1.5]: remove flicker (animated gif) (Priority 1) ==
+
+=== Cause: ===
+Ensure that animated gifs do not flicker. On-screen flickering can trigger epileptic seizures in
+people with photosensitive epilepsy. At present, browsers do not allow screen flickering to be
+disabled by the user.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/7.1.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;img src="flicker.gif"/&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_7.2.1.1
+--ENDTITLE--
+== Access: [7.2.1.1]: remove blink/marquee (Priority 2) ==
+
+=== Cause: ===
+Both &lt;blink&gt; and &lt;marquee&gt; are non-standard elements and should not be used in html documents.
+Use style sheets to emphasize content with special formatting (i.e. bold, italics, capitalization,
+underline, etc.)
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/7.2.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;Here is a word of &lt;blink&gt;blinking&lt;/blink&gt; text.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_7.4.1.1
+--ENDTITLE--
+== Access: [7.4.1.1]: remove auto-refresh (Priority 2) ==
+
+=== Cause: ===
+Until browser agents allow clients to stop documents from automatically refreshing, avoid creating p
+ages that reload without a request from the user. Allow visitors to refresh or reload pages at their
+own discretion.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;Test 7.4.1&lt;/title&gt;&lt;meta  http-equiv="refresh" content="60"&gt;&lt;/head&gt;&lt;body&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_7.5.1.1
+--ENDTITLE--
+== Access: [7.5.1.1]: remove auto-redirect (Priority 2) ==
+
+=== Cause: ===
+Avoid using markup that automatically redirects visitors to other web documents. People with
+limited vision or cognitive disabilities often don't have sufficient time to read a document
+that includes an auto-redirect command. Instead, create a link within the document that allows
+clients to advance to the next page at their own discretion.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;Test 7.5.1&lt;/title&gt;&lt;meta  http-equiv="refresh" content="http://www.foo.com/bar.html" /&gt;&lt;/head&gt;&lt;body&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_8.1.1.1
+--ENDTITLE--
+== Access: [8.1.1.1]: ensure programmatic objects are accessible (script) (Priority 1) ==
+
+=== Cause: ===
+Ensure pages are functional when programmatic objects such as scripts are disabled or not supported.
+Make scripts directly accessible or compatible with assistive technologies when functionality is
+important. Include a &lt;noscript&gt; section in the document and specify logical rather than device-dependent
+event handlers. As a last resort, provide equivalent content on an alternative page.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/8.1.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;script&gt;&lt;!-- this is the script --&gt;&lt;/script&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_8.1.1.2
+--ENDTITLE--
+== Access: [8.1.1.2]: ensure programmatic objects are accessible (object) (Priority 1) ==
+
+=== Cause: ===
+Ensure pages are functional when programmatic objects are turned off or not supported. Use
+application-level triggers rather than user interaction-level event triggers. If device-dependent
+attributes must be used, provide redundant input mechanisms (i.e. specify two handlers for the
+same element). As a last resort, provide equivalent information on an alternative page.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/8.1.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;object&gt;&lt;/object&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_8.1.1.3
+--ENDTITLE--
+== Access: [8.1.1.3]: ensure programmatic objects are accessible (applet) (Priority 1) ==
+
+=== Cause: ===
+Ensure pages are functional when programmatic objects such as applets are disabled or not supported.
+Make applets directly accessible or compatible with assistive technologies when functionality is
+important. Provide either a link to a description or insert a text equivalent directly into the
+document and use event handlers that are input device-independent. As a last resort, provide
+equivalent information on an alternative page.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/8.1.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;applet&gt;&lt;/applet&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_8.1.1.4
+--ENDTITLE--
+== Access: [8.1.1.4]: ensure programmatic objects are accessible (embed) (Priority 1) ==
+
+=== Cause: ===
+Ensure pages are functional when programmatic objects are disabled or not supported. Make embedded
+objects such as movies or audio files directly accessible or compatible with assistive technologies
+when functionality is important. Provide a text equivalent via "alt" and "longdesc" attributes or
+in element content. As a last resort, provide equivalent information on an alternative page.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/8.1.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;embed&gt;&lt;/embed&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_9.1.1.1
+--ENDTITLE--
+== Access: [9.1.1.1]: image map (server-side) requires conversion (Priority 1) ==
+
+=== Cause: ===
+Convert server-side image maps to client-side maps whenever possible. Client-side image maps
+are preferable because, unlike server-side maps, they can be accessed by individuals who either
+cannot view images, have chosen to use a non-graphical browser, or are unable to use traditional
+pointing devices (such as a mouse).
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/9.1.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;img src="atrc_main.jpg" width="383" height="347" ismap="image1.map"   border="0" alt="main front page navigation"&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_9.3.1.1
+--ENDTITLE--
+== Access: [9.3.1.1]: &lt;script&gt; not keyboard accessible (onMouseDown) (Priority 2) ==
+
+=== Cause: ===
+Include a redundant mechanism (such as keyboard input) if device dependent event handlers are
+used to invoke a script. The onMouseDown event handler should be paired and included in the same
+element with "onKeyDown".
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/9.3.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;p onMouseDown="blah"&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_9.3.1.2
+--ENDTITLE--
+== Access: [9.3.1.2]: &lt;script&gt; not keyboard accessible (onMouseUp) (Priority 2) ==
+
+=== Cause: ===
+Include a redundant mechanism (such as keyboard input) if device dependent event handlers are
+used to invoke a script. The onMouseUp event handler should be paired and included in the same
+element with "onKeyUp".
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/9.3.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;p onMouseUp="blah"&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_9.3.1.3
+--ENDTITLE--
+== Access: [9.3.1.3]: &lt;script&gt; not keyboard accessible (onClick) (Priority 2) ==
+
+=== Cause: ===
+Include a redundant mechanism (such as keyboard input) if device dependent event handlers are
+used to invoke a script. The onMouseUp event handler should be paired and included in the same
+element with "onKeyPress".
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/9.3.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;p onClick="blah"&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_9.3.1.4
+--ENDTITLE--
+== Access: [9.3.1.4]: &lt;script&gt; not keyboard accessible (onMouseOver) (Priority 2) ==
+
+=== Cause: ===
+Always include a keyboard equivalent with a device dependent event handler such as a mouse.
+Avoid using event handlers that rely on mouse coordinates since this precludes device independent
+input. Scripts that accept keyboard input are generally accessible to those using speech input or
+a command line interface.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/9.3.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;p onMouseOver="blah"&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_9.3.1.5
+--ENDTITLE--
+== Access: [9.3.1.5]: &lt;script&gt; not keyboard accessible (onMouseOut) (Priority 2) ==
+
+=== Cause: ===
+Always include a keyboard equivalent with a device dependent event handler such as a mouse.
+Avoid using event handlers that rely on mouse coordinates since this precludes device independent
+input. Scripts that accept keyboard input are generally accessible to those using speech input or
+a command line interface.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/9.3.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;p onMouseOut="blah"&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_9.3.1.6
+--ENDTITLE--
+== Access: [9.3.1.6]: &lt;script&gt; not keyboard accessible (onMouseMove) (Priority 2) ==
+
+=== Cause: ===
+Always include a keyboard equivalent with a device dependent event handler such as a mouse.
+Avoid using event handlers that rely on mouse coordinates since this precludes device independent
+input. Scripts that accept keyboard input are generally accessible to those using speech input or
+a command line interface.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/9.3.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;p onMouseMove="blah"&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_10.1.1.1
+--ENDTITLE--
+== Access: [10.1.1.1]: new windows require warning (_new) (Priority 2) ==
+
+=== Cause: ===
+Do not cause pop-ups or other windows to appear and do not change the current window without
+informing the user. Avoid using target attributes such as "_new" or "_blank" in anchor elements.
+Use the existing window as the target. Links that open new windows can be disorienting to people
+with cognitive and visual disabilities.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/10.1.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;a href="newpage.html" target="_new"&gt;Opens in new window.&lt;/a&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_10.1.1.2
+--ENDTITLE--
+== Access: [10.1.1.2]: new windows require warning (_blank) (Priority 2) ==
+
+=== Cause: ===
+Do not cause pop-ups or other windows to appear and do not change the current window without
+informing the user. Avoid using target attributes such as "_blank" or "_new" in anchor elements.
+Use the existing window as the target. Links that open new windows can be disorienting to people
+with cognitive and visual disabilities.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/10.1.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;a href="newpage.html" target="_blank"&gt;Opens in new window.&lt;/a&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_10.2.1.1
+--ENDTITLE--
+== Access: [10.2.1.1]: &lt;label&gt; needs repositioning (&lt;label&gt; before &lt;input&gt;) (Priority 2) ==
+
+=== Cause: ===
+Create a clear association between a form control and its label by ensuring labels are positioned
+properly within html markup. Do not separate a label from its form control with additional text,
+images, etc. If there are two or more controls on a single line, labels should be placed
+immediately before its corresponding control or place each label and control on a separate line.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/10.2.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;form action=""&gt;&lt;label for="control1"&gt;Some text:&lt;/label&gt;Text between control and label.&lt;input id="control1" type="text" /&gt;&lt;/form&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_10.2.1.2
+--ENDTITLE--
+== Access: [10.2.1.2]: &lt;label&gt; needs repositioning (&lt;label&gt; after &lt;input&gt;) (Priority 2) ==
+
+=== Cause: ===
+Create a clear association between a form control and its label by ensuring labels are positioned
+properly within html markup. Do not separate a form control from its label with additional text,
+images, etc. If there are two or more controls on a single line, labels should be placed
+immediately after its corresponding control or place each label and control on a separate line.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/10.2.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;form action=""&gt;&lt;input id="control1" type="text" /&gt;Text between control and label.&lt;label for="control1"&gt;Some text:&lt;/label&gt;&lt;/form&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_10.4.1.1
+--ENDTITLE--
+== Access: [10.4.1.1]: form control requires default text (Priority 3) ==
+
+=== Cause: ===
+Include default text for all &lt;input&gt; form controls. Placing default text in form fields enables
+keyboard users to insert a cursor into placeholder text or characters and enter their own data.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/10.4.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;form action=""&gt;&lt;label for="control1"&gt;Some text:&lt;/label&gt;&lt;input id="control1" type="text" /&gt;&lt;/form&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_10.4.1.2
+--ENDTITLE--
+== Access: [10.4.1.2]: form control default text invalid (null) (Priority 3) ==
+
+=== Cause: ===
+Default text for all &lt;input&gt; form controls must include an actual value. Null (i.e. value="")
+is not valid default text but using placeholder characters (i.e. value="****") is acceptable.
+Placing default text in form fields enables keyboard users to insert a cursor into placeholder
+text and enter their own data.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/10.4.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;form action=""&gt;&lt;label for="control1"&gt;Some text:&lt;/label&gt;&lt;input id="control1" value="" type="text" /&gt;&lt;/form&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_10.4.1.3
+--ENDTITLE--
+== Access: [10.4.1.3]: form control default text invalid (spaces) (Priority 3) ==
+
+=== Cause: ===
+Default text for all &lt;input&gt; form controls must include an actual value. Including spaces
+(i.e. value="    ") in default text is not allowed but using placeholder characters
+(i.e. value="****") is acceptable. Placing default text in form fields enables keyboard
+users to insert a cursor into placeholder text and enter their own data.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/10.4.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;form action=""&gt;&lt;label for="control1"&gt;Some text:&lt;/label&gt;&lt;input id="control1" value="      " type="text" /&gt;&lt;/form&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_11.2.1.1
+--ENDTITLE--
+== Access: [11.2.1.1]: replace deprecated html &lt;applet&gt; (Priority 2) ==
+
+=== Cause: ===
+Replace deprecated html elements and attributes to ensure their web pages remain compliant with
+the most current browser technologies. Applet (and all its attributes) has been deprecated in
+favor of &lt;object&gt;.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/11.2.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;applet&gt;&lt;/applet&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_11.2.1.2
+--ENDTITLE--
+== Access: [11.2.1.2]: replace deprecated html &lt;basefont&gt; (Priority 2) ==
+
+=== Cause: ===
+Replace deprecated html elements and attributes to ensure web pages remain compliant with the
+most current browser technologies. The &lt;basefont&gt; element is deprecated. Use Cascading Style Sheets
+(CSS) to set font size.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/11.2.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;basefont&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_11.2.1.3
+--ENDTITLE--
+== Access: [11.2.1.3]: replace deprecated html &lt;center&gt; (Priority 2) ==
+
+=== Cause: ===
+Replace deprecated html elements and attributes to ensure web pages remain compliant with
+the most current browser technologies. The &lt;center&gt; element is deprecated. Use Cascading Style
+Sheets (CSS) to position text.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/11.2.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;center&gt;Hello&lt;/center&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_11.2.1.4
+--ENDTITLE--
+== Access: [11.2.1.4]: replace deprecated html &lt;dir&gt; (Priority 2) ==
+
+=== Cause: ===
+Replace deprecated html elements and attributes to ensure web pages remain compliant with
+the most current browser technologies. The &lt;dir&gt; element has been deprecated in favor of
+&lt;ul&gt; (unordered list).
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/11.2.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;dir&gt;Hello&lt;/dir&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_11.2.1.5
+--ENDTITLE--
+== Access: [11.2.1.5]: replace deprecated html &lt;font&gt; (Priority 2) ==
+
+=== Cause: ===
+Replace deprecated html elements and attributes to ensure web pages remain compliant with
+the most current browser technologies. The &lt;font&gt; element is deprecated. Use Cascading Style
+Sheets (CSS) to set font size and color.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/11.2.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;font size="6"&gt;Hello&lt;/font&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_11.2.1.6
+--ENDTITLE--
+== Access: [11.2.1.6]: replace deprecated html &lt;isindex&gt; (Priority 2) ==
+
+=== Cause: ===
+Replace deprecated html elements and attributes to ensure web pages remain compliant with the
+most current browser technologies. The &lt;isindex&gt; element (which creates a single-line text input
+control) has been deprecated. Use &lt;input&gt; to create text input controls instead.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/11.2.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;isindex prompt="Enter your search phrase: "&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_11.2.1.7
+--ENDTITLE--
+== Access: [11.2.1.7]: replace deprecated html &lt;menu&gt; (Priority 2) ==
+
+=== Cause: ===
+Replace deprecated html elements and attributes to ensure web pages remain compliant with the
+most current browser technologies. The &lt;menu&gt; element has been deprecated in favor of &lt;ul&gt;
+(unordered list).
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/11.2.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;menu&gt;&lt;/menu&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_11.2.1.8
+--ENDTITLE--
+== Access: [11.2.1.8]: replace deprecated html &lt;s&gt; (Priority 2) ==
+
+=== Cause: ===
+Replace deprecated html elements and attributes to ensure web pages remain compliant with the most
+current browser technologies. The &lt;s&gt; element (used to render strike-through style text) has been
+deprecated. Use Cascading Style Sheets (CSS) to apply font effects to text.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/11.2.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;s&gt;&lt;/s&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_11.2.1.9
+--ENDTITLE--
+== Access: [11.2.1.9]: replace deprecated html &lt;strike&gt; (Priority 2) ==
+
+=== Cause: ===
+Replace deprecated html elements and attributes to ensure web pages remain compliant with the
+most current browser technologies. The &lt;strike&gt; element (used to render strike-through style
+text) has been deprecated. Use Cascading Style Sheets (CSS) to apply font effects to text.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/11.2.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;strike&gt;&lt;/strike&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_11.2.1.10
+--ENDTITLE--
+== Access: [11.2.1.10]: replace deprecated html &lt;u&gt; (Priority 2) ==
+
+=== Cause: ===
+Replace deprecated html elements and attributes to ensure web pages remain compliant with the
+most current browser technologies. The &lt;u&gt; element (which renders underlined text) has been
+deprecated. Use Cascading Style Sheets (CSS) to apply font effects to text.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/11.2.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;u&gt;&lt;/u&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_12.1.1.1
+--ENDTITLE--
+== Access: [12.1.1.1]: &lt;frame&gt; missing title (Priority 1) ==
+
+=== Cause: ===
+Provide a title for each &lt;frame&gt; or &lt;iframe&gt; within a document. Frame titles must be meaningful
+(i.e. identify content and/or navigational links). Do not use filenames (e.g. title="frame1.html")
+or placeholder text (i.e. "insert frame title here") as a title.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/12.1.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;frame&gt;&lt;/frame&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_12.1.1.2
+--ENDTITLE--
+== Access: [12.1.1.2]: &lt;frame&gt; title invalid (null) (Priority 1) ==
+
+=== Cause: ===
+Frame titles must be meaningful (i.e. identify content and/or navigational links). Null
+(i.e. title="") is not an acceptable title. In addition, do not use filenames (e.g. title="frame1.html")
+or placeholder text (i.e. "insert frame title here") as a title.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/12.1.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;frame title=""&gt;&lt;/frame&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_12.1.1.3
+--ENDTITLE--
+== Access: [12.1.1.3]: &lt;frame&gt; title invalid (spaces) (Priority 1) ==
+
+=== Cause: ===
+Frame titles must be meaningful (i.e. identify content and/or navigational links).
+Spaces in a title (i.e. title="      ") are not acceptable. In addition, do not use filenames
+(e.g. title="frame1.html") or placeholder text (i.e. "insert frame title here") as a title.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/12.1.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;frame title="      "&gt;&lt;/frame&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_12.4.1.1
+--ENDTITLE--
+== Access: [12.4.1.1]: associate labels explicitly with form controls (Priority 2) ==
+
+=== Cause: ===
+The "for" and "id" attributes explicitly associate a label with its matching form control. The
+value of the "for" attribute must be identical to the "id" attribute. More than one label may be
+associated with the same control by creating multiple references through the "for" attribute.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/12.4.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;form action=""&gt;&lt;label&gt;Some text:&lt;/label&gt;&lt;input value="****" type="text" /&gt;&lt;/form&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_12.4.1.2
+--ENDTITLE--
+== Access: [12.4.1.2]: associate labels explicitly with form controls (for) (Priority 2) ==
+
+=== Cause: ===
+The "for" attribute must accompany the "id" attribute to explicitly associate a label with its
+matching form control. The value of the "for" and "id" attributes must be identical. More than
+one label may be associated with the same control by creating multiple references via the "for"
+attribute.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/12.4.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;form action=""&gt;&lt;label&gt;Some text:&lt;/label&gt;&lt;input id="control1" value="****" type="text" /&gt;&lt;/form&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_12.4.1.3
+--ENDTITLE--
+== Access: [12.4.1.3]: associate labels explicitly with form controls (id) (Priority 2) ==
+
+=== Cause: ===
+The "id" attribute must accompany the "for" attribute to explicitly associate a label with its
+matching form control. The value of the "for" and "id" attributes must be identical. More than
+one label may be associated with the same control by creating multiple references via the "for"
+attribute.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/12.4.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;form action=""&gt;&lt;label for="control1"&gt;Some text:&lt;/label&gt;&lt;input value="****" type="text" /&gt;&lt;/form&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_13.1.1.1
+--ENDTITLE--
+== Access: [13.1.1.1]: link text not meaningful (Priority 2) ==
+
+=== Cause: ===
+Create link text that remains meaningful even when read out of context. Identify the purpose or
+target of each link (i.e. describe the destination of the link) and keep the text concise.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/13.1.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;a href="animals.htm"&gt;cats&lt;/a&gt;some text&lt;a href="animals.htm"&gt;cats&lt;/a&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_13.1.1.2
+--ENDTITLE--
+== Access: [13.1.1.2]: link text missing (Priority 2) ==
+
+=== Cause: ===
+Create link text that remains meaningful even when read out of context. Identify the purpose or
+target of each link (i.e. describe the destination of the link) and keep the text concise.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/13.1.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;a href="animals.htm"&gt;&lt;/a&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_13.1.1.3
+--ENDTITLE--
+== Access: [13.1.1.3]: link text too long (Priority 2) ==
+
+=== Cause: ===
+Keep link text concise. Create links that remain meaningful even when read out of context by
+clearly identifying the purpose or target of each link (i.e. describe the destination of the link).
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/13.1.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;a href="animals.htm"&gt;Want to find out more about small furry animals?Then click here and this link will take you there.&lt;/a&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_13.1.1.4
+--ENDTITLE--
+== Access: [13.1.1.4]: link text not meaningful (click here) (Priority 2) ==
+
+=== Cause: ===
+Avoid ambiguous link text such as "click here". In addition, the term "click" suggests the link
+is only accessible via a mouse or other similar pointing device. Create link text that remains
+meaningful even when read out of context. Identify the purpose or target of each link
+(i.e. describe the destination of the link)and keep the text concise.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/13.1.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;a href="animals.htm"&gt;click here&lt;/a&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_13.1.1.5
+--ENDTITLE--
+== Access: [13.1.1.5]: link text not meaningful (more) (Priority 2) ==
+
+=== Cause: ===
+Avoid ambiguous link text such as "more". Create link text that remains meaningful even when read
+out of context. Identify the purpose or target of each link (i.e. describe the destination of the link)
+and keep the text concise.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/13.1.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;a href="animals.htm"&gt;more&lt;/a&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_13.1.1.6
+--ENDTITLE--
+== Access: [13.1.1.6]: link text not meaningful (follow this) (Priority 2) ==
+
+=== Cause: ===
+Avoid ambiguous link text such as "follow this". Create link text that remains meaningful even
+when read out of context. Identify the purpose or target of each link (i.e. describe the
+destination of the link)and keep the text concise.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/13.1.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;a href="animals.htm"&gt;follow this&lt;/a&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_13.2.1.1
+--ENDTITLE--
+== Access: [13.2.1.1]: Metadata missing (Priority 2) ==
+
+=== Cause: ===
+Metadata should describe or provide specific information about individual web documents. Metadata
+is commonly used to list keywords so that search engines can conduct a more accurate and refined
+search. It can also include: content ratings, author information, site maps, stream channel
+definitions, a document's primary language, and digital library collections.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_13.2.1.2
+--ENDTITLE--
+== Access: [13.2.1.2]: Metadata missing (link element) (Priority 2) ==
+
+=== Cause: ===
+If metadata is specified via the link element its value should be a URI. It should not be used
+to access style sheets. Use metadata to describe or provide specific information about individual
+web documents. Metadata often includes a list of keywords enabling search engines to conduct a more
+accurate and refined search. It can also contain content ratings, author information, site maps,
+stream channel definitions, a document's primary language, and digital library collections.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;link rel="stylesheet" href="http://www.thunders.ca/jtclstyle1.css"&gt;&lt;/head&gt;&lt;body&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_13.2.1.3
+--ENDTITLE--
+== Access: [13.2.1.3]: Metadata missing (redirect/auto-refresh) (Priority 2) ==
+
+=== Cause: ===
+Do not use the metadata element to refresh or redirect web pages automatically. Use metadata to
+describe or provide specific information about individual web documents. Metadata often includes
+a list of keywords enabling search engines to conduct a more accurate and refined search. It can also
+contain content ratings, author information, site maps, stream channel definitions, a document's
+primary language, and digital library collections.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;meta  http-equiv="refresh" content="http://www.foo.com/bar.html" /&gt;&lt;/head&gt;&lt;body&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--
+access_13.10.1.1
+--ENDTITLE--
+== Access: [13.10.1.1]: skip over ascii art (Priority 3) ==
+
+=== Cause: ===
+Provide a means to skip over multi-line ascii art. Avoid ascii art (character illustrations)
+whenever possible. If ascii art must be used, provide a link to bypass the graphic. For ascii
+art 20 characters or less use the <abbr> element with the "title" attribute.
+
+=== Example: ===
+<bad><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/13.10.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;pre&gt;  %   __ __ __ __ __ __ __ __ __ __ __ __ __ __100 |             *                             | 90 |                *  *                       | 80 |          *           *                    | 70 |             @           *                 | 60 |          @                 *              | 50 |       *        @              *           | 40 |                   @              *        | 30 |    *  @              @  @           *     | 20 |                                           | 10 |    @                       @  @  @  @     |      0  5 10 15 20 25 30 35 40 45 50 55 60 65 70      Flash frequency (Hertz)&lt;/pre&gt;&lt;/form&gt;&lt;/body&gt;&lt;/html&gt;</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--

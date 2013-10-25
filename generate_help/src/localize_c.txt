@@ -1,0 +1,131 @@
+ IMG_MISSING_ALT,                               "[1.1.1.1]: <img> missing 'alt' text."                                     }, /* Access */
+ IMG_ALT_SUSPICIOUS_FILENAME,                   "[1.1.1.2]: suspicious 'alt' text (filename)."                             }, /* Access */
+ IMG_ALT_SUSPICIOUS_FILE_SIZE,                  "[1.1.1.3]: suspicious 'alt' text (file size)."                            }, /* Access */
+ IMG_ALT_SUSPICIOUS_PLACEHOLDER,                "[1.1.1.4]: suspicious 'alt' text (placeholder)."                          }, /* Access */
+ IMG_ALT_SUSPICIOUS_TOO_LONG,                   "[1.1.1.10]: suspicious 'alt' text (too long)."                            }, /* Access */
+ IMG_MISSING_ALT_BULLET,                        "[1.1.1.11]: <img> missing 'alt' text (bullet)."                           }, /* Access */
+ IMG_MISSING_ALT_H_RULE,                        "[1.1.1.12]: <img> missing 'alt' text (horizontal rule)."                  }, /* Access */
+ IMG_MISSING_LONGDESC_DLINK,                    "[1.1.2.1]: <img> missing 'longdesc' and d-link."                          }, /* Access */
+ IMG_MISSING_DLINK,                             "[1.1.2.2]: <img> missing d-link."                                         }, /* Access */
+ IMG_MISSING_LONGDESC,                          "[1.1.2.3]: <img> missing 'longdesc'."                                     }, /* Access */
+ LONGDESC_NOT_REQUIRED,                         "[1.1.2.5]: 'longdesc' not required."                                      }, /* Access */
+ IMG_BUTTON_MISSING_ALT,                        "[1.1.3.1]: <img> (button) missing 'alt' text."                            }, /* Access */
+ APPLET_MISSING_ALT,                            "[1.1.4.1]: <applet> missing alternate content."                           }, /* Access */
+ OBJECT_MISSING_ALT,                            "[1.1.5.1]: <object> missing alternate content."                           }, /* Access */
+ AUDIO_MISSING_TEXT_WAV,                        "[1.1.6.1]: audio missing text transcript (wav)."                          }, /* Access */
+ AUDIO_MISSING_TEXT_AU,                         "[1.1.6.2]: audio missing text transcript (au)."                           }, /* Access */
+ AUDIO_MISSING_TEXT_AIFF,                       "[1.1.6.3]: audio missing text transcript (aiff)."                         }, /* Access */
+ AUDIO_MISSING_TEXT_SND,                        "[1.1.6.4]: audio missing text transcript (snd)."                          }, /* Access */
+ AUDIO_MISSING_TEXT_RA,                         "[1.1.6.5]: audio missing text transcript (ra)."                           }, /* Access */
+ AUDIO_MISSING_TEXT_RM,                         "[1.1.6.6]: audio missing text transcript (rm)."                           }, /* Access */
+ FRAME_MISSING_LONGDESC,                        "[1.1.8.1]: <frame> may require 'longdesc'."                               }, /* Access */
+ AREA_MISSING_ALT,                              "[1.1.9.1]: <area> missing 'alt' text."                                    }, /* Access */
+ SCRIPT_MISSING_NOSCRIPT,                       "[1.1.10.1]: <script> missing <noscript> section."                         }, /* Access */
+ ASCII_REQUIRES_DESCRIPTION,                    "[1.1.12.1]: ascii art requires description."                              }, /* Access */
+ IMG_MAP_SERVER_REQUIRES_TEXT_LINKS,            "[1.2.1.1]: image map (server-side) requires text links."                  }, /* Access */
+ MULTIMEDIA_REQUIRES_TEXT,                      "[1.4.1.1]: multimedia requires synchronized text equivalents."            }, /* Access */
+ IMG_MAP_CLIENT_MISSING_TEXT_LINKS,             "[1.5.1.1]: image map (client-side) missing text links."                   }, /* Access */
+ INFORMATION_NOT_CONVEYED_IMAGE,                "[2.1.1.1]: ensure information not conveyed through color alone (image)."  }, /* Access */
+ INFORMATION_NOT_CONVEYED_APPLET,               "[2.1.1.2]: ensure information not conveyed through color alone (applet)." }, /* Access */
+ INFORMATION_NOT_CONVEYED_OBJECT,               "[2.1.1.3]: ensure information not conveyed through color alone (object)." }, /* Access */
+ INFORMATION_NOT_CONVEYED_SCRIPT,               "[2.1.1.4]: ensure information not conveyed through color alone (script)." }, /* Access */
+ INFORMATION_NOT_CONVEYED_INPUT,                "[2.1.1.5]: ensure information not conveyed through color alone (input)."  }, /* Access */
+ COLOR_CONTRAST_TEXT,                           "[2.2.1.1]: poor color contrast (text)."                                   }, /* Access */
+ COLOR_CONTRAST_LINK,                           "[2.2.1.2]: poor color contrast (link)."                                   }, /* Access */
+ COLOR_CONTRAST_ACTIVE_LINK,                    "[2.2.1.3]: poor color contrast (active link)."                            }, /* Access */
+ COLOR_CONTRAST_VISITED_LINK,                   "[2.2.1.4]: poor color contrast (visited link)."                           }, /* Access */
+ DOCTYPE_MISSING,                               "[3.2.1.1]: <doctype> missing."                                            }, /* Access */
+ STYLE_SHEET_CONTROL_PRESENTATION,              "[3.3.1.1]: use style sheets to control presentation."                     }, /* Access */
+ HEADERS_IMPROPERLY_NESTED,                     "[3.5.1.1]: headers improperly nested."                                    }, /* Access */
+ POTENTIAL_HEADER_BOLD,                         "[3.5.2.1]: potential header (bold)."                                      }, /* Access */
+ POTENTIAL_HEADER_ITALICS,                      "[3.5.2.2]: potential header (italics)."                                   }, /* Access */
+ POTENTIAL_HEADER_UNDERLINE,                    "[3.5.2.3]: potential header (underline)."                                 }, /* Access */
+ HEADER_USED_FORMAT_TEXT,                       "[3.5.3.1]: header used to format text."                                   }, /* Access */
+ LIST_USAGE_INVALID_UL,                         "[3.6.1.1]: list usage invalid <ul>."                                      }, /* Access */
+ LIST_USAGE_INVALID_OL,                         "[3.6.1.2]: list usage invalid <ol>."                                      }, /* Access */
+ LIST_USAGE_INVALID_LI,                         "[3.6.1.4]: list usage invalid <li>."                                      }, /* Access */
+ INDICATE_CHANGES_IN_LANGUAGE,                  "[4.1.1.1]: indicate changes in language."                                 }, /* Access */
+ LANGUAGE_NOT_IDENTIFIED,                       "[4.3.1.1]: language not identified."                                      }, /* Access */
+ LANGUAGE_INVALID,                              "[4.3.1.2]: language attribute invalid."                                   }, /* Access */
+ DATA_TABLE_MISSING_HEADERS,                    "[5.1.2.1]: data <table> missing row/column headers (all)."                }, /* Access */
+ DATA_TABLE_MISSING_HEADERS_COLUMN,             "[5.1.2.2]: data <table> missing row/column headers (1 col)."              }, /* Access */
+ DATA_TABLE_MISSING_HEADERS_ROW,                "[5.1.2.3]: data <table> missing row/column headers (1 row)."              }, /* Access */
+ DATA_TABLE_REQUIRE_MARKUP_COLUMN_HEADERS,      "[5.2.1.1]: data <table> may require markup (column headers)."             }, /* Access */
+ DATA_TABLE_REQUIRE_MARKUP_ROW_HEADERS,         "[5.2.1.2]: data <table> may require markup (row headers)."                }, /* Access */
+ LAYOUT_TABLES_LINEARIZE_PROPERLY,              "[5.3.1.1]: verify layout tables linearize properly."                      }, /* Access */
+ LAYOUT_TABLE_INVALID_MARKUP,                   "[5.4.1.1]: invalid markup used in layout <table>."                        }, /* Access */
+ TABLE_MISSING_SUMMARY,                         "[5.5.1.1]: <table> missing summary."                                      }, /* Access */
+ TABLE_SUMMARY_INVALID_NULL,                    "[5.5.1.2]: <table> summary invalid (null)."                               }, /* Access */
+ TABLE_SUMMARY_INVALID_SPACES,                  "[5.5.1.3]: <table> summary invalid (spaces)."                             }, /* Access */
+ TABLE_SUMMARY_INVALID_PLACEHOLDER,             "[5.5.1.6]: <table> summary invalid (placeholder text)."                   }, /* Access */
+ TABLE_MISSING_CAPTION,                         "[5.5.2.1]: <table> missing <caption>."                                    }, /* Access */
+ TABLE_MAY_REQUIRE_HEADER_ABBR,                 "[5.6.1.1]: <table> may require header abbreviations."                     }, /* Access */
+ TABLE_MAY_REQUIRE_HEADER_ABBR_NULL,            "[5.6.1.2]: <table> header abbreviations invalid (null)."                  }, /* Access */
+ TABLE_MAY_REQUIRE_HEADER_ABBR_SPACES,          "[5.6.1.3]: <table> header abbreviations invalid (spaces)."                }, /* Access */
+ STYLESHEETS_REQUIRE_TESTING_LINK,              "[6.1.1.1]: style sheets require testing (link)."                          }, /* Access */
+ STYLESHEETS_REQUIRE_TESTING_STYLE_ELEMENT,     "[6.1.1.2]: style sheets require testing (style element)."                 }, /* Access */
+ STYLESHEETS_REQUIRE_TESTING_STYLE_ATTR,        "[6.1.1.3]: style sheets require testing (style attribute)."               }, /* Access */
+ FRAME_SRC_INVALID,                             "[6.2.1.1]: <frame> source invalid."                                       }, /* Access */
+ TEXT_EQUIVALENTS_REQUIRE_UPDATING_APPLET,      "[6.2.2.1]: text equivalents require updating (applet)."                   }, /* Access */
+ TEXT_EQUIVALENTS_REQUIRE_UPDATING_SCRIPT,      "[6.2.2.2]: text equivalents require updating (script)."                   }, /* Access */
+ TEXT_EQUIVALENTS_REQUIRE_UPDATING_OBJECT,      "[6.2.2.3]: text equivalents require updating (object)."                   }, /* Access */
+ PROGRAMMATIC_OBJECTS_REQUIRE_TESTING_SCRIPT,   "[6.3.1.1]: programmatic objects require testing (script)."                }, /* Access */
+ PROGRAMMATIC_OBJECTS_REQUIRE_TESTING_OBJECT,   "[6.3.1.2]: programmatic objects require testing (object)."                }, /* Access */
+ PROGRAMMATIC_OBJECTS_REQUIRE_TESTING_EMBED,    "[6.3.1.3]: programmatic objects require testing (embed)."                 }, /* Access */
+ PROGRAMMATIC_OBJECTS_REQUIRE_TESTING_APPLET,   "[6.3.1.4]: programmatic objects require testing (applet)."                }, /* Access */
+ FRAME_MISSING_NOFRAMES,                        "[6.5.1.1]: <frameset> missing <noframes> section."                        }, /* Access */
+ NOFRAMES_INVALID_NO_VALUE,                     "[6.5.1.2]: <noframes> section invalid (no value)."                        }, /* Access */
+ NOFRAMES_INVALID_CONTENT,                      "[6.5.1.3]: <noframes> section invalid (content)."                         }, /* Access */
+ NOFRAMES_INVALID_LINK,                         "[6.5.1.4]: <noframes> section invalid (link)."                            }, /* Access */
+ REMOVE_FLICKER_SCRIPT,                         "[7.1.1.1]: remove flicker (script)."                                      }, /* Access */
+ REMOVE_FLICKER_OBJECT,                         "[7.1.1.2]: remove flicker (object)."                                      }, /* Access */
+ REMOVE_FLICKER_EMBED,                          "[7.1.1.3]: remove flicker (embed)."                                       }, /* Access */
+ REMOVE_FLICKER_APPLET,                         "[7.1.1.4]: remove flicker (applet)."                                      }, /* Access */
+ REMOVE_FLICKER_ANIMATED_GIF,                   "[7.1.1.5]: remove flicker (animated gif)."                                }, /* Access */
+ REMOVE_BLINK_MARQUEE,                          "[7.2.1.1]: remove blink/marquee."                                         }, /* Access */
+ REMOVE_AUTO_REFRESH,                           "[7.4.1.1]: remove auto-refresh."                                          }, /* Access */
+ REMOVE_AUTO_REDIRECT,                          "[7.5.1.1]: remove auto-redirect."                                         }, /* Access */
+ ENSURE_PROGRAMMATIC_OBJECTS_ACCESSIBLE_SCRIPT, "[8.1.1.1]: ensure programmatic objects are accessible (script)."          }, /* Access */
+ ENSURE_PROGRAMMATIC_OBJECTS_ACCESSIBLE_OBJECT, "[8.1.1.2]: ensure programmatic objects are accessible (object)."          }, /* Access */
+ ENSURE_PROGRAMMATIC_OBJECTS_ACCESSIBLE_APPLET, "[8.1.1.3]: ensure programmatic objects are accessible (applet)."          }, /* Access */
+ ENSURE_PROGRAMMATIC_OBJECTS_ACCESSIBLE_EMBED,  "[8.1.1.4]: ensure programmatic objects are accessible (embed)."           }, /* Access */
+ IMAGE_MAP_SERVER_SIDE_REQUIRES_CONVERSION,     "[9.1.1.1]: image map (server-side) requires conversion."                  }, /* Access */
+ SCRIPT_NOT_KEYBOARD_ACCESSIBLE_ON_MOUSE_DOWN,  "[9.3.1.1]: <script> not keyboard accessible (onMouseDown)."               }, /* Access */
+ SCRIPT_NOT_KEYBOARD_ACCESSIBLE_ON_MOUSE_UP,    "[9.3.1.2]: <script> not keyboard accessible (onMouseUp)."                 }, /* Access */
+ SCRIPT_NOT_KEYBOARD_ACCESSIBLE_ON_CLICK,       "[9.3.1.3]: <script> not keyboard accessible (onClick)."                   }, /* Access */
+ SCRIPT_NOT_KEYBOARD_ACCESSIBLE_ON_MOUSE_OVER,  "[9.3.1.4]: <script> not keyboard accessible (onMouseOver)."               }, /* Access */
+ SCRIPT_NOT_KEYBOARD_ACCESSIBLE_ON_MOUSE_OUT,   "[9.3.1.5]: <script> not keyboard accessible (onMouseOut)."                }, /* Access */
+ SCRIPT_NOT_KEYBOARD_ACCESSIBLE_ON_MOUSE_MOVE,  "[9.3.1.6]: <script> not keyboard accessible (onMouseMove)."               }, /* Access */
+ NEW_WINDOWS_REQUIRE_WARNING_NEW,               "[10.1.1.1]: new windows require warning (_new)."                          }, /* Access */
+ NEW_WINDOWS_REQUIRE_WARNING_BLANK,             "[10.1.1.2]: new windows require warning (_blank)."                        }, /* Access */
+ LABEL_NEEDS_REPOSITIONING_BEFORE_INPUT,        "[10.2.1.1]: <label> needs repositioning (<label> before <input>)."        }, /* Access */
+ LABEL_NEEDS_REPOSITIONING_AFTER_INPUT,         "[10.2.1.2]: <label> needs repositioning (<label> after <input>)."         }, /* Access */
+ FORM_CONTROL_REQUIRES_DEFAULT_TEXT,            "[10.4.1.1]: form control requires default text."                          }, /* Access */
+ FORM_CONTROL_DEFAULT_TEXT_INVALID_NULL,        "[10.4.1.2]: form control default text invalid (null)."                    }, /* Access */
+ FORM_CONTROL_DEFAULT_TEXT_INVALID_SPACES,      "[10.4.1.3]: form control default text invalid (spaces)."                  }, /* Access */
+ REPLACE_DEPRECATED_HTML_APPLET,                "[11.2.1.1]: replace deprecated html <applet>."                            }, /* Access */
+ REPLACE_DEPRECATED_HTML_BASEFONT,              "[11.2.1.2]: replace deprecated html <basefont>."                          }, /* Access */
+ REPLACE_DEPRECATED_HTML_CENTER,                "[11.2.1.3]: replace deprecated html <center>."                            }, /* Access */
+ REPLACE_DEPRECATED_HTML_DIR,                   "[11.2.1.4]: replace deprecated html <dir>."                               }, /* Access */
+ REPLACE_DEPRECATED_HTML_FONT,                  "[11.2.1.5]: replace deprecated html <font>."                              }, /* Access */
+ REPLACE_DEPRECATED_HTML_ISINDEX,               "[11.2.1.6]: replace deprecated html <isindex>."                           }, /* Access */
+ REPLACE_DEPRECATED_HTML_MENU,                  "[11.2.1.7]: replace deprecated html <menu>."                              }, /* Access */
+ REPLACE_DEPRECATED_HTML_S,                     "[11.2.1.8]: replace deprecated html <s>."                                 }, /* Access */
+ REPLACE_DEPRECATED_HTML_STRIKE,                "[11.2.1.9]: replace deprecated html <strike>."                            }, /* Access */
+ REPLACE_DEPRECATED_HTML_U,                     "[11.2.1.10]: replace deprecated html <u>."                                }, /* Access */
+ FRAME_MISSING_TITLE,                           "[12.1.1.1]: <frame> missing title."                                       }, /* Access */
+ FRAME_TITLE_INVALID_NULL,                      "[12.1.1.2]: <frame> title invalid (null)."                                }, /* Access */
+ FRAME_TITLE_INVALID_SPACES,                    "[12.1.1.3]: <frame> title invalid (spaces)."                              }, /* Access */
+ ASSOCIATE_LABELS_EXPLICITLY,                   "[12.4.1.1]: associate labels explicitly with form controls."              }, /* Access */
+ ASSOCIATE_LABELS_EXPLICITLY_FOR,               "[12.4.1.2]: associate labels explicitly with form controls (for)."        }, /* Access */
+ ASSOCIATE_LABELS_EXPLICITLY_ID,                "[12.4.1.3]: associate labels explicitly with form controls (id)."         }, /* Access */
+ LINK_TEXT_NOT_MEANINGFUL,                      "[13.1.1.1]: link text not meaningful."                                    }, /* Access */
+ LINK_TEXT_MISSING,                             "[13.1.1.2]: link text missing."                                           }, /* Access */
+ LINK_TEXT_TOO_LONG,                            "[13.1.1.3]: link text too long."                                          }, /* Access */
+ LINK_TEXT_NOT_MEANINGFUL_CLICK_HERE,           "[13.1.1.4]: link text not meaningful (click here)."                       }, /* Access */
+ LINK_TEXT_NOT_MEANINGFUL_MORE,                 "[13.1.1.5]: link text not meaningful (more)."                             }, /* Access */
+ LINK_TEXT_NOT_MEANINGFUL_FOLLOW_THIS,          "[13.1.1.6]: link text not meaningful (follow this)."                      }, /* Access */
+ METADATA_MISSING,                              "[13.2.1.1]: Metadata missing."                                            }, /* Access */
+ METADATA_MISSING_LINK,                         "[13.2.1.2]: Metadata missing (link element)."                             }, /* Access */
+ METADATA_MISSING_REDIRECT_AUTOREFRESH,         "[13.2.1.3]: Metadata missing (redirect/auto-refresh)."                    }, /* Access */
+ SKIPOVER_ASCII_ART,                            "[13.10.1.1]: skip over ascii art."                                        }, /* Access */

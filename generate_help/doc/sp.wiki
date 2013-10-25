@@ -1,0 +1,754 @@
+sp_nomsg
+--ENDTITLE--
+== OpenSP: help wanted ==
+=== Cause: ===
+href="feedback.html?uri=<!--URI-->;errmsg_id=<!--MID-->#errormsg"
+title="Suggest improvements on this error message through our feedback channels" 
+>&#x2709;</a>
+
+=== Example: ===
+<bad>textexample textexample</bad>
+<good>textexample textexample</good>
+=== Solution: ===
+textexample textexample
+=== References: ===
+* W3 validator: http://validator.w3.org/
+--ENDPAGE--
+sp_25
+--ENDTITLE--
+== OpenSP: general entity %1 not defined and no default entity ==
+=== Cause: ===
+This is usually a cascading error caused by a an undefined entity
+reference or use of an unencoded ampersand (&amp;) in an URL or body
+text. See the previous message for further details.
+
+=== Example: ===
+<bad>textexample textexample</bad>
+<good>textexample textexample</good>
+=== Solution: ===
+textexample textexample
+=== References: ===
+* W3 validator: http://validator.w3.org/
+--ENDPAGE--
+sp_28
+--ENDTITLE--
+== OpenSP: unterminated comment: found end of entity inside comment ==
+=== Cause: ===
+Check that you are using a proper syntax for you comments, e.g: &lt;!-- comment here --&gt;. 
+This error may appear if you forget the last "--" to close one comment, therefore including the rest 
+of the content in your comment.
+
+=== Example: ===
+<bad>textexample textexample</bad>
+<good>textexample textexample</good>
+=== Solution: ===
+textexample textexample
+=== References: ===
+* W3 validator: http://validator.w3.org/
+--ENDPAGE--
+sp_38
+--ENDTITLE--
+== OpenSP: literal is missing closing delimiter ==
+=== Cause: ===
+Did you forget to close a (double) quote mark?
+
+=== Example: ===
+<bad>textexample textexample</bad>
+<good>textexample textexample</good>
+=== Solution: ===
+textexample textexample
+=== References: ===
+* W3 validator: http://validator.w3.org/
+--ENDPAGE--
+sp_42
+--ENDTITLE--
+== OpenSP: unknown declaration type %1 ==
+=== Cause: ===
+This error may appear if you are using a bad syntax for you comments, such as "&lt;!invalid comment&gt;"
+The proper syntax for comments is &lt;!-- your comment here --&gt;. 
+
+=== Example: ===
+<bad>textexample textexample</bad>
+<good>textexample textexample</good>
+=== Solution: ===
+textexample textexample
+=== References: ===
+* W3 validator: http://validator.w3.org/
+--ENDPAGE--
+sp_63
+--ENDTITLE--
+== OpenSP: character data is not allowed here ==
+=== Cause: ===
+You have used character data somewhere it is not permitted to appear.
+Mistakes that can cause this error include putting text directly in the
+body of the document without wrapping it in a container element (such as
+a &lt;p&gt;aragraph&lt;/p&gt;) or forgetting to quote an attribute value
+(where characters such as "%" and "/" are common, but cannot appear
+without surrounding quotes).
+
+=== Example: ===
+<bad>textexample textexample</bad>
+<good>textexample textexample</good>
+=== Solution: ===
+textexample textexample
+=== References: ===
+* W3 validator: http://validator.w3.org/
+--ENDPAGE--
+sp_64
+--ENDTITLE--
+== OpenSP: document type does not allow element %1 here ==
+=== Cause: ===
+The element named above was found in a context where it is not allowed.
+This could mean that you have incorrectly nested elements -- such as a
+"style" element in the "body" section instead of inside "head" -- or
+two elements that overlap (which is not allowed).
+
+=== Example: ===
+<bad>textexample textexample</bad>
+<good>textexample textexample</good>
+=== Solution: ===
+textexample textexample
+=== References: ===
+* W3 validator: http://validator.w3.org/
+--ENDPAGE--
+sp_65
+--ENDTITLE--
+== OpenSP: document type does not allow element %1 here; missing one of %2 start-tag ==
+=== Cause: ===
+The mentioned element is not allowed to appear in the context in which
+you've placed it; the other mentioned elements are the only ones that
+are both allowed there <em>and</em> can contain the element mentioned.
+This might mean that you need a containing element, or possibly that
+you've forgotten to close a previous element.
+
+=== Example: ===
+<bad>textexample textexample</bad>
+<good>textexample textexample</good>
+=== Solution: ===
+textexample textexample
+=== References: ===
+* W3 validator: http://validator.w3.org/
+--ENDPAGE--
+sp_68
+--ENDTITLE--
+== OpenSP: end tag for %1 omitted, but its declaration does not permit this ==
+=== Cause: ===
+<li>You forgot to close a tag, or</li>
+<li>you used something inside this tag that was not allowed, and the validator
+is complaining that the tag should be closed before such content can be allowed.</li>
+</ul>
+<p>    
+The next message, "<code class="inline">start tag was here</code>"
+points to the particular instance of the tag in question); the
+positional indicator points to where the validator expected you to close the
+tag.
+
+=== Example: ===
+<bad>textexample textexample</bad>
+<good>textexample textexample</good>
+=== Solution: ===
+textexample textexample
+=== References: ===
+* W3 validator: http://validator.w3.org/
+--ENDPAGE--
+sp_69
+--ENDTITLE--
+== OpenSP: start tag was here ==
+=== Cause: ===
+This is not an error, but rather  a pointer to the start tag of the element
+the previous error referred to.    
+
+=== Example: ===
+<bad>textexample textexample</bad>
+<good>textexample textexample</good>
+=== Solution: ===
+textexample textexample
+=== References: ===
+* W3 validator: http://validator.w3.org/
+--ENDPAGE--
+sp_70
+--ENDTITLE--
+== OpenSP: end tag for %1 omitted, but OMITTAG NO was specified ==
+=== Cause: ===
+You may have neglected to close an element, or perhaps you meant to 
+"self-close" an element, that is, ending it with "/&gt;" instead of "&gt;".
+
+=== Example: ===
+<bad>textexample textexample</bad>
+<good>textexample textexample</good>
+=== Solution: ===
+textexample textexample
+=== References: ===
+* W3 validator: http://validator.w3.org/
+--ENDPAGE--
+sp_71
+--ENDTITLE--
+== OpenSP: start tag was here ==
+=== Cause: ===
+This is not an error, but rather a pointer to the start tag of the element
+the previous error referred to.    
+
+=== Example: ===
+<bad>textexample textexample</bad>
+<good>textexample textexample</good>
+=== Solution: ===
+textexample textexample
+=== References: ===
+* W3 validator: http://validator.w3.org/
+--ENDPAGE--
+sp_73
+--ENDTITLE--
+== OpenSP: end tag for %1 which is not finished ==
+=== Cause: ===
+Most likely, You nested tags and closed them in the wrong order. For 
+example &lt;p&gt;&lt;em&gt;...&lt;/p&gt; is not acceptable, as &lt;em&gt;
+must be closed before &lt;p&gt;. Acceptable nesting is: 
+&lt;p&gt;&lt;em&gt;...&lt;/em&gt;&lt;/p&gt;  
+
+=== Example: ===
+<bad>textexample textexample</bad>
+<good>textexample textexample</good>
+=== Solution: ===
+textexample textexample
+=== References: ===
+* W3 validator: http://validator.w3.org/
+--ENDPAGE--
+sp_76
+--ENDTITLE--
+== OpenSP: element %1 undefined ==
+=== Cause: ===
+You have used the element named above in your document, but the
+document type you are using does not define an element of that name.
+This error is often caused by:
+
+=== Example: ===
+<bad>textexample textexample</bad>
+<good>textexample textexample</good>
+=== Solution: ===
+textexample textexample
+=== References: ===
+* W3 validator: http://validator.w3.org/
+--ENDPAGE--
+sp_79
+--ENDTITLE--
+== OpenSP: end tag for element %1 which is not open ==
+=== Cause: ===
+The Validator found an end tag for the above element, but that element is
+not currently open. This is often caused by a leftover end tag from an
+element that was removed during editing, or by an implicitly closed
+element (if you have an error related to an element being used where it
+is not allowed, this is almost certainly the case). In the latter case
+this error will disappear as soon as you fix the original problem.
+
+=== Example: ===
+<bad>textexample textexample</bad>
+<good>textexample textexample</good>
+=== Solution: ===
+textexample textexample
+=== References: ===
+* W3 validator: http://validator.w3.org/
+--ENDPAGE--
+sp_82
+--ENDTITLE--
+== OpenSP: an attribute value must be a literal unless it contains only name characters ==
+=== Cause: ===
+You have used a character that is not considered a "name character" in an
+attribute value. Which characters are considered "name characters" varies
+between the different document types, but a good rule of thumb is that
+unless the value contains <em>only</em> lower or upper case letters in the
+range a-z you must put quotation marks around the value. In fact, unless
+you have <em>extreme</em> file size requirements it is a very very good
+idea to <em>always</em> put quote marks around your attribute values. It
+is never wrong to do so, and very often it is absolutely necessary.
+
+=== Example: ===
+<bad>textexample textexample</bad>
+<good>textexample textexample</good>
+=== Solution: ===
+textexample textexample
+=== References: ===
+* W3 validator: http://validator.w3.org/
+--ENDPAGE--
+sp_105
+--ENDTITLE--
+== OpenSP: an attribute specification must start with a name or name token ==
+=== Cause: ===
+An attribute name (and some attribute values) must start with one of
+a restricted set of characters. This error usually indicates that
+you have failed to add a closing quotation mark on a previous
+attribute value (so the attribute value looks like the start of a
+new attribute) or have used an attribute that is not defined
+(usually a typo in a common attribute name).
+
+=== Example: ===
+<bad>textexample textexample</bad>
+<good>textexample textexample</good>
+=== Solution: ===
+textexample textexample
+=== References: ===
+* W3 validator: http://validator.w3.org/
+--ENDPAGE--
+sp_107
+--ENDTITLE--
+== OpenSP: the name and VI delimiter can be omitted from an attribute specification only if SHORTTAG YES is specified ==
+=== Cause: ===
+means that the name of an attribute and the equal sign cannot be omitted 
+when specifying an attribute. A common cause for this error message is 
+the use of "Attribute Minimization" in document types where it is not allowed, 
+
+=== Example: ===
+<bad>textexample textexample</bad>
+<good>textexample textexample</good>
+=== Solution: ===
+textexample textexample
+=== References: ===
+* W3 validator: http://validator.w3.org/
+--ENDPAGE--
+sp_108
+--ENDTITLE--
+== OpenSP: there is no attribute %1 ==
+=== Cause: ===
+You have used the attribute named above in your document, but the
+document type you are using does not support that attribute for this
+element. This error is often caused by incorrect use of the "Strict"
+document type with a document that uses frames (e.g. you must use
+the "Transitional" document type to get the "target" attribute), or
+by using vendor proprietary extensions such as "marginheight" (this
+is usually fixed by using CSS to achieve the desired effect instead).
+
+=== Example: ===
+<bad>textexample textexample</bad>
+<good>textexample textexample</good>
+=== Solution: ===
+textexample textexample
+=== References: ===
+* W3 validator: http://validator.w3.org/
+--ENDPAGE--
+sp_111
+--ENDTITLE--
+== OpenSP: an attribute value literal can occur in an attribute specification list only after a VI delimiter ==
+=== Cause: ===
+Have you forgotten the "equal" sign marking the separation 
+between the attribute and its declared value? 
+Typical  syntax is <code>attribute="value"</code>.
+
+=== Example: ===
+<bad>textexample textexample</bad>
+<good>textexample textexample</good>
+=== Solution: ===
+textexample textexample
+=== References: ===
+* W3 validator: http://validator.w3.org/
+--ENDPAGE--
+sp_112
+--ENDTITLE--
+== OpenSP: duplicate specification of attribute %1 ==
+=== Cause: ===
+You have specified an attribute more than once. For instance, you have
+used the "<code class="inline">height</code>" attribute twice on the same
+"<code class="inline">img</code>" tag.
+
+=== Example: ===
+<bad>textexample textexample</bad>
+<good>textexample textexample</good>
+=== Solution: ===
+textexample textexample
+=== References: ===
+* W3 validator: http://validator.w3.org/
+--ENDPAGE--
+sp_120
+--ENDTITLE--
+== OpenSP: normalized length of attribute value literal must not exceed LITLEN (%1); length was %2 ==
+=== Cause: ===
+This error almost always means that you've forgotten a closing quote on an attribute value. For instance,
+in:
+
+=== Example: ===
+<bad>textexample textexample</bad>
+<good>textexample textexample</good>
+=== Solution: ===
+textexample textexample
+=== References: ===
+* W3 validator: http://validator.w3.org/
+--ENDPAGE--
+sp_121
+--ENDTITLE--
+== OpenSP: syntax of attribute value does not conform to declared value ==
+=== Cause: ===
+The value of an attribute contained something that is not allowed by
+the specified syntax for that type of attribute. For instance, the
+&ldquo;<code class="inline">selected</code>&rdquo; attribute must be
+either minimized as &ldquo;<code class="inline">selected</code>&rdquo;
+or spelled out in full as &ldquo;<code
+class="inline">selected="selected"</code>&rdquo;; the variant
+&ldquo;<code class="inline">selected=""</code>&rdquo; is not allowed.
+
+=== Example: ===
+<bad>textexample textexample</bad>
+<good>textexample textexample</good>
+=== Solution: ===
+textexample textexample
+=== References: ===
+* W3 validator: http://validator.w3.org/
+--ENDPAGE--
+sp_122
+--ENDTITLE--
+== OpenSP: character %1 is not allowed in the value of attribute %2 ==
+=== Cause: ===
+It is possible that you violated the naming convention for this attribute.
+For example, <code>id</code> and <code>name</code> attributes must begin with
+a letter, not a digit.
+
+=== Example: ===
+<bad>textexample textexample</bad>
+<good>textexample textexample</good>
+=== Solution: ===
+textexample textexample
+=== References: ===
+* W3 validator: http://validator.w3.org/
+--ENDPAGE--
+sp_123
+--ENDTITLE--
+== OpenSP: value of attribute %1 must be a single token ==
+=== Cause: ===
+This attribute can not take a space-separated list of words as a value, but only one word ("token"). 
+This may also be caused by the use of a space for the value of an attribute which does not permit it.
+
+=== Example: ===
+<bad>textexample textexample</bad>
+<good>textexample textexample</good>
+=== Solution: ===
+textexample textexample
+=== References: ===
+* W3 validator: http://validator.w3.org/
+--ENDPAGE--
+sp_124
+--ENDTITLE--
+== OpenSP: value of attribute %2 invalid: %1 cannot start a number token ==
+=== Cause: ===
+The value of this attribute should be a number, and you probably used a wrong syntax.
+
+=== Example: ===
+<bad>textexample textexample</bad>
+<good>textexample textexample</good>
+=== Solution: ===
+textexample textexample
+=== References: ===
+* W3 validator: http://validator.w3.org/
+--ENDPAGE--
+sp_125
+--ENDTITLE--
+== OpenSP: value of attribute %2 invalid: %1 cannot start a name ==
+=== Cause: ===
+It is possible that you violated the naming convention for this attribute.
+For example, <code>id</code> and <code>name</code> attributes must begin with
+a letter, not a digit.
+
+=== Example: ===
+<bad>textexample textexample</bad>
+<good>textexample textexample</good>
+=== Solution: ===
+textexample textexample
+=== References: ===
+* W3 validator: http://validator.w3.org/
+--ENDPAGE--
+sp_127
+--ENDTITLE--
+== OpenSP: required attribute %1 not specified ==
+=== Cause: ===
+The attribute given above is required for an element that you've used,
+but you have omitted it. For instance, in most HTML and XHTML document
+types the "type" attribute is required on the "script" element and the
+"alt" attribute is required for the "img" element.
+
+=== Example: ===
+<bad>textexample textexample</bad>
+<good>textexample textexample</good>
+=== Solution: ===
+textexample textexample
+=== References: ===
+* W3 validator: http://validator.w3.org/
+--ENDPAGE--
+sp_131
+--ENDTITLE--
+== OpenSP: value of attribute %2 cannot be %1; must be one of %3 ==
+=== Cause: ===
+The value of the attribute is defined to be one of a list of possible
+values but in the document it contained something that is not allowed
+for that type of attribute. For instance, the &ldquo;<code
+class="inline">selected</code>&rdquo; attribute must be either
+minimized as &ldquo;<code class="inline">selected</code>&rdquo;
+or spelled out in full as &ldquo;<code
+class="inline">selected="selected"</code>&rdquo;; a value like
+&ldquo;<code class="inline">selected="true"</code>&rdquo; is not
+allowed.
+
+=== Example: ===
+<bad>textexample textexample</bad>
+<good>textexample textexample</good>
+=== Solution: ===
+textexample textexample
+=== References: ===
+* W3 validator: http://validator.w3.org/
+--ENDPAGE--
+sp_137
+--ENDTITLE--
+== OpenSP: invalid comment declaration: found character %1 outside comment but inside comment declaration ==
+=== Cause: ===
+Check that you are using a proper syntax for you comments, e.g: &lt;!-- comment here --&gt;. 
+This error may appear if you forget the last "--" to close one comment, and later open another.
+
+=== Example: ===
+<bad>textexample textexample</bad>
+<good>textexample textexample</good>
+=== Solution: ===
+textexample textexample
+=== References: ===
+* W3 validator: http://validator.w3.org/
+--ENDPAGE--
+sp_139
+--ENDTITLE--
+== OpenSP: non SGML character number %1 ==
+=== Cause: ===
+You have used an illegal character in your text.
+<abbr title="HyperText Markup Language">HTML</abbr> uses the standard
+<a href="http://www.unicode.org/">UNICODE Consortium</a> character repertoire,
+and it leaves undefined (among others) 65 character codes (0 to 31 inclusive and 127 to 159
+inclusive) that are sometimes used for typographical quote marks and similar in
+proprietary character sets. The validator has found one of these undefined
+characters in your document. The character may appear on your browser as a
+curly quote, or a trademark symbol, or some other fancy glyph; on a different
+computer, however, it will likely appear as a completely different
+character, or nothing at all.
+
+=== Example: ===
+<bad>textexample textexample</bad>
+<good>textexample textexample</good>
+=== Solution: ===
+textexample textexample
+=== References: ===
+* W3 validator: http://validator.w3.org/
+--ENDPAGE--
+sp_141
+--ENDTITLE--
+== OpenSP: ID %1 already defined ==
+=== Cause: ===
+An "id" is a unique identifier. Each time this attribute is used in a document
+it must have a different value. If you are using this attribute as a hook for
+style sheets it may be more appropriate to use classes (which group elements)
+than id (which are used to identify exactly one element).
+
+=== Example: ===
+<bad>textexample textexample</bad>
+<good>textexample textexample</good>
+=== Solution: ===
+textexample textexample
+=== References: ===
+* W3 validator: http://validator.w3.org/
+--ENDPAGE--
+sp_183
+--ENDTITLE--
+== OpenSP: reference to non-existent ID %1 ==
+=== Cause: ===
+<ul>
+<li>A non-existent input, select or textarea element</li>
+<li>A missing id attribute</li>
+<li>A typographical error in the id attribute</li>
+</ul>
+
+=== Example: ===
+<bad>textexample textexample</bad>
+<good>textexample textexample</good>
+=== Solution: ===
+textexample textexample
+=== References: ===
+* W3 validator: http://validator.w3.org/
+--ENDPAGE--
+sp_247
+--ENDTITLE--
+== OpenSP: NET-enabling start-tag requires SHORTTAG YES ==
+=== Cause: ===
+The sequence &lt;FOO /&gt; can be interpreted in at least two different ways,
+depending on the DOCTYPE of the document. For HMTL 4.01 Strict, the '/'
+terminates the tag &lt;FOO (with an implied '&gt;').  However, since many
+browsers don't interpret it this way, even in the presence of an HMTL 4.01 Strict
+DOCTYPE, it is best to avoid it completely in pure HTML documents and 
+reserve its use solely for those written in XHTML.
+
+=== Example: ===
+<bad>textexample textexample</bad>
+<good>textexample textexample</good>
+=== Solution: ===
+textexample textexample
+=== References: ===
+* W3 validator: http://validator.w3.org/
+--ENDPAGE--
+sp_325
+--ENDTITLE--
+== OpenSP: reference to entity %1 for which no system identifier could be generated ==
+=== Cause: ===
+This is usually a cascading error caused by a an undefined entity
+reference or use of an unencoded ampersand (&amp;) in an URL or body
+text. See the previous message for further details.
+
+=== Example: ===
+<bad>textexample textexample</bad>
+<good>textexample textexample</good>
+=== Solution: ===
+textexample textexample
+=== References: ===
+* W3 validator: http://validator.w3.org/
+--ENDPAGE--
+sp_338
+--ENDTITLE--
+== OpenSP: cannot generate system identifier for general entity %1 ==
+=== Cause: ===
+An entity reference was found in the document, but there is no reference
+by that name defined. Often this is caused by misspelling the reference
+name, unencoded ampersands, or by leaving off the trailing semicolon (;).
+<strong>The most common cause of this error is unencoded ampersands in
+URLs</strong> as described by the <a
+href="http://www.htmlhelp.com/">WDG</a> in "<a
+href="http://www.htmlhelp.com/tools/validator/problems.html#amp">Ampersands
+in URLs</a>".
+
+=== Example: ===
+<bad>textexample textexample</bad>
+<good>textexample textexample</good>
+=== Solution: ===
+textexample textexample
+=== References: ===
+* W3 validator: http://validator.w3.org/
+--ENDPAGE--
+sp_344
+--ENDTITLE--
+== OpenSP: no document type declaration; implying %1 ==
+=== Cause: ===
+The checked page did not contain a document type ("DOCTYPE") declaration.
+The Validator has tried to validate with a fallback DTD,
+but this is quite likely to be incorrect and will generate a large number
+of incorrect error messages. It is highly recommended that you insert the
+proper DOCTYPE declaration in your document -- instructions for doing this
+are given above -- and it is necessary to have this declaration before the
+page can be declared to be valid.
+
+=== Example: ===
+<bad>textexample textexample</bad>
+<good>textexample textexample</good>
+=== Solution: ===
+textexample textexample
+=== References: ===
+* W3 validator: http://validator.w3.org/
+--ENDPAGE--
+sp_378
+--ENDTITLE--
+== OpenSP: no system id specified ==
+=== Cause: ===
+Your document includes a DOCTYPE declaration with a public identifier 
+(e.g. "-//W3C//DTD XHTML 1.0 Strict//EN") but no system identifier
+(e.g. "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"). This is
+authorized in HTML (based on SGML), but not in XML-based languages.
+
+=== Example: ===
+<bad>textexample textexample</bad>
+<good>textexample textexample</good>
+=== Solution: ===
+textexample textexample
+=== References: ===
+* W3 validator: http://validator.w3.org/
+--ENDPAGE--
+sp_387
+--ENDTITLE--
+== OpenSP: S separator in comment declaration ==
+=== Cause: ===
+This may happen if you have consecutive comments but did not close one of them properly. 
+The proper syntax for comments is &lt;!-- my comment --&gt;.
+
+=== Example: ===
+<bad>textexample textexample</bad>
+<good>textexample textexample</good>
+=== Solution: ===
+textexample textexample
+=== References: ===
+* W3 validator: http://validator.w3.org/
+--ENDPAGE--
+sp_394
+--ENDTITLE--
+== OpenSP: reference not terminated by REFC delimiter ==
+=== Cause: ===
+If you meant to include an entity that starts with "&amp;", then you should 
+terminate it with ";".  Another reason for this error message is that 
+you inadvertently created an entity by failing to escape an "&amp;" 
+character just before this text.
+
+=== Example: ===
+<bad>textexample textexample</bad>
+<good>textexample textexample</good>
+=== Solution: ===
+textexample textexample
+=== References: ===
+* W3 validator: http://validator.w3.org/
+--ENDPAGE--
+sp_403
+--ENDTITLE--
+== OpenSP: reference to external entity in attribute value ==
+=== Cause: ===
+This is generally the sign of an ampersand that was not properly escaped for inclusion 
+in an attribute, in a href for example. You will need to escape all instances of '&amp;'
+into '&amp;amp;'.
+
+=== Example: ===
+<bad>textexample textexample</bad>
+<good>textexample textexample</good>
+=== Solution: ===
+textexample textexample
+=== References: ===
+* W3 validator: http://validator.w3.org/
+--ENDPAGE--
+sp_404
+--ENDTITLE--
+== OpenSP: character %1 is the first character of a delimiter but occurred as data ==
+=== Cause: ===
+This message may appear in several cases:
+
+=== Example: ===
+<bad>textexample textexample</bad>
+<good>textexample textexample</good>
+=== Solution: ===
+textexample textexample
+=== References: ===
+* W3 validator: http://validator.w3.org/
+--ENDPAGE--
+sp_407
+--ENDTITLE--
+== OpenSP: NET-enabling start-tag not immediately followed by null end-tag ==
+=== Cause: ===
+This error may occur when there is a mistake in how a self-closing tag is closed, e.g '.../ &gt;'.
+The proper syntax is '... /&gt;' (note the position of the space).
+
+=== Example: ===
+<bad>textexample textexample</bad>
+<good>textexample textexample</good>
+=== Solution: ===
+textexample textexample
+=== References: ===
+* W3 validator: http://validator.w3.org/
+--ENDPAGE--
+sp_410
+--ENDTITLE--
+== OpenSP: reference to non-SGML character ==
+=== Cause: ===
+You've included a character reference to a character that is not defined
+in the document type you've chosen. This is most commonly caused by
+numerical references to characters from vendor proprietary
+character repertoires. Often the culprit will be fancy or typographical
+quote marks from either the Windows or Macintosh character repertoires.
+
+=== Example: ===
+<bad>textexample textexample</bad>
+<good>textexample textexample</good>
+=== Solution: ===
+textexample textexample
+=== References: ===
+* W3 validator: http://validator.w3.org/
+--ENDPAGE--

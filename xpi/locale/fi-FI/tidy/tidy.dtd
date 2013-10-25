@@ -1,0 +1,138 @@
+<!ENTITY tidy.help.title "Ohje - HTML Validator">
+<!ENTITY tidy.help.visit "Käy kotisivuilla">
+<!ENTITY tidy.help.version "Versio">
+<!ENTITY tidy.help.homepage_desc "Kotisivuilla on laajennuksesta lisää tietoa.">
+<!ENTITY tidy.help.homepage "Kotisivut">
+<!ENTITY tidy.help.userguide "Käyttäjäopas">
+<!ENTITY tidy.help.htmlpedia_desc "Jos sinua kiinnostaa laajennuksen ohjeen edistäminen, voit muokata ohjetta Htmlpedian kautta.">
+<!ENTITY tidy.help.htmlpedia "Wiki-verkkosivu">
+<!ENTITY tidy.help.htmlpedia_howto "Kuinka sivua muokataan">
+<!ENTITY tidy.help.mailing_list "Postituslista">
+<!ENTITY tidy.help.mailing_list_subscription "Listalle liittyminen ei ole pakollista">
+<!ENTITY tidy.help.archive "Arkisto">
+<!ENTITY tidy.help.author "Tekijä">
+<!ENTITY tidy.help.donate "Lahjoita">
+<!ENTITY tidy.help.donation "Lahjoitus">
+<!ENTITY tidy.help.donation_text "Lahjoitusten avulla työni voi jatkua.">
+<!ENTITY tidy.browser.toolsmenu "Html Validatorin asetukset...">
+<!ENTITY tidy.browser.menu.option "Asetukset...">
+<!ENTITY tidy.browser.menu.show "Näytä">
+<!ENTITY tidy.browser.menu.disable "Poista käytöstä">
+<!ENTITY tidy.browser.menu.enable "Ota käyttöön">
+<!ENTITY tidy.browser.menu.html_clipboard "Kopioi HTML-koodi leikepöydälle">
+<!ENTITY tidy.browser.menu.error_clipboard "Kopioi virhesanomat leikepöydälle">
+<!ENTITY tidy.browser.menu.cleanup "Siisti...">
+<!ENTITY tidy.browser.menu.view_source "Sivun lähdekoodi...">
+<!ENTITY tidy.browser.menu.about "Ohje...">
+<!ENTITY tidy.browser.menu.innerHTML "Tarkista nyt (HTML-runko JavaScriptin suorituksen jälkeen)...">
+<!ENTITY tidy.browser.menu.advanced "Lisäasetukset">
+<!ENTITY tidy.browser.menu.online.html "W3C:n verkkopohjainen HTML-tarkistin...">
+<!ENTITY tidy.browser.menu.online.css "W3C:n verkkopohjainen CSS-tarkistin...">
+<!ENTITY tidy.cleanup.title "Siisti tämä sivu">
+<!ENTITY tidy.cleanup.tab.clean.source "Siistitty HTML-koodi">
+<!ENTITY tidy.cleanup.tab.orig.source "Alkuperäinen HTML-koodi">
+<!ENTITY tidy.cleanup.tab.clean.page "Siistitty selainnäkymä">
+<!ENTITY tidy.cleanup.tab.orig.page "Alkuperäinen selainnäkymä">
+<!ENTITY tidy.choose_source.title "Valitse lähdekoodi">
+<!ENTITY tidy.choose_source.caption "Valitse sivu tai jokin sen kehyksistä tai iframe-kehyksistä">
+<!ENTITY tidy.window.title "Tarkista HTML-koodi">
+<!ENTITY tidy.tree.header "HTML-virheet ja -varoitukset">
+<!ENTITY tidy.tree.type "Tyyppi">
+<!ENTITY tidy.tree.line "Rivi">
+<!ENTITY tidy.tree.column "Sarake">
+<!ENTITY tidy.view_source.button.cleanup "Siisti tämä sivu...">
+<!ENTITY tidy.view_source.button.options "Asetukset...">
+<!ENTITY tidy.view_source.button.online "W3C:n verkkopohjainen tarkistin...">
+<!ENTITY tidy.view_source.tree.hide "Piilota...">
+<!ENTITY tidy.view_source.menu "HTML Validator">
+<!ENTITY tidy.view_source.accesskey "H">
+<!ENTITY tidy-explain-error-label "Ohje">
+<!ENTITY tidy.close.tooltip "Sulje Html Validator">
+<!ENTITY tidy.button.ok "OK">
+<!ENTITY tidy.button.cancel "Peruuta">
+<!ENTITY tidy.button.refresh "Päivitä">
+<!ENTITY tidy.options.title "Html Validatorin asetukset">
+<!ENTITY tidy.options.general "Yleiset">
+<!ENTITY tidy.options.browser "Selain">
+<!ENTITY tidy.options.viewsource "Näytä lähdekoodi">
+<!ENTITY tidy.options.filter "Suodatin">
+<!ENTITY tidy.options.group.format "Asetukset: muoto">
+<!ENTITY tidy.options.group.layout "Asetukset: ulkoasu">
+<!ENTITY tidy.options.viewsource_enable "Käytä validointia &quot;Näytä lähdekoodi&quot; -ikkunassa">
+<!ENTITY tidy.links.title "Linkkien kelpoisuuden tarkistus">
+<!ENTITY tidy.options.indent "Sisennä elementin sisältö">
+<!ENTITY tidy.options.indent-spaces "Välilyönnit">
+<!ENTITY tidy.options.uppercase-tags "Tunnisteet isoin kirjaimin">
+<!ENTITY tidy.options.uppercase-attributes "Attribuutit isoin kirjaimin">
+<!ENTITY tidy.options.wrap "Rivinvaihto">
+<!ENTITY tidy.options.wrap2 "merkin jälkeen">
+<!ENTITY tidy.options.clean "korvaa FONT-, ... -tunnisteet CSS-määrittelyillä">
+<!ENTITY tidy.options.output-encoding "Merkistökoodaus">
+<!ENTITY tidy.options.doctype "Doctype">
+<!ENTITY tidy.options.highlight_line "Korosta virheelliset rivit">
+<!ENTITY tidy.options.show_line_number "Näytä rivinumerot">
+<!ENTITY tidy.options.dbclick_action_label "Tilarivin kaksoisnapsautus käynnistää toiminnon:">
+<!ENTITY tidy.options.accessibility-check "Esteettömyystaso">
+<!ENTITY tidy.options.accessibility-check_none "ei mikään">
+<!ENTITY tidy.options.accessibility-check_0 "normaali">
+<!ENTITY tidy.options.accessibility-check_1 "1">
+<!ENTITY tidy.options.accessibility-check_2 "2">
+<!ENTITY tidy.options.accessibility-check_3 "3">
+<!ENTITY tidy.options.force_output "Pakota tuloste muotoon">
+<!ENTITY tidy.options.none "-">
+<!ENTITY tidy.options.output-html "HTML">
+<!ENTITY tidy.options.output-xhtml "XHTML">
+<!ENTITY tidy.options.show-warnings "Näytä varoitukset">
+<!ENTITY tidy.options.browser_enable "Käytä selaimessa validointia">
+<!ENTITY tidy.options.perm_list "Poikkeukset...">
+<!ENTITY tidy.options.browser_hide "Kätke kuvake">
+<!ENTITY tidy.options.browser_icon_label "Näytä tilarivillä">
+<!ENTITY tidy.options.icon_text "Kuvake ja teksti">
+<!ENTITY tidy.options.icon_only "Vain kuvake">
+<!ENTITY tidy.options.filter.hide.header "Piilotettavat virhe- ja varoitussanomat">
+<!ENTITY tidy.options.filter.remove "Poista">
+<!ENTITY tidy.options.filter.hint "Vihje: Piilottaaksesi virheilmoituksen paina hiiren oikealla painikkeella virheluettelosta haluamaasi sanomaa ja valitse Piilota.">
+<!ENTITY tidy.options.algorithm_label "Algoritmi">
+<!ENTITY tidy.options.algorithm_tidy "HTML Tidy">
+<!ENTITY tidy.options.algorithm_sp "SGML-jäsennin">
+<!ENTITY tidy.options.algorithm_serial "Sarja-algoritmi">
+<!ENTITY tidy.options.welcome "Valitse...">
+<!ENTITY tidy.hide.label "Käytä &quot;Näytä lähdekoodi&quot; -ikkunassa validointia">
+<!ENTITY tidy.hide.accesskey "H">
+<!ENTITY tidy.hide.commandkey "u">
+<!ENTITY tidy.show_line_number.label "Näytä rivinumerot">
+<!ENTITY tidy.show_line_number.accesskey "N">
+<!ENTITY tidy.show_line_number.commandkey "n">
+<!ENTITY tidy.menu.copy.label "Kopioi">
+<!ENTITY tidy.menu.copy.accesskey "K">
+<!ENTITY tidy.menu.copy.key "k">
+<!ENTITY tidy.menu.selectall.label "Valitse kaikki">
+<!ENTITY tidy.menu.selectall.accesskey "A">
+<!ENTITY tidy.menu.selectall.key "a">
+<!ENTITY tidy.translator "Suomentanut Jouni Kähkönen">
+<!ENTITY tidy.translator.url "http://koti.mbnet.fi/kajouni/htmlvalfi/">
+<!ENTITY tidy.welcome.title "HTML Validator : Valitse haluamasi algoritmi">
+<!ENTITY tidy.welcome.h2 "HTML Validator : Tervetuloa">
+<!ENTITY tidy.welcome.h3 "Valitse haluamasi algoritmi">
+<!ENTITY tidy.welcome.t1 "W3C on tehnyt kaksi HTML-sivun kelpoisuuden tarkistamiseen tarkoitettua ohjelma-algoritmia.">
+<!ENTITY tidy.welcome.t2 "Kumpikin algoritmi on mukana Firefoxille tarkoitetussa HTML Validatorissa. Molemmissa on omat hyvät ja huonot puolensa.">
+<!ENTITY tidy.welcome.t3 "Lue lisätietoja käyttäjän oppaasta.">
+<!ENTITY tidy.welcome.desc "Kuvaus">
+<!ENTITY tidy.welcome.desc_tidy "Tämä on HTML- ja XHTML-syntaksien tarkistamiseen tarkoitettu algoritmi.">
+<!ENTITY tidy.welcome.desc_sp "Tämä on sama OpenSP-algoritmi, joka toimii validator.w3.org-sivuston alla. Tämä on DTD-määritelmiin perustuva SGML-jäsennin.">
+<!ENTITY tidy.welcome.desc_serial "Kummatkin algoritmit ajetaan perätysten:<html:br/>(1) SGML-jäsennin.<html:br/>(2) Jos ei virheitä, myös HTML Tidy.">
+<!ENTITY tidy.welcome.better_for "Paras käyttökohde">
+<!ENTITY tidy.welcome.access "Esteettömyyden tarkistus">
+<!ENTITY tidy.welcome.wai123 "WAI-tasot 1, 2 ja 3">
+<!ENTITY tidy.welcome.cleanup "Sivun siistimistoiminto">
+<!ENTITY tidy.welcome.good_help "Kattava ohje">
+<!ENTITY tidy.welcome.clear_error "Pyyhi virhesanomat">
+<!ENTITY tidy.welcome.w3_validator "Samat virhesanomat kuin validator.w3.org-sivustossa">
+<!ENTITY tidy.welcome.target "Kohderyhmä">
+<!ENTITY tidy.welcome.target_all "Kaikki">
+<!ENTITY tidy.welcome.target_prof "Ammattilaiset">
+<!ENTITY tidy.yes "Kyllä">
+<!ENTITY tidy.no "Ei">
+<!ENTITY tidy.todo "Ei (tekeillä)">
+<!ENTITY tidy.options.algorithm_online "Online">
+<!ENTITY tidy.options.algorithm_cse "CSE HTML Validator">

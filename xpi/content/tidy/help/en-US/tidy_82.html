@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Tidy 82 - Htmlpedia</title>
+    <link rel="stylesheet" type="text/css" href="tidy_help2.css" media="screen, projection"/>
+  </head>
+<body>
+  <div id="bodyContent">
+<h2> replacing/discarding invalid numeric character reference ... </h2>
+<h3> Cause: </h3>
+<p>You've included a character reference to a character that is not defined in the document type you've chosen. This is most commonly caused by numerical references to characters from vendor proprietary character repertoires, such as the MS Windows dagger character (&#8224;). Often the culprit will be fancy or typographical quote marks from either the Windows or Macintosh character repertoires. The entire range from &amp;#128; through &amp;#159; are invalid characters, and consequently should not be used.
+</p><p>The solution is to reference UNICODE characters instead. See the references for a list of common characters from the Windows character repertoire and their UNICODE equivalents.
+</p>
+<h3> Example: </h3>
+<table class='bad' title='Bad'><tr><td width='22' valign='top'><img src='../../../skin/error.png' alt='Good'/></td><td><p>The dagger symbol: &amp;#134;</p></td></tr></table>
+<table class='good' title='Good'><tr><td width='22' valign='top'><img src='../../../skin/good.png' alt='Good'/></td><td><p>The dagger symbol: &amp;#8224;</p></td></tr></table>
+<h3> Solution: </h3>
+<p>Replace the character entity with its corresponding Unicode equivalent.
+</p>
+<h3> References: </h3>
+<ul><li> <a href="http://www.cs.tut.fi/~jkorpela/www/windows-chars.html#list">On the use of some MS Windows characters in HTML</a> maintained by <a href="http://www.cs.tut.fi/~jkorpela/">Jukka Korpela</a>
+</li><li> <a href="http://www.alanwood.net/demos/ansi.html">ANSI character set and equivalent Unicode and HTML characters</a>
+</li></ul>
+  </div>
+</body>
+</html>

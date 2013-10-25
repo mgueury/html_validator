@@ -1,0 +1,245 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>testcase 32</title>
+  <link rel="stylesheet" type="text/css" href="tidy_help.css">
+</head>
+<body>
+
+<br>---------------------------------------------------<br>
+<h3 id="test_6">TEST - 6 -  missing ... before ...</h3>
+BAD:<br>
+<font size="2"><p>abc</p></font>
+
+GOOD:<br>
+<p><font size="2">abc</font></p>
+<p style="font-size: 80%">abc</p>
+<div style="font-size: 80%"><p>abc</p></div>
+
+<br>---------------------------------------------------<br>
+<h3 id="test_8">TEST - 8 -  discarding unexpected ...</h3>
+<a href="#test_6">See here</a><br>
+
+<b>abc</b></b>
+
+<br>---------------------------------------------------<br>
+<h3 id="test_9">TEST - 9 - nested emphasis ...</h3>
+
+BAD:<b><b>This is bold</b></b>
+<br>
+GOOD:<b>This is bold</b>
+<br>
+
+<br>---------------------------------------------------<br>
+<h3 id="test_12">TEST - 12 - missing ...</h3>
+
+BAD:<br>
+<table>
+  <td bgcolor>
+    abc
+  </td>
+</table>
+
+<br>---------------------------------------------------<br>
+<h3 id="test_15">TEST - 15 - inserting implicit ...</h3>
+<a href="#test_6">See here</a><br>
+
+<br>---------------------------------------------------<br>
+<h3 id="test_21">TEST - 21 - ... is not approved by W3C  </h3>
+BAD:<br>
+<nobr>there is no wrapping here</nobr>
+<br>
+
+GOOD:<br>
+<table><tr><td nowrap>there is no wrapping here</td></tr></table>
+
+GOOD 2:<br>
+<span style="white-space: nowrap;">there is no wrapping here</span>
+<br>
+
+
+<br>---------------------------------------------------<br>
+<h3 id="test_22">TEST - 22 - error: ... is not recognized! </h3>
+BAD:<br>
+<abc>
+
+GOOD:<br>
+
+<br>---------------------------------------------------<br>
+<h3 id="test_23">TEST - 23 - trimming empty ...</h3>
+BAD:<br>
+<font size=2></font>
+<font size=2> </font>
+<font size=2>
+</font>
+
+GOOD:<br>
+
+<br>---------------------------------------------------<br>
+<h3 id="test_25">TEST - 25 - ... shouldn't be nested</h3>
+
+!!!!! NOT THE GOOD TEST !!!!!
+
+BAD:<br>
+
+<form action="action.jsp" name="form">
+  <form action="action2.jsp" name="form2">
+  </form>
+</form>
+after
+
+GOOD:<br>
+
+before
+<form action="action.jsp" name="form3">
+</form>
+<form action="action2.jsp" name="form4">
+</form>
+after
+
+
+
+<br>---------------------------------------------------<br>
+<h3 id="test_32">TEST - 32</h3>
+BAD:<br>
+<script type="text/javascript">
+  document.write('<blink>WARNING!</blink>');
+</script>
+<br>
+GOOD:<br>
+<script type="text/javascript">
+  document.write('<blink>WARNING!<\/blink>');
+</script>
+
+<br>---------------------------------------------------<br>
+<h3 id="test_50">TEST - 50 -  ... attribute ... lacks value</h3>
+
+BAD:<br>
+<a href>My Link</a>
+<BR>
+
+GOOD:<br>
+<a href="my_link.html">My Link</a>
+<BR>
+
+
+<br>---------------------------------------------------<br>
+<h3 id="test_53">TEST - 53 - .. proprietary attribute "..."</h3>
+
+BAD:<br>
+<table height=50>
+  <tr>
+    <td>
+      abc
+    </td>
+    <td background="abc.gif">
+      def
+    </td>
+  </tr>
+</table>
+
+GOOD:<br>
+<table style="height: 50">
+  <tr>
+    <td>
+      abc
+    </td>
+    <td style="background-image: url(abc.gif)">
+      def
+    </td>
+  </tr>
+</table>
+
+<br>---------------------------------------------------<br>
+<h3 id="test_58">TEST - 58 - ... unexpected or duplicate quote mark</h3>
+
+BAD:<br>
+ <img src=image.jpg">
+
+GOOD:<br>
+ <img src="image.jpg">
+
+<br>---------------------------------------------------<br>
+<h3 id="test_64">TEST - 64 - error: ... escaping malformed URI reference</h3>
+BAD:<br>
+<a href="http://www.w3c.org>w3c</a>
+
+GOOD:<br>
+<a href="http://www.w3c.org">w3c</a>
+<a href="http://www.w3c.org/link with space.htm">w3c</a>
+<a href="
+http://www.w3c.org/link with return.htm">w3c</a>
+
+
+<br>---------------------------------------------------<br>
+<h3 id="test_65">TEST - 65 - ... discarding newline in URI reference</h3>
+
+
+BAD:<br>
+<a href="my_link
+.html">my link</a>
+<br>
+
+GOOD:<br>
+<a href="my_link.html">
+my_link</a>
+
+<br>---------------------------------------------------<br>
+<h3 id="test_66">TEST - 66 - ... anchor "..." already defined</h3>
+
+
+BAD:<br>
+<form name="my_form" action="test1.jsp"></form>
+<form name="my_form" action="test2.jsp"></form>
+<br>
+
+GOOD:<br>
+<form name="my_form1" action="test1.jsp"></form>
+<form name="my_form2" action="test2.jsp"></form>
+
+
+<br>---------------------------------------------------<br>
+<h3 id="test_73">TEST - 73 - ... attribute "..." had invalid value "...." and has been replaced</h3>
+
+BAD:<br>
+<table>
+  <tr>
+    <td bgcolor="F8B053">
+      abc
+    </td>
+  </tr>
+</table>
+
+GOOD:<br>
+<table>
+  <tr>
+    <td bgcolor="#F8B053">
+      abc
+    </td>
+  </tr>
+</table>
+
+<br>---------------------------------------------------<br>
+<h3 id="test_83">TEST - 83 - </h3>
+
+BAD:<br>
+<p>
+<br>
+<table>
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;">
+      </td>
+    </tr>
+  </tbody>
+</table>
+</p>
+<br>
+
+GOOD:<br>
+<p>
+  hello world
+<br>
+
+
+</body>

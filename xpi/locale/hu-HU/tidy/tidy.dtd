@@ -1,0 +1,138 @@
+<!ENTITY tidy.help.title "Súgó - HTML ellenőrző">
+<!ENTITY tidy.help.visit "Honlap meglátogatása">
+<!ENTITY tidy.help.version "Verzió">
+<!ENTITY tidy.help.homepage_desc "További információk a kiterjesztéssel kapcsolatban:">
+<!ENTITY tidy.help.homepage "Honlap">
+<!ENTITY tidy.help.userguide "Felhasználói segédlet">
+<!ENTITY tidy.help.htmlpedia_desc "Ha szeretne segíteni a kiterjesztése súgójának bővítésében, akkor megteheti a Htmlpedia-n keresztül.">
+<!ENTITY tidy.help.htmlpedia "Wiki honlap">
+<!ENTITY tidy.help.htmlpedia_howto "Hogyan módosítsunk egy oldalt">
+<!ENTITY tidy.help.mailing_list "Levelező listák">
+<!ENTITY tidy.help.mailing_list_subscription "Feliratkozás nem szükséges">
+<!ENTITY tidy.help.archive "Archívum">
+<!ENTITY tidy.help.author "Készítő">
+<!ENTITY tidy.help.donate "Adomány">
+<!ENTITY tidy.help.donation "Adomány">
+<!ENTITY tidy.help.donation_text "Az adományok segítségével folytathatom a munkám.">
+<!ENTITY tidy.browser.toolsmenu "HTML ellenőrző beállítások...">
+<!ENTITY tidy.browser.menu.option "Beállítások...">
+<!ENTITY tidy.browser.menu.show "Megjelenítés">
+<!ENTITY tidy.browser.menu.disable "Letiltás">
+<!ENTITY tidy.browser.menu.enable "Engedélyezés">
+<!ENTITY tidy.browser.menu.html_clipboard "HTML másolása a vágólapra">
+<!ENTITY tidy.browser.menu.error_clipboard "Hibaüzenetek másolása a vágólapra">
+<!ENTITY tidy.browser.menu.cleanup "Oldal javítása...">
+<!ENTITY tidy.browser.menu.view_source "Oldal forrása...">
+<!ENTITY tidy.browser.menu.about "Névjegy...">
+<!ENTITY tidy.browser.menu.innerHTML "Ellenőrzés most (HTML body a JavaScript futtatása után)...">
+<!ENTITY tidy.browser.menu.advanced "Haladó">
+<!ENTITY tidy.browser.menu.online.html "Online W3C HTML ellenőrző...">
+<!ENTITY tidy.browser.menu.online.css "Online W3C CSS ellenőrző...">
+<!ENTITY tidy.cleanup.title "Az oldal javítása">
+<!ENTITY tidy.cleanup.tab.clean.source "Javított HTML">
+<!ENTITY tidy.cleanup.tab.orig.source "Eredeti HTML">
+<!ENTITY tidy.cleanup.tab.clean.page "Javított böngészőnézet">
+<!ENTITY tidy.cleanup.tab.orig.page "Eredeti böngészőnézet">
+<!ENTITY tidy.choose_source.title "Oldal forrása">
+<!ENTITY tidy.choose_source.caption "Válassza ki az oldalt vagy valamelyik keretét">
+<!ENTITY tidy.window.title "HTML ellenőrzése">
+<!ENTITY tidy.tree.header "HTML hibák és figyelmeztetések">
+<!ENTITY tidy.tree.type "Típus">
+<!ENTITY tidy.tree.line "Sor">
+<!ENTITY tidy.tree.column "Oszlop">
+<!ENTITY tidy.view_source.button.cleanup "Oldal javítása...">
+<!ENTITY tidy.view_source.button.options "Beállítások...">
+<!ENTITY tidy.view_source.button.online "W3C online ellenőrzés">
+<!ENTITY tidy.view_source.tree.hide "Elrejtés...">
+<!ENTITY tidy.view_source.menu "HTML ellenőrző">
+<!ENTITY tidy.view_source.accesskey "H">
+<!ENTITY tidy-explain-error-label "Súgó">
+<!ENTITY tidy.close.tooltip "HTML ellenőrző bezárása">
+<!ENTITY tidy.button.ok "OK">
+<!ENTITY tidy.button.cancel "Mégse">
+<!ENTITY tidy.button.refresh "Frissítés">
+<!ENTITY tidy.options.title "HTML ellenőrző beállítások">
+<!ENTITY tidy.options.general "Általános">
+<!ENTITY tidy.options.browser "Böngésző">
+<!ENTITY tidy.options.viewsource "Oldal forrása">
+<!ENTITY tidy.options.filter "Szűrő">
+<!ENTITY tidy.options.group.format "Beállítások: formátum">
+<!ENTITY tidy.options.group.layout "Beállítások: elrendezés">
+<!ENTITY tidy.options.viewsource_enable "Ellenőrzés engedélyezése forrás megtekintésekor">
+<!ENTITY tidy.links.title "Hivatkozások ellenőrzése">
+<!ENTITY tidy.options.indent "Elemek behúzása">
+<!ENTITY tidy.options.indent-spaces "Behúzás mértéke">
+<!ENTITY tidy.options.uppercase-tags "NAGYBETŰS címkék">
+<!ENTITY tidy.options.uppercase-attributes "NAGYBETŰS attribútumok">
+<!ENTITY tidy.options.wrap "Sortörés">
+<!ENTITY tidy.options.wrap2 "karakter után">
+<!ENTITY tidy.options.clean "FONT, ... címkék lecserélése CSS-re">
+<!ENTITY tidy.options.output-encoding "Karakterkódolás">
+<!ENTITY tidy.options.doctype "Doctype">
+<!ENTITY tidy.options.highlight_line "Hibát tartalmazó sorok kiemelése">
+<!ENTITY tidy.options.show_line_number "Sorszámozás megjelenítése">
+<!ENTITY tidy.options.dbclick_action_label "Az állapotsor ikonra való duplakattintáskor:">
+<!ENTITY tidy.options.accessibility-check "A hozzáférhetőség [accessibility] ellenőrzési szintje">
+<!ENTITY tidy.options.accessibility-check_none "nincs">
+<!ENTITY tidy.options.accessibility-check_0 "normál">
+<!ENTITY tidy.options.accessibility-check_1 "1">
+<!ENTITY tidy.options.accessibility-check_2 "2">
+<!ENTITY tidy.options.accessibility-check_3 "3">
+<!ENTITY tidy.options.force_output "A kimenet típusa">
+<!ENTITY tidy.options.none "-">
+<!ENTITY tidy.options.output-html "HTML">
+<!ENTITY tidy.options.output-xhtml "XHTML">
+<!ENTITY tidy.options.show-warnings "Figyelmeztetések megjelenítése">
+<!ENTITY tidy.options.browser_enable "Ellenőrzés engedélyezése böngészés közben">
+<!ENTITY tidy.options.perm_list "Kivételek...">
+<!ENTITY tidy.options.browser_hide "Ikon elrejtése">
+<!ENTITY tidy.options.browser_icon_label "Az állapotsorban látható">
+<!ENTITY tidy.options.icon_text "Ikon és szöveg">
+<!ENTITY tidy.options.icon_only "Ikon">
+<!ENTITY tidy.options.filter.hide.header "Elrejtett hibaüzenetek és figyelmeztetések">
+<!ENTITY tidy.options.filter.remove "Eltávolítás">
+<!ENTITY tidy.options.filter.hint "Egy hibaüzenet elrejtéséhez kattintson jobb gombbal a hibaüzenetre, és a legördülő menüből válassza ki az Elrejtés menüpontot.">
+<!ENTITY tidy.options.algorithm_label "Algoritmus">
+<!ENTITY tidy.options.algorithm_tidy "HTML Tidy">
+<!ENTITY tidy.options.algorithm_sp "SGML értelmező">
+<!ENTITY tidy.options.algorithm_serial "Soros">
+<!ENTITY tidy.options.welcome "Válasszon...">
+<!ENTITY tidy.hide.label "Ellenőrzés engedélyezése a forrás megtekintésekor">
+<!ENTITY tidy.hide.accesskey "e">
+<!ENTITY tidy.hide.commandkey "e">
+<!ENTITY tidy.show_line_number.label "Sorszámozás megjelenítése">
+<!ENTITY tidy.show_line_number.accesskey "s">
+<!ENTITY tidy.show_line_number.commandkey "s">
+<!ENTITY tidy.menu.copy.label "Másolás">
+<!ENTITY tidy.menu.copy.accesskey "M">
+<!ENTITY tidy.menu.copy.key "m">
+<!ENTITY tidy.menu.selectall.label "Mindet kijelöli">
+<!ENTITY tidy.menu.selectall.accesskey "i">
+<!ENTITY tidy.menu.selectall.key "i">
+<!ENTITY tidy.translator "Balogh Tibor, gLes">
+<!ENTITY tidy.translator.url "http://www.gles.hu">
+<!ENTITY tidy.welcome.title "HTML ellenőrző: válasszon algoritmust">
+<!ENTITY tidy.welcome.h2 "HTML ellenőrző: Üdvözlet">
+<!ENTITY tidy.welcome.h3 "Válasszon algoritmust">
+<!ENTITY tidy.welcome.t1 "A W3C két algoritmust készített a HTML oldalak ellenőrzésére.">
+<!ENTITY tidy.welcome.t2 "Mindkét algoritmus be van építve a HTML ellenőrzőbe. Mindkettőnek vannak előnyei és hátrányai.">
+<!ENTITY tidy.welcome.t3 "További információkért kérem olvassa el a felhasználói útmutatót.">
+<!ENTITY tidy.welcome.desc "Leírás">
+<!ENTITY tidy.welcome.desc_tidy "Ez az algoritmus a HTML és XHTML szintakszis ellenőrzésére készült">
+<!ENTITY tidy.welcome.desc_sp "Ugyanaz az algoritmus, OpenSP, amely a validator.w3.org-on fut. Ez egy SGML értelmező, mely a DTD-ken alapszik.">
+<!ENTITY tidy.welcome.desc_serial "Mindkét algoritmus lefut egymás után: <html:br/>(1) SGML értelmező.<html:br/>(2) ha nincs hiba, akkor a HTML Tidy">
+<!ENTITY tidy.welcome.better_for "Jobb ehhez">
+<!ENTITY tidy.welcome.access "Hozzáférhetőség ellenőrzés">
+<!ENTITY tidy.welcome.wai123 "WAI szint 1,2,3">
+<!ENTITY tidy.welcome.cleanup "Oldal javítása">
+<!ENTITY tidy.welcome.good_help "Használható segítség">
+<!ENTITY tidy.welcome.clear_error "Tiszta hibaüzenetek">
+<!ENTITY tidy.welcome.w3_validator "Ugyanazok a hibák, mint a validator.w3.org-on">
+<!ENTITY tidy.welcome.target "Célközönség">
+<!ENTITY tidy.welcome.target_all "Mind">
+<!ENTITY tidy.welcome.target_prof "Professzionális">
+<!ENTITY tidy.yes "Igen">
+<!ENTITY tidy.no "Nem">
+<!ENTITY tidy.todo "Nem (folyamatban)">
+<!ENTITY tidy.options.algorithm_online "Online">
+<!ENTITY tidy.options.algorithm_cse "CSE HTML Validator">

@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Sp 344 - Htmlpedia</title>
+    <link rel="stylesheet" type="text/css" href="tidy_help2.css" media="screen, projection"/>
+  </head>
+<body>
+  <div id="bodyContent">
+<h2> No document type declaration; implying ... </h2>
+<h3> Cause: </h3>
+<p>The checked page did not contain a document type (<a href="http://www.htmlpedia.org/wiki/DOCTYPE_Declaration">DOCTYPE Declaration</a>).
+The validator has tried to validate with a fallback <a href="http://www.htmlpedia.org/wiki/DTD">DTD</a>,
+but this is quite likely to be incorrect and will generate a large number
+of incorrect error messages. It is highly recommended that you insert the
+proper DOCTYPE declaration in your document -- instructions for doing this
+are given above -- and it is necessary to have this declaration before the
+page can be declared to be valid.
+</p>
+<h3> Example: </h3>
+<table class='bad' title='Bad'><tr><td width='22' valign='top'><img src='../../../skin/error.png' alt='Good'/></td><td><pre>&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;document without DOCTYPE&lt;/title&gt;
+&lt;/head&gt; ...</pre></td></tr></table>
+<table class='good' title='Good'><tr><td width='22' valign='top'><img src='../../../skin/good.png' alt='Good'/></td><td><pre>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"&gt;
+&lt;head&gt;
+&lt;title&gt;XHTML-document&lt;/title&gt;
+&lt;/head&gt; ...</pre></td></tr></table>
+<table class='good' title='Good'><tr><td width='22' valign='top'><img src='../../../skin/good.png' alt='Good'/></td><td><pre>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"&gt;
+&lt;head&gt;
+&lt;title&gt;XHTML-document&lt;/title&gt;
+&lt;/head&gt; ...</pre></td></tr></table>
+<table class='good' title='Good'><tr><td width='22' valign='top'><img src='../../../skin/good.png' alt='Good'/></td><td><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" 
+   "http://www.w3.org/TR/html4/strict.dtd"&gt;
+&lt;title&gt;HTML4-document&lt;/title&gt;
+&lt;p&gt;Some content
+</pre></td></tr></table>
+<table class='good' title='Good'><tr><td width='22' valign='top'><img src='../../../skin/good.png' alt='Good'/></td><td><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" 
+  "http://www.w3.org/TR/html4/loose.dtd"&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+&lt;title&gt;HTML-document&lt;/title&gt;
+&lt;/head&gt; ...</pre></td></tr></table>
+<p><br />
+</p>
+<table class='good' title='Good'><tr><td width='22' valign='top'><img src='../../../skin/good.png' alt='Good'/></td><td><pre>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" 
+   "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+&lt;title&gt;XHTML11-document&lt;/title&gt;
+&lt;/head&gt; ...</pre></td></tr></table>
+<p>For complete compliance, a XHTML1.1 document <b>must not</b> be sent as <i>text/html</i>, but as <i>application/xhtml+xml</i> or <i>text/xml</i> as Internet Explorer does not understand the <i>application/xhtml+xml</i> content type and invites the user to save the document instead of rendering it in the browser.
+</p>
+<h3> Solution: </h3>
+<p>Please insert a DOCTYPE declaration as the very first thing in an HTML document.
+</p>
+<h3> References: </h3>
+<ul><li> W3C Specification (HTML 4): <a href="http://www.w3.org/TR/html4/struct/global.html#h-7.2">The global structure of an HTML document</a>
+</li><li> W3C Specification (XHTML 1.0): <a href="http://www.w3.org/TR/xhtml1/#dtds">XHTML 1.0 DTDs</a>
+</li><li> <a href="http://validator.w3.org/docs/help.html#faq-doctype">W3C FAQ on Doctypes</a>
+</li><li> <a href="http://www.w3.org/QA/2002/04/valid-dtd-list.html">W3C list of valid doctypes</a>
+</li><li> <a href="http://htmlhelp.com/tools/validator/doctype.html">Choosing a doctype</a>
+</li><li> <a href="http://gutfeldt.ch/matthias/articles/doctypeswitch/table.html">Doctypes and rendering modes</a>
+</li></ul>
+  </div>
+</body>
+</html>

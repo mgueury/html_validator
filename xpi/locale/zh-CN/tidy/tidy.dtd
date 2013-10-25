@@ -1,0 +1,138 @@
+<!ENTITY tidy.help.title "帮助 - HTML 验证器">
+<!ENTITY tidy.help.visit "访问主页">
+<!ENTITY tidy.help.version "版本">
+<!ENTITY tidy.help.homepage_desc "欲了解关于本附加软件的更多信息,">
+<!ENTITY tidy.help.homepage "主页">
+<!ENTITY tidy.help.userguide "用户指南">
+<!ENTITY tidy.help.htmlpedia_desc "如果你有兴趣改进本附加软件的帮助, 你可以使用 Htmlpedia 编辑.">
+<!ENTITY tidy.help.htmlpedia "Wiki 网站">
+<!ENTITY tidy.help.htmlpedia_howto "怎样修改一个页面">
+<!ENTITY tidy.help.mailing_list "邮件列表">
+<!ENTITY tidy.help.mailing_list_subscription "无需订阅">
+<!ENTITY tidy.help.archive "存档">
+<!ENTITY tidy.help.author "作者">
+<!ENTITY tidy.help.donate "捐助">
+<!ENTITY tidy.help.donation "捐助">
+<!ENTITY tidy.help.donation_text "你的捐助将使我继续我的工作.">
+<!ENTITY tidy.browser.toolsmenu "HTML 验证器选项…">
+<!ENTITY tidy.browser.menu.option "选项…">
+<!ENTITY tidy.browser.menu.show "显示">
+<!ENTITY tidy.browser.menu.disable "禁用">
+<!ENTITY tidy.browser.menu.enable "启用">
+<!ENTITY tidy.browser.menu.html_clipboard "复制 HTML 到剪贴板">
+<!ENTITY tidy.browser.menu.error_clipboard "复制错误到剪贴板">
+<!ENTITY tidy.browser.menu.cleanup "清理…">
+<!ENTITY tidy.browser.menu.view_source "页面源代码…">
+<!ENTITY tidy.browser.menu.about "帮助…">
+<!ENTITY tidy.browser.menu.innerHTML "现在验证(在 JavaScript 执行后验证 HTML 正文)">
+<!ENTITY tidy.browser.menu.advanced "高级">
+<!ENTITY tidy.browser.menu.online.html "在线 W3C HTML 验证器…">
+<!ENTITY tidy.browser.menu.online.css "在线 W3C CSS 验证器…">
+<!ENTITY tidy.cleanup.title "清理此页面">
+<!ENTITY tidy.cleanup.tab.clean.source "干净的 HTML">
+<!ENTITY tidy.cleanup.tab.orig.source "原始 HTML">
+<!ENTITY tidy.cleanup.tab.clean.page "干净的浏览器">
+<!ENTITY tidy.cleanup.tab.orig.page "原始浏览器">
+<!ENTITY tidy.choose_source.title ".">
+<!ENTITY tidy.choose_source.caption "选择此页面或它的一个框架或行内框架">
+<!ENTITY tidy.window.title "验证 HTML">
+<!ENTITY tidy.tree.header "HTML 错误与警告">
+<!ENTITY tidy.tree.type "类别">
+<!ENTITY tidy.tree.line "行">
+<!ENTITY tidy.tree.column "列">
+<!ENTITY tidy.view_source.button.cleanup "清理此页面…">
+<!ENTITY tidy.view_source.button.options "选项…">
+<!ENTITY tidy.view_source.button.online "W3C 在线验证…">
+<!ENTITY tidy.view_source.tree.hide "隐藏…">
+<!ENTITY tidy.view_source.menu "HTML 验证器">
+<!ENTITY tidy.view_source.accesskey "H">
+<!ENTITY tidy-explain-error-label "帮助">
+<!ENTITY tidy.close.tooltip "关闭 HTML 验证器">
+<!ENTITY tidy.button.ok "OK">
+<!ENTITY tidy.button.cancel "取消">
+<!ENTITY tidy.button.refresh "重新载入">
+<!ENTITY tidy.options.title "HTML 验证器选项">
+<!ENTITY tidy.options.general "一般">
+<!ENTITY tidy.options.browser "浏览器">
+<!ENTITY tidy.options.viewsource "查看源代码">
+<!ENTITY tidy.options.filter "过滤器">
+<!ENTITY tidy.options.group.format "选项: 格式">
+<!ENTITY tidy.options.group.layout "选项: 布局">
+<!ENTITY tidy.options.viewsource_enable "在查看源代码中启用验证">
+<!ENTITY tidy.links.title "链接验证">
+<!ENTITY tidy.options.indent "缩进元素内容">
+<!ENTITY tidy.options.indent-spaces "使用空格缩进">
+<!ENTITY tidy.options.uppercase-tags "大写标签">
+<!ENTITY tidy.options.uppercase-attributes "大写属性">
+<!ENTITY tidy.options.wrap "自动换行">
+<!ENTITY tidy.options.wrap2 "字符">
+<!ENTITY tidy.options.clean "使用 CSS 替换 FONT 等标签">
+<!ENTITY tidy.options.output-encoding "字符编码">
+<!ENTITY tidy.options.doctype "Doctype">
+<!ENTITY tidy.options.highlight_line "高亮有错误的行">
+<!ENTITY tidy.options.show_line_number "显示行号">
+<!ENTITY tidy.options.dbclick_action_label "双击状态栏图标以启动:">
+<!ENTITY tidy.options.accessibility-check "可访问性级别">
+<!ENTITY tidy.options.accessibility-check_none "无">
+<!ENTITY tidy.options.accessibility-check_0 "正常">
+<!ENTITY tidy.options.accessibility-check_1 "1">
+<!ENTITY tidy.options.accessibility-check_2 "2">
+<!ENTITY tidy.options.accessibility-check_3 "3">
+<!ENTITY tidy.options.force_output "强制输出为">
+<!ENTITY tidy.options.none "-">
+<!ENTITY tidy.options.output-html "HTML">
+<!ENTITY tidy.options.output-xhtml "XHTML">
+<!ENTITY tidy.options.show-warnings "显示警告">
+<!ENTITY tidy.options.browser_enable "在浏览器中启用验证">
+<!ENTITY tidy.options.perm_list "例外…">
+<!ENTITY tidy.options.browser_hide "隐藏图标">
+<!ENTITY tidy.options.browser_icon_label "在状态栏中显示">
+<!ENTITY tidy.options.icon_text "图标与文字">
+<!ENTITY tidy.options.icon_only "只有图标">
+<!ENTITY tidy.options.filter.hide.header "隐藏的错误与警告">
+<!ENTITY tidy.options.filter.remove "移除">
+<!ENTITY tidy.options.filter.hint "提示: 要隐藏一条消息, 右键单击该消息并选择“隐藏”.">
+<!ENTITY tidy.options.algorithm_label "算法">
+<!ENTITY tidy.options.algorithm_tidy "HTML Tidy">
+<!ENTITY tidy.options.algorithm_sp "SGML 解析器">
+<!ENTITY tidy.options.algorithm_serial "连续">
+<!ENTITY tidy.options.welcome "选择…">
+<!ENTITY tidy.hide.label "在查看源代码中启用验证">
+<!ENTITY tidy.hide.accesskey "H">
+<!ENTITY tidy.hide.commandkey "u">
+<!ENTITY tidy.show_line_number.label "显示行号">
+<!ENTITY tidy.show_line_number.accesskey "N">
+<!ENTITY tidy.show_line_number.commandkey "n">
+<!ENTITY tidy.menu.copy.label "复制">
+<!ENTITY tidy.menu.copy.accesskey "C">
+<!ENTITY tidy.menu.copy.key "c">
+<!ENTITY tidy.menu.selectall.label "全选">
+<!ENTITY tidy.menu.selectall.accesskey "A">
+<!ENTITY tidy.menu.selectall.key "a">
+<!ENTITY tidy.translator "Ryan Li">
+<!ENTITY tidy.translator.url "http://www.ryanium.com">
+<!ENTITY tidy.welcome.title "HTML 验证器: 选择你的算法">
+<!ENTITY tidy.welcome.h2 "HTML 验证器: 欢迎">
+<!ENTITY tidy.welcome.h3 "选择你的算法">
+<!ENTITY tidy.welcome.t1 "W3C 编写了两个用于检查 HTML 页面兼容性的算法">
+<!ENTITY tidy.welcome.t2 "Firefox 下的 HTML 验证器包含了这两种算法, 它们各有利弊.">
+<!ENTITY tidy.welcome.t3 "要获取更多信息, 请阅读用户指南.">
+<!ENTITY tidy.welcome.desc "描述">
+<!ENTITY tidy.welcome.desc_tidy "这是一个检查 HTML 与 XHTML 句法的算法">
+<!ENTITY tidy.welcome.desc_sp "这是一个与 OpenSP , 在validator.w3.org背后运行的算法相同的算法. 这是一个基于 DTD 的 SGML 解析器.">
+<!ENTITY tidy.welcome.desc_serial "算法按以下顺序执行: <html:br/>(1) SGML解析器.<html:br/>(2) 如果没有错误, 执行HTML Tidy">
+<!ENTITY tidy.welcome.better_for "Better for">
+<!ENTITY tidy.welcome.access "可用性检查">
+<!ENTITY tidy.welcome.wai123 "WAI 级别1, 2, 3">
+<!ENTITY tidy.welcome.cleanup "清理页面">
+<!ENTITY tidy.welcome.good_help "好的帮助">
+<!ENTITY tidy.welcome.clear_error "清除错误消息">
+<!ENTITY tidy.welcome.w3_validator "错误与validator.w3.org相同">
+<!ENTITY tidy.welcome.target "目标用户">
+<!ENTITY tidy.welcome.target_all "全部">
+<!ENTITY tidy.welcome.target_prof "专业">
+<!ENTITY tidy.yes "有">
+<!ENTITY tidy.no "无">
+<!ENTITY tidy.todo "无 (将会有)">
+<!ENTITY tidy.options.algorithm_online "Online">
+<!ENTITY tidy.options.algorithm_cse "CSE HTML Validator">

@@ -1,0 +1,96 @@
+
+
+/* Firebug Start Button */
+#tidy-toolbar-button{
+    list-style-image: url(chrome://tidy/skin/good.png);
+}
+
+tidy-toolbar-button {
+    list-style-image: url(chrome://tidy/skin/good.png);
+}
+
+/*-------------------------------------------------------*/
+
+treechildren:-moz-tree-cell(StyleNormal) 
+{
+  color: #000;
+}
+
+treechildren:-moz-tree-cell(StyleRed) 
+{
+  background-color: #FFDDDD;
+  color: #880000;
+}
+
+treechildren:-moz-tree-cell(StyleSummary) 
+{
+  color: #000;
+  background-color: #F0F0F0;
+  border-bottom: 1px solid black;
+}
+
+treechildren:-moz-tree-cell(StyleSummary,selected) 
+{
+  background-color: #0A246A;
+}
+
+treechildren:-moz-tree-cell(StyleRed,selected) 
+{
+  background-color: #0A246A;
+}
+
+treechildren::-moz-tree-cell-text(StyleSummary) 
+{
+  font-weight: bold;
+}
+
+/*-------------------------------------------------------*/
+
+/* This is to suppress the space between each row */
+treechildren:-moz-tree-row {border: 0px solid;}
+
+/*-------------------------------------------------------*/
+
+tidy-closebutton {
+  padding-right: 4px;
+  list-style-image: url("chrome://global/skin/icons/closetab.png") !important;
+  list-style-image: none;
+  border: none;
+}
+
+tidy-closebutton:hover > .toolbarbutton-icon {
+  background-image: none !important;
+}
+
+tidy-closebutton:hover:active {
+  list-style-image: url("chrome://global/skin/icons/closetab-active.png") !important;
+}
+
+tidy-statusbar {
+  -moz-box-direction: reverse;  
+  -moz-binding: url('chrome://global/content/bindings/general.xml#statusbarpanel-iconic-text');
+  -moz-appearance: statusbarpanel;
+  background: inherit !important;
+  color: inherit !important;
+}
+
+.link {
+  color: #0000FF;
+  text-decoration: underline !important;
+  cursor: pointer;
+}
+
+.light {
+  background-color: rgb(220, 220, 255);
+}
+
+.dark {
+  background-color: rgb(190, 190, 255);
+}
+
+.title { 
+ border: 2px solid rgb(2, 75, 120);
+ background-color: rgb(2, 150, 247);  
+ color: rgb(255, 255, 255);
+ text-align: center;
+}

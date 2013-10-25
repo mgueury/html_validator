@@ -1,0 +1,16 @@
+##NAME##
+--ENDTITLE--
+== ##TITLE## (Priority ##PRIORITY##) ==
+
+=== Cause: ===
+##TEXT##
+
+=== Example: ===
+<bad><pre>##TESTFILE##</pre></bad>
+
+=== Solution: ===
+
+=== References: ===
+* W3C WAI: http://www.w3.org/WAI/
+* HTML Techniques for WAI 1.0: http://www.w3.org/TR/WCAG10-HTML-TECHS/
+--ENDPAGE--

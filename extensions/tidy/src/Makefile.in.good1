@@ -1,0 +1,268 @@
+#
+# The contents of this file are subject to the Netscape Public
+# License Version 1.1 (the "License"); you may not use this file
+# except in compliance with the License. You may obtain a copy of
+# the License at http://www.mozilla.org/NPL/
+#
+# Software distributed under the License is distributed on an "AS
+# IS" basis, WITHOUT WARRANTY OF ANY KIND, either express or
+# implied. See the License for the specific language governing
+# rights and limitations under the License.
+#
+# The Original Code is mozilla.org code.
+#
+# The Initial Developer of the Original Code is Netscape
+# Communications Corporation.  Portions created by Netscape are
+# Copyright (C) 1998 Netscape Communications Corporation. All
+# Rights Reserved.
+#
+# Contributor(s): 
+#
+
+DEPTH		= ../../..
+topsrcdir	= @top_srcdir@
+srcdir		= @srcdir@
+VPATH		= @srcdir@
+
+include $(DEPTH)/config/autoconf.mk
+
+MODULE		= nstidy
+XPIDL_MODULE	= nstidy
+LIBRARY_NAME	= nstidy
+SHORT_LIBNAME	= nstidy
+IS_COMPONENT	= 1
+MODULE_NAME	= nsTidyModule
+# -- Comment/Uncomment to have debug executable
+MOZ_DEBUG       =1
+
+# ===== OpenSP =====
+
+DEFINES         += -DSP_NAMESPACE=OpenSP -DSP_MULTI_BYTE 
+ifeq ($(OS_ARCH),WINNT)
+DEFINES         += -DSP_WIDE_SYSTEM
+# The RC include is done to load the strings of the *.rc files of OpenSP
+RCINCLUDE = lib.rc
+endif
+
+# Bug in MS2008 SP1 distributed file
+DEFINES         += -D_BIND_TO_CURRENT_VCLIBS_VERSION=1
+
+REQUIRES	= string \
+		  xpcom \
+		  $(NULL)
+
+CPPSRCS =                               \
+                nsTidy.cpp              \
+                nsOpenSP.cpp            \
+                diaglog.cpp             \
+                links.cpp               \
+                SpValid.cpp             \
+                nsTidyModule.cpp        \
+                $(DEPTH)/extensions/tidy/opensp/cpp/Allocator.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/app_inst.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/arc_inst.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/ArcEngine.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/assert.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/Attribute.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/Big5CodingSystem.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/CharsetDecl.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/CharsetInfo.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/CharsetRegistry.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/CmdLineApp.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/CodingSystem.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/CodingSystemKit.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/ConsoleOutput.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/ContentState.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/ContentToken.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/DescriptorManager.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/Dtd.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/DtdDeclEventHandler.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/ElementType.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/Entity.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/EntityApp.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/EntityCatalog.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/EntityDecl.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/EntityManager.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/entmgr_inst.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/ErrnoMessageArg.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/ErrorCountEventHandler.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/EUCJPCodingSystem.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/Event.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/EventGenerator.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/ExtendEntityManager.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/ExternalId.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/Fixed2CodingSystem.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/Fixed4CodingSystem.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/GenericEventHandler.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/Group.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/Hash.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/Id.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/IdentityCodingSystem.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/IListBase.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/InputSource.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/InternalInputSource.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/Link.cpp \
+
+CPPSRCS +=                               \
+                $(DEPTH)/extensions/tidy/opensp/cpp/LinkProcess.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/LiteralStorage.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/Location.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/Lpd.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/Markup.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/Message.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/MessageArg.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/MessageEventHandler.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/MessageFormatter.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/MessageReporter.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/MessageTable.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/ModeInfo.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/Notation.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/NotationStorage.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/NumericCharRefOrigin.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/OffsetOrderedList.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/OpenElement.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/OutputByteStream.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/OutputCharStream.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/OutputState.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/Param.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/parseAttribute.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/parseCommon.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/parseDecl.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/parseInstance.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/parseMode.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/parseParam.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/Parser.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/parser_inst.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/ParserApp.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/ParserEventGeneratorKit.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/ParserMessages.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/ParserOptions.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/ParserState.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/parseSd.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/Partition.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/PosixStorage.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/Recognizer.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/RewindStorageObject.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/Sd.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/SdText.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/SearchResultMessageArg.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/SGMLApplication.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/SgmlParser.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/ShortReferenceMap.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/SJISCodingSystem.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/SOEntityCatalog.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/splib.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/StdioStorage.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/StorageManager.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/Syntax.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/Text.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/TokenMessageArg.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/TranslateCodingSystem.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/TrieBuilder.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/TypeId.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/Undo.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/UnicodeCodingSystem.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/UnivCharsetDesc.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/URLStorage.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/UTF16CodingSystem.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/UTF8CodingSystem.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/Win32CodingSystem.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/WinApp.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/WinInetStorage.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/xentmgr_inst.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/XMLCodingSystem.cpp \
+                $(DEPTH)/extensions/tidy/opensp/cpp/SubstTable.cpp \
+                $(NULL)
+
+#                 nsTidy.cpp              \
+#                $(DEPTH)/extensions/tidy/opensp/cpp/CharMap.cpp \
+#                $(DEPTH)/extensions/tidy/opensp/cpp/CopyOwner.cpp \
+#                $(DEPTH)/extensions/tidy/opensp/cpp/HashTable.cpp \
+#                $(DEPTH)/extensions/tidy/opensp/cpp/HashTableItemBase.cpp \
+#                $(DEPTH)/extensions/tidy/opensp/cpp/IQueue.cpp \
+#                $(DEPTH)/extensions/tidy/opensp/cpp/ISet.cpp \
+#                $(DEPTH)/extensions/tidy/opensp/cpp/List.cpp \
+#                $(DEPTH)/extensions/tidy/opensp/cpp/Options.cpp \
+#                $(DEPTH)/extensions/tidy/opensp/cpp/Owner.cpp \
+#                $(DEPTH)/extensions/tidy/opensp/cpp/OwnerTable.cpp \
+#                $(DEPTH)/extensions/tidy/opensp/cpp/PointerTable.cpp \
+#                $(DEPTH)/extensions/tidy/opensp/cpp/Ptr.cpp \
+#                $(DEPTH)/extensions/tidy/opensp/cpp/RangeMap.cpp \
+#                $(DEPTH)/extensions/tidy/opensp/cpp/StringOf.cpp \
+#                $(DEPTH)/extensions/tidy/opensp/cpp/Vector.cpp \
+#                $(DEPTH)/extensions/tidy/opensp/cpp/XcharMap.cpp \
+
+
+CSRCS =         translation.c                    \
+                $(DEPTH)/extensions/tidy/tidy/src/access.c   \
+                $(DEPTH)/extensions/tidy/tidy/src/attrs.c    \
+                $(DEPTH)/extensions/tidy/tidy/src/istack.c   \
+                $(DEPTH)/extensions/tidy/tidy/src/parser.c   \
+                $(DEPTH)/extensions/tidy/tidy/src/tags.c     \
+                $(DEPTH)/extensions/tidy/tidy/src/entities.c \
+                $(DEPTH)/extensions/tidy/tidy/src/lexer.c    \
+                $(DEPTH)/extensions/tidy/tidy/src/pprint.c   \
+                $(DEPTH)/extensions/tidy/tidy/src/clean.c    \
+                $(DEPTH)/extensions/tidy/tidy/src/localize.c \
+                $(DEPTH)/extensions/tidy/tidy/src/config.c   \
+                $(DEPTH)/extensions/tidy/tidy/src/alloc.c    \
+                $(DEPTH)/extensions/tidy/tidy/src/attrask.c  \
+                $(DEPTH)/extensions/tidy/tidy/src/attrdict.c \
+                $(DEPTH)/extensions/tidy/tidy/src/attrget.c  \
+                $(DEPTH)/extensions/tidy/tidy/src/buffio.c   \
+                $(DEPTH)/extensions/tidy/tidy/src/fileio.c   \
+                $(DEPTH)/extensions/tidy/tidy/src/streamio.c \
+                $(DEPTH)/extensions/tidy/tidy/src/tagask.c   \
+                $(DEPTH)/extensions/tidy/tidy/src/tmbstr.c   \
+                $(DEPTH)/extensions/tidy/tidy/src/utf8.c     \
+                $(DEPTH)/extensions/tidy/tidy/src/tidylib.c  \
+                $(DEPTH)/extensions/tidy/tidy/src/mappedio.c \
+		$(NULL)                
+
+XPIDLSRCS       = nsITidy.idl
+
+
+
+# ===== XPCOM Glue ======
+
+ifeq ($(OS_ARCH),WINNT)
+# DEFINES         += -DXPCOM_GLUE
+# EXTRA_DSO_LDOPTS = \
+#                $(DIST)/lib/$(LIB_PREFIX)xpcomglue.$(LIB_SUFFIX)
+# EXTRA_DSO_LDOPTS = \
+#                 $(DIST)/lib/$(LIB_PREFIX)xpcomglue_s_nomozalloc.$(LIB_SUFFIX) \
+#                 $(XPCOM_FROZEN_LDOPTS) \
+#                 $(DIST)/lib/$(LIB_PREFIX)mozalloc.$(LIB_SUFFIX) \
+#                 $(NULL)
+# EXTRA_DSO_LDOPTS = \
+#                $(DIST)/lib/$(LIB_PREFIX)xpcomglue_s.$(LIB_SUFFIX) \
+#                $(XPCOM_FROZEN_LDOPTS) \
+#                $(NULL)
+EXTRA_DSO_LDOPTS = \
+               $(DIST)/lib/$(LIB_PREFIX)xpcomglue_s_nomozalloc.$(LIB_SUFFIX) \
+               $(XPCOM_FROZEN_LDOPTS) \
+               $(NULL)
+DEFINES         += -DMOZ_NO_MOZALLOC
+STL_FLAGS = 
+# debug symbols
+else
+DEFINES         += -DMOZILLA_STRICT_API
+EXTRA_DSO_LDOPTS = \
+                $(XPCOM_GLUE_LDOPTS)
+endif
+
+# ====== Other libraries =====
+
+EXTRA_DSO_LDOPTS += \
+                $(NSPR_LIBS) \
+                $(NULL)
+
+include $(topsrcdir)/config/config.mk
+include $(topsrcdir)/config/rules.mk
+
+INCLUDES += -I$(srcdir)/../tidy/include 
+INCLUDES += -I$(srcdir)/../tidy/src 
+INCLUDES += -I$(srcdir)/$(DEPTH)/extensions/tidy/opensp/include 
+INCLUDES += -I$(srcdir)/$(DEPTH)/extensions/tidy/opensp/generic 
+INCLUDES += -I$(srcdir)/.
+

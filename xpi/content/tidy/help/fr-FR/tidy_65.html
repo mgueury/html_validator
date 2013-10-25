@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Aide de tidy - Tidy [65]</title>
+    <link rel="stylesheet" type="text/css" href="tidy_help2.css" media="screen, projection"/>
+  </head>
+  <body>
+    <div id="bodyContent">
+      <h2> Aide de tidy - Tidy [65]&nbsp;: L'intitulé d'un lien doit tenir sur une même ligne</h2>
+
+      <h3> Cause&nbsp;: </h3>
+      <p>Une URL contient une nouvelle ligne ou un retour chariot
+      </p>
+      <h3> Exemple&nbsp;: </h3>
+        <table class='bad' title='Bad'>
+          <tr>
+            <td width='22' valign='top'>
+              <img src='../../../skin/error.png' alt='Error'/>
+            </td>
+            <td>
+              <code>
+                &lt;a href="/declaration/formulaire222/"&gt; Formulaire à utiliser<br />
+si vous êtes soumis à la réforme
+du 13 juillet 2003 &lt;/a&gt;
+
+              </code>
+            </td>
+          </tr>
+        </table>
+        <table class='good' title='Good'>
+          <tr>
+            <td width='22' valign='top'>
+              <img src='../../../skin/good.png' alt='Good'/>
+            </td>
+            <td>
+              <code>
+                &lt;a href="/declaration/formulaire222/"&gt; Formulaire à utiliser si vous êtes soumis à la réforme du 13 juillet 2003 &lt;/a&gt;
+              </code>
+            </td>            
+          </tr>
+        </table>
+
+      <h3> Solution&nbsp;: </h3>
+      <p>Il faut écrire la totalité du lien depuis la balise ouvrante &lt;a&gt; jusqu'à la fermeture &lt;/a&gt; sur la même
+ligne, même si cette dernière est longue ; sinon il est possible d'avoir un problème d'affichage
+d'espaces soulignés parasites.
+      </p>
+      <h3> Références&nbsp;: </h3>
+      <ul>
+        <li> W3C WAI&nbsp;: <a href="http://www.w3.org/WAI/">http://www.w3.org/WAI/</a>
+        </li>
+        <li> Techniques HTML pour le WAI 1.0: <a href="http://www.w3.org/TR/WCAG10-HTML-TECHS/">http://www.w3.org/TR/WCAG10-HTML-TECHS/</a>
+        </li>
+      </ul>
+      <p>.
+      </p>
+    </div>
+  </body>
+</html>

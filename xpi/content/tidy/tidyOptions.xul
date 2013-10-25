@@ -1,0 +1,138 @@
+<?xml version="1.0"?>
+<!-- *************************************************************************
+  HTML Validator
+
+  File: tidyOptions.xul
+  Description: contains the xul for the dialog box of the options window
+  Author : Marc Gueury
+  Licence : see licence.txt
+************************************************************************** -->
+
+<!DOCTYPE window [
+  <!ENTITY % tidyDTD SYSTEM "chrome://tidy/locale/tidy.dtd"> %tidyDTD;
+]>
+
+<?xml-stylesheet href="chrome://tidy/skin/tidy.css" type="text/css"?>
+<?xml-stylesheet href="chrome://global/skin" type="text/css"?>
+
+<window id="tidy-options" 
+        xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+        title="&tidy.options.title;"
+        onload="onLoadTidyOptions();"
+> 
+
+  <script type="application/x-javascript" src="chrome://tidy/content/tidyLib.js" />
+  <script type="application/x-javascript" src="chrome://tidy/content/tidyUtil.js" />
+  <script type="application/x-javascript" src="chrome://tidy/content/tidyOptions.js" />
+
+  <stringbundleset id="stringbundleset">
+    <stringbundle id="tidy.string.bundle" src="chrome://tidy/locale/tidy.properties"/>
+  </stringbundleset>
+
+  <vbox flex="1" oncommand="oTidyOptions.enableDisable();">
+
+    <groupbox>
+      <caption label="&tidy.options.general;"/>
+      <vbox>       
+        <hbox align="center">
+          <label control="tidy.options.algorithm_label" value="&tidy.options.algorithm_label;" style="min-width: 9em;"/> 
+          <menulist id="tidy.options.algorithm">
+            <menupopup>
+              <menuitem label="&tidy.options.algorithm_tidy;" value="tidy"/>
+              <menuitem label="&tidy.options.algorithm_sp;" value="sp"/>
+              <menuitem label="&tidy.options.algorithm_serial;" value="serial"/>
+              <menuitem label="&tidy.options.algorithm_online;" value="online"/>
+              <menuitem label="&tidy.options.algorithm_cse;" value="cse"/>
+            </menupopup>
+          </menulist>
+          <button label="&tidy.options.welcome;" id="tidy.option.welcome" oncommand="oTidyOptions.onWelcome();"/>
+        </hbox> 
+        <hbox align="center">
+          <label control="tidy.options.accessibility-check.label" value="&tidy.options.accessibility-check;" style="min-width: 9em;"/> 
+          <menulist id="tidy.options.accessibility-check">
+            <menupopup>
+              <menuitem label="&tidy.options.accessibility-check_none;" value="-1"/>
+              <menuitem label="&tidy.options.accessibility-check_0;" value="0"/>
+              <menuitem label="&tidy.options.accessibility-check_1;" value="1"/>
+              <menuitem label="&tidy.options.accessibility-check_2;" value="2"/>
+              <menuitem label="&tidy.options.accessibility-check_3;" value="3"/>
+            </menupopup>
+          </menulist>
+        </hbox>
+        <hbox align="center" id="tidy.options.cse_validator">
+          <label value="CSE HTML Validator" style="min-width: 9em;" />
+          <button label="&tidy.browser.menu.option;" id="tidy.options.cse_validator_option" oncommand="oTidyUtil.runCSE( ['-1'], false );"/>
+        </hbox>
+        
+      </vbox>
+    </groupbox>
+  
+    <groupbox>
+      <caption label="&tidy.options.browser;"/>
+      <vbox>       
+        <hbox align="center">
+          <checkbox id="tidy.options.browser_enable" label="&tidy.options.browser_enable;" oncommand="oTidyOptions.onBrowserEnable()" />
+          <button label="&tidy.options.perm_list;" id="tidy.options.perm_list" oncommand="oTidyUtil.permDialog();"/>
+        </hbox>
+        <hbox align="center">
+          <label control="tidy.options.browser_icon_label" value="&tidy.options.browser_icon_label;" style="min-width: 9em;"/> 
+          <menulist id="tidy.options.browser_icon">
+            <menupopup>
+              <menuitem label="&tidy.options.icon_text;" value="icon_text"/>
+              <menuitem label="&tidy.options.icon_only;" value="icon_only"/>
+            </menupopup>
+          </menulist>
+        </hbox>
+        <hbox align="center">
+          <label control="tidy.options.dbclick_action_label" value="&tidy.options.dbclick_action_label;" style="min-width: 9em;"/> 
+          <menulist id="tidy.options.dbclick_action">
+            <menupopup>
+              <menuitem label="&tidy.browser.menu.view_source;" value="viewsource"/>
+              <menuitem label="&tidy.browser.menu.cleanup;" value="cleanup"/>
+            </menupopup>
+          </menulist>
+        </hbox>      
+      </vbox>
+    </groupbox>
+    <groupbox>
+      <caption label="&tidy.options.viewsource;"/>
+      <vbox>
+        <checkbox id="tidy.options.viewsource_enable" label="&tidy.options.viewsource_enable;" />
+        <checkbox id="tidy.options.highlight_line" label="&tidy.options.highlight_line;" />
+        <checkbox id="tidy.options.show_line_number" label="&tidy.options.show_line_number;" />
+        <checkbox id="tidy.options.show-warnings" label="&tidy.options.show-warnings;" />
+      </vbox>
+    </groupbox>
+    <groupbox flex="1">
+      <caption label="&tidy.options.filter;"/>
+      <vbox>       
+        <hbox>       
+          <vbox>       
+            <caption label="&tidy.options.filter.hide.header;"/>
+            <listbox id="tidy.options.filter.list.hide" flex="1" aclass="inset" seltype="single" 
+                     rows="7" width="600"/>         
+          </vbox>
+          <vbox>
+            <caption label=""/>
+            <button label="&tidy.options.filter.remove;" id="tidy.options.filter.remove"
+                    oncommand="oTidyOptions.onFilterRemove();"/>                  
+          </vbox>
+        </hbox>       
+        <caption label="&tidy.options.filter.hint;"/>
+      </vbox>
+    </groupbox>
+
+<!--
+    <textbox id="tidy.options.config" multiline="true" 
+             wrap="false" flex="1" size="120" />
+-->
+
+    <hbox align="right" valign="middle">
+      <button label="&tidy.button.ok;" id="tidy-button-ok"
+              oncommand="oTidyOptions.onOk();"/>
+      <button label="&tidy.button.cancel;" id="tidy-button-cancel"
+              oncommand="window.close();"/>
+    </hbox>
+  </vbox>  
+  
+</window>

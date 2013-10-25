@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Sp 257 - Htmlpedia</title>
+    <link rel="stylesheet" type="text/css" href="/w/skins/tidy_help2.css" media="screen, projection"/>
+  </head>
+<body>
+  <div id="bodyContent">
+    <!-- start content -->
+    <table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1"><a href="#OpenSP:_an_attribute_value_specification_must_be_an_attribute_value_literal_unless_SHORTTAG_YES_is_specified"><span class="tocnumber">1</span> <span class="toctext">OpenSP: an attribute value specification must be an attribute value literal unless SHORTTAG YES is specified</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Cause:"><span class="tocnumber">1.1</span> <span class="toctext">Cause:</span></a></li>
+<li class="toclevel-2"><a href="#Example:"><span class="tocnumber">1.2</span> <span class="toctext">Example:</span></a></li>
+<li class="toclevel-2"><a href="#Solution:"><span class="tocnumber">1.3</span> <span class="toctext">Solution:</span></a></li>
+<li class="toclevel-2"><a href="#Further_information:"><span class="tocnumber">1.4</span> <span class="toctext">Further information:</span></a></li>
+<li class="toclevel-2"><a href="#References:"><span class="tocnumber">1.5</span> <span class="toctext">References:</span></a></li>
+</ul>
+</li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="/w/index.php?title=Sp_257&amp;action=edit&amp;section=1" title="Edit section: OpenSP: an attribute value specification must be an attribute value literal unless SHORTTAG YES is specified">edit</a>]</div><a name="OpenSP:_an_attribute_value_specification_must_be_an_attribute_value_literal_unless_SHORTTAG_YES_is_specified"></a><h2> OpenSP: an attribute value specification must be an attribute value literal unless SHORTTAG YES is specified </h2>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="/w/index.php?title=Sp_257&amp;action=edit&amp;section=2" title="Edit section: Cause:">edit</a>]</div><a name="Cause:"></a><h3> Cause: </h3>
+<p>An attribute value is not enclosed in quotes.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="/w/index.php?title=Sp_257&amp;action=edit&amp;section=3" title="Edit section: Example:">edit</a>]</div><a name="Example:"></a><h3> Example: </h3>
+<table class='bad' title='Bad'><tr><td width='22' valign='top'><img src='/skin/error.gif' alt='Good'/></td><td>&lt;p class=foo></td></tr></table>
+<table class='bad' title='Bad'><tr><td width='22' valign='top'><img src='/skin/error.gif' alt='Good'/></td><td>&lt;img height=92 …></td></tr></table>
+<table class='good' title='Good'><tr><td width='22' valign='top'><img src='/skin/good.gif' alt='Good'/></td><td>&lt;p class="foo"></td></tr></table>
+<table class='good' title='Good'><tr><td width='22' valign='top'><img src='/skin/good.gif' alt='Good'/></td><td>&lt;img height="92" …></td></tr></table>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="/w/index.php?title=Sp_257&amp;action=edit&amp;section=4" title="Edit section: Solution:">edit</a>]</div><a name="Solution:"></a><h3> Solution: </h3>
+<ul><li> Quote <b>all</b> attribute values.
+</li></ul>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="/w/index.php?title=Sp_257&amp;action=edit&amp;section=5" title="Edit section: Further information:">edit</a>]</div><a name="Further_information:"></a><h3> Further information: </h3>
+<p>(From <a href="http://www.w3.org/TR/REC-html40/intro/sgmltut.html#h-3.2.2" class="external text" title="http://www.w3.org/TR/REC-html40/intro/sgmltut.html#h-3.2.2" rel="nofollow">Attributes section of HTML specification</a>): <i><b>SGML</b> recommends that all attribute values be delimited using either double quotation marks (ASCII decimal 34) or single quotation marks (ASCII decimal 39). Single quote marks can be included within the attribute value when the value is delimited by double quote marks, and vice versa. Authors may also use numeric character references to represent double quotes (&#34;) and single quotes (&#39;). For double quotes authors can also use the character entity reference &amp;quot;.</i>
+</p><p><i>In certain cases, authors may specify the value of an attribute without any quotation marks. The attribute value may only contain letters (a-z and A-Z), digits (0-9), hyphens (ASCII decimal 45), and periods (ASCII decimal 46).</i>
+</p><p>There are instances where attributes may not contain values; they are self-referential, such as <i>compact</i>, <i>selected</i>, <i>checked</i>, etc., and are contained within tags that are declared <b>SHORTTAG YES</b>, such as &lt;select>, &lt;ul>, &lt;input type="radio" />, etc.. These attributes must be expanded should the document be declared as <b>XHTML</b> to <i>compact="compact"</i>, <i>selected="selected"</i>, <i>checked="checked"</i>, etc..
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="/w/index.php?title=Sp_257&amp;action=edit&amp;section=6" title="Edit section: References:">edit</a>]</div><a name="References:"></a><h3> References: </h3>
+<ul><li><a href="http://www.w3.org/TR/html/#h-4.4" class="external text" title="http://www.w3.org/TR/html/#h-4.4" rel="nofollow">XHTML 1.0 Specification: Section 4.4: Attribute values must always be quoted</a>
+</li><li><a href="http://www.w3.org/TR/REC-html40/intro/sgmltut.html#h-3.2.2" class="external text" title="http://www.w3.org/TR/REC-html40/intro/sgmltut.html#h-3.2.2" rel="nofollow">Attributes section of HTML specification</a>
+</li></ul>
+
+<!-- Saved in parser cache with key htmlpediadb:pcache:idhash:1903-0!1!0!0!!en!2 and timestamp 20100118235915 -->
+<div class="printfooter">
+Retrieved from "<a href="http://www.htmlpedia.org/wiki/Sp_257">http://www.htmlpedia.org/wiki/Sp_257</a>"</div>
+    <!-- end content -->
+  </div>
+</body>
+</html>

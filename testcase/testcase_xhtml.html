@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+  <title>test</title>
+</head>
+<body>
+  <h3>TEST - 41</h3>
+  BAD:<br>
+  GOOD:<br/>
+
+  <h3>TEST - 70</h3>
+  <p align=RIGHT>BAD:</p>
+  <p align=right>GOOD:</p>
+
+<br/>---------------------------------------------------<br/>
+<h3 id="test_74">TEST - 74 - ... cannot copy name attribute to id</h3>
+
+BAD:<br/>
+<a name="123456">aaa</a>
+<a id="1234567">aaa</a>
+
+GOOD:<br/>
+<a name="my_link1">aaa</a>
+<a id="my_link2">aaa</a>
+<a id="my_link3" name="my_link3">aaa</a>
+
+</body>
+</html>

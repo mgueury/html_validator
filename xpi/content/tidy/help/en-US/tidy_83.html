@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Tidy 83 - Htmlpedia</title>
+    <link rel="stylesheet" type="text/css" href="tidy_help2.css" media="screen, projection"/>
+  </head>
+<body>
+  <div id="bodyContent">
+<h2> Notice: replacing &lt;...&gt; by &lt;...&gt; </h2>
+<h3> Cause: </h3>
+<p>This is due to:
+</p>
+<ul><li> a bad order of the HTML tags
+</li><li> or to an additional tag that should not be there
+</li><li> or to a closing tags of an explitely or implicitely closed tag
+</li></ul>
+<h2> Example: </h2>
+<p>replacing &lt;/p&gt; by &lt;br&gt;
+</p>
+<table class='bad' title='Bad'><tr><td width='22' valign='top'><img src='../../../skin/error.png' alt='Good'/></td><td>&lt;p&gt;hello&lt;/p&gt;&lt;/p&gt; (explicit close)</td></tr></table>
+<table class='good' title='Good'><tr><td width='22' valign='top'><img src='../../../skin/good.png' alt='Good'/></td><td>&lt;p&gt;hello&lt;/p&gt;&lt;br&gt;</td></tr></table> 
+<table class='bad' title='Bad'><tr><td width='22' valign='top'><img src='../../../skin/error.png' alt='Good'/></td><td>&lt;p&gt;abc&lt;br&gt;&lt;table&gt;...&lt;/table&gt;&lt;/p&gt; (implicit close)</td></tr></table>
+<table class='good' title='Good'><tr><td width='22' valign='top'><img src='../../../skin/good.png' alt='Good'/></td><td>&lt;p&gt;abc&lt;br&gt;&lt;/p&gt;&lt;table&gt;...&lt;/table&gt;</td></tr></table> 
+<p>In the above sample, the &lt;p&gt; tag is implicitely closed when a new <a href="http://www.w3.org/TR/html4/struct/global.html#block-inline">"block-level"</a> tag like &lt;table&gt; is opened. For more info, read the definition of <a href="http://www.w3.org/TR/html4/struct/text.html#h-9.3.1">&lt;p&gt;</a>.
+</p>
+<h3> Solution: </h3>
+<p>Bring the tags to the right order, remove the additional tag or move the closing tag in front of the block element.
+</p>
+<h3> References: </h3>
+<ul><li> W3C block: <a href="http://www.w3.org/TR/html4/struct/global.html#block-inline">http://www.w3.org/TR/html4/struct/global.html#block-inline</a>
+</li></ul>
+  </div>
+</body>
+</html>

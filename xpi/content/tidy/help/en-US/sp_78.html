@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Sp 78 - Htmlpedia</title>
+    <link rel="stylesheet" type="text/css" href="tidy_help2.css" media="screen, projection"/>
+  </head>
+<body>
+  <div id="bodyContent">
+<h2> ... not finished but containing element ended </h2>
+<h3> Cause: </h3>
+<p>A containing element was closed before one of the elements it contains was finished. This can occur if a non-optional closing tag is omitted, or if the contained element is missing a required child element.
+</p>
+<h3> Example: </h3>
+<table class='bad' title='Bad'><tr><td width='22' valign='top'><img src='../../../skin/error.png' alt='Good'/></td><td>&lt;table&gt;<br/>
+<p>&lt;tr&gt;<br/>
+&lt;td&gt;table&lt;/td&gt;<br/>
+&lt;tr&gt;<br/>
+&lt;/table&gt;<br/>
+</p>
+</td></tr></table>
+<table class='good' title='Good'><tr><td width='22' valign='top'><img src='../../../skin/good.png' alt='Good'/></td><td>&lt;table&gt;<br/>
+<p>&lt;tr&gt;<br/>
+&lt;td&gt;table&lt;/td&gt;<br/>
+&lt;/tr&gt;<br/>
+</p>
+&lt;/table&gt;</td></tr></table>
+<p>Notice that the closing "tr" is incorrect.
+</p>
+<h3> Example: </h3>
+<table class='bad' title='Bad'><tr><td width='22' valign='top'><img src='../../../skin/error.png' alt='Good'/></td><td>&lt;html&gt;<br>
+<p>&lt;head&gt;<br>
+&lt;/head&gt;<br>
+&lt;/html&gt;<br>
+</p>
+</td></tr></table>
+<table class='good' title='Good'><tr><td width='22' valign='top'><img src='../../../skin/good.png' alt='Good'/></td><td>&lt;html&gt;<br>
+<p>&lt;head&gt;<br>
+&lt;title&gt;Page Title&lt;/title&gt;<br>
+&lt;/head&gt;<br>
+&lt;/html&gt;<br>
+</p>
+</td></tr></table>
+<p>Notice that the &lt;title&gt; element is required.
+</p>
+<h3> Solution: </h3>
+<p>Complete the contained element before closing the container.
+</p>
+<h3> References: </h3>
+<ul><li> <a href="http://www.w3.org/TR/html401/">http://www.w3.org/TR/html401/</a>
+</li></ul>
+  </div>
+</body>
+</html>

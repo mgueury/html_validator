@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Tidy 74 - Htmlpedia</title>
+    <link rel="stylesheet" type="text/css" href="tidy_help2.css" media="screen, projection"/>
+  </head>
+<body>
+  <div id="bodyContent">
+<h2> ... cannot copy name attribute to id </h2>
+<h3> Cause: </h3>
+<p>In XHTML, the "name" attribute has been deprecated and replaced by the "id" attribute. If you want to keep both tags for compatibility reasons, the values should be the same.
+This error is generated when only the "name" attribute exists and that tidy try to copy the value of the name in the id attribute. But an "id" <a href="http://www.w3.org/TR/html4/types.html#h-6.2">must begin with a letter (A-Za-z)</a>.
+</p>
+<h3> Example: </h3>
+<table class='bad' title='Bad'><tr><td width='22' valign='top'><img src='../../../skin/error.png' alt='Good'/></td><td>&lt;a name="123456"&gt;...&lt;/a&gt;</td></tr></table> 
+<table class='bad' title='Bad'><tr><td width='22' valign='top'><img src='../../../skin/error.png' alt='Good'/></td><td>&lt;a id="123456"&gt;...&lt;/a&gt;</td></tr></table>
+<table class='good' title='Good'><tr><td width='22' valign='top'><img src='../../../skin/good.png' alt='Good'/></td><td>&lt;a id="my_link"&gt;...&lt;/a&gt;</td></tr></table>
+<table class='good' title='Good'><tr><td width='22' valign='top'><img src='../../../skin/good.png' alt='Good'/></td><td>&lt;a id="my_link" name="my_link"&gt;...&lt;/a&gt;</td></tr></table>
+<h3> Solution: </h3>
+<p>Use "id" instead of "name" or use both with identical values.
+</p>
+<h3> References: </h3>
+<ul><li> XHTML W3c spec: name attribute: <a href="http://www.w3.org/TR/xhtml1/#h-4.10">http://www.w3.org/TR/xhtml1/#h-4.10</a>
+</li><li> XHTML W3c spec: name and id attributes: <a href="http://www.w3.org/TR/xhtml1/#C_8">http://www.w3.org/TR/xhtml1/#C_8</a>
+</li><li> ID W3C spec: <a href="http://www.w3.org/TR/html4/types.html#h-6.2">http://www.w3.org/TR/html4/types.html#h-6.2</a>
+</li></ul>
+  </div>
+</body>
+</html>

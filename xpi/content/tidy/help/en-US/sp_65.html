@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Sp 65 - Htmlpedia</title>
+    <link rel="stylesheet" type="text/css" href="tidy_help2.css" media="screen, projection"/>
+  </head>
+<body>
+  <div id="bodyContent">
+<h2> Document type does not allow element ... here; missing one of ... start-tag </h2>
+<h3> Cause: </h3>
+<p>The mentioned element is not allowed to appear in the context in which
+you've placed it; the other mentioned elements are the only ones that are both allowed there <em>and</em> can contain the element mentioned. This might mean that you need a containing element, or possibly that you've forgotten to close a previous element.
+</p><p>There are 2 types of elements in the body of a HTML file, <a href="http://www.w3.org/TR/html4/struct/global.html#h-7.5.3">inline and block elements.</a> One possible cause for this message is that you have attempted to put a block-level element (such as "&lt;p&gt;" or "&lt;table&gt;") inside an inline element (such as "&lt;a&gt;", "&lt;span&gt;", or "&lt;font&gt;").
+</p><p>In the following sample, the <a href="http://www.w3.org/TR/html4/present/graphics.html#edef-FONT">&lt;font&gt;</a> tag is an inline tag which can only contain other inline tags. But the &lt;p&gt; tag is a block tag. So a &lt;p&gt; tag can not be contained in a &lt;font&gt; tag.
+</p>
+<h3> Example: </h3>
+<table class='bad' title='Bad'><tr><td width='22' valign='top'><img src='../../../skin/error.png' alt='Good'/></td><td>&lt;font size=2&gt;&lt;p&gt;abc&lt;/p&gt;&lt;/font&gt;</td></tr></table>
+<table class='good' title='Good'><tr><td width='22' valign='top'><img src='../../../skin/good.png' alt='Good'/></td><td>&lt;p&gt;&lt;font size="2"&gt;abc&lt;/font&gt;&lt;/p&gt; </td></tr></table>
+<table class='good' title='Good'><tr><td width='22' valign='top'><img src='../../../skin/good.png' alt='Good'/></td><td>&lt;p style="font-size: 80%"&gt;abc&lt;/p&gt; </td></tr></table>
+<h3> Solution: </h3>
+<p>Move inline tags into block elements.
+</p><p>But the W3 validator marks as error:
+</p>
+<table class='bad' title='Bad'><tr><td width='22' valign='top'><img src='../../../skin/error.png' alt='Good'/></td><td>&lt;p class="content"&gt;~~~&lt;p&gt;abc&lt;/p&gt;&lt;/p&gt;</td></tr></table>
+<p>The outer &lt;p&gt; has to be replaced by &lt;div&gt;
+</p>
+<h3> References: </h3>
+<ul><li> W3 validator: <a href="http://validator.w3.org/">http://validator.w3.org/</a>
+</li></ul>
+  </div>
+</body>
+</html>

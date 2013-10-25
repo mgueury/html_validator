@@ -1,0 +1,64 @@
+**************** START
+step 1 mode=1
+step 2 charset=
+step 3 charset=iso-8859-1
+step 4 ContentType=text/html
+step 5 charset=iso-8859-1
+step 6 XML/SGML detection
+step 7 FILE->DOCTYPE=
+parse errors
+pe :<OSFD>0:1:0:554586320.435:E: prolog can't be omitted unless CONCUR NO and LINK EXPLICIT NO and either IMPLYDEF ELEMENT YES or IMPLYDEF DOCTYPE YES
+pe :<OSFD>0:1:0:554586320.344:E: no document type declaration; implying "<!DOCTYPE HTML SYSTEM>"
+pe :<OSFD>0:1:111:554586320.127:E: required attribute "TYPE" not specified
+pe :<OSFD>0:7:13:554586320.127:E: required attribute "TYPE" not specified
+pe :<OSFD>0:12:21:554586320.82:E: an attribute value must be a literal unless it contains only name characters
+pe :<OSFD>0:12:34:554586320.82:E: an attribute value must be a literal unless it contains only name characters
+pe :<OSFD>0:12:47:554586320.82:E: an attribute value must be a literal unless it contains only name characters
+pe :<OSFD>0:12:61:554586320.82:E: an attribute value must be a literal unless it contains only name characters
+pe :<OSFD>0:12:75:554586320.82:E: an attribute value must be a literal unless it contains only name characters
+pe :<OSFD>0:12:167:554586320.108:E: there is no attribute "TOPMARGIN"
+pe :<OSFD>0:12:182:554586320.108:E: there is no attribute "MARGINHEIGHT"
+pe :<OSFD>0:12:216:554586320.106:E: "NOWRAP" is not a member of a group specified for any attribute
+pe :<OSFD>0:12:249:554586320.108:E: there is no attribute "WIDTH"
+pe :<OSFD>0:12:252:554586320.82:E: an attribute value must be a literal unless it contains only name characters
+pe :<OSFD>0:12:346:554586320.338:W: cannot generate system identifier for general entity "hl"
+pe :<OSFD>0:12:346:554586320.25:E: general entity "hl" not defined and no default entity
+pe :<OSFD>0:12:348:554586320.325:E: reference to entity "hl" for which no system identifier could be generated
+pe :<OSFD>0:12:345: entity was defined here
+pe :<OSFD>0:12:472:554586320.127:E: required attribute "ALT" not specified
+pe :<OSFD>0:12:552:554586320.127:E: required attribute "ALT" not specified
+pe :<OSFD>0:12:625:554586320.127:E: required attribute "ALT" not specified
+pe :<OSFD>0:12:751:554586320.127:E: required attribute "ALT" not specified
+pe :<OSFD>0:12:826:554586320.82:E: an attribute value must be a literal unless it contains only name characters
+pe :<OSFD>0:12:940:554586320.127:E: required attribute "TYPE" not specified
+pe :<OSFD>0:14:186:554586320.338:W: cannot generate system identifier for general entity "oe"
+pe :<OSFD>0:14:186:554586320.25:E: general entity "oe" not defined and no default entity
+pe :<OSFD>0:14:188:554586320.325:E: reference to entity "oe" for which no system identifier could be generated
+pe :<OSFD>0:14:185: entity was defined here
+pe :<OSFD>0:14:202:554586320.325:E: reference to entity "hl" for which no system identifier could be generated
+pe :<OSFD>0:12:345: entity was defined here
+pe :<OSFD>0:14:206:554586320.338:W: cannot generate system identifier for general entity "tab"
+pe :<OSFD>0:14:206:554586320.25:E: general entity "tab" not defined and no default entity
+pe :<OSFD>0:14:209:554586320.325:E: reference to entity "tab" for which no system identifier could be generated
+pe :<OSFD>0:14:205: entity was defined here
+pe :<OSFD>0:14:317:554586320.325:E: reference to entity "oe" for which no system identifier could be generated
+pe :<OSFD>0:14:185: entity was defined here
+pe :<OSFD>0:14:331:554586320.325:E: reference to entity "hl" for which no system identifier could be generated
+pe :<OSFD>0:12:345: entity was defined here
+pe :<OSFD>0:14:338:554586320.325:E: reference to entity "tab" for which no system identifier could be generated
+pe :<OSFD>0:14:205: entity was defined here
+pe :<OSFD>0:14:448:554586320.325:E: reference to entity "oe" for which no system identifier could be generated
+pe :<OSFD>0:14:185: entity was defined here
+pe :<OSFD>0:14:462:554586320.325:E: reference to entity "hl" for which no system identifier could be generated
+pe :<OSFD>0:12:345: entity was defined here
+pe :<OSFD>0:14:469:554586320.325:E: reference to entity "tab" for which no system identifier could be generated
+pe :<OSFD>0:14:205: entity was defined here
+pe :<OSFD>0:14:659:554586320.82:E: an attribute value must be a literal unless it contains only name characters
+pe :<OSFD>0:14:977:554586320.82:E: an attribute value must be a literal unless it contains only name characters
+pe :<OSFD>0:14:1013:554586320.82:E: an attribute value must be a literal unless it contains only name characters
+pe :<OSFD>0:14:1082:554586320.82:E: an attribute value must be a literal unless it contains only name characters
+pe :<OSFD>0:14:1139:554586320.82:E: an attribute value must be a literal unless it contains only name characters
+pe :<OSFD>0:14:1803:554586320.82:E: an attribute value must be a literal unless it contains only name characters
+pe :<OSFD>0:14:1855:554586320.82:E: an attribute value must be a literal unless it contains only name characters
+pe :<OSFD>0:14:1908:554586320.82:E: an attribute value must be a literal unless it contains only name characters
+pe :<OSFD>0:14:2010:554586320.79:E: end tag for element "A" which is not open

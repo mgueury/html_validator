@@ -1,0 +1,138 @@
+<!ENTITY tidy.help.title "說明 - HTML 驗證器">
+<!ENTITY tidy.help.visit "拜訪首頁">
+<!ENTITY tidy.help.version "版本">
+<!ENTITY tidy.help.homepage_desc "想了解更多關於本擴充套件的資訊，">
+<!ENTITY tidy.help.homepage "首頁">
+<!ENTITY tidy.help.userguide "使用者指南">
+<!ENTITY tidy.help.htmlpedia_desc "如果您有興趣改進本擴充套件的說明，您可以透過 Htmlpedia 來加以編輯。">
+<!ENTITY tidy.help.htmlpedia "共筆系統網站">
+<!ENTITY tidy.help.htmlpedia_howto "如何修改一個頁面">
+<!ENTITY tidy.help.mailing_list "郵件列表">
+<!ENTITY tidy.help.mailing_list_subscription "不需訂閱">
+<!ENTITY tidy.help.archive "歸檔">
+<!ENTITY tidy.help.author "作者">
+<!ENTITY tidy.help.donate "捐助">
+<!ENTITY tidy.help.donation "捐助">
+<!ENTITY tidy.help.donation_text "您的捐助使我得以繼續開發我的專案。">
+<!ENTITY tidy.browser.toolsmenu "HTML 驗證器選項...">
+<!ENTITY tidy.browser.menu.option "選項...">
+<!ENTITY tidy.browser.menu.show "顯示">
+<!ENTITY tidy.browser.menu.disable "停用">
+<!ENTITY tidy.browser.menu.enable "啟用">
+<!ENTITY tidy.browser.menu.html_clipboard "將 HTML 複製到剪貼簿">
+<!ENTITY tidy.browser.menu.error_clipboard "將錯誤訊息複製到剪貼簿">
+<!ENTITY tidy.browser.menu.cleanup "整理網頁...">
+<!ENTITY tidy.browser.menu.view_source "網頁原始碼...">
+<!ENTITY tidy.browser.menu.about "說明...">
+<!ENTITY tidy.browser.menu.innerHTML "立即驗證（先執行 JavaScript 再驗證 HTML 內文）">
+<!ENTITY tidy.browser.menu.advanced "進階">
+<!ENTITY tidy.browser.menu.online.html "線上 W3c HTML 驗證器...">
+<!ENTITY tidy.browser.menu.online.css "線上 W3c CSS 驗證器...">
+<!ENTITY tidy.cleanup.title "整理網頁">
+<!ENTITY tidy.cleanup.tab.clean.source "已整理的 HTML">
+<!ENTITY tidy.cleanup.tab.orig.source "原始的 HTML">
+<!ENTITY tidy.cleanup.tab.clean.page "已整理的網頁">
+<!ENTITY tidy.cleanup.tab.orig.page "原始的網頁">
+<!ENTITY tidy.choose_source.title ".">
+<!ENTITY tidy.choose_source.caption "請選擇此網頁或其中一個框架/內嵌框架">
+<!ENTITY tidy.window.title "驗證 HTML">
+<!ENTITY tidy.tree.header "HTML 錯誤及警告訊息">
+<!ENTITY tidy.tree.type "類型">
+<!ENTITY tidy.tree.line "行">
+<!ENTITY tidy.tree.column "欄位">
+<!ENTITY tidy.view_source.button.cleanup "整理此網頁...">
+<!ENTITY tidy.view_source.button.options "選項...">
+<!ENTITY tidy.view_source.button.online "W3C 線上驗證...">
+<!ENTITY tidy.view_source.tree.hide "隱藏...">
+<!ENTITY tidy.view_source.menu "HTML 驗證器">
+<!ENTITY tidy.view_source.accesskey "H">
+<!ENTITY tidy-explain-error-label "說明">
+<!ENTITY tidy.close.tooltip "關閉 HTML 驗證器">
+<!ENTITY tidy.button.ok "確定">
+<!ENTITY tidy.button.cancel "取消">
+<!ENTITY tidy.button.refresh "重新整理">
+<!ENTITY tidy.options.title "HTML 驗證器選項">
+<!ENTITY tidy.options.general "一般">
+<!ENTITY tidy.options.browser "瀏覽器">
+<!ENTITY tidy.options.viewsource "檢視原始碼">
+<!ENTITY tidy.options.filter "過濾器">
+<!ENTITY tidy.options.group.format "選項：格式">
+<!ENTITY tidy.options.group.layout "選項：佈局">
+<!ENTITY tidy.options.viewsource_enable "在檢視原始碼裡啟用驗證">
+<!ENTITY tidy.links.title "驗證連結">
+<!ENTITY tidy.options.indent "縮排元件內容">
+<!ENTITY tidy.options.indent-spaces "縮排的空格數">
+<!ENTITY tidy.options.uppercase-tags "標籤以大寫字母顯示">
+<!ENTITY tidy.options.uppercase-attributes "屬性以大寫字母顯示">
+<!ENTITY tidy.options.wrap "自動換行於">
+<!ENTITY tidy.options.wrap2 "個字元">
+<!ENTITY tidy.options.clean "用 CSS 代替 FONT, ... 等標籤">
+<!ENTITY tidy.options.output-encoding "字元編碼">
+<!ENTITY tidy.options.doctype "Doctype">
+<!ENTITY tidy.options.highlight_line "高亮度顯示有錯誤的那幾行">
+<!ENTITY tidy.options.show_line_number "顯示行號">
+<!ENTITY tidy.options.dbclick_action_label "雙擊狀態列圖示啟動：">
+<!ENTITY tidy.options.accessibility-check "網頁親和力級別">
+<!ENTITY tidy.options.accessibility-check_none "不檢查">
+<!ENTITY tidy.options.accessibility-check_0 "正常">
+<!ENTITY tidy.options.accessibility-check_1 "1">
+<!ENTITY tidy.options.accessibility-check_2 "2">
+<!ENTITY tidy.options.accessibility-check_3 "3">
+<!ENTITY tidy.options.force_output "強制輸出為">
+<!ENTITY tidy.options.none "-">
+<!ENTITY tidy.options.output-html "HTML">
+<!ENTITY tidy.options.output-xhtml "XHTML">
+<!ENTITY tidy.options.show-warnings "顯示警告訊息">
+<!ENTITY tidy.options.browser_enable "在瀏覽器內啟用驗證">
+<!ENTITY tidy.options.perm_list "例外...">
+<!ENTITY tidy.options.browser_hide "隱藏圖示">
+<!ENTITY tidy.options.browser_icon_label "在狀態列顯示">
+<!ENTITY tidy.options.icon_text "圖示及文字">
+<!ENTITY tidy.options.icon_only "只有圖示">
+<!ENTITY tidy.options.filter.hide.header "隱藏錯誤及警告訊息">
+<!ENTITY tidy.options.filter.remove "移除">
+<!ENTITY tidy.options.filter.hint "提示：若要隱藏一則訊息，在您想隱藏的訊息上按右鍵並選擇隱藏。">
+<!ENTITY tidy.options.algorithm_label "演算法">
+<!ENTITY tidy.options.algorithm_tidy "HTML Tidy">
+<!ENTITY tidy.options.algorithm_sp "SGML 剖析器">
+<!ENTITY tidy.options.algorithm_serial "連續">
+<!ENTITY tidy.options.welcome "選擇...">
+<!ENTITY tidy.hide.label "在檢視原始碼裡啟用驗證">
+<!ENTITY tidy.hide.accesskey "H">
+<!ENTITY tidy.hide.commandkey "u">
+<!ENTITY tidy.show_line_number.label "顯示行號">
+<!ENTITY tidy.show_line_number.accesskey "N">
+<!ENTITY tidy.show_line_number.commandkey "n">
+<!ENTITY tidy.menu.copy.label "複製">
+<!ENTITY tidy.menu.copy.accesskey "C">
+<!ENTITY tidy.menu.copy.key "c">
+<!ENTITY tidy.menu.selectall.label "全選">
+<!ENTITY tidy.menu.selectall.accesskey "A">
+<!ENTITY tidy.menu.selectall.key "a">
+<!ENTITY tidy.translator "Cheng-Wei, Chien">
+<!ENTITY tidy.translator.url "http://cwchien-prog-notes.wikidot.com/">
+<!ENTITY tidy.welcome.title "HTML 驗證器：請選擇您的演算法">
+<!ENTITY tidy.welcome.h2 "HTML 驗證器：歡迎頁面">
+<!ENTITY tidy.welcome.h3 "請選擇您的演算法">
+<!ENTITY tidy.welcome.t1 "W3C 已發展出兩種演算法來檢查一個 HTML 網頁的相容性。">
+<!ENTITY tidy.welcome.t2 "Firefox 下的 HTML 驗證器涵蓋了這兩種演算法。兩者都各有利弊。">
+<!ENTITY tidy.welcome.t3 "如果想了解更多資訊，請參閱使用者指南。">
+<!ENTITY tidy.welcome.desc "說明">
+<!ENTITY tidy.welcome.desc_tidy "這是一種用以檢查 HTML, XHTML 語法的演算法">
+<!ENTITY tidy.welcome.desc_sp "這跟 validator.w3.org 後端運作的是同一種演算法（OpenSP）。它是基於 DTD 的 SGML 剖析器。">
+<!ENTITY tidy.welcome.desc_serial "此演算法依下列順序執行：<html:br/>(1) SGML 剖析器。<html:br/>(2) 若沒有錯誤，再用 HTML Tidy 驗證">
+<!ENTITY tidy.welcome.better_for "較適用於">
+<!ENTITY tidy.welcome.access "檢查網頁親和力">
+<!ENTITY tidy.welcome.wai123 "WAI 級別 1, 2, 3">
+<!ENTITY tidy.welcome.cleanup "整理網頁">
+<!ENTITY tidy.welcome.good_help "完善的說明">
+<!ENTITY tidy.welcome.clear_error "清楚的錯誤訊息">
+<!ENTITY tidy.welcome.w3_validator "與 validator.w3.org 相同的錯誤訊息">
+<!ENTITY tidy.welcome.target "主要用戶">
+<!ENTITY tidy.welcome.target_all "全部">
+<!ENTITY tidy.welcome.target_prof "專業人員">
+<!ENTITY tidy.yes "是">
+<!ENTITY tidy.no "否">
+<!ENTITY tidy.todo "否（待實作）">
+<!ENTITY tidy.options.algorithm_online "Online">
+<!ENTITY tidy.options.algorithm_cse "CSE HTML Validator">

@@ -1,0 +1,111 @@
+opensp (1.5pre5-4) unstable; urgency=low
+
+  * libosp-dev now has proper depends on libosp2 and opensp, modified
+    patch from Yann Dirson
+    closes: #107239
+  * remove obsolete OJ_CHECK_SIZEOF, which was causing autoheader to puke
+  * require autoconf 2.52
+
+ -- Adam Di Carlo <aph@debian.org>  Fri, 31 Aug 2001 02:57:53 -0400
+
+opensp (1.5pre5-3) unstable; urgency=low
+
+  * debian/control: fix missing build-depends on gettext
+    closes: #105961
+
+ -- Adam Di Carlo <aph@debian.org>  Mon, 30 Jul 2001 00:50:34 -0400
+
+opensp (1.5pre5-2) unstable; urgency=low
+
+  * ship PO files in libosp package
+  * some upstream changes from CVS, not yet released; this version will
+    call itself 1.5pre6, however
+  * nsgmls: apply a patch which should enable compilation on gcc 3.0
+    closes: #103791
+  * debian/rules: make maintainer-clean upstream is incredibly fragile,
+    so tolerate errors there until that gets fixed
+  * debian/rules: during build, run libtoolize --force to replace this
+    libtoolize stuff, which is needed for arches which diverge from the
+    libtool stuff OpenSP ships with
+    closes: #101837, #104126
+  * debian/rules, control: use dh_shlibdeps, remove some hand-rolled stuff
+    here which was unnecessary and in fact adding two libosp deps on the
+    opensp package, not to mention that it stopped working
+
+ -- Adam Di Carlo <aph@debian.org>  Tue, 10 Jul 2001 16:07:33 -0400
+
+opensp (1.5pre5-1) unstable; urgency=low
+
+  * new upstream version
+  * debian/control: libosp2 goes in libs (override disparity)
+  * debian/control: libosp-dev goes in devel (request change from text,
+    mail sent to override-change@debian.org)
+  * debian/rules: clean, then maintainer-clean 
+
+ -- Adam Di Carlo <aph@debian.org>  Mon, 19 Feb 2001 01:02:04 -0500
+
+opensp (1.5pre4-5) unstable; urgency=low
+
+  * debian/rules: handle DEB_BUILD_OPTIONS
+  * debian/control: update to policy 3.5.0
+  * a few minor upstream fixes
+
+ -- Adam Di Carlo <aph@debian.org>  Fri,  2 Feb 2001 21:39:04 -0500
+
+opensp (1.5pre4-4) unstable; urgency=low
+
+  * patch from Christopher C. Chimelis to enable compilation on 64-bit
+    platforms (closes: Bug#71952)
+  * configure.in is more careful about po/Makefile.in, although we still
+    seem to get some circular situations
+  * debian/rules: put doc/*.htm in opensp doc dir (closes: Bug#68002)
+
+ -- Adam Di Carlo <aph@debian.org>  Sun, 15 Oct 2000 02:49:09 -0400
+
+opensp (1.5pre4-3) unstable; urgency=low
+
+  * they changed the major shared library version for libosp from 1 to 2,
+    but my last version didn't reflect that; conflict with libosp1, which
+    should be removed from the archive
+  * some more upstream patches from CVS
+
+ -- Adam Di Carlo <aph@debian.org>  Sat, 20 May 2000 02:08:36 -0400
+
+opensp (1.5pre4-2) unstable; urgency=low
+
+  * debian/control: add Build-Depends
+  * fix ordering of aclocal/autoheader
+  * back out bad patch to acconfig.h
+
+ -- Adam Di Carlo <aph@debian.org>  Mon,  8 May 2000 22:21:48 -0400
+
+opensp (1.5pre4-1) unstable; urgency=low
+
+  * new upstream version, prerelease
+  * debian/copyright.Debian: update locations
+  * debian/libosp-dev.README: added
+  * debian/rules: crank up the lib depends to 1.5pre4-1;
+    lintian cleanups and minor stuff
+  * acconfig.h: patch for HAVE_BOOL problem
+  * README: updates, some URLs
+  * Makefile.am, */Makefile.am: 'maintainer-clean' is cleaner; this helps
+    the debian/rules clean target quite a bit
+
+ -- Adam Di Carlo <aph@debian.org>  Sat,  6 May 2000 00:17:29 -0400
+
+opensp (1.4-1) unstable; urgency=low
+
+  * new upstream version, use pristine upstream source
+  * upload to unstable (woody)
+  * rules: bump shlibs.local to 1.4-1
+
+ -- Adam Di Carlo <aph@debian.org>  Sun,  6 Feb 2000 14:29:15 -0500
+
+opensp (1.4-0.pre3-1) experimental; urgency=low
+
+  * new package
+  * does not yet include man pages
+
+ -- Adam Di Carlo <aph@debian.org>  Wed, 29 Dec 1999 01:43:51 -0500
+
+

@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Accessibilité&nbsp;5.1.2.3</title>
+    <link rel="stylesheet" type="text/css" href="tidy_help2.css" media="screen, projection"/>
+  </head>
+  <body>
+    <div id="bodyContent">
+      <h2> Accessibilité&nbsp;: [5.1.2.3]&nbsp;: Il manque les en-tête des lignes/colonnes d'un tableau de données (1 ligne)</h2>
+      <p class="priorite">Priorité 1</p>
+      <h3> Cause&nbsp;: </h3>
+      <p>Vous avez défini des tableaux de données en omettant une en-tête de ligne.
+      </p>
+      <h3> Exemple&nbsp;: </h3>
+        <table class='bad' title='Bad'>
+          <tr>
+            <td width='22' valign='top'>
+              <img src='../../../skin/error.png' alt='Error'/>
+            </td>
+            <td>
+              <code>
+                &lt;table summary="Il manque une en-tête de ligne dans ce tableau"&gt;<br />                	&lt;caption&gt;Il manque une en-tête de ligne dans ce tableau&lt;/caption&gt;<br />	                	&lt;tr&gt;<br />                		&lt;th&gt;age&lt;/th&gt;&lt;td&gt;10&lt;/td&gt;&lt;td&gt;15&lt;/td&gt;&lt;td&gt;20&lt;/td&gt;<br />                	&lt;/tr&gt;<br />                	&lt;tr&gt;<br />                		&lt;td&gt;taille&lt;/td&gt;&lt;td&gt;1.3 m&lt;/td&gt;&lt;td&gt;1.8 m&lt;/td&gt;&lt;td&gt;2.1 m&lt;/td&gt;<br />                	&lt;/tr&gt;<br />                	&lt;tr&gt;<br />                		&lt;th&gt;poids&lt;/th&gt;&lt;td&gt;50 kg&lt;/ td&gt;&lt;td&gt;75 kg.&lt;/td&gt;&lt;td&gt;100 kg.&lt;/td&gt;<br />                	&lt;/tr&gt;<br />                &lt;/table&gt;<br />
+              </code>
+            </td>
+          </tr>
+        </table>
+        <table class='good' title='Good'>
+          <tr>
+            <td width='22' valign='top'>
+              <img src='../../../skin/good.png' alt='Good'/>
+            </td>
+            <td>
+              <code>
+                &lt;table summary="Cette table a tous ses en-tête de ligne"&gt;<br />                	&lt;caption&gt;Cette table a tous ses en-tête de ligne&lt;/caption&gt;<br />	                	&lt;tr&gt;<br />                		&lt;th&gt;age&lt;/th&gt;&lt;td&gt;10&lt;/td&gt;&lt;td&gt;15&lt;/td&gt;&lt;td&gt;20&lt;/td&gt;<br />                	&lt;/tr&gt;<br />                	&lt;tr&gt;<br />                		&lt;th&gt;taille&lt;/th&gt;&lt;td&gt;1.3 m&lt;/td&gt;&lt;td&gt;1.8 m&lt;/td&gt;&lt;td&gt;2.1 m&lt;/td&gt;<br />                	&lt;/tr&gt;<br />                	&lt;tr&gt;<br />                		&lt;th&gt;poids&lt;/th&gt;&lt;td&gt;50 kg&lt;/ td&gt;&lt;td&gt;75 kg.&lt;/td&gt;&lt;td&gt;100 kg.&lt;/td&gt;<br />                	&lt;/tr&gt;<br />                &lt;/table&gt;<br />
+              </code>
+            </td>            
+          </tr>
+        </table>
+
+      <h3> Solution&nbsp;: </h3>
+      <p>Pour les tableaux de données, il faut identifier les entêtes des lignes et des colonnes. Il faut par exemple utiliser &lt;td&gt; pour signaler les cellules de données et &lt;th&gt; pour signaler les en-têtes. On peut aussi nommer les éléments du tableau avec les attributs "scope", "headers", et "axis", de façon à ce que les futurs navigateurs et techniques d'assistance à l'accessibilité puissent sélectionner les données par filtrage sur les catégories.</p>
+        <ul>
+          <li>Il convient d'identifier les structures de groupes de lignes (&lt;thead&gt; pour les en-têtes répétés, &lt;tfoot&gt; pour les pieds de page, &lt;tbody&gt; pour les autres lignes) et de groupes de colonnes (&lt;colgroup&gt; et &lt;col&gt;).</li>
+          <li>Il ne faut pas utiliser &lt;pre&gt; pour créer des mises en page tabulaires de texte ; il faut utiliser &lt;table&gt; pour que les techniques d'assistance puissent le reconnaître comme un tableau.</li>
+        </ul>
+      <h3> Références&nbsp;: </h3>
+      <ul>
+        <li> W3C WAI&nbsp;: <a href="http://www.w3.org/WAI/">http://www.w3.org/WAI/</a>
+        </li>
+        <li> Techniques HTML pour le WAI 1.0: <a href="http://www.w3.org/TR/WCAG10-HTML-TECHS/">http://www.w3.org/TR/WCAG10-HTML-TECHS/</a>
+        </li>
+      </ul>
+      <p>.
+      </p>
+    </div>
+  </body>
+</html>

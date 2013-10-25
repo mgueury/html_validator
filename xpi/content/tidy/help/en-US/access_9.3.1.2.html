@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Access 9.3.1.2 - Htmlpedia</title>
+    <link rel="stylesheet" type="text/css" href="tidy_help2.css" media="screen, projection"/>
+  </head>
+<body>
+  <div id="bodyContent">
+<h2> Access: [9.3.1.2]: &lt;script&gt; not keyboard accessible (onMouseUp) (Priority 2) </h2>
+<h3> Cause: </h3>
+<p>Include a redundant mechanism (such as keyboard input) if device dependent event handlers are
+used to invoke a script. The onMouseUp event handler should be paired and included in the same
+element with "onKeyUp".
+</p>
+<h3> Example: </h3>
+<table class='bad' title='Bad'><tr><td width='22' valign='top'><img src='../../../skin/error.png' alt='Good'/></td><td><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt;&lt;title&gt;aert1.0/9.3.1&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;p onMouseUp="blah"&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</pre></td></tr></table>
+<h3> Solution: </h3>
+<h3> References: </h3>
+<ul><li> W3C WAI: <a href="http://www.w3.org/WAI/">http://www.w3.org/WAI/</a>
+</li><li> HTML Techniques for WAI 1.0: <a href="http://www.w3.org/TR/WCAG10-HTML-TECHS/">http://www.w3.org/TR/WCAG10-HTML-TECHS/</a>
+</li></ul>
+  </div>
+</body>
+</html>

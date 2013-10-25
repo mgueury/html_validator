@@ -1,0 +1,20 @@
+"The contents of the files are subject to the Mozilla Public License
+Version 1.1 (the "License"); you may not use this file except in
+compliance with the License. You may obtain a copy of the License at
+http://www.mozilla.org/MPL/
+
+All changes made to the extension, must keep an easy access to the
+about box. And keep author and home page easily easily accessible.
+
+Software distributed under the License is distributed on an "AS IS"
+basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. 
+
+The Initial Developer of the Original Code is Marc Gueury.
+Portions created by Marc Gueury are Copyright (C) 2004-2005
+All Rights Reserved.
+
+Contributor(s): 
+- Dennis Vierkant
+
+Alternatively, if you need any other type of licence/agreement. 
+Please mail me: mgueury@skynet.be.

@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!-- *************************************************************************
+  HTML Validator
+
+  File: viewSourceMenuMozilla.xul
+  Description: contains menu changes for the view source window of Mozilla
+  Author : Marc Gueury
+  Licence : see licence.txt
+************************************************************************** -->
+
+<?xml-stylesheet href="chrome://tidy/skin/tidy.css" type="text/css"?>
+
+<!DOCTYPE window SYSTEM "chrome://tidy/locale/tidy.dtd" >
+
+<overlay id="viewSourceAndValidateID" 
+         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+<script type="application/x-javascript" src="chrome://browser/content/contentAreaUtils.js"/>
+
+<window id="main-window">
+  <toolbox id="viewSource-toolbox">
+    <menubar id="viewSource-main-menubar">
+      <menu id="menu_File"/>
+      <menu id="menu_Edit"/>
+      <menu id="menu_View"/>
+      <menu id="menu_tools" label="&tidy.view_source.menu;"
+                        accesskey="&tidy.view_source.accesskey;">
+        <menupopup>
+          <menuitem label="&tidy.view_source.button.online;" id="tidy.menu.online" oncommand="tidyOnline();"/>                    
+          <menuitem label="&tidy.view_source.button.cleanup;" id="tidy.menu.cleanup" oncommand="tidyCleanup();"/>          
+          <menuitem label="&tidy.view_source.button.options;" id="tidy.menu.options" oncommand="tidyOptions();"/>
+          <menuseparator/>
+          <menuitem type="checkbox" id="tidy.hide" oncommand="tidyHideValidator();"
+                    accesskey="&tidy.hide.accesskey;" key="key_hide_validator"
+                    label="&tidy.hide.label;"/>                   
+        </menupopup>
+      </menu>
+    </menubar>  
+  </toolbox>
+</window>
+
+</overlay>

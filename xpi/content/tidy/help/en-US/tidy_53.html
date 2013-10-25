@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Tidy 53 - Htmlpedia</title>
+    <link rel="stylesheet" type="text/css" href="tidy_help2.css" media="screen, projection"/>
+  </head>
+<body>
+  <div id="bodyContent">
+<h2> &lt;...&gt; proprietary attribute "..." </h2>
+<h3> Cause: </h3>
+<p>The tag contains an attribute that is proprietary to Netscape or Internet Explorer.
+</p>
+<h3> Example: </h3>
+<p>Sample: &lt;table&gt; proprietary attribute "height"
+</p>
+<table class='bad' title='Bad'><tr><td width='22' valign='top'><img src='../../../skin/error.png' alt='Good'/></td><td>&lt;table height="100%"&gt;</td></tr></table>
+<table class='good' title='Good'><tr><td width='22' valign='top'><img src='../../../skin/good.png' alt='Good'/></td><td>&lt;table style="height: 100%"&gt;</td></tr></table>
+<h3> Solution: </h3>
+<p>Most tags have a equivalents in standard HTML or CSS.
+</p>
+<table border="1">
+<tr>
+<th> Tag </th><th> Proprietary attribute </th><th> Standard attribute
+</th></tr>
+<tr>
+<td> &lt;body&gt; </td><td> marginwidth=0, marginheight=0, leftmargin=0, topmargin=0    </td><td> style="margin: 0"
+</td></tr>
+<tr>
+<td> &lt;frameset&gt; </td><td> border=0, frameborder=0  ,framespacing=0 </td><td> None with frameset. See <a href="http://www.htmlhelp.com/faq/html/frames.html#frame-noborder">here</a>. Use a HTML table with iframe for the same result.
+</td></tr>
+<tr>
+<td> &lt;table&gt;</td><td> height=100% </td><td> style="height: 100%"
+</td></tr>
+<tr>
+<td> &lt;table&gt;</td><td> nowrap </td><td> style="white-space: nowrap" or use nowrap in &lt;td&gt; or &lt;th&gt;
+</td></tr>
+<tr>
+<td> &lt;td&gt;  </td><td> background="abc.gif" </td><td> style="background-image:url(abc.gif)"
+</td></tr></table>
+<h3> References: </h3>
+<ul><li> W3C attributes <a href="http://www.w3.org/TR/html4/index/attributes.html">http://www.w3.org/TR/html4/index/attributes.html</a>
+</li></ul>
+  </div>
+</body>
+</html>

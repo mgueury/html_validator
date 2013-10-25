@@ -1,0 +1,438 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: lib - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x809 /fo".\Debug/lib.res" /i "." /i "lib" /d "_DEBUG" "C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\lib.rc"" 
+Creating temporary file "c:\temp\RSP339.tmp" with contents
+[
+/nologo /MDd /W3 /GX /ZI /Od /I "..\include" /I "..\generic" /D "_WINDOWS" /D "WINSOCK" /D "_DEBUG" /D "WIN32" /D SP_NAMESPACE=OpenSP /D "SP_MULTI_BYTE" /D "SP_WIDE_SYSTEM" /Fp".\Debug/lib.pch" /Yu"splib.h" /Fo".\Debug/" /Fd".\Debug/" /FD /c 
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\Allocator.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\app_inst.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\arc_inst.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\ArcEngine.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\assert.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\Attribute.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\Big5CodingSystem.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\CharsetDecl.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\CharsetInfo.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\CharsetRegistry.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\CmdLineApp.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\CodingSystem.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\CodingSystemKit.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\ConsoleOutput.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\ContentState.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\ContentToken.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\DescriptorManager.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\Dtd.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\DtdDeclEventHandler.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\ElementType.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\Entity.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\EntityApp.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\EntityCatalog.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\EntityDecl.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\EntityManager.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\entmgr_inst.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\ErrnoMessageArg.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\ErrorCountEventHandler.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\EUCJPCodingSystem.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\Event.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\EventGenerator.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\ExtendEntityManager.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\ExternalId.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\Fixed2CodingSystem.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\Fixed4CodingSystem.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\GenericEventHandler.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\Group.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\Hash.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\Id.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\IdentityCodingSystem.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\IListBase.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\InputSource.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\InternalInputSource.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\Link.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\LinkProcess.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\LiteralStorage.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\Location.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\Lpd.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\Markup.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\Message.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\MessageArg.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\MessageEventHandler.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\MessageFormatter.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\MessageReporter.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\MessageTable.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\ModeInfo.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\Notation.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\NotationStorage.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\NumericCharRefOrigin.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\OffsetOrderedList.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\OpenElement.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\OutputByteStream.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\OutputCharStream.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\OutputState.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\Param.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\parseAttribute.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\parseCommon.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\parseDecl.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\parseInstance.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\parseMode.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\parseParam.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\Parser.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\parser_inst.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\ParserApp.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\ParserEventGeneratorKit.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\ParserOptions.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\ParserState.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\parseSd.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\Partition.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\PosixStorage.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\Recognizer.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\RewindStorageObject.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\Sd.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\SdText.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\SearchResultMessageArg.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\SGMLApplication.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\SgmlParser.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\ShortReferenceMap.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\SJISCodingSystem.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\SOEntityCatalog.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\StdioStorage.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\StorageManager.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\Syntax.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\Text.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\TokenMessageArg.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\TranslateCodingSystem.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\TrieBuilder.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\TypeId.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\Undo.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\UnicodeCodingSystem.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\UnivCharsetDesc.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\URLStorage.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\UTF16CodingSystem.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\UTF8CodingSystem.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\Win32CodingSystem.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\WinApp.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\WinInetStorage.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\xentmgr_inst.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\XMLCodingSystem.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\SubstTable.cxx"
+]
+Creating command line "cl.exe @c:\temp\RSP339.tmp" 
+Creating temporary file "c:\temp\RSP33A.tmp" with contents
+[
+/nologo /MDd /W3 /GX /ZI /Od /I "..\include" /I "..\generic" /D "_WINDOWS" /D "WINSOCK" /D "_DEBUG" /D "WIN32" /D SP_NAMESPACE=OpenSP /D "SP_MULTI_BYTE" /D "SP_WIDE_SYSTEM" /Fo".\Debug/" /Fd".\Debug/" /FD /c 
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\ParserMessages.cxx"
+]
+Creating command line "cl.exe @c:\temp\RSP33A.tmp" 
+Creating temporary file "c:\temp\RSP33B.tmp" with contents
+[
+/nologo /MDd /W3 /GX /ZI /Od /I "..\include" /I "..\generic" /D "_WINDOWS" /D "WINSOCK" /D "_DEBUG" /D "WIN32" /D SP_NAMESPACE=OpenSP /D "SP_MULTI_BYTE" /D "SP_WIDE_SYSTEM" /Fp".\Debug/lib.pch" /Yc"splib.h" /Fo".\Debug/" /Fd".\Debug/" /FD /c 
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\splib.cxx"
+]
+Creating command line "cl.exe @c:\temp\RSP33B.tmp" 
+Creating temporary file "c:\temp\RSP33C.tmp" with contents
+[
+wininet.lib wsock32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib /nologo /base:"0x21000000" /subsystem:windows /dll /incremental:yes /pdb:".\Debug/osp152.pdb" /debug /machine:I386 /out:"..\dbgbin\osp152.dll" /implib:".\Debug/osp152.lib" 
+.\Debug\Allocator.obj
+.\Debug\app_inst.obj
+.\Debug\arc_inst.obj
+.\Debug\ArcEngine.obj
+.\Debug\assert.obj
+.\Debug\Attribute.obj
+.\Debug\Big5CodingSystem.obj
+.\Debug\CharsetDecl.obj
+.\Debug\CharsetInfo.obj
+.\Debug\CharsetRegistry.obj
+.\Debug\CmdLineApp.obj
+.\Debug\CodingSystem.obj
+.\Debug\CodingSystemKit.obj
+.\Debug\ConsoleOutput.obj
+.\Debug\ContentState.obj
+.\Debug\ContentToken.obj
+.\Debug\DescriptorManager.obj
+.\Debug\Dtd.obj
+.\Debug\DtdDeclEventHandler.obj
+.\Debug\ElementType.obj
+.\Debug\Entity.obj
+.\Debug\EntityApp.obj
+.\Debug\EntityCatalog.obj
+.\Debug\EntityDecl.obj
+.\Debug\EntityManager.obj
+.\Debug\entmgr_inst.obj
+.\Debug\ErrnoMessageArg.obj
+.\Debug\ErrorCountEventHandler.obj
+.\Debug\EUCJPCodingSystem.obj
+.\Debug\Event.obj
+.\Debug\EventGenerator.obj
+.\Debug\ExtendEntityManager.obj
+.\Debug\ExternalId.obj
+.\Debug\Fixed2CodingSystem.obj
+.\Debug\Fixed4CodingSystem.obj
+.\Debug\GenericEventHandler.obj
+.\Debug\Group.obj
+.\Debug\Hash.obj
+.\Debug\Id.obj
+.\Debug\IdentityCodingSystem.obj
+.\Debug\IListBase.obj
+.\Debug\InputSource.obj
+.\Debug\InternalInputSource.obj
+.\Debug\Link.obj
+.\Debug\LinkProcess.obj
+.\Debug\LiteralStorage.obj
+.\Debug\Location.obj
+.\Debug\Lpd.obj
+.\Debug\Markup.obj
+.\Debug\Message.obj
+.\Debug\MessageArg.obj
+.\Debug\MessageEventHandler.obj
+.\Debug\MessageFormatter.obj
+.\Debug\MessageReporter.obj
+.\Debug\MessageTable.obj
+.\Debug\ModeInfo.obj
+.\Debug\Notation.obj
+.\Debug\NotationStorage.obj
+.\Debug\NumericCharRefOrigin.obj
+.\Debug\OffsetOrderedList.obj
+.\Debug\OpenElement.obj
+.\Debug\OutputByteStream.obj
+.\Debug\OutputCharStream.obj
+.\Debug\OutputState.obj
+.\Debug\Param.obj
+.\Debug\parseAttribute.obj
+.\Debug\parseCommon.obj
+.\Debug\parseDecl.obj
+.\Debug\parseInstance.obj
+.\Debug\parseMode.obj
+.\Debug\parseParam.obj
+.\Debug\Parser.obj
+.\Debug\parser_inst.obj
+.\Debug\ParserApp.obj
+.\Debug\ParserEventGeneratorKit.obj
+.\Debug\ParserMessages.obj
+.\Debug\ParserOptions.obj
+.\Debug\ParserState.obj
+.\Debug\parseSd.obj
+.\Debug\Partition.obj
+.\Debug\PosixStorage.obj
+.\Debug\Recognizer.obj
+.\Debug\RewindStorageObject.obj
+.\Debug\Sd.obj
+.\Debug\SdText.obj
+.\Debug\SearchResultMessageArg.obj
+.\Debug\SGMLApplication.obj
+.\Debug\SgmlParser.obj
+.\Debug\ShortReferenceMap.obj
+.\Debug\SJISCodingSystem.obj
+.\Debug\SOEntityCatalog.obj
+.\Debug\splib.obj
+.\Debug\StdioStorage.obj
+.\Debug\StorageManager.obj
+.\Debug\Syntax.obj
+.\Debug\Text.obj
+.\Debug\TokenMessageArg.obj
+.\Debug\TranslateCodingSystem.obj
+.\Debug\TrieBuilder.obj
+.\Debug\TypeId.obj
+.\Debug\Undo.obj
+.\Debug\UnicodeCodingSystem.obj
+.\Debug\UnivCharsetDesc.obj
+.\Debug\URLStorage.obj
+.\Debug\UTF16CodingSystem.obj
+.\Debug\UTF8CodingSystem.obj
+.\Debug\Win32CodingSystem.obj
+.\Debug\WinApp.obj
+.\Debug\WinInetStorage.obj
+.\Debug\xentmgr_inst.obj
+.\Debug\XMLCodingSystem.obj
+.\Debug\SubstTable.obj
+.\Debug\lib.res
+]
+Creating command line "link.exe @c:\temp\RSP33C.tmp"
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+splib.cxx
+Compiling...
+Allocator.cxx
+app_inst.cxx
+arc_inst.cxx
+ArcEngine.cxx
+assert.cxx
+Attribute.cxx
+Big5CodingSystem.cxx
+CharsetDecl.cxx
+CharsetInfo.cxx
+CharsetRegistry.cxx
+CmdLineApp.cxx
+CodingSystem.cxx
+CodingSystemKit.cxx
+C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\CodingSystemKit.cxx(338) : warning C4355: 'this' : used in base member initializer list
+ConsoleOutput.cxx
+ContentState.cxx
+ContentToken.cxx
+DescriptorManager.cxx
+Dtd.cxx
+DtdDeclEventHandler.cxx
+ElementType.cxx
+Generating Code...
+Compiling...
+Entity.cxx
+EntityApp.cxx
+EntityCatalog.cxx
+EntityDecl.cxx
+EntityManager.cxx
+entmgr_inst.cxx
+ErrnoMessageArg.cxx
+ErrorCountEventHandler.cxx
+EUCJPCodingSystem.cxx
+Event.cxx
+EventGenerator.cxx
+ExtendEntityManager.cxx
+ExternalId.cxx
+Fixed2CodingSystem.cxx
+Fixed4CodingSystem.cxx
+GenericEventHandler.cxx
+Group.cxx
+Hash.cxx
+Id.cxx
+IdentityCodingSystem.cxx
+Generating Code...
+Compiling...
+IListBase.cxx
+InputSource.cxx
+InternalInputSource.cxx
+Link.cxx
+LinkProcess.cxx
+LiteralStorage.cxx
+Location.cxx
+Lpd.cxx
+Markup.cxx
+Message.cxx
+MessageArg.cxx
+MessageEventHandler.cxx
+MessageFormatter.cxx
+MessageReporter.cxx
+MessageTable.cxx
+ModeInfo.cxx
+Notation.cxx
+NotationStorage.cxx
+NumericCharRefOrigin.cxx
+OffsetOrderedList.cxx
+Generating Code...
+Compiling...
+OpenElement.cxx
+OutputByteStream.cxx
+OutputCharStream.cxx
+OutputState.cxx
+Param.cxx
+parseAttribute.cxx
+parseCommon.cxx
+parseDecl.cxx
+C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\parseDecl.cxx(272) : warning C4390: ';' : empty controlled statement found; is this the intent?
+C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\parseDecl.cxx(297) : warning C4390: ';' : empty controlled statement found; is this the intent?
+parseInstance.cxx
+parseMode.cxx
+parseParam.cxx
+Parser.cxx
+parser_inst.cxx
+ParserApp.cxx
+ParserEventGeneratorKit.cxx
+ParserOptions.cxx
+ParserState.cxx
+parseSd.cxx
+Partition.cxx
+PosixStorage.cxx
+Generating Code...
+Compiling...
+Recognizer.cxx
+RewindStorageObject.cxx
+Sd.cxx
+SdText.cxx
+SearchResultMessageArg.cxx
+SGMLApplication.cxx
+SgmlParser.cxx
+ShortReferenceMap.cxx
+SJISCodingSystem.cxx
+SOEntityCatalog.cxx
+StdioStorage.cxx
+StorageManager.cxx
+Syntax.cxx
+Text.cxx
+TokenMessageArg.cxx
+TranslateCodingSystem.cxx
+TrieBuilder.cxx
+TypeId.cxx
+Undo.cxx
+UnicodeCodingSystem.cxx
+Generating Code...
+Compiling...
+UnivCharsetDesc.cxx
+URLStorage.cxx
+UTF16CodingSystem.cxx
+UTF8CodingSystem.cxx
+Win32CodingSystem.cxx
+WinApp.cxx
+WinInetStorage.cxx
+xentmgr_inst.cxx
+XMLCodingSystem.cxx
+SubstTable.cxx
+Generating Code...
+Compiling...
+ParserMessages.cxx
+Linking...
+   Creating library .\Debug/osp152.lib and object .\Debug/osp152.exp
+<h3>
+--------------------Configuration: nsgmls - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x809 /fo".\Debug/nsgmls.res" /d "_DEBUG" "C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\nsgmls\nsgmls.rc"" 
+Creating temporary file "c:\temp\RSP340.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /I "..\include" /D "_CONSOLE" /D "_DEBUG" /D "WIN32" /D SP_NAMESPACE=OpenSP /D "SP_MULTI_BYTE" /D "SP_WIDE_SYSTEM" /FR".\Debug/" /Fp".\Debug/nsgmls.pch" /YX /Fo".\Debug/" /Fd".\Debug/" /FD /c 
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\nsgmls\arg_win.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\nsgmls\nsgmls.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\nsgmls\nsgmls_inst.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\nsgmls\RastEventHandler.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\nsgmls\SgmlsEventHandler.cxx"
+"C:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\nsgmls\StringSet.cxx"
+]
+Creating command line "cl.exe @c:\temp\RSP340.tmp" 
+Creating temporary file "c:\temp\RSP341.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib /nologo /subsystem:console /incremental:yes /pdb:".\Debug/onsgmls.pdb" /debug /machine:I386 /out:"..\dbgbin\onsgmls.exe" 
+.\Debug\arg_win.obj
+.\Debug\nsgmls.obj
+.\Debug\nsgmls_inst.obj
+.\Debug\RastEventHandler.obj
+.\Debug\SgmlsEventHandler.obj
+.\Debug\StringSet.obj
+.\Debug\nsgmls.res
+\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\lib\Debug\osp152.lib
+]
+Creating command line "link.exe @c:\temp\RSP341.tmp"
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+arg_win.cxx
+nsgmls.cxx
+nsgmls_inst.cxx
+RastEventHandler.cxx
+c:\my_prog\mozilla\src\firefox\mozilla\extensions\tidy\opensp\nsgmls\rasteventhandler.cxx(128) : warning C4355: 'this' : used in base member initializer list
+SgmlsEventHandler.cxx
+StringSet.cxx
+Linking...
+Creating command line "bscmake.exe /nologo /o".\Debug/nsgmls.bsc"  .\Debug\arg_win.sbr .\Debug\nsgmls.sbr .\Debug\nsgmls_inst.sbr .\Debug\RastEventHandler.sbr .\Debug\SgmlsEventHandler.sbr .\Debug\StringSet.sbr"
+Creating browse info file...
+<h3>Output Window</h3>
+
+
+
+<h3>Results</h3>
+onsgmls.exe - 0 error(s), 4 warning(s)
+</pre>
+</body>
+</html>

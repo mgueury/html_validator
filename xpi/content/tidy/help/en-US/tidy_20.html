@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Tidy 20 - Htmlpedia</title>
+    <link rel="stylesheet" type="text/css" href="tidy_help2.css" media="screen, projection"/>
+  </head>
+<body>
+  <div id="bodyContent">
+<h2> Replace obsolete element </h2>
+<h3> Cause: </h3>
+<p>Obsolete elements (like &lt;menu&gt; or &lt;dir&gt;) used.
+</p>
+<h3> Example: </h3>
+<table class='bad' title='Bad'><tr><td width='22' valign='top'><img src='../../../skin/error.png' alt='Good'/></td><td>&lt;menu&gt;&lt;li&gt;File&lt;/li&gt;&lt;/menu&gt;</td></tr></table>
+<table class='good' title='Good'><tr><td width='22' valign='top'><img src='../../../skin/good.png' alt='Good'/></td><td>&lt;ul&gt;&lt;li&gt;File&lt;/li&gt;&lt;/ul&gt;</td></tr></table>
+<h3> Solution: </h3>
+<p>Such elements should not be used anymore, for up-to-date browsers will not always support these elements. Use up-to-date elements instead.
+</p>
+<h3> References: </h3>
+<ul><li> W3C spec: <a href="http://www.w3.org/TR/html4/appendix/changes.html#h-A.3.1.2">http://www.w3.org/TR/html4/appendix/changes.html#h-A.3.1.2</a>
+</li><li> Tags definitions: <a href="http://www.w3.org/TR/html4/struct/lists.html#edef-MENU">http://www.w3.org/TR/html4/struct/lists.html#edef-MENU</a>
+</li></ul>
+  </div>
+</body>
+</html>

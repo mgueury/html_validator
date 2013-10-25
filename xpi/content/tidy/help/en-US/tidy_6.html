@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Tidy 6 - Htmlpedia</title>
+    <link rel="stylesheet" type="text/css" href="tidy_help2.css" media="screen, projection"/>
+  </head>
+<body>
+  <div id="bodyContent">
+<h2> missing &lt;/...&gt; </h2>
+<h3> Cause: </h3>
+<p>A closing tag is missing. Most HTML tags need to be closed, though the exact set of tags varies according to which <a href="http://www.htmlpedia.org/wiki/DTD">DTD</a> you're using.  For example, in HTML 4.01, the &lt;img&gt; tag does not need to be closed.  In <a href="http://www.htmlpedia.org/wiki/XHTML">XHTML</a> 1.0 and higher, however, it needs to be closed with a trailing slash, as in &lt;img /&gt;.  Such tags are called "empty elements".
+</p>
+<h3> Example 1 - Missing Closure (Normal) </h3>
+<table class='bad' title='Bad'><tr><td width='22' valign='top'><img src='../../../skin/error.png' alt='Good'/></td><td>&lt;head&gt;&lt;title&gt;hello&lt;/head&gt;</td></tr></table>
+<table class='good' title='Good'><tr><td width='22' valign='top'><img src='../../../skin/good.png' alt='Good'/></td><td>&lt;head&gt;&lt;title&gt;hello&lt;/title&gt;&lt;/head&gt;</td></tr></table> 
+<h3> Example 2 - Missing Closure (Empty Elements) </h3>
+<table class='bad' title='Bad'><tr><td width='22' valign='top'><img src='../../../skin/error.png' alt='Good'/></td><td>&lt;img src="whatever.jpg" width="20" height="400" alt="Whatever"&gt;</td></tr></table>
+<table class='good' title='Good'><tr><td width='22' valign='top'><img src='../../../skin/good.png' alt='Good'/></td><td>&lt;img src="whatever.jpg" width="20" height="400" alt="Whatever" /&gt;</td></tr></table>
+<h3> Solution: </h3>
+<p>Add the closing tag.  Usually the is the same as the opening tag.  As noted above, however, XHTML requires some tags to be closed with a trailing slash.  According to <a href="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd|the">XHTML 1.0 Transitional DTD</a>, the following tags are "empty":
+</p>
+<ul><li> &lt;base /&gt;
+</li><li> &lt;meta /&gt;
+</li><li> &lt;link /&gt;
+</li><li> &lt;hr /&gt;
+</li><li> &lt;br /&gt;
+</li><li> &lt;basefont /&gt;
+</li><li> &lt;param /&gt;
+</li><li> &lt;img /&gt;
+</li><li> &lt;area /&gt;
+</li><li> &lt;input /&gt;
+</li><li> &lt;isindex /&gt;
+</li><li> &lt;col /&gt;
+</li></ul>
+<p><br />
+</p>
+<h3> References: </h3>
+<ul><li> HTML specification: <a href="http://www.w3.org/TR/html4/">http://www.w3.org/TR/html4/</a>
+</li></ul>
+  </div>
+</body>
+</html>

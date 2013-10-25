@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Access 1.1.1.10 - Htmlpedia</title>
+    <link rel="stylesheet" type="text/css" href="tidy_help2.css" media="screen, projection"/>
+  </head>
+<body>
+  <div id="bodyContent">
+<h2> Access: [1.1.1.10]: suspicious 'alt' text (too long) (Priority 1) </h2>
+<h3> Cause: </h3>
+<p>All images require text equivalents, but "<a href="http://www.htmlpedia.org/wiki/Access_1.1.1.1">alt</a>" text must also meet certain criteria.  Unusually long alt text may be considered suspicious, because it could potentially be part of an attempt to hijack the web browser. If "alt" text exceeds 150 characters, use the "longdesc" attribute along with a descriptive link (d-link) to describe the image.  
+</p>
+<h3> Example: </h3>
+<table class='bad' title='Bad'><tr><td width='22' valign='top'><img src='../../../skin/error.png' alt='Good'/></td><td><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+&lt;title&gt;aert1.0/1.1.1&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;img
+      src="A_in_W_Page42.gif" 
+      alt="changed since her swim in the pool, and the great hall, with the glass table 
+      and the little door, had vanished completely.
+      Very soon the Rabbit noticed Alice, as she went hunting about, and called out to her in 
+      an angry tone, 'Why, Mary Ann, what are you doing out here? Run home this moment, and 
+      fetch me a pair of gloves and a fan! Quick, now!' And Alice was so much frightened that 
+      she ran off at once in the direction it pointed to, without trying to explain the mistake 
+      it had made.
+      'He took me for his housemaid,' she said to herself as she ran. 'How surprised he'll be 
+      when he finds out who I am! But I'd better take him his fan and gloves--that is, if I 
+      can find them.' As she said this, she came upon a neat little house, on the door of which 
+      was a bright brass plate with the name 'W. RABBIT' engraved upon it. She went in without 
+      knocking, and hurried upstairs, in great fear lest she should meet the real Mary Ann, and be"
+/&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre></td></tr></table>
+<table class='good' title='Good'><tr><td width='22' valign='top'><img src='../../../skin/good.png' alt='Good'/></td><td><pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+&lt;title&gt;aert1.0/1.1.1&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;img
+      src="A_in_W_Page42.gif" 
+      alt="Page 42 of 'Alice in Wonderland,' first edition"
+      longdesc="changed since her swim in the pool, and the great hall, with the glass table 
+      and the little door, had vanished completely.
+      Very soon the Rabbit noticed Alice, as she went hunting about, and called out to her in 
+      an angry tone, 'Why, Mary Ann, what are you doing out here? Run home this moment, and 
+      fetch me a pair of gloves and a fan! Quick, now!' And Alice was so much frightened that 
+      she ran off at once in the direction it pointed to, without trying to explain the mistake 
+      it had made.
+      'He took me for his housemaid,' she said to herself as she ran. 'How surprised he'll be 
+      when he finds out who I am! But I'd better take him his fan and gloves--that is, if I 
+      can find them.' As she said this, she came upon a neat little house, on the door of which 
+      was a bright brass plate with the name 'W. RABBIT' engraved upon it. She went in without 
+      knocking, and hurried upstairs, in great fear lest she should meet the real Mary Ann, and be"
+/&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre></td></tr></table>
+<h3> Solution: </h3>
+<p>Put your long descriptions in a longdesc attribute instead of the alt attribute.
+</p>
+<h3> References: </h3>
+<ul><li> W3C WAI: <a href="http://www.w3.org/WAI/">http://www.w3.org/WAI/</a>
+</li><li> HTML Techniques for WAI 1.0: <a href="http://www.w3.org/TR/WCAG10-HTML-TECHS/">http://www.w3.org/TR/WCAG10-HTML-TECHS/</a>
+</li><li> <a href="http://www.gasl.org/refbib/Carroll__Alice_1st.pdf#page=56">Page 42 of a First-Edition Alice in Wonderland</a> (PDF - large download!)
+</li><li> <a href="http://www.cs.cmu.edu/~rgs/alice-table.html">A full-text Alice in Wonderland</a>.
+</li></ul>
+  </div>
+</body>
+</html>

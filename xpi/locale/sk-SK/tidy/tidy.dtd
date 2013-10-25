@@ -1,0 +1,138 @@
+<!ENTITY tidy.help.title "Pomocník - HTML Validator">
+<!ENTITY tidy.help.visit "Navštíviť domovskú stránku">
+<!ENTITY tidy.help.version "Verzia">
+<!ENTITY tidy.help.homepage_desc "Ďalšie informácie o rozšírení:">
+<!ENTITY tidy.help.homepage "Domovská stránka">
+<!ENTITY tidy.help.userguide "Používateľská príručka">
+<!ENTITY tidy.help.htmlpedia_desc "Ak chcete vylepšiť pomocníka tohto rozšírenia, môžete ho upraviť pomocou nástroja Htmlpedia.">
+<!ENTITY tidy.help.htmlpedia "Webová stránka Wiki">
+<!ENTITY tidy.help.htmlpedia_howto "Ako upraviť stránku">
+<!ENTITY tidy.help.mailing_list "Mailing list">
+<!ENTITY tidy.help.mailing_list_subscription "Nie je potrebná registrácia">
+<!ENTITY tidy.help.archive "Archív">
+<!ENTITY tidy.help.author "Autor">
+<!ENTITY tidy.help.donate "Venovanie príspevku">
+<!ENTITY tidy.help.donation "Venovať príspevok">
+<!ENTITY tidy.help.donation_text "Váš príspevok mi umožní pokračovať vo vývoji.">
+<!ENTITY tidy.browser.toolsmenu "Nastavenia rozšírenia Html Validator...">
+<!ENTITY tidy.browser.menu.option "Možnosti...">
+<!ENTITY tidy.browser.menu.show "Zobraziť">
+<!ENTITY tidy.browser.menu.disable "Zakázať">
+<!ENTITY tidy.browser.menu.enable "Povoliť">
+<!ENTITY tidy.browser.menu.html_clipboard "Kopírovať html do schránky">
+<!ENTITY tidy.browser.menu.error_clipboard "Kopírovať chyby do schránky">
+<!ENTITY tidy.browser.menu.cleanup "Prečistenie...">
+<!ENTITY tidy.browser.menu.view_source "Zdrojový kód stránky...">
+<!ENTITY tidy.browser.menu.about "Pomocník...">
+<!ENTITY tidy.browser.menu.innerHTML "Overiť teraz (Telo HTML po vykonaní JavaScriptu)...">
+<!ENTITY tidy.browser.menu.advanced "Rozšírené">
+<!ENTITY tidy.browser.menu.online.html "Online W3c HTML Validator...">
+<!ENTITY tidy.browser.menu.online.css "Online W3c CSS Validator...">
+<!ENTITY tidy.cleanup.title "Prečistenie stránky">
+<!ENTITY tidy.cleanup.tab.clean.source "Prečistený html kód">
+<!ENTITY tidy.cleanup.tab.orig.source "Pôvodný html kód">
+<!ENTITY tidy.cleanup.tab.clean.page "Ukážka prečistenej stránky">
+<!ENTITY tidy.cleanup.tab.orig.page "Ukážka originálnej stránky">
+<!ENTITY tidy.choose_source.title "">
+<!ENTITY tidy.choose_source.caption "Vyberte stránku alebo jeden z jej rámcov">
+<!ENTITY tidy.window.title "Prekontrolovať HTML kód">
+<!ENTITY tidy.tree.header "HTML chyby a upozornenia">
+<!ENTITY tidy.tree.type "Typ">
+<!ENTITY tidy.tree.line "Riadok">
+<!ENTITY tidy.tree.column "Stĺpec">
+<!ENTITY tidy.view_source.button.cleanup "Prečistiť stránku...">
+<!ENTITY tidy.view_source.button.options "Možnosti...">
+<!ENTITY tidy.view_source.button.online "Overenie pomocou W3C Online Validatora...">
+<!ENTITY tidy.view_source.tree.hide "Skryť...">
+<!ENTITY tidy.view_source.menu "Html Validator">
+<!ENTITY tidy.view_source.accesskey "H">
+<!ENTITY tidy-explain-error-label "Pomocník">
+<!ENTITY tidy.close.tooltip "Zavrieť HTML Validator">
+<!ENTITY tidy.button.ok "OK">
+<!ENTITY tidy.button.cancel "Zrušiť">
+<!ENTITY tidy.button.refresh "Obnoviť">
+<!ENTITY tidy.options.title "Nastavenia rozšírenia Html Validator">
+<!ENTITY tidy.options.general "Všeobecné">
+<!ENTITY tidy.options.browser "Prehliadač">
+<!ENTITY tidy.options.viewsource "Zobraziť zdrojový kód">
+<!ENTITY tidy.options.filter "Filter">
+<!ENTITY tidy.options.group.format "Nastavenia: formát">
+<!ENTITY tidy.options.group.layout "Nastavenia: vzhľad">
+<!ENTITY tidy.options.viewsource_enable "Povoliť overenie aj pri zobrazení zdrojového kódu">
+<!ENTITY tidy.links.title "Overenie odkazov">
+<!ENTITY tidy.options.indent "Odsadiť prvky">
+<!ENTITY tidy.options.indent-spaces "Odsadenie pomocou medzier">
+<!ENTITY tidy.options.uppercase-tags "Tagy veľkými písmenami">
+<!ENTITY tidy.options.uppercase-attributes "Atribúty veľkými písmenami">
+<!ENTITY tidy.options.wrap "Zalomiť po">
+<!ENTITY tidy.options.wrap2 "znakoch">
+<!ENTITY tidy.options.clean "nahradiť FONT, ... tagy pomocou CSS">
+<!ENTITY tidy.options.output-encoding "Kódovanie">
+<!ENTITY tidy.options.doctype "Doctype">
+<!ENTITY tidy.options.highlight_line "Zvýrazniť riadky s chybami">
+<!ENTITY tidy.options.show_line_number "Zobraziť čísla riadkov">
+<!ENTITY tidy.options.dbclick_action_label "Dvojitým kliknutím na ikonu v stavovom riadku spustíte:">
+<!ENTITY tidy.options.accessibility-check "Úroveň dostupnosti">
+<!ENTITY tidy.options.accessibility-check_none "žiadny">
+<!ENTITY tidy.options.accessibility-check_0 "normálny">
+<!ENTITY tidy.options.accessibility-check_1 "1">
+<!ENTITY tidy.options.accessibility-check_2 "2">
+<!ENTITY tidy.options.accessibility-check_3 "3">
+<!ENTITY tidy.options.force_output "Previesť výstup na">
+<!ENTITY tidy.options.none "-">
+<!ENTITY tidy.options.output-html "HTML">
+<!ENTITY tidy.options.output-xhtml "XHTML">
+<!ENTITY tidy.options.show-warnings "Zobraziť upozornenia">
+<!ENTITY tidy.options.browser_enable "Povoliť overenie v prehliadači">
+<!ENTITY tidy.options.perm_list "Výnimky...">
+<!ENTITY tidy.options.browser_hide "Skryť ikonu">
+<!ENTITY tidy.options.browser_icon_label "V stavovom riadku zobraziť">
+<!ENTITY tidy.options.icon_text "ikonu a text">
+<!ENTITY tidy.options.icon_only "len ikonu">
+<!ENTITY tidy.options.filter.hide.header "Skryté chyby a upozornenia">
+<!ENTITY tidy.options.filter.remove "Odstrániť">
+<!ENTITY tidy.options.filter.hint "Tip: Ak chcete skryť nejakú správu, kliknite na ňu pravým tlačidlom myši a vyberte položku Skryť.">
+<!ENTITY tidy.options.algorithm_label "Algoritmus">
+<!ENTITY tidy.options.algorithm_tidy "HTML Tidy">
+<!ENTITY tidy.options.algorithm_sp "SGML Parser">
+<!ENTITY tidy.options.algorithm_serial "Oba">
+<!ENTITY tidy.options.welcome "Vybrať...">
+<!ENTITY tidy.hide.label "Povoliť overenie v zobrazení zdrojového kódu">
+<!ENTITY tidy.hide.accesskey "H">
+<!ENTITY tidy.hide.commandkey "u">
+<!ENTITY tidy.show_line_number.label "Zobraziť čísla riadkov">
+<!ENTITY tidy.show_line_number.accesskey "Z">
+<!ENTITY tidy.show_line_number.commandkey "z">
+<!ENTITY tidy.menu.copy.label "Kopírovať">
+<!ENTITY tidy.menu.copy.accesskey "K">
+<!ENTITY tidy.menu.copy.key "k">
+<!ENTITY tidy.menu.selectall.label "Vybrať všetko">
+<!ENTITY tidy.menu.selectall.accesskey "a">
+<!ENTITY tidy.menu.selectall.key "a">
+<!ENTITY tidy.translator "wladow">
+<!ENTITY tidy.translator.url "Mozilla.sk">
+<!ENTITY tidy.welcome.title "HTML Validator : vyberte si algoritmus">
+<!ENTITY tidy.welcome.h2 "HTML Validator : Vitajte">
+<!ENTITY tidy.welcome.h3 "Vyberte si algoritmus">
+<!ENTITY tidy.welcome.t1 "W3C vytvorila 2 algoritmy na kontrolu kódu HTML stránok.">
+<!ENTITY tidy.welcome.t2 "Obidva sú obsiahnuté v rozšírení HTML Validator pre Firefox. Oba majú svoje výhody aj nevýhody.">
+<!ENTITY tidy.welcome.t3 "Viac informácií sa dozviete v príručke pre používateľov.">
+<!ENTITY tidy.welcome.desc "Popis">
+<!ENTITY tidy.welcome.desc_tidy "Algoritmus určený na kontrolu syntaxe kódov HTML, XHTML">
+<!ENTITY tidy.welcome.desc_sp "Využíva OpenSP, rovnaký algoritmus ako využíva validator.w3.org. Je to SGML parser založený na DTD.">
+<!ENTITY tidy.welcome.desc_serial "Obidva algoritmy sú spustené po sebe:<html:br/>(1) SGML Parser.<html:br/>(2) Ak sa neobjaví chyby, kód je validný.">
+<!ENTITY tidy.welcome.better_for "Lepší pre">
+<!ENTITY tidy.welcome.access "Úroveň dostupnosti">
+<!ENTITY tidy.welcome.wai123 "WAI level 1,2,3">
+<!ENTITY tidy.welcome.cleanup "Prečistiť stránku">
+<!ENTITY tidy.welcome.good_help "Dobrá pomoc">
+<!ENTITY tidy.welcome.clear_error "Vymazať chybové správy">
+<!ENTITY tidy.welcome.w3_validator "Rovnaké chyby ako validator.w3.org">
+<!ENTITY tidy.welcome.target "Cieľová skupina">
+<!ENTITY tidy.welcome.target_all "Všetci">
+<!ENTITY tidy.welcome.target_prof "Profesionáli">
+<!ENTITY tidy.yes "Áno">
+<!ENTITY tidy.no "Nie">
+<!ENTITY tidy.todo "Nie (plán)">
+<!ENTITY tidy.options.algorithm_online "Online">
+<!ENTITY tidy.options.algorithm_cse "CSE HTML Validator">

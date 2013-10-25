@@ -1,0 +1,138 @@
+<!ENTITY tidy.help.title "ヘルプ- HTML Validator">
+<!ENTITY tidy.help.visit "ホームページへ">
+<!ENTITY tidy.help.version "バージョン">
+<!ENTITY tidy.help.homepage_desc "この拡張機能についてもっと詳しく知るには、">
+<!ENTITY tidy.help.homepage "ホームページ">
+<!ENTITY tidy.help.userguide "ユーザーガイド">
+<!ENTITY tidy.help.htmlpedia_desc "HTML Validatorで表示されるヘルプを向上させてみたい方は、Htmlpediaで編集することができます。">
+<!ENTITY tidy.help.htmlpedia "Wikiのウェブサイト">
+<!ENTITY tidy.help.htmlpedia_howto "記事を編集するには">
+<!ENTITY tidy.help.mailing_list "メーリングリスト">
+<!ENTITY tidy.help.mailing_list_subscription "送信するだけの場合、登録は不要です">
+<!ENTITY tidy.help.archive "過去ログ">
+<!ENTITY tidy.help.author "作者">
+<!ENTITY tidy.help.donate "寄付する">
+<!ENTITY tidy.help.donation "寄付">
+<!ENTITY tidy.help.donation_text "作業を続けるためにあなたの寄付が必要です。">
+<!ENTITY tidy.browser.toolsmenu "Html Validatorのオプションへ">
+<!ENTITY tidy.browser.menu.option "オプション...">
+<!ENTITY tidy.browser.menu.show "表示">
+<!ENTITY tidy.browser.menu.disable "無効に">
+<!ENTITY tidy.browser.menu.enable "有効に">
+<!ENTITY tidy.browser.menu.html_clipboard "HTMLをクリップボードにコピー">
+<!ENTITY tidy.browser.menu.error_clipboard "エラーをクリップボードにコピー">
+<!ENTITY tidy.browser.menu.cleanup "修正">
+<!ENTITY tidy.browser.menu.view_source "ページのソースを表示">
+<!ENTITY tidy.browser.menu.about "ヘルプ">
+<!ENTITY tidy.browser.menu.innerHTML "今すぐ文法チェック（JavaScriptを実行した後のHTML）">
+<!ENTITY tidy.browser.menu.advanced "上級">
+<!ENTITY tidy.browser.menu.online.html "W3CのオンラインHTML文法チェック">
+<!ENTITY tidy.browser.menu.online.css "W3CのオンラインCSS文法チェック">
+<!ENTITY tidy.cleanup.title "ページを修正">
+<!ENTITY tidy.cleanup.tab.clean.source "修正済みHTML">
+<!ENTITY tidy.cleanup.tab.orig.source "元のHTML">
+<!ENTITY tidy.cleanup.tab.clean.page "修正済みページ閲覧">
+<!ENTITY tidy.cleanup.tab.orig.page "元のページ閲覧">
+<!ENTITY tidy.choose_source.title "フレーム選択">
+<!ENTITY tidy.choose_source.caption "ページそのものか埋め込まれた（インライン）フレームを1つ選択してください">
+<!ENTITY tidy.window.title "HTMLを文法チェック">
+<!ENTITY tidy.tree.header "HTMLのエラーと警告">
+<!ENTITY tidy.tree.type "種別">
+<!ENTITY tidy.tree.line "行番号">
+<!ENTITY tidy.tree.column "桁位置">
+<!ENTITY tidy.view_source.button.cleanup "ページの文法を修正">
+<!ENTITY tidy.view_source.button.options "オプション">
+<!ENTITY tidy.view_source.button.online "W3Cのオンライン文法チェック">
+<!ENTITY tidy.view_source.tree.hide "隠す">
+<!ENTITY tidy.view_source.menu "Html Validator">
+<!ENTITY tidy.view_source.accesskey "H">
+<!ENTITY tidy-explain-error-label "ヘルプ">
+<!ENTITY tidy.close.tooltip "Html Validatorを閉じる">
+<!ENTITY tidy.button.ok "OK">
+<!ENTITY tidy.button.cancel "キャンセル">
+<!ENTITY tidy.button.refresh "更新">
+<!ENTITY tidy.options.title "Html Validatorのオプション">
+<!ENTITY tidy.options.general "一般">
+<!ENTITY tidy.options.browser "ブラウザ画面">
+<!ENTITY tidy.options.viewsource "ソース画面">
+<!ENTITY tidy.options.filter "フィルター">
+<!ENTITY tidy.options.group.format "オプション：形式">
+<!ENTITY tidy.options.group.layout "オプション：レイアウト">
+<!ENTITY tidy.options.viewsource_enable "ソース画面で文法チェックを有効に">
+<!ENTITY tidy.links.title "リンクのチェック">
+<!ENTITY tidy.options.indent "要素に応じてインデント">
+<!ENTITY tidy.options.indent-spaces "空白の文字数">
+<!ENTITY tidy.options.uppercase-tags "タグを大文字で">
+<!ENTITY tidy.options.uppercase-attributes "要素を大文字で">
+<!ENTITY tidy.options.wrap "折り返しは">
+<!ENTITY tidy.options.wrap2 "文字ごとに">
+<!ENTITY tidy.options.clean "FONTタグをCSSで置換">
+<!ENTITY tidy.options.output-encoding "文字エンコード">
+<!ENTITY tidy.options.doctype "文書型（Doctype）">
+<!ENTITY tidy.options.highlight_line "エラーを含む行をハイライト">
+<!ENTITY tidy.options.show_line_number "行番号を表示">
+<!ENTITY tidy.options.dbclick_action_label "ステータスバーをダブルクリックしたときの動作 :">
+<!ENTITY tidy.options.accessibility-check "アクセシビリティ・レベル">
+<!ENTITY tidy.options.accessibility-check_none "なし">
+<!ENTITY tidy.options.accessibility-check_0 "普通">
+<!ENTITY tidy.options.accessibility-check_1 "1">
+<!ENTITY tidy.options.accessibility-check_2 "2">
+<!ENTITY tidy.options.accessibility-check_3 "3">
+<!ENTITY tidy.options.force_output "出力書式変更">
+<!ENTITY tidy.options.none "-">
+<!ENTITY tidy.options.output-html "HTML">
+<!ENTITY tidy.options.output-xhtml "XHTML">
+<!ENTITY tidy.options.show-warnings "警告を表示">
+<!ENTITY tidy.options.browser_enable "自動的に閲覧中のページを文法チェック">
+<!ENTITY tidy.options.perm_list "例外...">
+<!ENTITY tidy.options.browser_hide "アイコンを隠す">
+<!ENTITY tidy.options.browser_icon_label "ステータスバーに表示：">
+<!ENTITY tidy.options.icon_text "アイコンとテキスト">
+<!ENTITY tidy.options.icon_only "アイコンのみ">
+<!ENTITY tidy.options.filter.hide.header "以下のエラーと警告を隠す :">
+<!ENTITY tidy.options.filter.remove "削除">
+<!ENTITY tidy.options.filter.hint "ヒント : ある項目を隠すには、エラーリストに表示された項目を右クリックして「隠す」を選択します。">
+<!ENTITY tidy.options.algorithm_label "アルゴリズム">
+<!ENTITY tidy.options.algorithm_tidy "HTML Tidy">
+<!ENTITY tidy.options.algorithm_sp "SGML Parser">
+<!ENTITY tidy.options.algorithm_serial "併用">
+<!ENTITY tidy.options.welcome "選択...">
+<!ENTITY tidy.hide.label "ソース表示の際に文法をチェック">
+<!ENTITY tidy.hide.accesskey "H">
+<!ENTITY tidy.hide.commandkey "u">
+<!ENTITY tidy.show_line_number.label "行番号を表示">
+<!ENTITY tidy.show_line_number.accesskey "N">
+<!ENTITY tidy.show_line_number.commandkey "n">
+<!ENTITY tidy.menu.copy.label "コピー">
+<!ENTITY tidy.menu.copy.accesskey "C">
+<!ENTITY tidy.menu.copy.key "c">
+<!ENTITY tidy.menu.selectall.label "すべて選択">
+<!ENTITY tidy.menu.selectall.accesskey "A">
+<!ENTITY tidy.menu.selectall.key "a">
+<!ENTITY tidy.translator "Kippis">
+<!ENTITY tidy.translator.url "http://sgd.cocolog-nifty.com/">
+<!ENTITY tidy.welcome.title "HTML Validator : アルゴリズムの選択">
+<!ENTITY tidy.welcome.h2 "HTML Validator : ようこそ">
+<!ENTITY tidy.welcome.h3 "アルゴリズムを選択してください">
+<!ENTITY tidy.welcome.t1 "W3Cは、HTML文書が勧告に準拠しているかチェックするために、2つのアルゴリズムにもとづくプログラムを作りました。">
+<!ENTITY tidy.welcome.t2 "HTML Validatorには両方とも入っています。それぞれに長所と短所があります。">
+<!ENTITY tidy.welcome.t3 "詳しくは、ユーザーガイドを読んで下さい。">
+<!ENTITY tidy.welcome.desc "説明">
+<!ENTITY tidy.welcome.desc_tidy "HTMLとXHTMLの構文をチェックするために設計されたアルゴリズムです。">
+<!ENTITY tidy.welcome.desc_sp "validator.w3.orgで使用されているOpenSPと同じアルゴリズムで、DTDにもとづくSGMLパーサです。">
+<!ENTITY tidy.welcome.desc_serial "両方のアルゴリズムが順番に実行されます : <html:br/>(1)まずSGML Parser<html:br/>(2)エラーがなければ、HTML Tidy">
+<!ENTITY tidy.welcome.better_for "向いている書式">
+<!ENTITY tidy.welcome.access "アクセシビリティ・チェック">
+<!ENTITY tidy.welcome.wai123 "WAI勧告・優先度1,2,3">
+<!ENTITY tidy.welcome.cleanup "ページのクリーンアップ">
+<!ENTITY tidy.welcome.good_help "ヘルプの充実度">
+<!ENTITY tidy.welcome.clear_error "エラーメッセージを隠す">
+<!ENTITY tidy.welcome.w3_validator "validator.w3.orgと同じエラーを出力">
+<!ENTITY tidy.welcome.target "対象">
+<!ENTITY tidy.welcome.target_all "誰でも">
+<!ENTITY tidy.welcome.target_prof "プロ">
+<!ENTITY tidy.yes "○">
+<!ENTITY tidy.no "×">
+<!ENTITY tidy.todo "×（実装予定）">
+<!ENTITY tidy.options.algorithm_online "Online">
+<!ENTITY tidy.options.algorithm_cse "CSE HTML Validator">
