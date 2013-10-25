@@ -5,7 +5,5 @@ git config --global user.name "mgueury"
 git config --global user.email "mgueury@skynet.be"
 
 git init
-git add build*
-
-
+git add *
 git commit -m "0.959" 
