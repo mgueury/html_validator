@@ -10,6 +10,7 @@
 # set the var VERSION and change the RDF and JS file
 . ./version.sh
 
+
 if [ "$1" = "WINDOWS" ]; then
   LIB_NAME=nstidy.dll
   POSTFIX=win_$VERSION
@@ -35,31 +36,23 @@ else
       POSTFIX="linux_$ARCHITECTURE_$VERSION"
     fi
   fi
-  cat install.js | sed -e "s/nstidy.dll/$LIB_NAME/" > xpi/install.js
-
+  cat install.js | sed -e "s/nstidy.dll/$LIB_NAME/" > xpi/install.js 
   cat chrome.manifest | sed -e "s/nstidy.dll/$LIB_NAME/" > xpi/chrome.manifest
-
 fi
 
 # ---------------------------------------------------------------
 # Common
 
-rm tidy.jar
-rm tidy_mozilla_$POSTFIX.xpi
-rm tidy_firefox_$POSTFIX.xpi
-
-rm xpi/components/nstidy.dll
-rm xpi/components/libnstidy.so
-rm xpi/components/libnstidy.dylib
-rm xpi/components/nstidy.xpt
-
+rm ../build/tidy.jar
+rm ../build/tidy_mozilla_$POSTFIX.xpi
+rm ../build/tidy_firefox_$POSTFIX.xpi
 
 # ---------------------------------------------------------------
 # Firefox
 
-cp ../firefox/mozilla-central/mozilla-central/objdir-ff-release/dist/bin/$LIB_NAME xpi/components
-cp ../firefox/mozilla-central/mozilla-central/objdir-ff-release/extensions/tidy/src/$LIB_NAME.manifest xpi/components
-# cp ../firefox/mozilla-central/mozilla-central/objdir-ff-release/dist/bin/components/nstidy.xpt xpi/components
+# cp ../../firefox/mozilla-central/mozilla-central/objdir-ff-release/dist/bin/$LIB_NAME xpi/components
+# cp ../../firefox/mozilla-central/mozilla-central/objdir-ff-release/extensions/tidy/src/$LIB_NAME.manifest xpi/components
+# cp ../firefox/mozilla-central/mozilla-central/objdir-ff-release/dist/bin/components/nstidy.xpt ../xpi/components
 cd xpi
 touch components/.autoreg
 zip -r ../../build/tidy_firefox_$POSTFIX.xpi *
@@ -70,7 +63,6 @@ cp ../build/tidy_firefox_$POSTFIX.xpi ../build/tidy_firefox.xpi
 
 # Remove the file in XPI, the good on is ./intall.js
 rm xpi/install.js
-
 
 # ---------------------------------------------------------------
 

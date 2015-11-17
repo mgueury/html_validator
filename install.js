@@ -15,7 +15,7 @@ const X_ERR_MSG3 = "http://developer.netscape.com/docs/manuals/xpinstall/err.htm
 // constants which should not be translated
 const X_NAME =     "/tidy";
 const X_NAME_COM = "/tidy_com";
-const X_VER  =     "0.9.5.9";
+const X_VER  =     "0.9.6.4";
 const X_JAR_FILE = "tidy.jar";
 const X_COM_FILE = "nstidy.dll";
 const X_CONTENT =  "content/";

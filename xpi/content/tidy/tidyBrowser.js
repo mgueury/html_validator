@@ -19,14 +19,12 @@ onLoadTidyBrowser();
 
 function onLoadTidyBrowser()
 {
-  var bNewInstall = tidyIsNewInstall();
-  
-  onLoadTidyUtil( bNewInstall );
+  onLoadTidyUtil();
   // oTidyBrowser = new TidyBrowser();
   window.top.removeEventListener("load", onTidyBrowserTopLoad, true);
-  window.top.addEventListener("load", onTidyBrowserTopLoad, true); 
+  window.top.addEventListener("load", onTidyBrowserTopLoad, true);
   window.top.removeEventListener("pageshow", onTidyBrowserTopPageShow, true);
-  window.top.addEventListener("pageshow", onTidyBrowserTopPageShow, true);  
+  window.top.addEventListener("pageshow", onTidyBrowserTopPageShow, true);
 }
 
 function onUnloadTidyBrowser()
@@ -37,27 +35,27 @@ function onUnloadTidyBrowser()
   main_frame.removeProgressListener(oTidyTabChangeObserver);
 }
 
-function onTidyBrowserClicked(event) 
+function onTidyBrowserClicked(event)
 {
   return;
 }
 
-function onTidyBrowserCopyHtmlToClipboard() 
+function onTidyBrowserCopyHtmlToClipboard()
 {
   try
   {
     const clipboardHelper = Components.classes["@mozilla.org/widget/clipboardhelper;1"].getService(Components.interfaces.nsIClipboardHelper);
     var html = oTidyBrowser.getHtmlFromCache( window.content.document, false );
     clipboardHelper.copyString(html);
-  } 
-  catch(e) 
+  }
+  catch(e)
   {
     // do nothing, later code will handle the error
     dump("Unable to get the clipboard helper\n");
   }
 }
 
-function onTidyBrowserCopyErrorToClipboard() 
+function onTidyBrowserCopyErrorToClipboard()
 {
   try
   {
@@ -67,8 +65,8 @@ function onTidyBrowserCopyErrorToClipboard()
       const clipboardHelper = Components.classes["@mozilla.org/widget/clipboardhelper;1"].getService(Components.interfaces.nsIClipboardHelper);
       clipboardHelper.copyString(data);
     }
-  } 
-  catch(e) 
+  }
+  catch(e)
   {
     // do nothing, later code will handle the error
     dump("Unable to get the clipboard helper\n");
@@ -90,7 +88,7 @@ TidyTabChangeObserver.prototype =
 
   onProgressChange : function (aWebProgress, aRequest,
                                   aCurSelfProgress, aMaxSelfProgress,
-                                  aCurTotalProgress, aMaxTotalProgress) 
+                                  aCurTotalProgress, aMaxTotalProgress)
   {
     oTidyUtil.tidy.log( '<JAVASCRIPT>onProgressChange' );
   },
@@ -100,10 +98,10 @@ TidyTabChangeObserver.prototype =
     oTidyUtil.tidy.log( '<JAVASCRIPT>onStateChange : ' + aWebProgress.isLoadingDocument );
   },
 
-  onLocationChange : function(aWebProgress, aRequest, aLocation) 
+  onLocationChange : function(aWebProgress, aRequest, aLocation)
   {
     oTidyUtil.tidy.log( '<JAVASCRIPT>onLocationChange : ' + aWebProgress.isLoadingDocument );
-    // XXXXXXXXXX
+
     if( aWebProgress.isLoadingDocument==false )
     {
       oTidyBrowser.validateFrame( window.content );
@@ -111,15 +109,15 @@ TidyTabChangeObserver.prototype =
     }
   },
 
-  onStatusChange : function(aWebProgress, aRequest, aStatus, aMessage) 
+  onStatusChange : function(aWebProgress, aRequest, aStatus, aMessage)
   {
     oTidyUtil.tidy.log( '<JAVASCRIPT>onStatusChange' );
   },
 
-  onSecurityChange : function(aWebProgress, aRequest, aState) 
+  onSecurityChange : function(aWebProgress, aRequest, aState)
   {},
-  
-  onLinkIconAvailable : function(aBrowser, aHref) 
+
+  onLinkIconAvailable : function(aBrowser, aHref)
   {},
 
   QueryInterface : function(aIID)
@@ -142,9 +140,9 @@ function onTidyPageLoad( event )
   if( !window.oTidyBrowser )
   {
     return;
-  } 
+  }
 
-  doc = event.originalTarget; 
+  doc = event.originalTarget;
   if (doc instanceof HTMLDocument) {
     // is this an inner frame?
     if (doc.defaultView.frameElement) {
@@ -155,9 +153,9 @@ function onTidyPageLoad( event )
       }
     }
   }
-  
+
   if( oTidyBrowser.bTopLoadBusy==false )
-  {  
+  {
     oTidyUtil.tidy.log( '<JAVASCRIPT>onTidyPageLoad' );
     oTidyBrowser.bTopLoadBusy = true;
     try
@@ -168,11 +166,12 @@ function onTidyPageLoad( event )
       oTidyBrowser.validateFrame( window.content );
       // oTidyBrowser.validateCache( subject.document, true );
 
-      // Process the events that fired during the 1rst one 
+      // Process the events that fired during the 1rst one
       // ex: page with frames.
       var doc = oTidyBrowser.oEventQueue.pop();
       while( doc )
       {
+        oTidyBrowser.oEventQueue.clear();
         oTidyBrowser.validateFrame( window.content );
         // oTidyBrowser.validateCache( doc, true );
         doc = oTidyBrowser.oEventQueue.pop();
@@ -182,13 +181,14 @@ function onTidyPageLoad( event )
     {
       tidyShowExceptionInConsole( ex );
     }
+    oTidyUtil.tidy.log( '</JAVASCRIPT>onTidyPageLoad' );
     oTidyBrowser.bTopLoadBusy = false;
   }
-  else 
+  else
   {
     // Parallel events are placed in a event queue.
     oTidyBrowser.oEventQueue.push( event.originalTarget );
-  }  
+  }
 }
 
 //-------------------------------------------------------------
@@ -197,14 +197,14 @@ function onTidyPageLoad( event )
 
 var tidyEndDocumentLoadObserver =
 {
-  observe: function(subject, topic, data) 
+  observe: function(subject, topic, data)
   {
     if( !window.oTidyBrowser )
     {
       // Do nothing
-    } 
+    }
     else if( oTidyBrowser.bTopLoadBusy==false )
-    {  
+    {
       oTidyUtil.tidy.log( '<JAVASCRIPT>tidyEndDocumentLoadObserver' );
       oTidyBrowser.bTopLoadBusy = true;
       try
@@ -214,7 +214,7 @@ var tidyEndDocumentLoadObserver =
         oTidyBrowser.validateFrame( window.content );
         // oTidyBrowser.validateCache( subject.document, true );
 
-        // Process the events that fired during the 1rst one 
+        // Process the events that fired during the 1rst one
         // ex: page with frames.
         var doc = oTidyBrowser.oEventQueue.pop();
         while( doc )
@@ -227,13 +227,14 @@ var tidyEndDocumentLoadObserver =
       {
         tidyShowExceptionInConsole( ex );
       }
+      oTidyUtil.tidy.log( '</JAVASCRIPT>tidyEndDocumentLoadObserver' );
       oTidyBrowser.bTopLoadBusy = false;
     }
-    else 
+    else
     {
       // Parallel events are placed in a event queue.
       oTidyBrowser.oEventQueue.push( event.originalTarget );
-    }  
+    }
   }
 };
 
@@ -253,7 +254,7 @@ function TidyBrowser()
 }
 
 TidyBrowser.prototype =
-{  
+{
   xulMenuIconText : null,
   xulMenuIconOnly : null,
   xulMenuHtmlClipboard : null,
@@ -283,22 +284,22 @@ TidyBrowser.prototype =
     this.validateFrame( window.content );
     this.updateStatusBar();
   },
-       
+
   /** __ showIcon __________________________________________________________
-   */ 
+   */
   showIcon : function( icon_path )
-  {      
+  {
     var toolbarButton = document.getElementById("tidy-toolbar-button");
     toolbarButton.setAttribute("image", icon_path );
   },
-    
+
   /** __ updateStatusBar __________________________________________________________
-   */ 
+   */
   updateStatusBar : function()
-  {      
+  {
     var tooltip, icon, lblparent, lbl;
 
-    var browser_icon = oTidyUtil.getCharPref( "browser_icon" );    
+    var browser_icon = oTidyUtil.getCharPref( "browser_icon" );
     var browser_enable = oTidyUtil.getBoolPref( "browser_enable" );
     var toolbarLabel  = document.getElementById("tidy-toolbar-label");
     var toolbarItem = document.getElementById("tidy-toolbar-item");
@@ -309,12 +310,12 @@ TidyBrowser.prototype =
 
     this.initXUL();
 
-    if( !toolbarItem ) 
+    if( !toolbarItem )
     {
       return;
     }
-    
-    if (toolbarItem.hasAttribute("tooltip")) 
+
+    if (toolbarItem.hasAttribute("tooltip"))
     {
       // In Firefox 1.1, avoid several tooltips
       tooltip = document.getElementById("tidy.browser.hbox.tooltip");
@@ -324,7 +325,7 @@ TidyBrowser.prototype =
         toolbarItem.removeAttribute("tooltip");
         tooltip = document.getElementById("tidy.browser.hbox.tooltip");
       }
-    }      
+    }
 
     this.xulMenuIconText.setAttribute("checked", browser_icon=="icon_text");
     this.xulMenuIconOnly.setAttribute("checked", browser_icon=="icon_only");
@@ -340,13 +341,13 @@ TidyBrowser.prototype =
     {
       toolbarLabel.hidden = true;
     }
-    
+
     var doc = window.content.document;
     var sum = new TidyResult( null ); // virtual result
     sum.algorithm = oTidyUtil.algorithm;
-    
+
     ////
-    //// Enable/Disable for ... 
+    //// Enable/Disable for ...
     ////
     var uri = oTidyUtil.getDocURI(doc);
     var b = browser_enable;
@@ -355,7 +356,7 @@ TidyBrowser.prototype =
     {
       xulMenuDisableSite.removeAttribute("hidden");
       xulMenuDisableSite2.removeAttribute("hidden");
-      
+
       // XXX why is tidyUtil.isInDomainList not used here ? why is isPermAllowed not used in isInDomainList ?
       b = ( b && !oTidyUtil.isPermDenied( uri ) ) || oTidyUtil.isPermAllowed( uri );
       var s = oTidyUtil.getString((b ? "tidy_disable_site":"tidy_enable_site")) + " " + uri.host;
@@ -365,9 +366,9 @@ TidyBrowser.prototype =
     else
     {
       xulMenuDisableSite.setAttribute("hidden", "true");
-      xulMenuDisableSite2.setAttribute("hidden", "true");    
-    }    
-    
+      xulMenuDisableSite2.setAttribute("hidden", "true");
+    }
+
     if( b )
     {
       ////
@@ -376,8 +377,8 @@ TidyBrowser.prototype =
       var pageResult = doc.tidyResult;
       var iNbFrame = this.getNbFrame( window.content );
 
-      sum.bInDomainList = false; 
-      sum.bEmpty = true; 
+      sum.bInDomainList = false;
+      sum.bEmpty = true;
       sum.bValidated = false;
       this.sumResult( sum, window.content );
 
@@ -394,64 +395,64 @@ TidyBrowser.prototype =
         var color = "";
         if( sum.bValidated && sum.bInDomainList && !sum.bEmpty && !sum.bUConvFailed )
         {
-          if ( sum.iNbError > 0 ) 
+          if ( sum.iNbError > 0 )
           {
             str = sum.iNbError;
             color = "#f88";
-          } 
-          else if ( sum.iNbWarning > 0 ) 
+          }
+          else if ( sum.iNbWarning > 0 )
           {
             str = sum.iNbWarning;
             color = "#ff4";
-          } 
-          else if ( sum.iNbAccessWarning > 0 ) 
+          }
+          else if ( sum.iNbAccessWarning > 0 )
           {
             str = sum.iNbAccessWarning;
             color = "#9cf";
-          } 
+          }
           else
           {
             toolbarLabel.hidden = true;
           }
-        }     
+        }
         else
         {
           toolbarLabel.hidden = true;
         }
         toolbarLabel.value = str;
-        toolbarLabel.style.background = color;          
-        toolbarLabel.style.padding = "2px";          
+        toolbarLabel.style.background = color;
+        toolbarLabel.style.padding = "2px";
       }
-      else 
+      else
       {
-        var str = sum.getErrorString();        
+        var str = sum.getErrorString();
         if( oTidyUtil.getBoolPref( "debug" ) )
         {
           str += " #"+this.iCounter + "/"+iNbFrame;
         }
-        toolbarLabel.value = str;  
-        toolbarLabel.style.background = "";          
+        toolbarLabel.value = str;
+        toolbarLabel.style.background = "";
       }
 
       ////
       //// Icon in status bar
       ////
-      icon = sum.getErrorIcon();    
+      icon = sum.getErrorIcon();
     }
     else
     {
-      if( browser_enable ) 
+      if( browser_enable )
       {
         icon = "chrome://tidy/skin/exclude";
       } else {
         icon = "chrome://tidy/skin/disabled";
-      }      
+      }
       toolbarLabel.hidden = true;
     }
-    
+
     ////
     //// tooltip ( create empty tip / populate it )
-    ////       
+    ////
     tooltip = document.createElement("tooltip");
     tooltip.setAttribute("id", "tidy.browser.hbox.tooltip");
     tooltip.setAttribute("noautohide", true);
@@ -482,9 +483,10 @@ TidyBrowser.prototype =
     {
       // Due to a bug in Firefox removing the back button in a new page
       setTimeout(function () { oTidyBrowser.showIcon( icon+".png" )},10)
-       
+
       if( sum.algorithm!=null )
       {
+        oTidyUtil.tidy.log( '<JAVASCRIPT>sum.algorithm: '+ sum.algorithm );
         lbl.setAttribute("value", oTidyUtil.getString(sum.algorithm+"_result") );
         vbox2.appendChild(lbl);
       }
@@ -510,17 +512,17 @@ TidyBrowser.prototype =
         var vbox4 = document.createElement("vbox");
         hbox1.appendChild(vbox4);
         lbl = document.createElement("label");
-        
+
         if( sum.bUConvFailed )
         {
           lbl.setAttribute("value", oTidyUtil.getString("tidy_invalid_char"));
-          vbox4.appendChild(lbl);                  
+          vbox4.appendChild(lbl);
         }
         else if( sum.bHTML5 )
         {
           // XXXX needs translation
           lbl.setAttribute("value", "HTML 5 - see Page Source");
-          vbox4.appendChild(lbl);                  
+          vbox4.appendChild(lbl);
         }
         else  if( sum.bInDomainList )
         {
@@ -535,27 +537,27 @@ TidyBrowser.prototype =
           {
             lbl = document.createElement("label");
             lbl.setAttribute("value", sum.iNbAccessWarning+" "+oTidyUtil.getString( sum.getPluralString(sum.iNbAccessWarning,"access_warning") ));
-            vbox4.appendChild(lbl);    
+            vbox4.appendChild(lbl);
           }
           if( sum.iNbHidden>0 )
           {
             lbl = document.createElement("label");
             lbl.setAttribute("value", sum.iNbHidden+" "+oTidyUtil.getString("tidy_hidden"));
-            vbox4.appendChild(lbl);    
-          }       
+            vbox4.appendChild(lbl);
+          }
         }
         else
         {
           lbl.setAttribute("value", oTidyUtil.getString("tidy_not_in_domain"));
-          vbox4.appendChild(lbl);          
+          vbox4.appendChild(lbl);
         }
       }
-      else 
+      else
       {
         this.addIconLabelToVbox( vbox2, window.content );
       }
-    } 
-    
+    }
+
     hbox_main.appendChild(vbox1);
     hbox_main.appendChild(vbox2);
     tooltip.setAttribute("orient", "horizontal");
@@ -567,15 +569,15 @@ TidyBrowser.prototype =
    * add the tooltip in a mouseover trigger to WA an focus conflict with Firebug
    */
   addTooltip : function()
-  {   
+  {
     if( this.xulTooltip )
     {
       var parent = document.getElementById("tidy-dummy-popup");
       parent.appendChild( this.xulTooltip );
-      
+
       var toolbarItem = document.getElementById("tidy-toolbar-item");
-      toolbarItem.setAttribute("tooltip", "tidy.browser.hbox.tooltip");    
-      
+      toolbarItem.setAttribute("tooltip", "tidy.browser.hbox.tooltip");
+
       this.xulTooltip = null;
     }
   },
@@ -584,7 +586,7 @@ TidyBrowser.prototype =
    * return true if the current browser is still loading
    */
   isLoading : function()
-  {   
+  {
     var res = document.getElementById("content").mCurrentBrowser.webProgress.isLoadingDocument;
     if( res )
     {
@@ -592,15 +594,15 @@ TidyBrowser.prototype =
     }
     return res;
   },
-  
+
   /** __ getHtmlFromCache __________________________________________________________
-   * 
+   *
    * get the HTML of the current window
-   */ 
+   */
   getHtmlFromCache : function( doc, safe_call )
-  {     
+  {
     oTidyUtil.tidy.log( '<JAVASCRIPT>getHtmlFromCache: ' + doc.URL  );
-    
+
     // Cleanup with a lost tidyResult : icon (?)
     var res = doc.tidyResult;
     if( doc.tidyResult==null )
@@ -615,21 +617,21 @@ TidyBrowser.prototype =
     {
       return '';
     }
-    
+
     ////
     //// Part 1 : get the history entry (nsISHEntry) associated with the document
     ////
     var webNav = null;
-    try 
+    try
     {
       // Get the DOMWindow for the requested document.  If the DOMWindow
-      // cannot be found, then just use the _content window...
+      // cannot be found, then just use the content window...
       //
       // XXX:  This is a bit of a hack...
       var win = doc.defaultView;
-      if (win == window) 
+      if (win == window)
       {
-        win = _content;
+        win = window.content;
       }
       var ifRequestor = win.QueryInterface(Components.interfaces.nsIInterfaceRequestor);
       webNav = ifRequestor.getInterface(Components.interfaces.nsIWebNavigation);
@@ -639,10 +641,10 @@ TidyBrowser.prototype =
       oTidyUtil.tidy.log( 'Exception 1' );
       webNav = getWebNavigation();
     }
-    
+
     //
     // Twitter trick for bug https://bugzilla.mozilla.org/show_bug.cgi?id=839414
-    // Due that HTML5 validation does not happen anyway today for HTML5 in the browser 
+    // Due that HTML5 validation does not happen anyway today for HTML5 in the browser
     // If the doctype is HTML5 then skip the page
     // To remove as soon as bug 839414 is solved
     //
@@ -654,48 +656,48 @@ TidyBrowser.prototype =
         oTidyUtil.tidy.log( '</JAVASCRIPT>getHtmlFromCache twitter trick' );
         res.bEmpty = false;
         return "<!doctype html>\n";
-      } 
-    }   
-      
+      }
+    }
+
     //
     // Get the 'PageDescriptor' for the current document. This allows the
-    // to access the cached copy of the content rather than refetching it from 
+    // to access the cached copy of the content rather than refetching it from
     // the network...
     try
     {
       var PageLoader = webNav.QueryInterface(Components.interfaces.nsIWebPageDescriptor);
-      var pageCookie = PageLoader.currentDescriptor;     
+      var pageCookie = PageLoader.currentDescriptor;
       var shEntry = pageCookie.QueryInterface(Components.interfaces.nsISHEntry);
     } catch(err) {
       // If no page descriptor is available, just use the URL...
       oTidyUtil.tidy.log( 'Exception 2' );
-    }  
+    }
 
     ////
     //// Part 2 : open a nsIChannel to get the HTML of the doc
     ////
     var url = doc.URL;
     var urlCharset = doc.characterSet;
-    
+
     var ios = Components.classes["@mozilla.org/network/io-service;1"]
                         .getService(Components.interfaces.nsIIOService);
     var channel = ios.newChannel( url, urlCharset, null );
     channel.loadFlags |= Components.interfaces.nsIRequest.VALIDATE_NEVER;
     channel.loadFlags |= Components.interfaces.nsIRequest.LOAD_FROM_CACHE;
     channel.loadFlags |= Components.interfaces.nsICachingChannel.LOAD_ONLY_FROM_CACHE;
-        
+
     // Bad trick : Avoid problem with file directory before Firefox 3.0
     try
     {
-      if( !oTidyUtil.firefoxVersionHigherThan("3.0a1") ) 
+      if( !oTidyUtil.firefoxVersionHigherThan("3.0a1") )
       {
         if( channel.contentType=="application/x-unknown-content-type" )
         {
           return("<!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\"><html><head><title></title></head><body></body></html>");
         }
       }
-    } 
-    catch(e) 
+    }
+    catch(e)
     {
       oTidyUtil.tidy.log( 'Exception 3' );
     }
@@ -705,10 +707,10 @@ TidyBrowser.prototype =
       // Use the cache key to distinguish POST entries in the cache (see nsDocShell.cpp)
       var cacheChannel = channel.QueryInterface(Components.interfaces.nsICachingChannel);
       cacheChannel.cacheKey = shEntry.cacheKey;
-    } 
-    catch(e) 
+    }
+    catch(e)
     {
-      oTidyUtil.tidy.log( 'Exception 4' );    
+      oTidyUtil.tidy.log( 'Exception 4' );
     }
 
     var stream = channel.open();
@@ -717,7 +719,7 @@ TidyBrowser.prototype =
                              .createInstance(Components.interfaces.nsIScriptableInputStream);
     scriptableStream.init( stream );
     var s = "";
-    
+
     // XXX Maybe there should be a flag for controlling this ?
     while( scriptableStream.available()>0 )
     // if( scriptableStream.available()>0 )
@@ -725,12 +727,12 @@ TidyBrowser.prototype =
       res.bEmpty = false;
       s += scriptableStream.read(scriptableStream.available());
     }
-    scriptableStream.close();    
+    scriptableStream.close();
     stream.close();
 
     ////
     //// Part 3 : convert the HTML in unicode
-    ////  
+    ////
     try
     {
       var ucConverter =  Components.classes["@mozilla.org/intl/scriptableunicodeconverter"]
@@ -738,7 +740,7 @@ TidyBrowser.prototype =
       ucConverter.charset = urlCharset;
       var s2 = ucConverter.ConvertToUnicode( s );
     }
-    catch(e) 
+    catch(e)
     {
       res.bUConvFailed = true;
     }
@@ -746,11 +748,11 @@ TidyBrowser.prototype =
     oTidyUtil.tidy.log( '</JAVASCRIPT>getHtmlFromCache' );
     return( s2 );
   },
-  
+
   /** __ validateCacheHtml ______________________________________________________
-   * 
+   *
    * Validate the HTML and add the results in the tree
-   */    
+   */
   validateCacheHtml : function( aHtml, aResult )
   {
     // Set the initialization flag
@@ -760,30 +762,30 @@ TidyBrowser.prototype =
 
     aResult.validate( aHtml );
   },
-  
+
   /** __ getResult ______________________________________________________
-   */    
+   */
   getResult : function( doc )
   {
     var bFrame = false;
     var pageDoc = window.content.document;
     // check that it is the current document seen
-    if( doc!=pageDoc ) 
+    if( doc!=pageDoc )
     {
-      if( doc.tidyResult==null && this.isDocumentFrameOf( doc, window.content ) ) 
+      if( doc.tidyResult==null && this.isDocumentFrameOf( doc, window.content ) )
       {
-        // Hidden preference to force frame revalidation 
+        // Hidden preference to force frame revalidation
         var force_frame_revalidation = oTidyUtil.getBoolPref( "force_frame_revalidation" );
         if( !force_frame_revalidation )
         {
-          // WA 1.Do not validate a frame if the root page if already loaded 
+          // WA 1.Do not validate a frame if the root page if already loaded
           // WA 2.Do not validate a frame if the root page has the same URL
           // (This is not perfect WAs but it avoid crashes due to Javascript frames)
           if( (pageDoc.tidyResult!=null && pageDoc.tidyResult.bValidated)
            || (pageDoc.URL==doc.URL) )
           {
             return null;
-          }        
+          }
         }
         bFrame = true;
       }
@@ -791,8 +793,8 @@ TidyBrowser.prototype =
       {
         return null;
       }
-    }    
-    
+    }
+
     // check that the main page is changed
     // a frame can be validated before the main page
     var pageResult = new TidyResult( pageDoc );
@@ -800,7 +802,7 @@ TidyBrowser.prototype =
     var bChanged = pageDoc.tidyResult==null;
     if( bChanged )
     {
-      pageResult.bInDomainList = oTidyUtil.isInDomainList( pageDoc );    
+      pageResult.bInDomainList = oTidyUtil.isInDomainList( pageDoc );
       pageDoc.tidyResult = pageResult;
     }
 
@@ -818,24 +820,24 @@ TidyBrowser.prototype =
       }
       return null;
     }
-  }, 
-    
+  },
+
   /** __ validateCache ______________________________________________________
    *
    * Validate only after that the page is fully loaded
-   */    
+   */
   validateCache : function( doc, safe_call )
   {
     if( this.isLoading() )
     {
       return;
     }
-      
+
     if( oTidyUtil.getBoolPref("browser_enable") || oTidyUtil.isPermAllowed(oTidyUtil.getDocURI(doc)) )
     {
       // Show some help page
       // - if tidy lib is not found
-      // - if it is a new install     
+      // - if it is a new install
       if( oTidyUtil.tidy==null )
       {
         if( oTidyUtil.tidyFaqUrl==null )
@@ -844,7 +846,7 @@ TidyBrowser.prototype =
           setTimeout(function () {oTidyUtil.showFaq();}, 500);
         }
         return;
-      } 
+      }
       else if( oTidyUtil.bNewInstall && oTidyUtil.tidyFaqUrl==null )
       {
         if( oTidyUtil.bUpgrade )
@@ -853,37 +855,39 @@ TidyBrowser.prototype =
         }
         else
         {
-          oTidyUtil.tidyFaqUrl = "http://users.skynet.be/mgueury/mozilla/new_install4.html";        
+          oTidyUtil.tidyFaqUrl = "http://users.skynet.be/mgueury/mozilla/new_install4.html";
         }
         setTimeout(function () {oTidyUtil.showFaq();}, 1000);
         return;
       }
-      // Check that the toolbarItem is visible 
+      // Check that the toolbarItem is visible
       // This is not perfect but better than validate when not necessary.
       var toolbarItem = document.getElementById("tidy-toolbar-item");
-      if( toolbarItem ) 
+      if( toolbarItem )
       {
-        if( toolbarItem.collapsed ) 
+        if( toolbarItem.collapsed )
         {
           // The code goes probably never here
           return;
-        } 
+        }
       }
       else
       {
-        // Code goes here when the toolbar item is not visible  
+        // Code goes here when the toolbar item is not visible
         return;
       }
-               
+
+      oTidyUtil.tidy.log( '<JAVASCRIPT>validateCache' + doc.URL );
+
       // doc = window.content.document for the main frame
       if( doc.contentType == "text/html"
        || doc.contentType == "application/xhtml+xml"
-      ) 
+      )
       {
         var result = this.getResult( doc );
         if( result!=null )
         {
-          result.bInDomainList = oTidyUtil.isInDomainList( doc );    
+          result.bInDomainList = oTidyUtil.isInDomainList( doc );
           if( result.bInDomainList )
           {
             var html = this.getHtmlFromCache( doc, safe_call );
@@ -892,14 +896,14 @@ TidyBrowser.prototype =
               this.validateCacheHtml( html, result );
             }
           }
-        } 
+        }
       }
     }
     this.updateStatusBar();
   },
 
   /** __ getNbFrame ______________________________________________________
-   */    
+   */
   getNbFrame : function( main_frame )
   {
     const framesList = main_frame.frames;
@@ -912,11 +916,14 @@ TidyBrowser.prototype =
   },
 
   /** __ validateFrame ______________________________________________________
-   */    
+   */
   validateFrame : function( main_frame )
   {
     // Loop through the frames
     var framesList = main_frame.frames;
+
+    oTidyUtil.tidy.log( '<JAVASCRIPT>validateFrame : ' + framesList.length );
+
     for(var i = 0; i < framesList.length; i++)
     {
       this.validateFrame( framesList[i] );
@@ -924,15 +931,29 @@ TidyBrowser.prototype =
     if( main_frame.document!=null && (main_frame.document.tidyResult==null || !main_frame.document.tidyResult.bValidated) )
     {
       this.validateCache( main_frame.document, false );
-    }    
+      /*
+      var age = new Date() - new Date(main_frame.document.mozAnimationStartTime);
+      if( age < 300000 )
+      {
+        this.validateCache( main_frame.document, false );
+      }
+      else
+      {
+         oTidyUtil.tidy.log( 'validateFrame skip : url : ' + main_frame.document.URL + '\n'
+                          + '- age : ' + age + 'ms\n'
+                          + '- mozAnimationStartTime : ' + main_frame.document.mozAnimationStartTime );
+      }
+      */
+    }
+    oTidyUtil.tidy.log( '</JAVASCRIPT>validateFrame' );
   },
-  
+
   /** __ addIconLabelToVbox ______________________________________________________
-   */    
+   */
   addIconLabelToVbox : function( vbox2, main_frame )
   {
     var hbox1 =  document.createElement("hbox");
-    
+
     var icon = "chrome://tidy/skin/question";
     var str = "";
 
@@ -955,7 +976,7 @@ TidyBrowser.prototype =
     hbox1.appendChild(lbl);
 
     vbox2.appendChild(hbox1);
-    
+
     // Loop through the frames
     const framesList = main_frame.frames;
     for(var i = 0; i < framesList.length; i++)
@@ -966,7 +987,7 @@ TidyBrowser.prototype =
 
 
   /** __ sumResult ______________________________________________________
-   */    
+   */
   sumResult : function( sum, main_frame )
   {
     var res = main_frame.document.tidyResult;
@@ -989,9 +1010,9 @@ TidyBrowser.prototype =
       this.sumResult( sum, framesList[i] );
     }
   },
-  
+
   /** __ isDocumentFrameOf ______________________________________________________
-   */    
+   */
   isDocumentFrameOf : function( doc, main_frame )
   {
     const framesList = main_frame.frames;
@@ -999,7 +1020,7 @@ TidyBrowser.prototype =
     // Loop through the frames
     for(var i = 0; i < framesList.length; i++)
     {
-      if( framesList[i].document == doc ) 
+      if( framesList[i].document == doc )
       {
         oTidyUtil.tidy.log( '<JAVASCRIPT>isDocumentFrameOf: '+ (framesList[i].name?framesList[i].name:"-") );
         return true;
@@ -1012,9 +1033,9 @@ TidyBrowser.prototype =
 
     return false;
   },
-  
+
   /** __ getErrorList ______________________________________________________
-   */    
+   */
   getErrorList : function( main_frame )
   {
     var data = main_frame.document.URL+"\n\n";
@@ -1025,11 +1046,11 @@ TidyBrowser.prototype =
     var error = res.validate( html );
 
     var multi = error.value.split('\n');
-    for (var o in multi) 
+    for (var o in multi)
     {
       row = new TidyResultRow();
       row.parse( res.algorithm, multi[o], 0 );
-      if( !row.skip ) 
+      if( !row.skip )
       {
         data += row.getString()+"\n";
       }
@@ -1048,13 +1069,13 @@ TidyBrowser.prototype =
       data += this.getErrorList( framesList[i] );
     }
     return data;
-  }, 
-  
+  },
+
   /** __ findDocWithURL ______________________________________________________
-   */    
+   */
   findDocWithURL : function( url, main_frame )
   {
-    if( main_frame.document.URL==url ) 
+    if( main_frame.document.URL==url )
     {
       return main_frame.document;
     }
@@ -1064,18 +1085,18 @@ TidyBrowser.prototype =
     for(var i = 0; i < framesList.length; i++)
     {
       var res = this.findDocWithURL( url, framesList[i] );
-      if( res!=null ) 
+      if( res!=null )
       {
         return res;
       }
     }
     return null;
-  },  
-  
+  },
+
   /** __ onToolbarViewSource ______________________________________________________
-   */    
-   
-  // Used to avoid a double-event  
+   */
+
+  // Used to avoid a double-event
   onToolbarViewSource : function(aEvent)
   {
     if( aEvent!=null && aEvent.originalTarget.id!=null && aEvent.originalTarget.id=="" )
@@ -1083,24 +1104,24 @@ TidyBrowser.prototype =
       this.onViewSource(aEvent);
     }
   },
-  
+
   /** __ onViewSource ______________________________________________________
-   */    
+   */
   onViewSource : function(aEvent)
   {
     // Behavior depending of the user action and config
-    // 
-    //  Action                    DbClick        ViewSource...  Cleanup... 
-    //  DbClick config    ViewSource    Cleanup 
+    //
+    //  Action                    DbClick        ViewSource...  Cleanup...
+    //  DbClick config    ViewSource    Cleanup
     //  -----------------------------------------------------------------
     //  Icon enabled      ViewSource    Cleanup  ViewSource     Cleanup
     //  Icon disabled     ViewSource    Enable   ViewSource     Enable
     //
     var id = aEvent.originalTarget.id;
     var action = "viewsource";
-    
+
     // alert( "ID = " +  id );
-    
+
     // XXXXXXXXXXXXXX
     if( id=="tidy.browser.menu.cleanup"
      || (id=="tidy-status-bar-img" && oTidyUtil.getCharPref("dbclick_action")=="cleanup") )
@@ -1119,7 +1140,7 @@ TidyBrowser.prototype =
     {
       action = "innerHTML";
     }
-    
+
     if( !oTidyUtil.getBoolPref("browser_enable") && action=="cleanup" )
     {
       // If the validation is disabled, ask to reenable it
@@ -1132,7 +1153,7 @@ TidyBrowser.prototype =
                  flags, null, null, null, null, {} );
 
       if( res==0 )
-      {   
+      {
         oTidyUtil.setBoolPref( "browser_enable", true );
         this.initIcon();
       }
@@ -1145,7 +1166,7 @@ TidyBrowser.prototype =
       }
       else
       {
-        var result = new Array(); 
+        var result = new Array();
         openDialog(
                    "chrome://tidy/content/tidyChooseSource.xul",
                    "",
@@ -1161,15 +1182,15 @@ TidyBrowser.prototype =
           {
             this.processAction(doc, aEvent, action);
           }
-        }        
+        }
       }
     }
   },
-  
+
   /** __ openViewSource _______________________________________________________
    *
    * This wa a problem to open the viewSource that depends of the browser version
-   * BrowserViewSourceOfURL does not exist anymore in Firefox 2.0 
+   * BrowserViewSourceOfURL does not exist anymore in Firefox 2.0
    */
   openViewSource: function( spec, docCharset, pageCookie, aEvent, doc )
   {
@@ -1177,47 +1198,47 @@ TidyBrowser.prototype =
     {
       // Firefox 3.0
       gViewSourceUtils.openInInternalViewer(spec, pageCookie, doc);
-    } 
+    }
     catch(e)
     {
       try
-      {   
+      {
         BrowserViewSourceOfURL( spec, docCharset, pageCookie, aEvent );
       }
       catch(e)
       {
         // Firefox 2.0
-        openDialog("chrome://global/content/viewSource.xul", 
-                   "_blank", 
-                   "scrollbars,resizable,chrome,dialog=no", 
+        openDialog("chrome://global/content/viewSource.xul",
+                   "_blank",
+                   "scrollbars,resizable,chrome,dialog=no",
                    spec, docCharset, pageCookie);
       }
     }
-  }, 
-  
+  },
+
   /** __ processAction ______________________________________________________
    *
    * !! Nearly a copy paste of BrowserViewSourceOfDocument
-   */    
+   */
   processAction: function(doc, aEvent, action)
   {
     var pageCookie;
     var webNav;
-  
+
     // Get the document charset
     var docCharset = "charset=" + doc.characterSet;
-  
+
     // Get the nsIWebNavigation associated with the document
-    try 
+    try
     {
         // Get the DOMWindow for the requested document.  If the DOMWindow
-        // cannot be found, then just use the _content window...
+        // cannot be found, then just use the content window...
         //
         // XXX:  This is a bit of a hack...
         var win = doc.defaultView;
-        if (win == window) 
+        if (win == window)
         {
-          win = _content;
+          win = window.content;
         }
         var ifRequestor = win.QueryInterface(Components.interfaces.nsIInterfaceRequestor);
         webNav = ifRequestor.getInterface(nsIWebNavigation);
@@ -1234,7 +1255,7 @@ TidyBrowser.prototype =
     try
     {
       var PageLoader = webNav.QueryInterface(Components.interfaces.nsIWebPageDescriptor);
-  
+
       pageCookie = PageLoader.currentDescriptor;
     } catch(err) {
       // If no page descriptor is available, just use the view-source URL...
@@ -1242,7 +1263,7 @@ TidyBrowser.prototype =
 
     if( action=="viewsource" )
     {
-      // Double-clicking on the disabled icon show the HTML error 
+      // Double-clicking on the disabled icon show the HTML error
       // in the viewsource even if the validator is completely disabled
       if( !oTidyUtil.getBoolPref("viewsource_enable") )
       {
@@ -1259,7 +1280,7 @@ TidyBrowser.prototype =
       oTidyUtil.writeFile( ifile, sHtml );
       this.openViewSource("file://"+ifile.path, "charset=UTF-8", null, aEvent, null);
     }
-    else 
+    else
     {
       var sHtml = this.getHtmlFromCache(doc,false);
 
@@ -1282,9 +1303,9 @@ TidyBrowser.prototype =
       }
     }
   },
-  
+
   /** __ onAbout ______________________________________________________
-   */    
+   */
   onAbout : function()
   {
     openDialog(
@@ -1295,7 +1316,7 @@ TidyBrowser.prototype =
   },
 
   /** __ onOptions ______________________________________________________
-   */    
+   */
   onOptions : function()
   {
     openDialog(
@@ -1307,7 +1328,7 @@ TidyBrowser.prototype =
   },
 
   /** __ onLinks ______________________________________________________
-   */    
+   */
   onLinks : function()
   {
     openDialog(
@@ -1320,7 +1341,7 @@ TidyBrowser.prototype =
 
 
   /** __ onIcon ______________________________________________________
-   */    
+   */
   onIcon : function( value )
   {
     // Values are icon_text, icon_only
@@ -1329,7 +1350,7 @@ TidyBrowser.prototype =
   },
 
   /** __ onDisable ______________________________________________________
-   */    
+   */
   onDisable : function()
   {
     oTidyUtil.setBoolPref( "browser_enable", !oTidyUtil.getBoolPref( "browser_enable" ) );
@@ -1337,14 +1358,14 @@ TidyBrowser.prototype =
   },
 
   /** __ onDisableSite ______________________________________________________
-   */    
+   */
   onDisableSite : function()
   {
     oTidyUtil.addPermList( oTidyUtil.getDocURI(window.content.document) );
     oTidyUtil.permDialog();
-    this.initIcon();    
+    this.initIcon();
   },
-  
+
   /** __ changeParser ______________________________________________________
    */
   changeParser : function()
@@ -1358,7 +1379,7 @@ TidyBrowser.prototype =
   },
 
   /** __ emptyTidyResult ______________________________________________________
-   * 
+   *
    * It sets tidyResult properties to null
    * parameter requires window.content
    */
@@ -1371,11 +1392,11 @@ TidyBrowser.prototype =
       {
         this.emptyTidyResult( frm[i] );
       }
-  },  
+  },
 
   /** __ TEST TEST TEST ______________________________________________________
    */
-  onTestLinks: function() 
+  onTestLinks: function()
   {
     const clipboardHelper = Components.classes["@mozilla.org/widget/clipboardhelper;1"].getService(Components.interfaces.nsIClipboardHelper);
     var main_frame=window.content;
@@ -1402,7 +1423,7 @@ TidyBrowser.prototype =
     clipboardHelper.copyString(data);
   },
 
-  onTestSp: function() 
+  onTestSp: function()
   {
     const clipboardHelper = Components.classes["@mozilla.org/widget/clipboardhelper;1"].getService(Components.interfaces.nsIClipboardHelper);
     var main_frame=window.content;
@@ -1428,7 +1449,7 @@ TidyBrowser.prototype =
     clipboardHelper.copyString(data);
   },
 
-  onTestQueue: function() 
+  onTestQueue: function()
   {
     var item1 = new TidyItemQueue( "1", null, 0 );
     var item2 = new TidyItemQueue( "2", null, 0 );
@@ -1448,13 +1469,13 @@ TidyBrowser.prototype =
     item = oTidyBrowser.oEventQueue.pop();
     alert( item.html );
     item = oTidyBrowser.oEventQueue.pop();
-    alert( item.html );  
+    alert( item.html );
   }
 }
 
 //----------------------------------------------------------------------------------------------
 
-function onTidyBrowserTopLoad( event ) 
+function onTidyBrowserTopLoad( event )
 {
   if( oTidyBrowser==null )
   {
@@ -1462,10 +1483,10 @@ function onTidyBrowserTopLoad( event )
     if( oTidyTabChangeObserver==null )
     {
       oTidyUtil.tidy.log( '<JAVASCRIPT>onTidyBrowserTopLoad' );
-      
+
       oTidyTabChangeObserver = new TidyTabChangeObserver();
       var main_frame = document.getElementById("content");
-      main_frame.addProgressListener(oTidyTabChangeObserver);    
+      main_frame.addProgressListener(oTidyTabChangeObserver);
 
       // var oObsService = Components.classes["@mozilla.org/observer-service;1"].getService();
       // var oObsInterface = oObsService.QueryInterface(Components.interfaces.nsIObserverService);
@@ -1475,14 +1496,14 @@ function onTidyBrowserTopLoad( event )
   }
 }
 
-/** 
- * New event in Firefox 1.4 
+/**
+ * New event in Firefox 1.4
  * If the extension was Firefox 1.4 only onTidyBrowserTopLoad could be removed
  */
-function onTidyBrowserTopPageShow( event ) 
+function onTidyBrowserTopPageShow( event )
 {
   try
-  { 
+  {
      oTidyUtil.tidy.log( '<JAVASCRIPT>onTidyBrowserTopPageShow' );
 
     if( !oTidyBrowser.bIgnorePageShow )
@@ -1494,5 +1515,5 @@ function onTidyBrowserTopPageShow( event )
     oTidyBrowser.bIgnorePageShow = false;
   }
   catch(ex)
-  {}  
+  {}
 }

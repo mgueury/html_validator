@@ -35,25 +35,34 @@ function build_platform {
 
   rm xpi/components/nstidy.dll
   rm xpi/components/libnstidy.so
+  rm xpi/components/libnstidy64.so
   rm xpi/components/libnstidy.so.19.0
   rm xpi/components/libnstidy.dylib
   rm xpi/components/nstidy.xpt
 
-  cp ../build_platform/$1/components/$LIB_NAME xpi/components
-  cp ../build_platform/$1/components/nstidy.xpt xpi/components
-
+  if [ "$1" = "linux3264" ]; then
+    cp ../build_platform/linux/components/$LIB_NAME xpi/components
+    cp ../build_platform/linux64/components/$LIB_NAME xpi/components/libnstidy64.so
+    cp ../build_platform/linux/components/nstidy.xpt xpi/components
+    chmod 777 xpi/components/libnstidy64.so
+  else
+    cp ../build_platform/$1/components/$LIB_NAME xpi/components
+    cp ../build_platform/$1/components/nstidy.xpt xpi/components
+  fi
+  chmod 777 xpi/components/$LIB_NAME
+  
   cat chrome.manifest | sed -e "s/nstidy.dll/$LIB_NAME/" > xpi/chrome.manifest
   
-
   cd xpi
   touch components/.autoreg
-  zip -r ../../../build_platform/tidy_firefox_$POSTFIX.xpi *
+  zip -r ../../build_platform/tidy_firefox_$POSTFIX.xpi *
   cd ..
   
   rm xpi/install.js
 }  
 
 . ./version.sh
-build_platform linux
-build_platform linux64
+# build_platform linux
+# build_platform linux64
+build_platform linux3264
 build_platform macos
