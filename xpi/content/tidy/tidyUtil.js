@@ -17,8 +17,8 @@ var tidyExtensionGUID = '{3b56bcc7-54e5-44a2-9b44-66c3ef58c13e}';
 //-------------------------------------------------------------
 
 function onLoadTidyUtil()
-{ 
-  oTidyUtil = new TidyUtil(); 
+{
+  oTidyUtil = new TidyUtil();
 }
 
 function onUnloadTidyUtil()
@@ -155,9 +155,15 @@ function TidyUtil()
     // this.setBoolPref( "browser_hide", false );
     this.setBoolPref( "browser_enable", true );
     this.setBoolPref( "warning_line_number", true );
-    this.branch.setBoolPref( "view_source.syntax_highlight", true );
-    this.branch.setBoolPref( "view_source.wrap_long_lines", false );
   }
+  // WA for 0.964
+  // There are 2 problems with it
+  // 1) this code should be in this.bNewInstall
+  // 2) ideally the HTML validator should work with View Source Tab too (this will probably brake fast)
+  var view_source_branch = pref_service.getBranch("view_source.");
+  view_source_branch.setBoolPref( "syntax_highlight", true );
+  view_source_branch.setBoolPref( "wrap_long_lines", false );
+  view_source_branch.setBoolPref( "tab", false );
 
   // Check if the preferences exists
   this.setDefaultValueBool( "show-warnings",         true );
@@ -258,23 +264,23 @@ TidyUtil.prototype =
 
   isNewInstall : function()
   {
-    try 
+    try
     {
       var prefVersion = this.getCharPref( "version" );
       var curVersion = "0.964";
-      if (curVersion > prefVersion) 
+      if (curVersion > prefVersion)
       {
         this.setCharPref("version", curVersion);
         return true;
       }
     }
-    catch (ex) 
+    catch (ex)
     {
       null;
     }
     return false;
   },
-  
+
   getPrefConfig : function()
   {
     var sConfig = "";
