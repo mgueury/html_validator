@@ -834,7 +834,6 @@ TidyBrowser.prototype =
     {
       return;
     }
-    console.log( "validateCache - oTidyUtil.bNewInstall " + oTidyUtil.bNewInstall );
 
     if( oTidyUtil.getBoolPref("browser_enable") || oTidyUtil.isPermAllowed(oTidyUtil.getDocURI(doc)) )
     {

@@ -141,7 +141,6 @@ function TidyUtil()
   this.branch = pref_service.getBranch("tidy.options.");
 
   this.bNewInstall = this.isNewInstall();
-  console.log( "TidyUtil.bNewInstall= " + this.bNewInstall  );
   if( this.bNewInstall )
   {
     try
