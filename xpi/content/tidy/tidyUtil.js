@@ -141,6 +141,7 @@ function TidyUtil()
   this.branch = pref_service.getBranch("tidy.options.");
 
   this.bNewInstall = this.isNewInstall();
+  console.log( "TidyUtil.bNewInstall= " + this.bNewInstall  );
   if( this.bNewInstall )
   {
     try
@@ -276,7 +277,8 @@ TidyUtil.prototype =
     }
     catch (ex)
     {
-      null;
+      tidyShowExceptionInConsole( ex );
+      return true;
     }
     return false;
   },
@@ -1074,13 +1076,12 @@ TidyUtil.prototype =
     createInstance(Components.interfaces.nsIConverterInputStream);
     fstream.init(file, -1, 0, 0);
     cstream.init(fstream, "UTF-8", 0, 0);
-    let (str = {}) {
-      let read = 0;
-      do {
+    var str = {};
+    var read = 0;
+    do {
         read = cstream.readString(0xffffffff, str); // read as much as we can and put it in str.value
         data += str.value;
-      } while (read != 0);
-    }
+    } while (read != 0);
     cstream.close(); // this closes fstream
     return( data );
   },

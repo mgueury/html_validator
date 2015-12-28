@@ -24,7 +24,7 @@
   
 <vbox>
   <label value="HTML Validator" style="font-size: 200%; font-weight: bold;"/>  
-  <label value="&tidy.help.version; 0.9.6.4  / Htmlpedia 2010-01-23"/>
+  <label value="&tidy.help.version; 0.9.6.5  / Htmlpedia 2010-01-23"/>
   <groupbox>
     <caption label="&tidy.help.homepage; "/>
     <hbox>

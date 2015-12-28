@@ -5,7 +5,7 @@
 
   <Description about="urn:mozilla:install-manifest">
     <em:id>{3b56bcc7-54e5-44a2-9b44-66c3ef58c13e}</em:id>
-    <em:version>0.9.6.4</em:version>
+    <em:version>0.9.6.5</em:version>
     <em:type>2</em:type>
     <em:unpack>true</em:unpack>
     <em:name>Html Validator</em:name>

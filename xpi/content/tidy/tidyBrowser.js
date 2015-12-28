@@ -100,12 +100,14 @@ TidyTabChangeObserver.prototype =
 
   onLocationChange : function(aWebProgress, aRequest, aLocation)
   {
-    oTidyUtil.tidy.log( '<JAVASCRIPT>onLocationChange : ' + aWebProgress.isLoadingDocument );
-
-    if( aWebProgress.isLoadingDocument==false )
-    {
-      oTidyBrowser.validateFrame( window.content );
-      oTidyBrowser.updateStatusBar();
+    if( aWebProgress)
+    {    
+      oTidyUtil.tidy.log( '<JAVASCRIPT>onLocationChange : ' + aWebProgress.isLoadingDocument );
+      if( aWebProgress.isLoadingDocument==false )
+      {
+        oTidyBrowser.validateFrame( window.content );
+        oTidyBrowser.updateStatusBar();
+      }          
     }
   },
 
@@ -832,6 +834,7 @@ TidyBrowser.prototype =
     {
       return;
     }
+    console.log( "validateCache - oTidyUtil.bNewInstall " + oTidyUtil.bNewInstall );
 
     if( oTidyUtil.getBoolPref("browser_enable") || oTidyUtil.isPermAllowed(oTidyUtil.getDocURI(doc)) )
     {
