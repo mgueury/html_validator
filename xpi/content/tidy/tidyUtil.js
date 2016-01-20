@@ -236,9 +236,6 @@ function TidyUtil()
 
   try
   {
-    var req = new XMLHttpRequest();
-    req.open('GET', "chrome://browser/content/preferences/permissions.xul", false);
-    req.send(null);
     this.permManager = Components.classes["@mozilla.org/permissionmanager;1"].getService(Components.interfaces.nsIPermissionManager);
   }
   catch(ex)

@@ -1199,7 +1199,8 @@ TidyBrowser.prototype =
     try
     {
       // Firefox 3.0
-      gViewSourceUtils.openInInternalViewer(spec, pageCookie, doc);
+      // Deprecated // gViewSourceUtils.openInInternalViewer(spec, pageCookie, doc);
+      BrowserViewSourceOfDocument( doc );
     }
     catch(e)
     {

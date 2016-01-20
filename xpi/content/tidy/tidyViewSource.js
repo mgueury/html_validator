@@ -33,7 +33,13 @@ function onLoadTidyViewSource()
   }
 
   // Call the original function of the View Source dialog.
-  onLoadViewSource();
+  // Deprecated: onLoadViewSource();
+  if( typeof viewSourceChrome != "undefined" )
+  {
+	  viewSourceChrome.onXULLoaded();
+  } else {
+	  onLoadViewSource();
+  }
 
   // Register the onLoad trigger, when the page is loaded -> validate
   getBrowser().addEventListener("load", tidyValidateHtml, true);
