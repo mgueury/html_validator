@@ -16,6 +16,15 @@ var oTidyViewSource;
 function onLoadTidyViewSource()
 {
   onLoadTidyUtil();
+  if( typeof viewSourceChrome != "undefined" )
+  {
+	  oTidyUtil.debug_log( '<onLoadTidyViewSource>viewSourceChrome found' );
+	  viewSourceChrome.onXULLoaded();
+  } else {
+	  oTidyUtil.debug_log( '<onLoadTidyViewSource>viewSourceChrome not found' );
+	  onLoadViewSource();
+  }
+
   oTidyViewSource = new TidyViewSource();
   oTidyViewSource.start();
 
@@ -30,15 +39,6 @@ function onLoadTidyViewSource()
     {
       oTidyViewSource.hideValidator( true );
     }
-  }
-
-  // Call the original function of the View Source dialog.
-  // Deprecated: onLoadViewSource();
-  if( typeof viewSourceChrome != "undefined" )
-  {
-	  viewSourceChrome.onXULLoaded();
-  } else {
-	  onLoadViewSource();
   }
 
   // Register the onLoad trigger, when the page is loaded -> validate
@@ -62,8 +62,8 @@ function tidyValidateHtml( event )
     var box = document.getElementById("tidy-view_source-box");
     var value = !box.hidden;
     if(
-     (   window.content.document.contentType == "text/html"
-      || window.content.document.contentType == "application/xhtml+xml"
+     (   doc.contentType == "text/html"
+      || doc.contentType == "application/xhtml+xml"
      )
      && !box.hidden
     )
@@ -94,8 +94,7 @@ function tidyOptions()
 
 function tidyCleanup()
 {
-  var sHtml = oTidyViewSource.getHtmlFromNode();
-  oTidyUtil.cleanupDialog( oTidyViewSource.tidyResult, sHtml, window.arguments );
+  oTidyViewSource.cleanup();
 }
 
 function tidyHtmlPedia()
@@ -151,6 +150,7 @@ TidyViewSource.prototype =
   sLastError: "-",
   tidyResult: null,
   currentHelpPage: "",
+  docType: "",
 
   // Style
   STYLE_NORMAL  : 1,
@@ -165,6 +165,92 @@ TidyViewSource.prototype =
   hScrollPos: 0,
   hScrollMax: 0,
   datapresent: "datapresent",
+
+  messages: [
+    "TidyViewSource:validateHtml",
+    "TidyViewSource:cleanupDialog",
+  ],
+
+  /**
+   * Anything added to the messages array will get handled here, and should
+   * get dispatched to a specific function for the message name.
+   */
+  receiveMessage(message) {
+    let data = message.data;
+   oTidyUtil.debug_log( '<onLoadTidyViewSource>receiveMessage ' + message.name );
+
+    switch(message.name) {
+      // Begin messages from super class
+      case "TidyViewSource:validateHtml":
+        this.validateHtml(data.html, data.docType);
+        break;
+      case "TidyViewSource:cleanupDialog":
+        this.cleanupDialog(data.html);
+        break;
+    }
+  },
+
+
+  /** __ start ________________________________________________________________
+   *
+   * Initialisation and termination functions
+   */
+  start : function()
+  {
+    oTidyUtil.debug_log( 'TidyViewSource:initXUL' );
+    viewSourceChrome.mm.loadFrameScript("chrome://tidy/content/tidyCViewSource.js", true);
+
+    this.messages.forEach((msgName) => {
+	   viewSourceChrome.mm.addMessageListener(msgName, this);
+    });
+
+    // Tree
+    this.xulTree = document.getElementById("tidy-view_source-tree");
+    this.xulTree.treeBoxObject.view = this;
+
+    // Set scrollbar
+    this.xulScrollBar = document.getElementById("tidy-view_source-tree-scroll");
+    setInterval(this.hScrollHandler,100);
+
+    // Set explain error HTML
+    this.xulExplainError = document.getElementById("tidy-explain-error");
+    this.xulExplainError.addEventListener("load", tidyViewSourceLoadExplainError, true);
+
+    // Enable the selection in the explain-error (Firefox 1.0 only)
+    // Firefox 1.4 raise an exception but it works out of the box
+    try
+    {
+      var selCon = this.xulExplainError.docShell
+         .QueryInterface(Components.interfaces.nsIInterfaceRequestor)
+         .getInterface(Components.interfaces.nsISelectionDisplay)
+         .QueryInterface(Components.interfaces.nsISelectionController);
+      selCon.setDisplaySelection(Components.interfaces.nsISelectionController.SELECTION_ON);
+      selCon.setCaretEnabled(true);
+      selCon.setCaretVisibilityDuringSelection(true);
+    }
+    catch(ex)
+    {
+    }
+
+    // Tree Style (called Atoms)
+    var aserv=Components.classes["@mozilla.org/atom-service;1"].
+               createInstance(Components.interfaces.nsIAtomService);
+    this.atoms[this.STYLE_NORMAL]  = aserv.getAtom("StyleNormal");
+    this.atoms[this.STYLE_RED]     = aserv.getAtom("StyleRed");
+    this.atoms[this.STYLE_SUMMARY] = aserv.getAtom("StyleSummary");
+
+    // Menu
+    this.xulMenuHide = document.getElementById('tidy.hide');
+    this.xulMenuHide.setAttribute("checked", "false");
+  },
+
+  stop : function()
+  {
+    this.xulTree.treeBoxObject.view = null;
+    this.xulTree = null;
+    this.xulScrollBar = null;
+  },
+
 
   /** __ treeView ________________________________________________________________
    *
@@ -320,59 +406,6 @@ TidyViewSource.prototype =
     }
   },
 
-  /** __ start ________________________________________________________________
-   *
-   * Initialisation and termination functions
-   */
-  start : function()
-  {
-    // Tree
-    this.xulTree = document.getElementById("tidy-view_source-tree");
-    this.xulTree.treeBoxObject.view = this;
-
-    // Set scrollbar
-    this.xulScrollBar = document.getElementById("tidy-view_source-tree-scroll");
-    setInterval(this.hScrollHandler,100);
-
-    // Set explain error HTML
-    this.xulExplainError = document.getElementById("tidy-explain-error");
-    this.xulExplainError.addEventListener("load", tidyViewSourceLoadExplainError, true);
-
-    // Enable the selection in the explain-error (Firefox 1.0 only)
-    // Firefox 1.4 raise an exception but it works out of the box
-    try
-    {
-      var selCon = this.xulExplainError.docShell
-         .QueryInterface(Components.interfaces.nsIInterfaceRequestor)
-         .getInterface(Components.interfaces.nsISelectionDisplay)
-         .QueryInterface(Components.interfaces.nsISelectionController);
-      selCon.setDisplaySelection(Components.interfaces.nsISelectionController.SELECTION_ON);
-      selCon.setCaretEnabled(true);
-      selCon.setCaretVisibilityDuringSelection(true);
-    }
-    catch(ex)
-    {
-    }
-
-    // Tree Style (called Atoms)
-    var aserv=Components.classes["@mozilla.org/atom-service;1"].
-               createInstance(Components.interfaces.nsIAtomService);
-    this.atoms[this.STYLE_NORMAL]  = aserv.getAtom("StyleNormal");
-    this.atoms[this.STYLE_RED]     = aserv.getAtom("StyleRed");
-    this.atoms[this.STYLE_SUMMARY] = aserv.getAtom("StyleSummary");
-
-    // Menu
-    this.xulMenuHide = document.getElementById('tidy.hide');
-    this.xulMenuHide.setAttribute("checked", "false");
-  },
-
-  stop : function()
-  {
-    this.xulTree.treeBoxObject.view = null;
-    this.xulTree = null;
-    this.xulScrollBar = null;
-  },
-
   /** __ clear ________________________________________________________________
    *
    * Clear the tree
@@ -395,8 +428,10 @@ TidyViewSource.prototype =
    *
    * Validate the HTML and add the results in the tree
    */
-  validateHtml : function( aHtml )
+  validateHtml : function( aHtml, aDocType )
   {
+	oTidyUtil.debug_log( '<validateHtml>' + aDocType );
+
     // Set the initialization flag
     this.bIsValidated = true;
 
@@ -412,7 +447,7 @@ TidyViewSource.prototype =
 
     if( error && error.value )
     {
-      this.parseError( error, res );
+      this.parseError( error, res, aDocType );
     }
   },
 
@@ -420,7 +455,7 @@ TidyViewSource.prototype =
    *
    * Parse the error of the validation
    */
-  parseError : function( error, res )
+  parseError : function( error, res, aDocType )
   {
     var unsorted = -1;
     var row;
@@ -429,11 +464,11 @@ TidyViewSource.prototype =
     var oldrows = this.rowCount;
 
     // Show an error if the mime/type is not text/html or xhtml
-    if( window.content.document.contentType != "text/html"
-     && window.content.document.contentType != "application/xhtml+xml" )
+    if( aDocType != "text/html"
+     && aDocType != "application/xhtml+xml" )
     {
       row = new TidyResultRow();
-      row.init(oTidyUtil.getString("tidy_not_html")+" "+window.content.document.contentType, 0, 0, 4, unsorted--, null, null, null, "error", "Error");
+      row.init(oTidyUtil.getString("tidy_not_html")+" "+aDocType, 0, 0, 4, unsorted--, null, null, null, "error", "Error");
       this.addRow( row );
     }
 
@@ -778,41 +813,28 @@ TidyViewSource.prototype =
    */
   validateHtmlFromNode: function()
   {
-    this.validateHtml( this.getHtmlFromNode() );
+	oTidyUtil.debug_log( '<validateHtmlFromNode>' );
+    viewSourceChrome.sendAsyncMessage("TidyViewSource:getHtmlFromNode", {callback: "validateHtml"} );
   },
 
-
-  /** __ getHtmlFromNode _________________________________________________
+  /** __ cleanup ___________________________________________
    *
-   * Build the HTML from the text of all the source view nodes
-   * This is done to avoid another network request
+   * Call content script to get back the html
    */
-  getHtmlFromNode: function()
+  cleanup: function()
   {
-    var viewsource = this.getParentPre();
-    var sHtml = "";
-    var pre;
-
-    //
-    // Walk through each of the text nodes
-    //
-    for (var i = 0; i < viewsource.childNodes.length; i++ )
-    {
-      pre = viewsource.childNodes[i];
-      if( pre.id!="line12345678" )
-      {
-        var treewalker = window.content.document.createTreeWalker(pre, NodeFilter.SHOW_TEXT, null, false);
-
-        for( var textNode = treewalker.firstChild(); textNode; textNode = treewalker.nextNode())
-        {
-          sHtml = sHtml + textNode.data;
-        }
-      }
-    }
-
-    return sHtml;
+	oTidyUtil.debug_log( '<validateHtmlFromNode>' );
+    viewSourceChrome.sendAsyncMessage("TidyViewSource:getHtmlFromNode", {callback: "cleanupDialog"} );
   },
 
+  /** __ cleanupDialog ___________________________________________
+   *
+   * Call by the content script to show the cleanup dialog
+   */
+  cleanupDialog: function( sHtml )
+  {
+    oTidyUtil.cleanupDialog( oTidyViewSource.tidyResult, sHtml, window.arguments );
+  },
 
   /** __ colorizeLines ______________________________________________________
    *
@@ -820,125 +842,10 @@ TidyViewSource.prototype =
    */
   colorizeLines: function( colorLines )
   {
-    for (var line in colorLines)
-    {
-      this.colorizeOneLine( parseInt(line) );
-    }
+	oTidyUtil.debug_log( '<colorizeLines>' );
+    viewSourceChrome.sendAsyncMessage("TidyViewSource:colorizeLines", { colorLines: colorLines } );
   },
 
-  /** __ colorizeOneLine ____________________________________________________
-   *
-   * Color one line of the HTML source
-   *
-   * @param line : (number) line number
-   */
-  colorizeOneLine: function( line )
-  {
-    // This code is inspired by the goToLine of viewSource.js
-    // it is the same, except that the range is highlighted
-    var viewsource = this.getParentPre();
-    var pre;
-    for (var lbound = 0, ubound = viewsource.childNodes.length; ; ) {
-      var middle = (lbound + ubound) >> 1;
-      pre = viewsource.childNodes[middle];
-
-      var firstLine = parseInt(pre.id.substring(4));
-
-      if (lbound == ubound - 1) {
-        break;
-      }
-
-      if (line >= firstLine) {
-        lbound = middle;
-      } else {
-        ubound = middle;
-      }
-    }
-
-    var result = {};
-    var found = findLocation(pre, line, null, -1, false, result);
-
-    if (!found) {
-      return;
-    }
-
-    this.colorizeRange(result.range);
-  },
-
-  /** __ colorizeRange ____________________________________________________
-   *
-   * Color a range of the HTML source
-   *
-   * @param range : (range) the range
-   */
-  colorizeRange: function( range )
-  {
-    // Bug in Firefox 3.0.9 !
-    if( oTidyUtil.firefoxVersionEqual("3.0.9") )
-    {
-      return;
-    }
-
-    var doc = window.content.document;
-    var node = doc.createElement("b");
-    node.setAttribute("style", "background-color: #DDDDFF;");
-    node.setAttribute("id", "__firefox-tidy-id");
-
-
-    // Firefox 20 - new line numbering
-    var parent = range.startContainer.parentNode;
-		range.setStart( parent.nextSibling, 0 );
-
-		// This code is inspired by the highlight function of browser.js
-		var startContainer = range.startContainer;
-		var startOffset = range.startOffset;
-		var endOffset = range.endOffset;
-		var docfrag = range.extractContents();
-		node.appendChild(docfrag);
-		// insertAfter
-		parent.parentNode.insertBefore(node, parent.nextSibling);
-
-    return node;
-  },
-
-  /** __ removeColorFromLines ___________________________________________
-   *
-   * Remove the color added to the lines
-   */
-  removeColorFromLines: function()
-  {
-    var doc = window.content.document;
-    var elem = null;
-
-    while ((elem = doc.getElementById("__firefox-tidy-id")))
-    {
-      var child = null;
-      var docfrag = doc.createDocumentFragment();
-      var next = elem.nextSibling;
-      var parent = elem.parentNode;
-      while((child = elem.firstChild))
-      {
-        docfrag.appendChild(child);
-      }
-      parent.removeChild(elem);
-      parent.insertBefore(docfrag, next);
-    }
-    return;
-  },
-
-  /** __ getParentPre ___________________________________________________
-   *
-   * Get the parent of all pre tags
-   */
-  getParentPre: function()
-  {
-    var parent = window.content.document.getElementById('parent_pre');
-    if( parent==null )
-    {
-      parent = window.content.document.body;
-    }
-    return parent;
-  },
 
   /** __ goToLineCol ____________________________________________________
    *
@@ -949,238 +856,11 @@ TidyViewSource.prototype =
    */
   goToLineCol: function(line, col, aToSelect)
   {
-    var viewsource = this.getParentPre();
-
-    var pre;
-    for (var lbound = 0, ubound = viewsource.childNodes.length; ; ) {
-      var middle = (lbound + ubound) >> 1;
-      pre = viewsource.childNodes[middle];
-
-      var firstLine = parseInt(pre.id.substring(4));
-
-      if (lbound == ubound - 1) {
-        break;
-      }
-
-      if (line >= firstLine) {
-        lbound = middle;
-      } else {
-        ubound = middle;
-      }
-    }
-
-    var result = {};
-    var found = this.getLineColRange(pre, line, col, aToSelect, result);
-
-    if (!found) {
-      return false;
-    }
-
-    var selection = window.content.getSelection();
-    selection.removeAllRanges();
-    // selection.QueryInterface(Components.interfaces.nsISelectionPrivate).interlinePosition = true;
-    selection.addRange(result.range);
-    if (!selection.isCollapsed)
-    {
-      selection.collapseToEnd();
-
-      var offset = result.range.startOffset;
-      var node = result.range.startContainer;
-      if (offset < node.data.length) {
-        // The same text node spans across the "\n", just focus where we were.
-        selection.extend(node, offset);
-      }
-      else {
-        // There is another tag just after the "\n", hook there. We need
-        // to focus a safe point because there are edgy cases such as
-        // <span>...\n</span><span>...</span> vs.
-        // <span>...\n<span>...</span></span><span>...</span>
-        node = node.nextSibling ? node.nextSibling : node.parentNode.nextSibling;
-        selection.extend(node, 0);
-      }
-    }
-
-    var selCon = this.getSelectionController();
-    selCon.setDisplaySelection(Components.interfaces.nsISelectionController.SELECTION_ON);
-    selCon.setCaretEnabled(true);
-    selCon.setCaretVisibilityDuringSelection(true);
-
-    // Scroll the beginning of the line into view.
-    selCon.scrollSelectionIntoView(
-      Components.interfaces.nsISelectionController.SELECTION_NORMAL,
-      Components.interfaces.nsISelectionController.SELECTION_FOCUS_REGION,
-      true);
-
-    gLastLineFound = line;
-
-    // Commented - 2010-09-04 for FF4
-    /*
-      // needed to avoid problem in Firefox
-      var statusbar = document.getElementById("statusbar-line-col");
-      if( statusbar )
-      {
-         statusbar.label = getViewSourceBundle().getFormattedString("statusBarLineCol", [line, 1]);
-      }
-    */
+	oTidyUtil.debug_log( '<validateHtmlFromNode>' );
+    viewSourceChrome.sendAsyncMessage("TidyViewSource:goToLineCol", { line: line, col: col, aToSelect: aToSelect } );
     return true;
   },
 
-
-  /** __ getSelectionController _________________________________________
-   *
-   * This is to avoid repeatless bugs and change about this function
-   * in Firefox where it becomes tiring
-   */
-  getSelectionController : function()
-  {
-     return getBrowser().docShell
-     .QueryInterface(Components.interfaces.nsIInterfaceRequestor)
-     .getInterface(Components.interfaces.nsISelectionDisplay)
-     .QueryInterface(Components.interfaces.nsISelectionController);
-  },
-
-  /** __ getLineColRange ____________________________________________________
-   *
-   * get the range for a line and a column
-   *
-   * @param
-   */
-  getLineColRange : function (pre, line, col, aToSelect, result)
-  {
-    var curLine = parseInt(pre.id.substring(4));
-
-    //
-    // Walk through each of the text nodes and count newlines.
-    //
-    var treewalker = window.content.document
-        .createTreeWalker(pre, NodeFilter.SHOW_TEXT, null, false);
-
-    //
-    // The column number of the first character in the current text node.
-    //
-    var firstCol = 1;
-
-    var found = false;
-    for (var textNode = treewalker.firstChild();
-         textNode && !found;
-         textNode = treewalker.nextNode())
-    {
-      //
-      // \r is not a valid character in the DOM, so we only check for \n.
-      //
-      var lineArray = textNode.data.split(/\n/);
-      var lastLineInNode = curLine + lineArray.length - 1;
-
-      //
-      // Check if we can skip the text node without further inspection.
-      //
-
-      var nextFirstCol = firstCol;
-      if (lineArray.length > 1)
-      {
-        nextFirstCol = 1;
-      }
-      nextFirstCol += lineArray[lineArray.length - 1].length;
-
-      if(
-          lastLineInNode < line ||
-          ( lastLineInNode==line && nextFirstCol<=col )
-        )
-      {
-        firstCol = nextFirstCol;
-        curLine = lastLineInNode;
-        continue;
-      }
-
-      //
-      // curPos is the offset within the current text node of the first
-      // character in the current line.
-      //
-      for (var i = 0, curPos = 0;
-           i < lineArray.length;
-           curPos += lineArray[i++].length + 1)
-      {
-
-        if (i > 0)
-        {
-          curLine++;
-          firstCol = 1;
-        }
-
-        if (curLine == line && !("range" in result))
-        {
-          // The default behavior is to select 1 character.
-          result.range = document.createRange();
-          var pos = curPos+col-firstCol;
-          result.range.setStart(textNode, pos);
-          result.range.setEnd(textNode, pos+1);
-          found = true;
-
-
-          // Check if the text does not contain a selectable string
-
-          // get first the maximum len of the selectable string
-          var j, len, maxlen = 0;
-          for( j=0; j<aToSelect.length; j++ )
-          {
-            len = aToSelect[j].length;
-            if( len>maxlen ) maxlen = len;
-          }
-
-          // get the rest of the text of the node where the text starts
-          var textAfter = textNode.data.substr( pos );
-
-          // we will potentially look 2 node further
-          for ( var n=0; n<3; n++ )
-          {
-            // Search in the selectable string array
-            for( j=0; j<aToSelect.length; j++ )
-            {
-              var s = aToSelect[j].toLowerCase();
-              len = s.length;
-              var s2 = textAfter.substr( 0, len ).toLowerCase();
-              if( s==s2 )
-              {
-                result.range.setEnd(textNode, pos+len);
-              }
-              // If it is a tag, '<TAG>', '<TAG' is also good
-              else if( s.charAt(0)=='<' && s.charAt(len-1)=='>' )
-              {
-                s = s.substr(0,len-1);
-                s2 = s2.substr(0,len-1);
-                if( s==s2 )
-                {
-                  result.range.setEnd(textNode, pos+len-1);
-                }
-              }
-            }
-
-            // If the text searched is bigger than the biggest string to search,
-            // stop the search
-            len = textAfter.length
-            if( len>=maxlen )
-            {
-              break;
-            }
-            pos = -len;
-            // Go to the next node
-            textNode = treewalker.nextNode()
-            if( textNode )
-            {
-              // Concatenate the next node text
-              textAfter += textNode.data;
-            }
-            else
-            {
-              break;
-            }
-          }
-        }
-      }
-    }
-
-    return found;
-  },
 
   /** __ hideValidator ____________________________________________________
    *
@@ -1206,37 +886,6 @@ TidyViewSource.prototype =
       oTidyViewSource.loadHelp( oTidyViewSource.currentHelpPage );
     }
   },
-
-  /** __ selectAll ____________________________________________
-  */
-  selectAll : function ()
-  {
-    var doc = window.content.document;
-
-    var range = doc.createRange();
-    range.setStartBefore( doc.body.firstChild );
-    var end = doc.body.lastChild;
-    if( end.id=='line12345678' )
-    {
-      range.setEndAfter( end.previousSibling );
-    }
-    else
-    {
-      range.setEndAfter( end );
-    }
-
-    var selection = window.content.getSelection();
-    selection.removeAllRanges();
-    selection.QueryInterface(Components.interfaces.nsISelectionPrivate).interlinePosition = true;
-    selection.addRange(range);
-
-
-    var selCon = this.getSelectionController();
-    selCon.setDisplaySelection(Components.interfaces.nsISelectionController.SELECTION_ON);
-    selCon.setCaretEnabled(true);
-    selCon.setCaretVisibilityDuringSelection(true);
-  }
-
 }
 
 //---------------------------------------------------------------------------

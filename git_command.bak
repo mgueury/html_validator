@@ -2,12 +2,13 @@ GIT
 ---
 ---
 cd \my_prog\mozilla\src\tidy_jsc\html_validator
+cd \my_prog\mozilla\src\tidy_e10s\html_validator
 git config --global user.name "mgueury"
 git config --global user.email "mgueury@skynet.be"
 
 git init
 git add *
-git commit -m "0.964" 
+git commit -m "0.970" 
 
 git remote add origin https://github.com/mgueury/html_validator.git
 git push origin master
@@ -20,6 +21,9 @@ git add *
 git commit -m "0.964" 
 git push origin master
 
+
+git reset HEAD^ --hard
+$ git push mathnet -f
 
 
 CanIUse

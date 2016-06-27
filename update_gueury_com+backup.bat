@@ -42,6 +42,6 @@ zip -r mozilla_tidy_source.zip mozilla_tidy_source
 
 cp mozilla_tidy_source.zip html/mozilla/tidy_09x_source.zip
 
-cp mozilla_tidy_source.zip ../backup/source_0966.zip
+cp mozilla_tidy_source.zip ../backup/source_0973.zip
 
 pause

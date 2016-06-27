@@ -25,6 +25,10 @@ function onLoadTidyBrowser()
   window.top.addEventListener("load", onTidyBrowserTopLoad, true);
   window.top.removeEventListener("pageshow", onTidyBrowserTopPageShow, true);
   window.top.addEventListener("pageshow", onTidyBrowserTopPageShow, true);
+
+  // var browserMM = xulDocument.defaultView.gBrowser.selectedBrowser.messageManager;
+  // browserMM.loadFrameScript("chrome://gifinate/content/frame-script.js", false);
+  // browserMM.addMessageListener("request-gifs", Gifinate.getGifs);
 }
 
 function onUnloadTidyBrowser()
@@ -42,34 +46,26 @@ function onTidyBrowserClicked(event)
 
 function onTidyBrowserCopyHtmlToClipboard()
 {
-  try
-  {
-    const clipboardHelper = Components.classes["@mozilla.org/widget/clipboardhelper;1"].getService(Components.interfaces.nsIClipboardHelper);
-    var html = oTidyBrowser.getHtmlFromCache( window.content.document, false );
-    clipboardHelper.copyString(html);
-  }
-  catch(e)
-  {
-    // do nothing, later code will handle the error
-    dump("Unable to get the clipboard helper\n");
-  }
+  const clipboardHelper = Components.classes["@mozilla.org/widget/clipboardhelper;1"].getService(Components.interfaces.nsIClipboardHelper);
+  var html = oTidyBrowser.getHtmlFromCache( window.content.document, false );
+  clipboardHelper.copyString(html);
 }
 
 function onTidyBrowserCopyErrorToClipboard()
 {
-  try
+/*
+  var browserMM = gBrowser.selectedBrowser.messageManager;
+  browserMM.sendAsyncMessage("TidyBrowser:test", {});
+
+  // chrome script
+  var mm = gBrowser.selectedBrowser.messageManager;
+  mm.loadFrameScript('data:,dump("foo\\n")', true);
+*/
+  if( !oTidyBrowser.isLoading() )
   {
-    if( !oTidyBrowser.isLoading() )
-    {
-      var data = oTidyUtil.getString("serial_result")+"\n----------------------\n"+oTidyBrowser.getErrorList(window.content);
-      const clipboardHelper = Components.classes["@mozilla.org/widget/clipboardhelper;1"].getService(Components.interfaces.nsIClipboardHelper);
-      clipboardHelper.copyString(data);
-    }
-  }
-  catch(e)
-  {
-    // do nothing, later code will handle the error
-    dump("Unable to get the clipboard helper\n");
+    var data = oTidyUtil.getString("serial_result")+"\n----------------------\n"+oTidyBrowser.getErrorList(window.content);
+    const clipboardHelper = Components.classes["@mozilla.org/widget/clipboardhelper;1"].getService(Components.interfaces.nsIClipboardHelper);
+    clipboardHelper.copyString(data);
   }
 }
 
@@ -90,30 +86,28 @@ TidyTabChangeObserver.prototype =
                                   aCurSelfProgress, aMaxSelfProgress,
                                   aCurTotalProgress, aMaxTotalProgress)
   {
-    oTidyUtil.tidy.log( '<JAVASCRIPT>onProgressChange' );
+    oTidyUtil.debug_log( '<JAVASCRIPT>onProgressChange' );
   },
 
   onStateChange : function(aWebProgress, aRequest, aStateFlags, aStatus)
   {
-    oTidyUtil.tidy.log( '<JAVASCRIPT>onStateChange : ' + aWebProgress.isLoadingDocument );
+    var loadingDone = aStateFlags & Components.interfaces.nsIWebProgressListener.STATE_STOP;
+    oTidyUtil.debug_log( '<JAVASCRIPT>onStateChange : loadingDone=' + loadingDone );
   },
 
   onLocationChange : function(aWebProgress, aRequest, aLocation)
   {
     if( aWebProgress)
-    {    
-      oTidyUtil.tidy.log( '<JAVASCRIPT>onLocationChange : ' + aWebProgress.isLoadingDocument );
-      if( aWebProgress.isLoadingDocument==false )
-      {
-        oTidyBrowser.validateFrame( window.content );
-        oTidyBrowser.updateStatusBar();
-      }          
+    {
+      var start = oTidyUtil.debug_start_timer( 'onLocationChange' );
+      oTidyBrowser.updateStatusBar();
+      oTidyUtil.debug_stop_timer( 'onLocationChange' , start );
     }
   },
 
   onStatusChange : function(aWebProgress, aRequest, aStatus, aMessage)
   {
-    oTidyUtil.tidy.log( '<JAVASCRIPT>onStatusChange' );
+    oTidyUtil.debug_log( '<JAVASCRIPT>onStatusChange' );
   },
 
   onSecurityChange : function(aWebProgress, aRequest, aState)
@@ -158,14 +152,14 @@ function onTidyPageLoad( event )
 
   if( oTidyBrowser.bTopLoadBusy==false )
   {
-    oTidyUtil.tidy.log( '<JAVASCRIPT>onTidyPageLoad' );
+    var start = oTidyUtil.debug_start_timer( 'onTidyPageLoad' );
     oTidyBrowser.bTopLoadBusy = true;
     try
     {
       // Validate the 1rst request
       oTidyBrowser.bIgnorePageShow = true;
-      // oTidyBrowser.validateCache( event.originalTarget );
-      oTidyBrowser.validateFrame( window.content );
+      oTidyBrowser.validateCache( event.originalTarget );
+      // oTidyBrowser.validateFrame( window.content );
       // oTidyBrowser.validateCache( subject.document, true );
 
       // Process the events that fired during the 1rst one
@@ -174,8 +168,8 @@ function onTidyPageLoad( event )
       while( doc )
       {
         oTidyBrowser.oEventQueue.clear();
-        oTidyBrowser.validateFrame( window.content );
-        // oTidyBrowser.validateCache( doc, true );
+        // oTidyBrowser.validateFrame( window.content );
+        oTidyBrowser.validateCache( doc, true );
         doc = oTidyBrowser.oEventQueue.pop();
       }
     }
@@ -183,8 +177,8 @@ function onTidyPageLoad( event )
     {
       tidyShowExceptionInConsole( ex );
     }
-    oTidyUtil.tidy.log( '</JAVASCRIPT>onTidyPageLoad' );
     oTidyBrowser.bTopLoadBusy = false;
+    oTidyUtil.debug_stop_timer( 'onTidyPageLoad' , start );
   }
   else
   {
@@ -207,7 +201,7 @@ var tidyEndDocumentLoadObserver =
     }
     else if( oTidyBrowser.bTopLoadBusy==false )
     {
-      oTidyUtil.tidy.log( '<JAVASCRIPT>tidyEndDocumentLoadObserver' );
+      oTidyUtil.debug_log( '<JAVASCRIPT>tidyEndDocumentLoadObserver' );
       oTidyBrowser.bTopLoadBusy = true;
       try
       {
@@ -229,7 +223,7 @@ var tidyEndDocumentLoadObserver =
       {
         tidyShowExceptionInConsole( ex );
       }
-      oTidyUtil.tidy.log( '</JAVASCRIPT>tidyEndDocumentLoadObserver' );
+      oTidyUtil.debug_log( '</JAVASCRIPT>tidyEndDocumentLoadObserver' );
       oTidyBrowser.bTopLoadBusy = false;
     }
     else
@@ -248,7 +242,7 @@ function TidyBrowser()
 {
   try
   {
-    this.initIcon();
+    this.refresh();
   }
   catch(ex)
   {
@@ -266,23 +260,25 @@ TidyBrowser.prototype =
   bTopLoadBusy : false,
 
   /**
-   * initXUL
+   * init
    */
-  initXUL : function()
+  init : function()
   {
-    // checkbox
-    this.xulMenuIconText = document.getElementById('tidy.browser.menu.icon_text');
-    this.xulMenuIconOnly = document.getElementById('tidy.browser.menu.icon_only');
-    this.xulMenuHtmlClipboard = document.getElementById('tidy.browser.menu.html_clipboard');
+	if( this.xulMenuIconText==null )
+	{
+      // checkbox
+      this.xulMenuIconText = document.getElementById('tidy.browser.menu.icon_text');
+      this.xulMenuIconOnly = document.getElementById('tidy.browser.menu.icon_only');
+      this.xulMenuHtmlClipboard = document.getElementById('tidy.browser.menu.html_clipboard');
+    }
   },
 
   /**
-   * initIcon
+   * refresh
    */
-  initIcon : function()
+  refresh : function()
   {
-    this.initXUL();
-
+    this.init();
     this.validateFrame( window.content );
     this.updateStatusBar();
   },
@@ -309,8 +305,6 @@ TidyBrowser.prototype =
     var xulMenuDisableSite2 = document.getElementById('tidy.browser.menu.disable_site2');
     var xulMenuDisable = document.getElementById('tidy.browser.menu.disable');
     var xulMenuDisable2 = document.getElementById('tidy.browser.menu.disable2');
-
-    this.initXUL();
 
     if( !toolbarItem )
     {
@@ -488,7 +482,7 @@ TidyBrowser.prototype =
 
       if( sum.algorithm!=null )
       {
-        oTidyUtil.tidy.log( '<JAVASCRIPT>sum.algorithm: '+ sum.algorithm );
+        oTidyUtil.debug_log( '<JAVASCRIPT>sum.algorithm: '+ sum.algorithm );
         lbl.setAttribute("value", oTidyUtil.getString(sum.algorithm+"_result") );
         vbox2.appendChild(lbl);
       }
@@ -589,12 +583,16 @@ TidyBrowser.prototype =
    */
   isLoading : function()
   {
+	// Bug Firefox 48 ??
+	return false;
+    /*
     var res = document.getElementById("content").mCurrentBrowser.webProgress.isLoadingDocument;
     if( res )
     {
-      oTidyUtil.tidy.log( '<JAVASCRIPT>isLoading = true' );
+      oTidyUtil.debug_log( '<JAVASCRIPT>isLoading = true' );
     }
     return res;
+    */
   },
 
   /** __ getHtmlFromCache __________________________________________________________
@@ -603,7 +601,7 @@ TidyBrowser.prototype =
    */
   getHtmlFromCache : function( doc, safe_call )
   {
-    oTidyUtil.tidy.log( '<JAVASCRIPT>getHtmlFromCache: ' + doc.URL  );
+    oTidyUtil.debug_log( '<JAVASCRIPT>getHtmlFromCache: ' + doc.URL  );
 
     // Cleanup with a lost tidyResult : icon (?)
     var res = doc.tidyResult;
@@ -640,7 +638,7 @@ TidyBrowser.prototype =
     } catch(err) {
       // If nsIWebNavigation cannot be found, just get the one for the whole
       // window...
-      oTidyUtil.tidy.log( 'Exception 1' );
+      oTidyUtil.debug_log( 'Exception 1' );
       webNav = getWebNavigation();
     }
 
@@ -655,7 +653,7 @@ TidyBrowser.prototype =
       if( doc.doctype.publicId=="" )
       {
         // HTML 5
-        oTidyUtil.tidy.log( '</JAVASCRIPT>getHtmlFromCache twitter trick' );
+        oTidyUtil.debug_log( '</JAVASCRIPT>getHtmlFromCache twitter trick' );
         res.bEmpty = false;
         return "<!doctype html>\n";
       }
@@ -672,7 +670,7 @@ TidyBrowser.prototype =
       var shEntry = pageCookie.QueryInterface(Components.interfaces.nsISHEntry);
     } catch(err) {
       // If no page descriptor is available, just use the URL...
-      oTidyUtil.tidy.log( 'Exception 2' );
+      oTidyUtil.debug_log( 'Exception 2' );
     }
 
     ////
@@ -684,6 +682,10 @@ TidyBrowser.prototype =
     var ios = Components.classes["@mozilla.org/network/io-service;1"]
                         .getService(Components.interfaces.nsIIOService);
     var channel = ios.newChannel( url, urlCharset, null );
+    // XXXXXXXXXX
+    // var channel = ios.newChannel2(url, urlCharset, null, null, null,
+	//                            null, Components.interfaces.nsILoadInfo.SEC_NORMAL,
+    //                            Components.interfaces.nsIContentPolicy.TYPE_OTHER);
     channel.loadFlags |= Components.interfaces.nsIRequest.VALIDATE_NEVER;
     channel.loadFlags |= Components.interfaces.nsIRequest.LOAD_FROM_CACHE;
     channel.loadFlags |= Components.interfaces.nsICachingChannel.LOAD_ONLY_FROM_CACHE;
@@ -701,7 +703,7 @@ TidyBrowser.prototype =
     }
     catch(e)
     {
-      oTidyUtil.tidy.log( 'Exception 3' );
+      oTidyUtil.debug_log( 'Exception 3' );
     }
 
     try
@@ -712,7 +714,7 @@ TidyBrowser.prototype =
     }
     catch(e)
     {
-      oTidyUtil.tidy.log( 'Exception 4' );
+      oTidyUtil.debug_log( 'Exception 4' );
     }
 
     var stream = channel.open();
@@ -747,7 +749,7 @@ TidyBrowser.prototype =
       res.bUConvFailed = true;
     }
 
-    oTidyUtil.tidy.log( '</JAVASCRIPT>getHtmlFromCache' );
+    oTidyUtil.debug_log( '</JAVASCRIPT>getHtmlFromCache' );
     return( s2 );
   },
 
@@ -824,15 +826,15 @@ TidyBrowser.prototype =
     }
   },
 
-  /** __ validateCache ______________________________________________________
+  /** __ isValidateAllowed __________________________________________________
    *
-   * Validate only after that the page is fully loaded
    */
-  validateCache : function( doc, safe_call )
+  isValidatePossible : function( doc )
   {
+    // If the page is loading, skip validation
     if( this.isLoading() )
     {
-      return;
+      return false;
     }
 
     if( oTidyUtil.getBoolPref("browser_enable") || oTidyUtil.isPermAllowed(oTidyUtil.getDocURI(doc)) )
@@ -840,27 +842,28 @@ TidyBrowser.prototype =
       // Show some help page
       // - if tidy lib is not found
       // - if it is a new install
-      if( oTidyUtil.tidy==null )
+      if( oTidyUtil.tidyFaqUrl==null )
       {
-        if( oTidyUtil.tidyFaqUrl==null )
+        if( oTidyUtil.tidy==null )
         {
           oTidyUtil.tidyFaqUrl = "http://users.skynet.be/mgueury/mozilla/no_tidy_lib_jsc.html";
           setTimeout(function () {oTidyUtil.showFaq();}, 500);
+          return false;
         }
-        return;
-      }
-      else if( oTidyUtil.bNewInstall && oTidyUtil.tidyFaqUrl==null )
-      {
-        if( oTidyUtil.bUpgrade )
+        else if( oTidyUtil.bNewInstall )
         {
-          oTidyUtil.tidyFaqUrl = "http://users.skynet.be/mgueury/mozilla/new_upgrade4.html";
+          if( oTidyUtil.bUpgrade )
+          {
+            oTidyUtil.tidyFaqUrl = "http://users.skynet.be/mgueury/mozilla/new_upgrade4.html?version="+oTidyUtil.getCharPref( "version" );
+          }
+          else
+          {
+            oTidyUtil.tidyFaqUrl = "http://users.skynet.be/mgueury/mozilla/new_install4.html?version="+oTidyUtil.getCharPref( "version" );
+          }
+          setTimeout(function () {oTidyUtil.showFaq();}, 1000);
+          return false;
         }
-        else
-        {
-          oTidyUtil.tidyFaqUrl = "http://users.skynet.be/mgueury/mozilla/new_install4.html";
-        }
-        setTimeout(function () {oTidyUtil.showFaq();}, 1000);
-        return;
+        oTidyUtil.tidyFaqUrl = "";
       }
       // Check that the toolbarItem is visible
       // This is not perfect but better than validate when not necessary.
@@ -870,38 +873,64 @@ TidyBrowser.prototype =
         if( toolbarItem.collapsed )
         {
           // The code goes probably never here
-          return;
+          return false;
         }
       }
       else
       {
         // Code goes here when the toolbar item is not visible
-        return;
+        return false;
       }
+    }
+    else
+    {
+      // icon is not enabled in the browser
+      return false;
+    }
+    return true;
+  },
 
-      oTidyUtil.tidy.log( '<JAVASCRIPT>validateCache' + doc.URL );
+  /** __ validateCache ______________________________________________________
+   *
+   * Validate only after that the page is fully loaded
+   */
+  validateCache : function( doc, safe_call )
+  {
+    if( this.isValidatePossible( doc ) )
+    {
+      this.validateDoc( doc, safe_call );
+    }
+    this.updateStatusBar();
+  },
 
-      // doc = window.content.document for the main frame
-      if( doc.contentType == "text/html"
-       || doc.contentType == "application/xhtml+xml"
-      )
+
+  /** __ validateDoc ______________________________________________________
+   *
+   * Validate one document
+   */
+  validateDoc : function( doc, safe_call )
+  {
+     oTidyUtil.debug_log( 'validateDoc: ' + doc.URL );
+
+    // doc = window.content.document for the main frame
+    if( doc.contentType == "text/html"
+     || doc.contentType == "application/xhtml+xml"
+    )
+    {
+      var result = this.getResult( doc );
+      if( result!=null )
       {
-        var result = this.getResult( doc );
-        if( result!=null )
+        result.bInDomainList = oTidyUtil.isInDomainList( doc );
+        if( result.bInDomainList )
         {
-          result.bInDomainList = oTidyUtil.isInDomainList( doc );
-          if( result.bInDomainList )
+          var html = this.getHtmlFromCache( doc, safe_call );
+          if( !result.bEmpty && !result.bUConvFailed )
           {
-            var html = this.getHtmlFromCache( doc, safe_call );
-            if( !result.bEmpty && !result.bUConvFailed )
-            {
-              this.validateCacheHtml( html, result );
-            }
+            this.validateCacheHtml( html, result );
           }
         }
       }
     }
-    this.updateStatusBar();
   },
 
   /** __ getNbFrame ______________________________________________________
@@ -924,7 +953,7 @@ TidyBrowser.prototype =
     // Loop through the frames
     var framesList = main_frame.frames;
 
-    oTidyUtil.tidy.log( '<JAVASCRIPT>validateFrame : ' + framesList.length );
+    oTidyUtil.debug_log( '<validateFrame> : ' + framesList.length );
 
     for(var i = 0; i < framesList.length; i++)
     {
@@ -941,13 +970,13 @@ TidyBrowser.prototype =
       }
       else
       {
-         oTidyUtil.tidy.log( 'validateFrame skip : url : ' + main_frame.document.URL + '\n'
+         oTidyUtil.debug_log( 'validateFrame skip : url : ' + main_frame.document.URL + '\n'
                           + '- age : ' + age + 'ms\n'
                           + '- mozAnimationStartTime : ' + main_frame.document.mozAnimationStartTime );
       }
       */
     }
-    oTidyUtil.tidy.log( '</JAVASCRIPT>validateFrame' );
+    oTidyUtil.debug_log( '</validateFrame>' );
   },
 
   /** __ addIconLabelToVbox ______________________________________________________
@@ -1024,7 +1053,7 @@ TidyBrowser.prototype =
     {
       if( framesList[i].document == doc )
       {
-        oTidyUtil.tidy.log( '<JAVASCRIPT>isDocumentFrameOf: '+ (framesList[i].name?framesList[i].name:"-") );
+        oTidyUtil.debug_log( '<JAVASCRIPT>isDocumentFrameOf: '+ (framesList[i].name?framesList[i].name:"-") );
         return true;
       }
       if( this.isDocumentFrameOf( doc, framesList[i] ) )
@@ -1050,7 +1079,7 @@ TidyBrowser.prototype =
     var multi = error.value.split('\n');
     for (var o in multi)
     {
-      row = new TidyResultRow();
+      var row = new TidyResultRow();
       row.parse( res.algorithm, multi[o], 0 );
       if( !row.skip )
       {
@@ -1157,7 +1186,7 @@ TidyBrowser.prototype =
       if( res==0 )
       {
         oTidyUtil.setBoolPref( "browser_enable", true );
-        this.initIcon();
+        this.refresh();
       }
     }
     else
@@ -1198,6 +1227,7 @@ TidyBrowser.prototype =
   {
     try
     {
+      if( doc==null) throw "TryNextOne";
       // Firefox 3.0
       // Deprecated // gViewSourceUtils.openInInternalViewer(spec, pageCookie, doc);
       BrowserViewSourceOfDocument( doc );
@@ -1327,7 +1357,7 @@ TidyBrowser.prototype =
                "",
                "centerscreen,dialog=no,chrome,resizable,dependent,modal"
               );
-    this.initIcon();
+    this.refresh();
   },
 
   /** __ onLinks ______________________________________________________
@@ -1349,7 +1379,7 @@ TidyBrowser.prototype =
   {
     // Values are icon_text, icon_only
     oTidyUtil.setCharPref( "browser_icon", value );
-    this.initIcon();
+    this.refresh();
   },
 
   /** __ onDisable ______________________________________________________
@@ -1357,7 +1387,7 @@ TidyBrowser.prototype =
   onDisable : function()
   {
     oTidyUtil.setBoolPref( "browser_enable", !oTidyUtil.getBoolPref( "browser_enable" ) );
-    this.initIcon();
+    this.refresh();
   },
 
   /** __ onDisableSite ______________________________________________________
@@ -1366,7 +1396,7 @@ TidyBrowser.prototype =
   {
     oTidyUtil.addPermList( oTidyUtil.getDocURI(window.content.document) );
     oTidyUtil.permDialog();
-    this.initIcon();
+    this.refresh();
   },
 
   /** __ changeParser ______________________________________________________
@@ -1482,11 +1512,11 @@ function onTidyBrowserTopLoad( event )
 {
   if( oTidyBrowser==null )
   {
+	var start = oTidyUtil.debug_start_timer( 'onTidyBrowserTopLoad' );
+
     oTidyBrowser = new TidyBrowser();
     if( oTidyTabChangeObserver==null )
     {
-      oTidyUtil.tidy.log( '<JAVASCRIPT>onTidyBrowserTopLoad' );
-
       oTidyTabChangeObserver = new TidyTabChangeObserver();
       var main_frame = document.getElementById("content");
       main_frame.addProgressListener(oTidyTabChangeObserver);
@@ -1496,6 +1526,7 @@ function onTidyBrowserTopLoad( event )
       // oObsInterface.addObserver(tidyEndDocumentLoadObserver, "EndDocumentLoad", false);
       gBrowser.addEventListener("load", onTidyPageLoad, true);
     }
+    oTidyUtil.debug_stop_timer( 'onTidyBrowserTopPageShow' , start );
   }
 }
 
@@ -1507,7 +1538,7 @@ function onTidyBrowserTopPageShow( event )
 {
   try
   {
-     oTidyUtil.tidy.log( '<JAVASCRIPT>onTidyBrowserTopPageShow' );
+    var start = oTidyUtil.debug_start_timer( 'onTidyBrowserTopPageShow' );
 
     if( !oTidyBrowser.bIgnorePageShow )
     {
@@ -1516,6 +1547,8 @@ function onTidyBrowserTopPageShow( event )
       onTidyBrowserTopLoad( event );
     }
     oTidyBrowser.bIgnorePageShow = false;
+
+    oTidyUtil.debug_stop_timer( 'onTidyBrowserTopPageShow' , start );
   }
   catch(ex)
   {}

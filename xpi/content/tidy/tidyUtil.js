@@ -51,7 +51,7 @@ function tidyUtilOpenUrl2(url)
 
 function tidyShowExceptionInConsole( ex )
 {
-  Components.utils.import("resource://gre/modules/devtools/Console.jsm");
+  Components.utils.import("resource://gre/modules/Console.jsm");
   console.error("Tidy Exception: ", ex, " / Stack: ", ex.stack );
 }
 
@@ -162,7 +162,7 @@ function TidyUtil()
   // 2) ideally the HTML validator should work with View Source Tab too (this will probably brake fast)
   var view_source_branch = pref_service.getBranch("view_source.");
   view_source_branch.setBoolPref( "syntax_highlight", true );
-  view_source_branch.setBoolPref( "wrap_long_lines", false );
+  // view_source_branch.setBoolPref( "wrap_long_lines", false );
   view_source_branch.setBoolPref( "tab", false );
 
   // Check if the preferences exists
@@ -219,7 +219,8 @@ function TidyUtil()
       var PERMS_DIRECTORY = parseInt("0755", 8);
       file.create(Components.interfaces.nsIFile.DIRECTORY_TYPE, PERMS_DIRECTORY);
     }
-    this.tidy.initDiagLog( file.path, this.getBoolPref("debug") );
+    this.debug = this.getBoolPref("debug");
+    this.tidy.initDiagLog( file.path, this.debug );
     this.tidy.getLibraryVersion( libraryVersion );
     this.tidy.log( "Library version: " + libraryVersion.value );
 
@@ -248,6 +249,7 @@ TidyUtil.prototype =
 {
   branch          : null,
   tidy            : null,
+  debug           : false,
   filterArrayTidy : null,
   filterArraySP   : null,
   filterArrayOnline : null,
@@ -258,15 +260,30 @@ TidyUtil.prototype =
   bNewInstall     : false,
   bUpgrade        : false,
   bTranslation    : false,
+  iTotalTimer     : 0,
 
   isNewInstall : function()
   {
     try
     {
       var prefVersion = this.getCharPref( "version" );
-      var curVersion = "0.964";
-      if (curVersion > prefVersion)
+      // get extension version
+      // Firefox 4 and later; Mozilla 2 and later
+      var curVersion = null;
+      Components.utils.import("resource://gre/modules/AddonManager.jsm");
+      AddonManager.getAddonByID(tidyExtensionGUID, function(addon) {
+		  curVersion = addon.version;
+	     });
+	  // XXXXXXXXXX I should improve this
+      var thread = Cc["@mozilla.org/thread-manager;1"].getService().currentThread;
+      while (curVersion == null)
+        thread.processNextEvent(true);
+
+      this.debug_log('<isNewInstall>Current version: ' + curVersion );
+
+      if( curVersion.localeCompare(prefVersion) )
       {
+		//  The 2 version are different
         this.setCharPref("version", curVersion);
         return true;
       }
@@ -620,6 +637,41 @@ TidyUtil.prototype =
        .getInterface(Components.interfaces.nsISelectionDisplay)
        .QueryInterface(nsISelectionController);
     selCon.setDisplaySelection(nsISelectionController.SELECTION_ON);
+  },
+
+  /** __ debug_log  ___________________________________________________________
+   */
+  debug_log : function(s)
+  {
+	if( this.debug )
+	{
+      console.log( '<TidyDebugLog>' + s );
+      oTidyUtil.tidy.log( s );
+    }
+  },
+
+  /** __ debug_start_timer  ___________________________________________________________
+   */
+  debug_start_timer : function(title)
+  {
+	if( this.debug )
+	{
+	  this.debug_log('<TIMER> ' + title);
+      return new Date().getTime();
+    }
+  },
+
+  /** __ debug_stop_timer  ___________________________________________________________
+   */
+  debug_stop_timer : function(title, start)
+  {
+	if( this.debug )
+	{
+      var stop = new Date().getTime();
+      var time = stop - start;
+      this.iTotalTimer = this.iTotalTimer + time;
+      this.debug_log('</TIMER> ' + title + ': Execution time: ' + time + ' / total: ' + this.iTotalTimer );
+    }
   },
 
   /** __ cleanupDialog ___________________________________________________________

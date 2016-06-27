@@ -4,8 +4,9 @@
 #   - 11/11/2004 creation
 #
 
-export OLD_VERSION=0.9.6.5
-export NEW_VERSION=0.9.6.6
+# export OLD_VERSION=0.9.7.3.beta
+export OLD_VERSION=0.9.7.3.beta
+export NEW_VERSION=0.9.7.3
 
 export OLD_HTMLPEDIA="Htmlpedia 2007-06-16"
 export NEW_HTMLPEDIA="Htmlpedia 2010-01-23"
