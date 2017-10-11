@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Accessibilité&nbsp;1.1.8.1</title>
+    <link rel="stylesheet" type="text/css" href="tidy_help2.css" media="screen, projection"/>
+  </head>
+  <body>
+    <div id="bodyContent">
+      <h2> Accessibilité&nbsp;: [1.1.8.1]&nbsp;: 'longdesc' nécessaire pour <code>&lt;frame&gt;</code>.</h2>
+      <p class="priorite">Priorité 1</p>
+      <h3> Cause&nbsp;: </h3>
+      <p>Si une frame ne peut pas être correctement décrite dans sont titre, il faut inclure l'attribut "longdesc" dans la frame pour indiquer un lien vers une information supplémentaire. L'attribut "longdesc" peut aussi être utile pour expliquer la relation entre les différentes frames.
+      </p>
+      <h3> Exemple&nbsp;: </h3>
+        <table class='good' title='Good'>
+          <tr>
+            <td width='22' valign='top'>
+              <img src='../../../skin/good.png' alt='Good'/>
+            </td>
+            <td>
+              <pre><code>&lt;frameset rows="100,200"&gt;   &lt;frame src="TableData.htm"&gt;   &lt;frame src="TableLayout.htm" title="this frame title" longdesc="tl.htm"&gt;   &lt;frame src="TableLayout2.htm" title="this frame title" longdesc="tl2.htm"&gt;&lt;/frameset&gt;</code></pre>
+            </td>            
+          </tr>
+        </table>
+
+      <h3> Solution&nbsp;: </h3>
+      <p>Utilisez l'attribut "longdesc" pour indiquer un lien vers une information supplémentaire.
+      </p>
+      <h3> Références&nbsp;: </h3>
+      <ul>
+        <li> W3C WAI&nbsp;: <a href="http://www.w3.org/WAI/">http://www.w3.org/WAI/</a>
+        </li>
+        <li> Techniques HTML pour le WAI 1.0: <a href="http://www.w3.org/TR/WCAG10-HTML-TECHS/">http://www.w3.org/TR/WCAG10-HTML-TECHS/</a>
+        </li>
+      </ul>
+      <p>.
+      </p>
+    </div>
+  </body>
+</html>

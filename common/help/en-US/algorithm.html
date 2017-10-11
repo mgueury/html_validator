@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<title>Choose algorithm</title>
+	<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+	<link rel="stylesheet" type="text/css" href="tidy_help.css" charset="utf-8" />
+	<style type="text/css">
+		table {
+			width: 97%;
+			margin: 25px auto;
+		}
+		th, td {
+			text-align: left;
+			vertical-align: top;
+			padding: 2px 5px;
+		}
+		.light {
+			background-color: #ddd;
+		}
+		.gray {
+			background-color: #ccc;
+		}
+	</style>
+</head>
+<body>
+	<h1>Choose your algorithm</h1>
+	<p>
+		W3C has written 2 programs algorithms to
+		check the compliancy of a HTML page.<br />
+		Both algorithms are included in HTML Validator for Firefox.
+		Both have advantages and incovenients.
+	</p>
+
+	<table><tr>
+		<th></th>
+		<th><img alt="tidy" src="chrome://tidy/skin/tidy_logo_big.png" /><br />HTML Tidy</th>
+		<th><img alt="sgml" src="chrome://tidy/skin/sp_logo_big.png" /><br />SGML Parser (OpenSP)</th>
+	</tr><tr class="light">
+		<th>Description</th>
+		<td>It is an algorithm designed only for checking the HTML syntax.</td>
+		<td>It is the same algorithm running behind the validator.w3.org</td>
+	</tr><tr class="gray">
+		<th>Better for</th>
+		<td>HTML</td>
+		<td>XHTML</td>
+	</tr><tr class="light">
+		<th>Accessibility check <img alt="a" src="chrome://tidy/skin/access.png" /></th>
+		<td>WAI level 1,2,3</td>
+		<td>-</td>
+	</tr><tr class="gray">
+		<th>Cleanup page</th>
+		<td>Yes</td>
+		<td>-</td>
+	</tr><tr class="light">
+		<th>Good help</th>
+		<td>Yes</td>
+		<td>No (Todo)</td>
+	</tr><tr class="gray">
+		<th>Clear error messages</th>
+		<td>Yes</td>
+		<td>No</td>
+	</tr><tr class="light">
+		<th>Same errors than the validator.w3.org</th>
+		<td>No</td>
+		<td>Yes</td>
+	</tr><tr class="gray">
+		<th>Target Audience</th>
+		<td>Beginner</td>
+		<td>Professional</td>
+	</tr>
+    <tr>
+      <td></td>
+      <td><br/>
+      <input value="HTML Tidy" name="tidy" type="button"/></td>
+      <td><br/>
+      <input value="SGML Parser" name="SGML" type="button"/></td>
+    </tr>
+        </table>
+
+</body></html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Accessibilité [9.3.1.4]</title>
+    <link rel="stylesheet" type="text/css" href="tidy_help2.css" media="screen, projection"/>
+  </head>
+  <body>
+    <div id="bodyContent">
+      <h2> Accessibilité&nbsp;: [9.3.1.4]&nbsp;: <code>&lt;script&gt;</code> inaccessible au clavier (<code>onMouseOver</code>)</h2>
+      <p class="priorite">Priorité 2</p>
+      <h3> Cause&nbsp;: </h3>
+      <p>Vous avez utilisé une portion de script qui est activée par la souris uniquement.
+      </p>
+      <h3> Exemple&nbsp;: </h3>
+        <table class='bad' title='Bad'>
+          <tr>
+            <td width='22' valign='top'>
+              <img src='../../../skin/error.png' alt='Error'/>
+            </td>
+            <td>
+		<code>
+		&lt;p onMouseOver="Blabla"&gt;&lt;/p&gt;<br />
+		</code>
+          </td>
+          </tr>
+        </table>
+
+      <h3> Solution&nbsp;: </h3>
+      <p>Incluez toujours un équivalent au clavier avec un gestionnaire d'évènements comme la souris. Évitez d'utiliser des gestionnaires d'évènements dépendants de la souris dès que cela exclut une saisie indépendante de l'interface. Les scripts acceptant la saisie au clavier sont généralement accessibles aux personnes utilisant des entrées à la voix ou une interface en ligne de commande.
+      </p>
+      <h3> Références&nbsp;: </h3>
+      <ul>
+        <li> W3C WAI&nbsp;: <a href="http://www.w3.org/WAI/">http://www.w3.org/WAI/</a>
+        </li>
+        <li> Techniques HTML pour le WAI 1.0: <a href="http://www.w3.org/TR/WCAG10-HTML-TECHS/">http://www.w3.org/TR/WCAG10-HTML-TECHS/</a>
+        </li>
+      </ul>
+      <p>.
+      </p>
+    </div>
+  </body>
+</html>

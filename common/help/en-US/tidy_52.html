@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Tidy 52 - Htmlpedia</title>
+    <link rel="stylesheet" type="text/css" href="tidy_help2.css" media="screen, projection"/>
+  </head>
+<body>
+  <div id="bodyContent">
+<h2> &lt;...&gt; missing &gt; for end of tag </h2>
+<h3> Cause: </h3>
+<p>The cause may be one of the following two:
+</p>
+<ol>
+<li>The tag of one element in your code may be written incorrectly.<br />
+Every valid element may be used at the appropriate places within an HTML document.<br />
+The correct syntax for this is "&lt;element-name&gt;content&lt;/element-name&gt;".<br />
+"&lt;element-name&gt;" and "&lt;/element-name&gt;" are called tag. The tag requires
+the two special characters "&lt;" and "&gt;" to be a tag.</li>
+<li>You may have not escaped a special character with an entity.<br />
+Since those two special characters are only used for tags in HTML,
+they must be escaped or replaced by the respective entities.</li>
+</ol>
+<h3> Examples: </h3>
+<p>&lt;p&gt; missing &gt; for end of tag<br />
+As described above, each tag requires a closing "&gt;".
+</p>
+<table class='bad' title='Bad'><tr><td width='22' valign='top'><img src='../../../skin/error.png' alt='Good'/></td><td>&lt;p some text&lt;/p&gt;</td></tr></table> 
+<table class='good' title='Good'><tr><td width='22' valign='top'><img src='../../../skin/good.png' alt='Good'/></td><td>&lt;p&gt;some text&lt;/p&gt;</td></tr></table>
+<p><br />
+</p><p>&lt;p&gt; missing &gt; for end of tag<br />
+Use entities for special characters.
+</p>
+<table class='bad' title='Bad'><tr><td width='22' valign='top'><img src='../../../skin/error.png' alt='Good'/></td><td>This is only the case for 0&lt;p, because of some reasons.</td></tr></table> 
+<table class='good' title='Good'><tr><td width='22' valign='top'><img src='../../../skin/good.png' alt='Good'/></td><td>This is only the case for 0&amp;lt;p, because of some reasons.</td></tr></table>
+<p><br />
+</p>
+<h3> Solution: </h3>
+<p>Insert missing "&gt;"<br />
+Replace "&lt;" with "&amp;lt;".
+</p>
+<h3> References: </h3>
+<ul><li> W3C spec on SGML elements and tags: <a href="http://www.w3.org/TR/html4/intro/sgmltut.html#h-3.2.1">http://www.w3.org/TR/html4/intro/sgmltut.html#h-3.2.1</a>
+</li><li> W3C spec on character references: <a href="http://www.w3.org/TR/html4/intro/sgmltut.html#h-3.2.3">http://www.w3.org/TR/html4/intro/sgmltut.html#h-3.2.3</a>
+</li></ul>
+  </div>
+</body>
+</html>

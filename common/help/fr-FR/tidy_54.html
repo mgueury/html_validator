@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Aide de tidy - Tidy [54]</title>
+    <link rel="stylesheet" type="text/css" href="tidy_help2.css" media="screen, projection"/>
+  </head>
+  <body>
+    <div id="bodyContent">
+      <h2> Aide de tidy - Tidy [54]&nbsp;: la valeur de l'attribut <code>...</code> est une valeur propriétaire</h2>
+      <h3> Cause&nbsp;: </h3>
+      <p>L'attribut est affecté d'une valeur non-reconnue par le W3C, qui est interprétée comme une valeur d'attribut propriétaire de Netscape ou Internet Explorer.
+      </p>
+      <h3> Exemple&nbsp;: </h3>
+        <table class='bad' title='Bad'>
+          <tr>
+            <td width='22' valign='top'>
+              <img src='../../../skin/error.png' alt='Error'/>
+            </td>
+            <td>
+              <code>
+                &lt;img src="hello.gif" alt="hello" align="absmiddle"/&gt;
+              </code>
+            </td>
+          </tr>
+        </table>
+        <table class='good' title='Good'>
+          <tr>
+            <td width='22' valign='top'>
+              <img src='../../../skin/good.png' alt='Good'/>
+            </td>
+            <td>
+              <code>
+                &lt;img src="hello.gif" alt="hello" align="middle"/&gt;
+              </code>
+            </td>            
+          </tr>
+        </table>
+	Remarque:"middle" et "absmiddle" n'ont pas exactement le même comportement. Il existe un mécanisme CSS plus élaboré pour rendre exactement ce que fait "absmiddle".
+      <h3> Solution&nbsp;: </h3>
+      <p>Utilisez le mécanisme standard équivalent s'il existe.
+      </p>
+      <h3> Références&nbsp;: </h3>
+      <ul>
+        <li> <acronym title="HyperText Markup Language">HTML</acronym> spécification : <a href="http://www.la-grange.net/w3c/html4.01/">(fr)</a> | <a href="http://www.w3.org/TR/html4/" hreflang="en-US">(en)</a>
+        </li>
+        <li><a href="http://www.w3.org/TR/html4/index/attributes.html" hreflang="en-US"> Les attributs standards W3C (en)</a>
+        </li>
+      </ul>
+      <p>.
+      </p>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<!-- *************************************************************************
+  HTML Validator
+  Author : Marc Gueury
+  Licence : see licence.txt
+************************************************************************** -->
+
+<html lang="en">
+
+<head>
+  <title>Html Validator - Options</title>
+  <link rel="stylesheet" title="Default" href="../skin/highlight-skin.css">
+  <link rel="stylesheet" href="tidy.css">
+</head>
+
+<body>
+  <div style="margin:20px">
+    <h2>Html Validator - Options</h2>
+    <input id="tidy.options.ok" type="button" style="float:right" value="OK">
+    <h3>General</h3>
+    <span class="label">Algorithm</span>
+    <select id="tidy.options.algorithm">
+              <option value="tidy">Tidy</option>
+              <option value="sp">SGML Parser</option>
+              <option value="serial">Serial</option>
+              <option value="online">Online</option>
+    </select>
+    <input type="button" id="tidy.options.welcome" value="Choose...">
+    <br>
+    <span class="label">Accessibility Level</span>
+    <select id="tidy.options.accessibility-check">
+              <option value="-1">None</option>
+              <option value="0">Normal</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+    </select>
+    <br>
+    <h3>Browser</h3>
+    <span class="label"><input type="checkbox" id="tidy.options.browser_enable">Enable validation in the Browser</span>
+    <input type="button" id="tidy.options.perm_list" value="Exceptions...">
+    <br>
+    <span class="label">Show in status-bar</span>
+    <select id="tidy.options.browser_icon">
+              <option value="icon_text">Icon and Text</option>
+              <option value="icon_only">Icon Only</option>
+    </select>
+    <br>
+    <span class="label">Double-click the status-bar icon starts:</span>
+    <select id="tidy.options.dbclick_action">
+              <option value="viewsource">Page Source...</option>
+              <option value="cleanup">Cleanup...</option>
+    </select>
+    <br>
+    <h3>View Source</h3>
+    <input type="checkbox" id="tidy.options.viewsource_enable"><span class="label">Enable Validation in the view source</span>
+    <br>
+    <input type="checkbox" id="tidy.options.highlight_line"><span class="label">Highlight lines with errors</span>
+    <br>
+    <input type="checkbox" id="tidy.options.show_line_number"><span class="label">Show line numbers</span>
+    <br>
+    <input type="checkbox" id="tidy.options.show-warnings"><span class="label">Show warnings</span>
+    <br>
+    <h3>Filter</h3> Hidden Errors and Warnings<br>
+    <table>
+      <tr>
+        <td>
+          <select id="tidy.options.filter.list.hide" size="7" style="width: 600px"></select>
+        </td>
+        <td style="vertical-align: top"><input type="button" id="tidy.options.filter.remove" value="Remove"></td>
+      </tr>
+    </table>
+
+    <!-- The Modal -->
+    <div id="tidy.welcome.modal" class="modal" style="z-index: 2">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <iframe style="height: 100%; width: 100%" src="tidy_welcome.html">options</iframe>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="tidy_emscripten.js"></script>
+  <script type="text/javascript" src="tidy_lib.js"></script>
+  <script type="text/javascript" src="tidy_platform_fake.js"></script>
+  <script type="text/javascript" src="tidy_util.js"></script>
+  <script type="text/javascript" src="tidy_option.js"></script>
+</body>
+
+</html>

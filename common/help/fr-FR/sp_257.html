@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Sp 257 - Htmlpedia</title>
+    <link rel="stylesheet" type="text/css" href="tidy_help2.css" media="screen, projection"/>
+  </head>
+  <body>
+    <div id="bodyContent">
+      <h2> Sp 257&nbsp;: Une valorisation d'attribut doit consister en une affectation</h2>
+      <h3> Cause&nbsp;: </h3>
+      <p>Une valeur d'attribut n'est pas entre guillemets. Avec les versions antécédentes de HTML, le recours aux guillemets pour encadrer les valeurs d'attributs était conseillé, mais pas obligatoire. Toujours selon les règles de XML, l'utilisation des guillemets n'est plus une proposition, mais bien une obligation
+      </p>
+      <h3> Exemple&nbsp;: </h3>
+        <table class='bad' title='Bad'>
+          <tr>
+            <td width='22' valign='top'>
+              <img src='../../../skin/error.png' alt='Error'/>
+            </td>
+            <td>
+              <code>
+                &lt;p class=foo&gt;
+              </code>
+            </td>
+          </tr>
+        </table>
+        
+        <table class='bad' title='Bad'>
+          <tr>
+            <td width='22' valign='top'>
+              <img src='../../../skin/error.png' alt='Error'/>
+            </td>
+            <td>
+              <code>
+                &lt;img height=92 …&gt;
+              </code>
+            </td>
+          </tr>
+        </table>        
+        
+        <table class='good' title='Good'>
+          <tr>
+            <td width='22' valign='top'>
+              <img src='../../../skin/good.png' alt='Good'/>
+            </td>
+            <td>
+              <code>
+                &lt;p class="foo"&gt;
+              </code>
+            </td>            
+          </tr>
+        </table>
+
+        <table class='good' title='Good'>
+          <tr>
+            <td width='22' valign='top'>
+              <img src='../../../skin/good.png' alt='Good'/>
+            </td>
+            <td>
+              <code>
+                &lt;img height="92" …&gt;
+              </code>
+            </td>            
+          </tr>
+        </table>
+
+      <h3> Solution&nbsp;: </h3>
+      <p>Placer toutes les valeurs d'attributs entre guillemets.
+      </p>
+      <h3> Références&nbsp;: </h3>
+      <ul>
+        <li> <a href="http://www.w3.org/TR/html/#h-4.4" class="external text" title="http://www.w3.org/TR/html/#h-4.4" rel="nofollow">Spécification XHTML 1.0&nbsp;: Section 4.4: Les valeurs d'attribut doivent toujours être entre guillemets (en anglais)</a>
+        </li>
+        <li><a href="http://www.w3.org/TR/REC-html40/intro/sgmltut.html#h-3.2.2" class="external text" title="http://www.w3.org/TR/REC-html40/intro/sgmltut.html#h-3.2.2" rel="nofollow">Spécification HTML&nbsp;:Section sur les attributs (en anglais)</a>
+        </li>
+      </ul>
+      <p>.
+      </p>
+    </div>
+  </body>
+</html>

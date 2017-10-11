@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+  <head>
+    <script src='tidy_emscripten.js' type="text/javascript">
+    </script>
+    <title>call_tidy</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+        var report = "";
+        var _writeReport = function(data) {
+          var s = String.fromCharCode(data);
+          report += s;
+          // console.log('_writeReport: ' +s );
+        }
+        FS.init(function() {
+          return null;
+        }, _writeReport, _writeReport);
+        shouldRunNow = false;
+        // Module.run(['input.html']);
+        // Module.doRun();
+
+        // console.log('Tidy executed');
+        // FS.unlink('/input.html');
+        // console.log('File deleted');
+
+        function validate_html( html )
+        {
+        	report = "";
+			FS.createDataFile('/', 'input.html', html, true, true);
+			console.log('File created');
+		    var args = ['-qe','input.html'];
+		   	Module.callMain( args );
+
+		    var h3 = document.createElement("H3");
+		    var t = document.createTextNode( "result" );
+		    h3.appendChild(t);
+		    document.body.appendChild(h3);
+		    var pre = document.createElement("PRE");
+		    var t = document.createTextNode( report );
+		    pre.appendChild(t);
+		    document.body.appendChild(pre);
+		    console.log('--');
+		    console.log( report );
+		    console.log('--');
+            FS.unlink('/input.html');
+        }
+
+	    setTimeout(function(){
+	      validate_html( '<html><title>hello</title></abc><body></body>' );
+	      validate_html( '<html><title>hello</title></abc2><body></body>' );
+	      validate_html( '<html><title>hello</title></abc3><body></body>' );
+	    }, 2000);
+
+
+
+        </script>
+    </script>
+  </body>
+</html>
+

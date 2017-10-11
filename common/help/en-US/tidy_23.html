@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Tidy 23 - Htmlpedia</title>
+    <link rel="stylesheet" type="text/css" href="tidy_help2.css" media="screen, projection"/>
+  </head>
+<body>
+  <div id="bodyContent">
+<h2> Trimming Empty Tag </h2>
+<h3> Cause: </h3>
+<p>An element is empty or only contains white space (newlines, spaces, or tabs). This issue may be the side effect of a tag being implicitly closed by another.
+</p>
+<h3> Example: </h3>
+<table class='bad' title='Bad'><tr><td width='22' valign='top'><img src='../../../skin/error.png' alt='Good'/></td><td>&lt;p>&lt;/p></td></tr></table>
+<table class='bad' title='Bad'><tr><td width='22' valign='top'><img src='../../../skin/error.png' alt='Good'/></td><td>&lt;p> &lt;/p></td></tr></table>
+<table class='bad' title='Bad'><tr><td width='22' valign='top'><img src='../../../skin/error.png' alt='Good'/></td><td>&lt;p><br/>
+&lt;/p></td></tr></table> 
+<table class='bad' title='Bad'><tr><td width='22' valign='top'><img src='../../../skin/error.png' alt='Good'/></td><td>&lt;p>&lt;table><var>…</var>&lt;/p></td></tr></table>
+<table class='good' title='Good'><tr><td width='22' valign='top'><img src='../../../skin/good.png' alt='Good'/></td><td>&lt;p>This is a paragraph.&lt;/p></td></tr></table>
+<p>The second-to-last example is of a paragraph tag being implicitly closed by the appearance of another block-level element (in this case, a table) since paragraphs can’t contain other block-level elements. As a result, the paragraph element is empty and its intended end tag (after the table) is orphaned, causing an error.
+</p><p>Note also that the HTML 4.01 Specification discourages the use of empty paragraph elements.
+</p>
+<h3> Solution: </h3>
+<ul><li> Remove the tag or type some text in it.
+</li><li> If the element is being reserved for dynamically generated script content, insert the element via scripting instead.
+</li></ul>
+<h3> References: </h3>
+<ul><li><a href="http://www.w3.org/TR/html401/struct/text.html#edef-P">HTML 4.01 Specification: Section 9.3.1 Paragraphs: the <code>P</code> element</a>
+</li></ul>
+  </div>
+</body>
+</html>

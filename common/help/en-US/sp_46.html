@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Sp 46 - Htmlpedia</title>
+    <link rel="stylesheet" type="text/css" href="tidy_help2.css" media="screen, projection"/>
+  </head>
+<body>
+  <div id="bodyContent">
+<h2> Character not allowed in prolog </h2>
+<h3> Cause: </h3>
+<p>The document prolog contains impermissible characters.
+</p>
+<h3> Example: </h3>
+<table class='bad' title='Bad'><tr><td width='22' valign='top'><img src='../../../skin/error.png' alt='Good'/></td><td>
+<p>This text throws one error for each character
+&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;
+</p>
+</td></tr></table>
+<p><br />
+</p>
+<table class='good' title='Good'><tr><td width='22' valign='top'><img src='../../../skin/good.png' alt='Good'/></td><td>
+<p>&lt;!-- Comments and whitespace are okay. --&gt;
+</p><p>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;
+</p>
+</td></tr></table>
+<table class='good' title='Good'><tr><td width='22' valign='top'><img src='../../../skin/good.png' alt='Good'/></td><td>
+<p>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;
+</p>
+</td></tr></table>
+<h3> Solution: </h3>
+<p>Remove the illegal characters.
+</p><p>The "document prolog" is everything that comes before the doctype declaration at the beginning of an HTML or XML document.  In general, you should not put anything at all into the prolog.  
+</p><p>There are some exceptions.
+</p>
+<ul><li> It's okay to put whitespace characters (space, carriage return, linefeed, tab) into the prolog.
+</li><li> HTML-style comments are okay too.
+</li><li> An XML declaration such as the one in the in the third example is valid.
+</li></ul>
+<p>However, it's best to avoid even these, due to some bugs in Internet Explorer.
+</p>
+<ul><li> If there are any characters at all in the prolog of an HTML document, Internet Explorer will render the page in <a href="/w/index.php?title=Quirks_Mode&amp;action=edit" class="new">Quirks Mode</a> instead of <a href="/w/index.php?title=Standards_Mode&amp;action=edit" class="new">Standards Mode</a>, which will change the appearance of the page.
+</li><li> On a related note, if your web server sends "Content-Type: application/xhtml+xml" to Internet Explorer, then Internet Explorer will not render the page at all.  
+</li></ul>
+<p>Occasionally you may run into a situation in which the validator complains about characters in the prolog which do not appear in your preferred text editor.  These characters, which appear as the characters ï»¿ when you view the source from a browser, are a Byte Order Mark.  In documents encoded using the UTF-16 character encoding format, the Byte Order Mark specifies which digit in a given byte is most important.  When improperly applied to documents encoded in UTF-8, however, the Byte Order Mark causes the validation error that brought you to this page.  Many common text editors, including Notepad, silently add a BOM to documents that are encoded in UTF-8.  In order to remove the BOM, you may need to use a hex editor.
+</p>
+<h3> References: </h3>
+<ul><li> W3C slide on XML declarations: <a href="http://www.w3.org/International/tutorials/tutorial-char-enc/en/slides/Slide0210.html">http://www.w3.org/International/tutorials/tutorial-char-enc/en/slides/Slide0210.html</a>
+</li><li> Roger Johansson on Content Negotiation: <a href="http://www.456bereastreet.com/archive/200408/content_negotiation/">http://www.456bereastreet.com/archive/200408/content_negotiation/</a> 
+</li><li> Wikipedia on the Byte Order Mark: <a href="http://en.wikipedia.org/wiki/Byte_Order_Mark">http://en.wikipedia.org/wiki/Byte_Order_Mark</a>
+</li><li> Wikipedia on hex editors: <a href="http://en.wikipedia.org/wiki/Hex_editor">http://en.wikipedia.org/wiki/Hex_editor</a>
+</li><li> W3 validator: <a href="http://validator.w3.org/">http://validator.w3.org/</a>
+</li></ul>
+  </div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Tidy 50 - Htmlpedia</title>
+    <link rel="stylesheet" type="text/css" href="tidy_help2.css" media="screen, projection"/>
+  </head>
+<body>
+  <div id="bodyContent">
+<h2> ... attribute ... lacks value </h2>
+<h3> Cause: </h3>
+<p>This is an error show when an attribute contained in a tag does not contain a value and that a value was expected.
+Or this can also be due to syntax error in the  HTML tag.
+</p>
+<h3> Example: </h3>
+<p>&lt;a&gt; attribute href lacks value
+</p>
+<table class='bad' title='Bad'><tr><td width='22' valign='top'><img src='../../../skin/error.png' alt='Good'/></td><td>&lt;a href&gt;My Link&lt;/a&gt;</td></tr></table>
+<table class='good' title='Good'><tr><td width='22' valign='top'><img src='../../../skin/good.png' alt='Good'/></td><td>&lt;a href="my_link.html"&gt;My Link&lt;/a&gt;</td></tr></table>
+<h3> Solution: </h3>
+<p>Check the <a href="http://www.w3.org/TR/html4/index/attributes.html">definition of the attribute</a>.
+Give a value to the tag or correct the wrong/unknown tag.
+</p>
+<h3> References: </h3>
+<ul><li> W3C: <a href="http://www.w3.org/TR/html4/index/attributes.html">http://www.w3.org/TR/html4/index/attributes.html</a>
+</li></ul>
+  </div>
+</body>
+</html>

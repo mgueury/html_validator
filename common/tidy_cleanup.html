@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Html Validator - Cleanup</title>
+  <link rel="stylesheet" title="Default" href="../skin/highlight-skin.css">
+  <link rel="stylesheet" href="tidy.css">
+</head>
+
+<body>
+  <img id="tidy.cleanup.ok" src="../skin/close_24.png"> 
+  <div id="tidy_cleanup_tab">
+    <ul class="tabrow">
+      <li id="tab_clean" class="selected"><a id="tidy_tab_source" href="#">Cleaned HTML</a></li>
+      <li id="tab_orig"><a id="tidy_tab_orig" href="#">Original HTML</a></li>
+    </ul>
+    <div id="tidy.cleanup.tabpanels">
+      &nbsp;<input type="button" id="tidy_clipboard" value="Copy HTML to clipboard"><br>
+      <div id="tidy.cleanup.clean.source">
+        <div class="source_line">
+          <pre><code id="source_line_pre"></code></pre>
+        </div>
+        <div id="source_code">
+          <pre><code id="source_code_pre"></code></pre>
+        </div>
+      </div>
+    </div>
+
+    <div id="tidy.cleanup.orig.source" style="display: none">
+      <div class="source_line">
+        <pre><code id="orig_source_line_pre"></code></pre>
+      </div>
+      <div id="orig_source_code">
+        <pre><code id="orig_source_code_pre"></code></pre>
+      </div>
+    </div>
+
+  </div>
+  <div id="tidy_cleanup_sidebar">
+    <h3>Options: layout</h3>
+    <span class="label"><input type="checkbox" id="tidy.options.indent" >Indent element content</span>
+    <br>
+    <span class="label">Indentation spaces <input type="text" id="tidy.options.indent-spaces" cols="5"></span>
+    <br>
+    <span class="label"><input type="checkbox" id="tidy.options.uppercase-tags" >Tags in uppercase</span>
+    <br>
+    <span class="label"><input type="checkbox" id="tidy.options.uppercase-attributes" >Attributes in uppercase</span>
+    <br>
+    <span class="label">Wrap after <input type="text" id="tidy.options.wrap" cols="5"> characters</span>
+    <br>
+
+    <h3>Options: format</h3>
+    <span class="label">Force output to</span>
+    <select id="tidy.options.force_output">
+              <option value="-">None</option>
+              <option value="html">html</option>
+              <option value="xhtml">xhtml</option>
+    </select>
+    <br>
+    <span class="label">Character Encoding</span>
+    <select id="tidy.options.output-encoding">
+              <option value="ascii">Ascii</option>
+              <option value="utf8">Unicode</option>
+
+    </select>
+    <br>
+    <span class="label">Doctype</span>
+    <select id="tidy.options.doctype">
+              <option value="auto">auto</option>
+              <option value="omit">omit</option>
+              <option value="strict">strict</option>
+              <option value="loose">loose</option>
+              <option value="transitional">transitional</option>
+    </select>
+    <br>
+
+    <span class="label"><input type="checkbox" id="tidy.options.clean"  >replace FONT,... tags by CSS</span>
+    <br>
+    <input type="button" value="Refresh" id="tidy_refresh"/>
+  </div>
+
+  <script type="text/javascript" src="highlight.pack.js"></script>
+  <script type="text/javascript" src="tidy_emscripten.js"></script>
+  <script type="text/javascript" src="tidy_lib.js"></script>
+  <script type="text/javascript" src="tidy_platform_fake.js"></script>
+  <script type="text/javascript" src="tidy_util.js"></script>
+  <script type="text/javascript" src="tidy_cleanup.js"></script>
+</body>
+
+</html>

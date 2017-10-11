@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Tidy 60 - Htmlpedia</title>
+    <link rel="stylesheet" type="text/css" href="tidy_help2.css" media="screen, projection"/>
+  </head>
+<body>
+  <div id="bodyContent">
+<h2> ... id and name attribute value mismatch </h2>
+<h3> Cause: </h3>
+<p>NAME and ID are the old and the new name for the same attribute. If both are defined, they should be equal.
+Use id (new) or name (old):
+</p>
+<ul><li> The id attribute shares the same name space as the name attribute when used for anchor names.
+</li><li> The id attribute can act as more than just an anchor name (e.g., style sheet selector, processing identifier, etc.).
+</li><li> Some older user agents don't support anchors created with the id attribute.
+</li><li> The name attribute allows richer anchor names (with entities).
+</li></ul>
+<h3> Example: </h3>
+<p>Define the name=id or just id.
+</p>
+<table class='bad' title='Bad'><tr><td width='22' valign='top'><img src='../../../skin/error.png' alt='Good'/></td><td>&lt;a name="abcdef" id="ghijklm"&gt;</td></tr></table>
+<table class='good' title='Good'><tr><td width='22' valign='top'><img src='../../../skin/good.png' alt='Good'/></td><td>&lt;a name="abcdefgh" id="abcdefgh"&gt;</td></tr></table> 
+<table class='good' title='Good'><tr><td width='22' valign='top'><img src='../../../skin/good.png' alt='Good'/></td><td>&lt;a id="abcdefgh"&gt;</td></tr></table>
+<h3> Solution: </h3>
+<p>Remove one of the both attribute or make the 2 values of ID and NAME equal
+</p>
+<h3> References: </h3>
+<ul><li> W3C Anchor and ID: <a href="http://www.w3.org/TR/html4/struct/links.html#anchors-with-id">http://www.w3.org/TR/html4/struct/links.html#anchors-with-id</a>
+</li><li> W3C ID definition: <a href="http://www.w3.org/TR/html4/struct/global.html#adef-id">http://www.w3.org/TR/html4/struct/global.html#adef-id</a>
+</li></ul>
+  </div>
+</body>
+</html>

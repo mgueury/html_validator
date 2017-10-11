@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Tidy 11 - Htmlpedia</title>
+    <link rel="stylesheet" type="text/css" href="tidy_help2.css" media="screen, projection"/>
+  </head>
+<body>
+  <div id="bodyContent">
+<h2> ... isn't allowed in &lt;...&gt; elements </h2>
+<h3> Cause: </h3>
+<p>The structure of a HTML document does not allow to insert all type of <a href="http://www.w3.org/TR/html4/index/elements.html">tags</a> in all conditions.
+</p>
+<h3> Example: </h3>
+<p>For example, the structure of the HTML document contains some mandatory tags that are inserted in a defined order.
+</p>
+<table class='bad' title='Bad'><tr><td width='22' valign='top'><img src='../../../skin/error.png' alt='Good'/></td><td>&lt;html&gt;&lt;head&gt;<br/>
+<p>&lt;body&gt;... body of document ...&lt;/body&gt;<br/>
+&lt;/head&gt;&lt;/html&gt; 
+</p>
+</td></tr></table>    
+<table class='good' title='Good'><tr><td width='22' valign='top'><img src='../../../skin/good.png' alt='Good'/></td><td>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"<br/>
+<p>"http://www.w3.org/TR/html4/strict.dtd"&gt;<br/>
+&lt;html&gt;&lt;head&gt;<br/>
+&nbsp;&lt;title&gt;Title&lt;/title&gt;<br/>
+&lt;/head&gt;<br/>
+&lt;body&gt;<br/>
+&nbsp;... body of document ...<br/>
+&lt;/body&gt;&lt;/html&gt; 
+</p>
+</td></tr></table>
+<h3> Solution: </h3>
+<p>Move the HTML element into the right section.
+</p>
+<h3> References: </h3>
+<ul><li> HTML specification: <a href="http://www.w3.org/TR/html4/">http://www.w3.org/TR/html4/</a>
+</li></ul>
+  </div>
+</body>
+</html>

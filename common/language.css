@@ -1,0 +1,106 @@
+/*
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+*	project: "mozilla firefox extension: html validator (based on tidy)"
+*	description: language css file (screen, projection)
+*	author: mike wink
+*	date: 10/16/2005
+*	version: 1.1
+*	status (protoype, draft, test, review, final): final
+*	modified (date, author, modification): ansgar federhen
+*
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+*
+*	for more translations: add 'a[hreflang="xx"]:after' section with your
+*	"xx" language-shortcut and a flag-image like the following examples;
+*	add a flag-image-file as well with 15px width and 11px height
+*
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+*/
+
+a[rel="mail"]:after, a[rel="mailto"]:after {
+	content: " "url(../../../skin/mail.png);
+	}
+
+a[hreflang="en"]:after {
+	content: " "url(../../../skin/en.png);
+	}
+
+a[hreflang="de"]:after {
+	content: " "url(../../../skin/de.png);
+	}
+
+a[hreflang="fr"]:after {
+	content: " "url(../../../skin/fr.png);
+	}
+
+a[hreflang="es"]:after {
+	content: " "url(../../../skin/es.png);
+	}
+
+a[hreflang="it"]:after {
+	content: " "url(../../../skin/it.png);
+	}
+
+a[hreflang="lt"]:after {
+	content: " "url(../../../skin/lt.png);
+	}
+
+a[hreflang="jp"]:after {
+	content: " "url(../../../skin/jp.png);
+	}
+
+a[hreflang="tr"]:after {
+	content: " "url(../../../skin/tr.png);
+	}
+
+a[hreflang="se"]:after {
+	content: " "url(../../../skin/se.png);
+	}
+
+a[hreflang="ru"]:after {
+	content: " "url(../../../skin/ru.png);
+	}
+
+a[hreflang="ro"]:after {
+	content: " "url(../../../skin/ro.png);
+	}
+
+a[hreflang="no"]:after {
+	content: " "url(../../../skin/no.png);
+	}
+
+a[hreflang="nl"]:after {
+	content: " "url(../../../skin/nl.png);
+	}
+
+a[hreflang="lv"]:after {
+	content: " "url(../../../skin/lv.png);
+	}
+
+a[hreflang="gr"]:after {
+	content: " "url(../../../skin/gr.png);
+	}
+
+a[hreflang="fi"]:after {
+	content: " "url(../../../skin/fi.png);
+	}
+
+a[hreflang="ee"]:after {
+	content: " "url(../../../skin/ee.png);
+	}
+
+a[hreflang="dk"]:after {
+	content: " "url(../../../skin/dk.png);
+	}
+
+a[hreflang="cz"]:after {
+	content: " "url(../../../skin/cz.png);
+	}
+
+a[hreflang="hu"]:after {
+	content: " "url(../../../skin/hu.png);
+	}
+
+a[hreflang="pl"]:after {
+	content: " "url(../../../skin/pl.png);
+	}

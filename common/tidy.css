@@ -1,0 +1,555 @@
+@header_background_color: #666;
+@header_text_color: #eee;
+@alternate_row_background_color: #DDD;
+@table_width: 750px;
+@table_body_height: 300px;
+@column_one_width: 200px;
+@column_two_width: 200px;
+@column_three_width: 350px;
+
+/* -------------------------------------
+/ Table
+/ -------------------------------------*/
+
+table {
+  border-spacing: 0 0;
+  margin: 5px;
+}
+
+thead {
+  background-color: #eee;
+}
+
+thead tr th {
+  border-bottom: 1px solid black;
+}
+
+td {
+  padding-left: 3px;
+}
+
+tr:hover {
+  background-color: #f5f5f5
+}
+
+.tidy_icon_hide {
+  display: none;
+}
+
+.tidy_icon_white {
+  display: block;
+}
+
+tr:hover .tidy_icon_hide {
+  display: block;
+}
+
+tr:hover .tidy_icon_white {
+  display: none;
+}
+
+
+
+/* -------------------------------------
+/ Splitters
+/ -------------------------------------*/
+
+
+/*
+html,
+div {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+*/
+
+body {
+  font-family: sans-serif;
+  font-size: 85%;
+  padding: 0;
+  margin: 0;
+  background-color: white;
+}
+
+/*
+.tidy_viewsource_body
+{
+    width: 100%;
+    height: 100%;
+}
+*/
+
+code, pre, table {
+  padding: 0;
+  margin: 0;
+}
+
+iframe {
+  border: 0;
+}
+
+h2 {
+  border-bottom: 1px solid black;
+}
+
+#hamburger {
+  position: fixed;
+  top: 0.5em;
+  right: 1.1em;
+  z-index: 1;
+}
+
+.source_v {
+  width: 100vw;
+  height: calc(100vh/2);
+  overflow-y: auto;
+}
+
+.source_h
+{
+  float: left;
+  display: inline-block;
+  vertical-align: top;
+  width: calc(100vw/2);
+  overflow: scroll;
+  height: 100vh;
+}
+
+.footer_v {
+  position: fixed;
+  left: 0;
+  bottom: 0px;
+  height: calc(99vw/2);
+  width: 100%;
+}
+
+.footer_h {
+  position: fixed;
+  top: 0;
+  right: 0;
+  display: inline-block;
+  height: 100vh;
+  width: calc(99.5vw/2);
+}
+
+.footer2_h {
+  /* The goal is to have width=100vw/2-9px */
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+  width: 100%;
+}
+
+.source_line {
+  float: left;
+  text-align: right;
+  margin-right: 0.8em;
+  border-right: solid 1px #777;
+}
+
+.source_line code {
+  background-color: #eee;
+  color: #777;
+}
+
+#select_frame {
+  display: block;
+}
+
+.error_list_v {
+  display: inline-block;
+  vertical-align: top;
+  overflow: auto;
+  height: 100%;
+  width: calc(100vw/2);
+}
+
+.error_list_h {
+  display: inline-block;
+  vertical-align: top;
+  flex: 0 1 auto;
+  height: calc(100vh/2);
+  overflow: auto;
+}
+
+#error_list_table {
+  min-width: 100%;
+  white-space: nowrap;
+}
+
+#error_list_table tr {
+  vertical-align: bottom;
+}
+
+.error_detail_v {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  vertical-align: top;
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+  height: calc(99vh/2);
+  width: calc(99vw/2);
+}
+
+#error_iframe {
+  flex: 1 1 auto;
+  width: 100%
+}
+
+#error_help {
+  flex: 1 1 auto;
+  width: 100%;
+  overflow: auto;
+  height: 6em;
+}
+
+#dragbar_v1 {
+  width: 2px;
+  border: 1px white;
+  display: inline-block;
+  vertical-align: top;
+  background-color: #aaa;
+  height: calc(99vh/2);
+  cursor: col-resize;
+}
+
+#dragbar_v2 {
+  width: 2px;
+  border: 1px white;
+  display: inline-block;
+  vertical-align: top;
+  background-color: #aaa;
+  height: 100vh;
+  cursor: col-resize;
+}
+
+#dragbar_h1 {
+  height: 2px;
+  border: 1px white;
+  width: 100%;
+  background-color: #aaa;
+  cursor: row-resize;
+}
+
+#dragbar_h2 {
+  height: 2px;
+  border: 1px white;
+  width: 100%;
+  background-color: #aaa;
+  cursor: row-resize;
+}
+
+/* -------------------------------------
+/ View Source
+/ -------------------------------------*/
+
+/* Used for highlight of lines */
+.error {
+  background-color: #DDF
+}
+
+/* Used for the line/col highlight */
+.focus {
+  background-color: #F99
+}
+
+/* -------------------------------------
+/ Welcome
+/ -------------------------------------*/
+
+.title {
+  border: 2px solid rgb(2, 75, 120);
+  background-color: rgb(2, 150, 247);
+  color: rgb(255, 255, 255);
+  text-align: center;
+}
+
+.light {
+  background-color: rgb(220, 220, 255);
+}
+
+.dark {
+  background-color: rgb(190, 190, 255);
+}
+
+
+/* -------------------------------------
+/ Options
+/ -------------------------------------*/
+
+.label {0
+  min-width: 20em;
+  display: inline-block;
+  margin-bottom: 0.4em;
+}
+
+
+/* -------------------------------------
+/ Cleanup
+/ -------------------------------------*/
+
+#tidy_cleanup_sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 30em;
+  border: 1px solid black;
+  border-radius: 6px;
+  padding: 0.5em;
+  background-color: #eee;
+  z-index: 2;
+}
+
+#tidy_cleanup_tab {
+  display: =inline-block;
+}
+
+
+/* -------------------------------------
+/ Help
+/ -------------------------------------*/
+
+.tidy_help_label {
+  min-width: 10em;
+  display: inline-block;
+}
+
+
+/* -------------------------------------
+/ Tabs
+/ -------------------------------------*/
+
+.tabrow {
+  text-align: left;
+  list-style: none;
+  margin: 20px 0 20px;
+  padding: 0;
+  line-height: 24px;
+  height: 26px;
+  overflow: hidden;
+  position: relative;
+}
+
+.tabrow li {
+  border: 1px solid black;
+  background: #EEE;
+  display: inline-block;
+  position: relative;
+  z-index: 0;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.4), inset 0 1px 0 #FFF;
+  text-shadow: 0 1px #FFF;
+  margin: 0 -5px;
+  padding: 0 20px;
+}
+
+.tabrow a {
+  color: black;
+  text-decoration: none;
+}
+
+.tabrow li.selected {
+  background: #FFF;
+  color: #333;
+  z-index: 2;
+  border-bottom-color: #FFF;
+}
+
+.tabrow:before {
+  position: absolute;
+  content: " ";
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  border-bottom: 1px solid black;
+  z-index: 1;
+}
+
+.tabrow li:before, .tabrow li:after {
+  border: 1px solid black;
+  position: absolute;
+  bottom: -1px;
+  width: 5px;
+  height: 5px;
+  content: " ";
+}
+
+.tabrow li:before {
+  left: -6px;
+  border-bottom-right-radius: 6px;
+  border-width: 0 1px 1px 0;
+  box-shadow: 2px 2px 0 #D1D1D1;
+}
+
+.tabrow li:after {
+  right: -6px;
+  border-bottom-left-radius: 6px;
+  border-width: 0 0 1px 1px;
+  box-shadow: -2px 2px 0 #D1D1D1;
+}
+
+.tabrow li.selected:before {
+  box-shadow: 2px 2px 0 #FFF;
+}
+
+.tabrow li.selected:after {
+  box-shadow: -2px 2px 0 #FFF;
+}
+
+
+/* -------------------------------------
+/ Modal Dialog
+/ -------------------------------------*/
+
+
+/* The Modal (background) */
+
+.modal {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  padding-top: 1em;
+  /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0);
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
+}
+
+
+/* Modal Content */
+
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 10px;
+  border: 1px solid #888;
+  width: 80%;
+  height: calc(100% - 5em);
+}
+
+.modal-content2 {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 2em;
+  border: 1px solid #888;
+  width: 40em;
+}
+
+.modal-content3 {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 2em;
+  border: 1px solid #888;
+  width: 40em;
+}
+
+/* The Close Button */
+
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover, .close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+/* -------------------------------------
+/ Side  Navigation
+/ -------------------------------------*/
+
+
+/* The side navigation menu */
+
+.sidenav {
+  height: 100%;
+  /* 100% Full-height */
+  width: 0;
+  /* 0 width - change this with JavaScript */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Stay on top */
+  top: 0;
+  right: 0;
+  background-color: #eee;
+  /* Black*/
+  overflow-x: hidden;
+  /* Disable horizontal scroll */
+  padding-top: 0px;
+  /* Place content 60px from the top */
+  transition: 0.2s;
+  /* 0.5 second transition effect to slide in the sidenav */
+  border: 1px solid #666; // border-radius: 6px;
+}
+
+
+/* The navigation menu links */
+
+.sidenav a {
+  padding: 8px 8px 8px 8px;
+  text-decoration: none;
+  font-size: 100%;
+  color: #333;
+  display: block;
+  transition: 0.2s
+}
+
+
+/* When you mouse over the navigation links, change their color */
+
+.sidenav a:hover, .offcanvas a:focus {
+  color: #000;
+}
+
+
+/* Position and style the close button (top right corner) */
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+
+#main {
+  transition: margin-left .5s;
+}
+
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+  }
+  .sidenav a {
+    font-size: 18px;
+  }
+}

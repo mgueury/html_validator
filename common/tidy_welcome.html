@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>HTML Validator : Choose your algorithm</title>
+  <link rel="stylesheet" href="tidy.css">
+</head>
+
+<body>
+  <div style="width: 780px; padding: 10px; margin: auto;">
+    <table>
+      <tr style="background-color: white">
+        <td style="float: left; padding-right:20px;">
+          <image src="../skin/html_logo.png" />
+        </td>
+        <td>
+          <h2 class="title">HTML Validator : Welcome</h2>
+          <h3>Choose your algorithm</h3>
+          <p>
+            W3C has written two algorithms to check the compliance of an HTML page.<br/> Both algorithms are included in HTML Validator for Firefox. Both have advantages and disadvantages.<br/>
+            <br/> For more information, please read the user guide.
+          </p>
+        </td>
+      </tr>
+    </table>
+
+    <table>
+      <tr>
+        <th width="25%"></th>
+        <th width="25%">HTML Tidy</th>
+        <th width="25%">SGML Parser</th>
+        <th width="25%">Serial</th>
+      </tr>
+      <tr class="light">
+        <th>Description</th>
+        <td>It is an algorithm designed for checking the HTML, XHTML syntax</td>
+        <td>It is the same algorithm, OpenSP, running behind the validator.w3.org. It is a SGML parser based on DTDs.</td>
+        <td>The algorithms execute in the following order:
+          <html:br/>(1) SGML Parser.
+          <html:br/>(2) Then if no error, HTML Tidy</td>
+      </tr>
+      <tr class="dark">
+        <th>Better for</th>
+        <td>HTML</td>
+        <td>XHTML</td>
+        <td>-</td>
+      </tr>
+      <tr class="light">
+        <th>Accessibility check
+          <image src="../skin/access.png" />
+        </th>
+        <td>WAI level 1,2,3</td>
+        <td>No</td>
+        <td>-</td>
+      </tr>
+      <tr class="dark">
+        <th>Cleanup page</th>
+        <td>Yes</td>
+        <td>No</td>
+        <td>-</td>
+      </tr>
+      <tr class="light">
+        <th>Good Help</th>
+        <td>Yes</td>
+        <td>No (Todo)</td>
+        <td>-</td>
+      </tr>
+      <tr class="dark">
+        <th>Clear error messages</th>
+        <td>Yes</td>
+        <td>No</td>
+        <td>-</td>
+      </tr>
+      <tr class="light">
+        <th>Same error as the validator.w3.org</th>
+        <td>No</td>
+        <td>Yes</td>
+        <td>-</td>
+      </tr>
+      <tr class="dark">
+        <th>Target Audience</th>
+        <td>All</td>
+        <td>Professional</td>
+        <td>Professional</td>
+
+      </tr>
+      <tr style="background-color: white">
+        <td></td>
+        <td><br/><input type="button" value="HTML Tidy" id="tidy_welcome_tidy"/></td>
+        <td><br/><input type="button" value="SGML Parser" id="tidy_welcome_sp"/></td>
+        <td><br/><input type="button" value="Serial" id="tidy_welcome_serial"/></td>
+      </tr>
+    </table>
+    <br/>
+  </div>
+  <script type="text/javascript" src="tidy_emscripten.js"></script>
+  <script type="text/javascript" src="tidy_lib.js"></script>
+  <script type="text/javascript" src="tidy_platform_fake.js"></script>
+  <script type="text/javascript" src="tidy_util.js"></script>
+  <script type="text/javascript" src="tidy_welcome.js"></script>
+</body>
+
+</html>

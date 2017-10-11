@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Tidy 4 - Htmlpedia</title>
+    <link rel="stylesheet" type="text/css" href="tidy_help2.css" media="screen, projection"/>
+  </head>
+<body>
+  <div id="bodyContent">
+<h2> unescaped &amp; should be written as &amp;amp; </h2>
+<h3> Cause: </h3>
+<p>The ampersand ("&amp;") is a special character in HTML.  It marks the beginning of a entity, like "&amp;nbsp" for a non-breaking space.
+</p><p>In XHTML, a entity must also end with a semicolon (";"), as in "&amp;nbsp;"
+</p><p>Because of this, any time a literal ampersand appears in a document, it must be written as the character entity "&amp;amp;".  Ampersands commonly appear in the <a href="/w/index.php?title=Query_string&amp;action=edit" class="new">query string</a> of a <a href="/w/index.php?title=URL&amp;action=edit" class="new">URL</a>, and must be expressed as an entity in that context.
+</p>
+<h3> Example - Normal Ampersand: </h3>
+<table class='bad' title='Bad'><tr><td width='22' valign='top'><img src='../../../skin/error.png' alt='Good'/></td><td>Smith &amp; son</td></tr></table>
+<table class='good' title='Good'><tr><td width='22' valign='top'><img src='../../../skin/good.png' alt='Good'/></td><td>Smith &amp;amp; son</td></tr></table>
+<h3> Example - Ampersand in a Query String: </h3>
+<table class='bad' title='Bad'><tr><td width='22' valign='top'><img src='../../../skin/error.png' alt='Good'/></td><td>&lt;a href="http://www.domain.com/cgi?x=1&amp;y=2"&gt;query string&lt;/a&gt;</td></tr></table>
+<table class='good' title='Good'><tr><td width='22' valign='top'><img src='../../../skin/good.png' alt='Good'/></td><td>&lt;a href="http://www.domain.com/cgi?x=1&amp;amp;y=2"&gt;query string&lt;/a&gt;</td></tr></table>
+<h3> Solution: </h3>
+<p>Replace "&amp;" with "&amp;amp;".
+</p>
+<h3> References: </h3>
+<ul><li> W3C entities: <a href="http://www.w3.org/TR/html4/sgml/entities.html">http://www.w3.org/TR/html4/sgml/entities.html</a>
+</li><li> WDG&nbsp;: <a href="http://www.htmlhelp.com/reference/html40/entities/">http://www.htmlhelp.com/reference/html40/entities/</a>
+</li></ul>
+  </div>
+</body>
+</html>

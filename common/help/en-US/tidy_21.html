@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Tidy 21 - Htmlpedia</title>
+    <link rel="stylesheet" type="text/css" href="tidy_help2.css" media="screen, projection"/>
+  </head>
+<body>
+  <div id="bodyContent">
+<h2> &lt;...&gt; is not approved by W3C </h2>
+<h3> Cause: </h3>
+<p>The following tag is not a standard HTML tag. For most tags, the reason is that there is other ways to achieve the same result with standard tags or with cascaded style sheet.
+</p>
+<h3> Example: </h3>
+<table class='bad' title='Bad'><tr><td width='22' valign='top'><img src='../../../skin/error.png' alt='Good'/></td><td>&lt;nobr&gt;there is no wrapping here&lt;/nobr&gt;</td></tr></table>
+<table class='good' title='Good'><tr><td width='22' valign='top'><img src='../../../skin/good.png' alt='Good'/></td><td>&lt;table&gt;&lt;tr&gt;&lt;td nowrap&gt;there is no wrapping here&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;<br/> 
+<p>&lt;span style="white-space: nowrap;"&gt;there is no wrapping here&lt;/span&gt; 
+</p>
+</td></tr></table>
+<p>&lt;NOBR&gt; is not approved by the W3C; &lt;NOBR&gt; turns off wordwrapping between the start and end NOBR tag.
+There are several ways to replace a NOBR by standard tag&nbsp;:
+- You can use the nowrap attribute of the TR and TD tag in a table. In that case, the &lt;BR&gt; element to force line breaks where desired.
+- The best solution is to use a cascaded style sheet with the attribute: "<a href="http://www.w3.org/TR/CSS1#white-space">white-space: nowrap;</a>".
+</p>
+<h3> Solution: </h3>
+<p>Replace the tag with the equivalent in standard HTML.
+</p>
+<h3> References: </h3>
+<ul><li> <a href="http://www.w3.org/TR/CSS1#white-space">http://www.w3.org/TR/CSS1#white-space</a>
+</li></ul>
+  </div>
+</body>
+</html>

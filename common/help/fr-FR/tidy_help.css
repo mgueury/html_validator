@@ -1,0 +1,185 @@
+/*
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+*	project: "mozilla firefox extension: html validator (based on tidy)"
+*	description: global css file (screen, projection)
+*	author: mike wink
+*	date: 10/16/2005
+*	version: 1.1
+*	status (protoype, draft, test, review, final): final
+*	modified (date, author, modification): ansgar federhen
+* modified: Tibor Balogh 2006.06.18.
+*
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+*/
+
+@import "language.css";
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body    {
+        margin: 0;
+        color: rgb(0, 0, 0);
+        background-color: #fff;
+        font-size: .9em;
+        font-family: arial, sans-serif;
+        margin: 0;
+}
+
+h1      {
+        background-color: #f0f0f0;
+        color: #000;
+        font-size: 1em;
+        font-weight: bold;
+        padding: 3px;
+        padding-left: 5px;
+        margin-bottom: 0px;
+        border-bottom: 1px solid #555;
+}
+
+h2 {
+        margin-top: 5px;
+        padding-left: 5px;
+	border-bottom: 1px solid #ddd;
+	font-size: .9em;
+	color: #333;
+	font-style: normal;
+	font-weight: normal;
+}
+
+p {
+        margin: 5px;
+        margin-left: 10px;
+	font-size: .8em;
+	line-height: 1.35em;
+}
+
+ul {
+	margin: 10px 0;
+}
+
+li {
+	font-size: .8em;
+	line-height: 1.4em;
+}
+
+ul li {
+  list-style: none;
+  margin-left: 10px;
+}
+
+ol li {
+  margin-left: 35px;
+}
+
+a {
+        text-decoration: underline;
+        color: rgb( 51, 51, 255 );
+}
+
+a[href]:hover   {
+        background: #ffa;
+}
+
+dt {
+	display: none;
+}
+
+dd {
+  	margin: 5px 10px;
+	padding: 5px;
+	background-color: #f0f0f0;
+	border: 1px solid #ccc;
+	font-family: "Courier New", Courier, monospace;
+	font-size: .8em;
+}
+
+strong {
+	color: #333;
+}
+
+acronym {
+	cursor: help;
+}
+
+.button {
+	padding: 1px 3px;
+	background-color: buttonface;
+	border-top: 1px solid buttonhighlight;
+	border-right: 1px solid buttonshadow;
+	border-bottom: 1px solid buttonshadow;
+	border-left: 1px solid buttonhighlight;
+	cursor: pointer;
+	-moz-border-radius: 2px;
+}
+
+.button:hover {
+	border-top: 1px solid buttonshadow;
+	border-right: 1px solid buttonhighlight;
+	border-bottom: 1px solid buttonhighlight;
+	border-left: 1px solid buttonshadow;
+	color: #555;
+}
+
+.error, .bad, .warning, .good, .charset, .disabled, .exclude, .empty {
+	padding-left: 22px;
+}
+
+.error, .bad {
+	background: #ddd url(../../../skin/error.png) no-repeat 2px 5px;
+}
+
+.warning {
+  background: #ddd url(../../../skin/warning.png) no-repeat 2px 5px;
+}
+
+.good {
+	background: #ddd url(../../../skin/good.png) no-repeat 2px 5px;
+}
+
+.charset {
+	background: #ddd url(../../../skin/charset.png) no-repeat 2px 5px;
+}
+
+.disabled {
+	background: #ddd url(../../../skin/disabled.png) no-repeat 2px 5px;
+}
+
+.exclude {
+  background: #ddd url(../../../skin/exclude.png) no-repeat 2px 5px;
+}
+
+.empty {
+	background: #ddd url(../../../skin/empty.png) no-repeat 2px 5px;
+}
+
+.bad .error, .error .error {
+	padding: 1px 0;
+	background: #ddd none;
+	color: red;
+}
+
+.prio {
+	font-size: .8em;
+	font-weight: bold;
+	font-style: italic;
+	color: #80806b;
+}
+
+.code {
+    background: #ddd;
+    border: 1px solid #ccc;
+    font-family: "Lucida Console", "Courier New", Courier, monospace;
+    padding: 5px;
+}
+
+th, td {
+	font-size: .8em;
+	vertical-align: top;
+}
+
+table {
+	margin-left: 10px;
+}

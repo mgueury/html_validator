@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Sp 378 - Htmlpedia</title>
+    <link rel="stylesheet" type="text/css" href="tidy_help2.css" media="screen, projection"/>
+  </head>
+<body>
+  <div id="bodyContent">
+<h2> No system id specified </h2>
+<h3> Cause: </h3>
+<p>Your document includes a <a href="http://www.htmlpedia.org/wiki/DOCTYPE_declaration">DOCTYPE declaration</a> with a public identifier (declaring the dialect of HTML you're using) but no system identifier (the URL pointing to the <a href="http://www.htmlpedia.org/wiki/DTD">DTD</a> for that language). Omitting the system identifier is authorized in HTML (based on SGML), but not in XML-based languages.
+</p><p>If you are using a standard XHTML document type, it is recommended to use exactly
+one of the DOCTYPE declarations from the <a href="http://www.w3.org/QA/2002/04/valid-dtd-list.html">recommended list on the W3C QA Website</a>.
+</p>
+<h3> Example: </h3>
+<table class='bad' title='Bad'><tr><td width='22' valign='top'><img src='../../../skin/error.png' alt='Good'/></td><td><pre>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"&gt;
+&lt;html lang="en"&gt;
+...</pre></td></tr></table>
+<table class='good' title='Good'><tr><td width='22' valign='top'><img src='../../../skin/good.png' alt='Good'/></td><td><pre>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"&gt;
+&lt;html lang="en"&gt;
+...</pre></td></tr></table>
+<h3> Solution: </h3>
+<p>Add the URL pointing to the DTD in the DOCTYPE
+</p>
+<h3> References: </h3>
+<ul><li> W3 validator: <a href="http://validator.w3.org/">http://validator.w3.org/</a>
+</li><li> <a href="http://www.w3.org/QA/2002/04/valid-dtd-list.html">W3's list of recommended DOCTYPE declarations</a>
+</li></ul>
+  </div>
+</body>
+</html>

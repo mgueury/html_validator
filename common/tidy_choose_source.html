@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Choose Source</title>
+    <link rel="stylesheet" href="tidy.css">
+</head>
+
+<body>
+    <div style="padding: 1em; background-color: #eee">
+    <table id="source_list" style="width: 100%; ">
+        <thead>
+            <tr>
+                <th>Select the page or one of its frames/iframes</th>
+            </tr>
+        </thead>
+        <tbody style="background-color: white" >
+            <tr onclick="tidyViewSourceShow('tidy_start',0)">
+                <td><img src="../skin/good.png"> Page: 0 errors / 0 warnings - http://users.skynet.be/mgueury/mozilla/user_guide.html</td>
+            </tr>
+            <tr onclick="tidyViewSourceShow('tidy_1',2)">
+                <td><img src="../skin/good.png"> Page: 0 errors / 0 warnings - http://users.skynet.be/mgueury/mozilla/banner.html</td>
+            </tr>
+            <tr onclick="tidyViewSourceShow('tidy_2',15)">
+                <td><img src="../skin/good.png"> Page: 0 errors / 0 warnings - http://users.skynet.be/mgueury/mozilla/toc.html</td>
+            </tr>
+        </tbody>
+    </table>
+    <div style="border-top: 1px solid black; padding: 1em; text-align: center; background-color: #eee"><input type="button" value="Cancel"></div>
+    </div>
+</body>
+</html>

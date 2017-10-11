@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Tidy 30 - Htmlpedia</title>
+    <link rel="stylesheet" type="text/css" href="tidy_help2.css" media="screen, projection"/>
+  </head>
+<body>
+  <div id="bodyContent">
+<h2>Tidy: Expecting -- or ></h2>
+<h3>Cause:</h3>
+<p>A comment contains mismatched double dashes.
+</p>
+<h3>Example:</h3>
+<table class='bad' title='Bad'><tr><td width='22' valign='top'><img src='../../../skin/error.png' alt='Good'/></td><td>&lt;!-- King John II of France -- nicknamed the Good -- died in captivity in London. --></td></tr></table>
+<table class='good' title='Good'><tr><td width='22' valign='top'><img src='../../../skin/good.png' alt='Good'/></td><td>&lt;!-- King John II of France -nicknamed the Good- died in captivity in London. --></td></tr></table>
+<table class='good' title='Good'><tr><td width='22' valign='top'><img src='../../../skin/good.png' alt='Good'/></td><td>&lt;!-- King John II of France ---- nicknamed the Good ---- died in captivity in London. --></td></tr></table>
+<table class='good' title='Good'><tr><td width='22' valign='top'><img src='../../../skin/good.png' alt='Good'/></td><td>&lt;!></td></tr></table>
+<p>The latter is an example of an "empty comment", which is valid though rarely used.
+</p>
+<h3>Solution:</h3>
+<p>Make sure that the text between &lt;! and > consists only of zero or more parts <b>bounded</b> by double dashes, separated <b>only</b> by whitespace, that each double dash has text on one side only, and that the opening &lt;! of a comment is followed <b>immediately</b> by the first double dash (or by the closing > ).<br />
+It's recommended to avoid <b>any</b> double dash between &lt;!-- and --&gt;.
+</p>
+<h3>References:</h3>
+<p>HTML comments are SGML comments, see <a href="http://www.iso.ch/cate/d16387.html">ISO/IEC 8879:1986</a>
+</p>
+  </div>
+</body>
+</html>

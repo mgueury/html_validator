@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Sp 64 - Htmlpedia</title>
+    <link rel="stylesheet" type="text/css" href="tidy_help2.css" media="screen, projection"/>
+  </head>
+<body>
+  <div id="bodyContent">
+<h2> Document type does not allow element %1 here </h2>
+<h3> Cause: </h3>
+<p>The element named above was found in a context where it is not allowed by the <a href="http://www.htmlpedia.org/wiki/DOCTYPE_Declaration">DOCTYPE Declaration</a>.
+</p><p>This usually means that you have put a legitimate element someplace it shouldn't be -- such as a "style" element in the "body" section instead of inside "head".
+</p><p>One common cause for this error is the use of XHTML syntax in HTML documents. Due to HTML's rules of implicitly closed elements, this error can create cascading effects. For instance, using XHTML's "self-closing" tags for "meta" and "link" in the "head" section of a HTML document may cause the parser to infer the end of the "head" section and the beginning of the "body" section (where "link" and "meta" are not allowed; hence the reported error).
+</p><p>If you are using JavaScript to insert HTML into a document on the client-side, you need to hide the HTML elements in your JavaScript from the validator.  This is especially true if you are working with XHTML.
+</p>
+<h3> Examples </h3>
+<p>Improperly placed STYLE element:
+</p>
+<table class='bad' title='Bad'><tr><td width='22' valign='top'><img src='../../../skin/error.png' alt='Good'/></td><td><pre>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"&gt;
+&lt;head&gt;
+	&lt;title&gt;Stylin'&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+	&lt;style type="text/css"&gt;
+	&lt;/style&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre></td></tr></table>
+<table class='good' title='Good'><tr><td width='22' valign='top'><img src='../../../skin/good.png' alt='Good'/></td><td><pre>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"&gt;
+&lt;head&gt;
+	&lt;title&gt;Stylin'&lt;/title&gt;
+	&lt;style type="text/css"&gt;
+	&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre></td></tr></table>
+<p>XHTML syntax in an HTML document:
+</p>
+<table class='bad' title='Bad'><tr><td width='22' valign='top'><img src='../../../skin/error.png' alt='Good'/></td><td>&lt;link ... /&gt;</td></tr></table>
+<table class='good' title='Good'><tr><td width='22' valign='top'><img src='../../../skin/good.png' alt='Good'/></td><td>&lt;link ... &gt;</td></tr></table>
+<p>Un-escaped JavaScript in an XHTML document:
+</p>
+<table class='bad' title='Bad'><tr><td width='22' valign='top'><img src='../../../skin/error.png' alt='Good'/></td><td><pre>&lt;script type="text/javascript"&gt;
+var output = "&lt;html&gt;&lt;body&gt;&lt;p&gt;Hi!&lt;\/p&gt;&lt;\/body&gt;&lt;\/html&gt;";
+&lt;/script&gt;</pre></td></tr></table>
+<table class='good' title='Good'><tr><td width='22' valign='top'><img src='../../../skin/good.png' alt='Good'/></td><td><pre>&lt;script type="text/javascript"&gt;
+//&lt;![CDATA[
+var output = "&lt;html&gt;&lt;body&gt;&lt;p&gt;Hi!&lt;\/p&gt;&lt;\/body&gt;&lt;\/html&gt;";
+//]]&gt;
+&lt;/script&gt;</pre></td></tr></table>
+<h3> Solution: </h3>
+<ul><li> If the problem is caused by a mis-placed element, move it.
+</li><li> If the problem is caused by using XHTML syntax in an HTML document, then remove the trailing slashes.
+</li><li> If the problem is caused by HTML within a JavaScript, then escape the JavaScript by marking it as CDATA.
+</li></ul>
+<h3> References: </h3>
+<ul><li> W3 validator: <a href="http://validator.w3.org/">http://validator.w3.org/</a>
+</li><li> Making JavaScript Compatible with XHTML: <a href="http://www.codehouse.com/javascript/tips/xhtml/">http://www.codehouse.com/javascript/tips/xhtml/</a>
+</li></ul>
+  </div>
+</body>
+</html>

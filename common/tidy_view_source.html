@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Html Validator - View Source</title>
+  <link rel="stylesheet" title="Default" href="../skin/highlight-skin.css">
+  <link rel="stylesheet" href="tidy.css">
+</head>
+
+<body class="tidy_viewsource_body" onresize="viewSourceResize()">
+  <div id="menu" class="sidenav">
+    <a href="javascript:oTidyUtil.onHamburger()"><img src="../skin/close_24.png"></a>
+    <a href="javascript:tidyCleanup()">Clean up...</a>
+    <a href="javascript:tidyOnline()">W3c Online Validation...</a>
+    <a href="javascript:tidyGoToLineOpen()">Go to Line....</a>
+    <a href="javascript:tidyWrapLine()">Wrap Lines</a>
+    <a href="javascript:tidyOptionOpen()">Options...</a>
+  </div>
+  <div id="source" class="source_v">
+    <div id="source_line">
+      <pre><code id="source_line_pre"></code></pre>
+    </div>
+    <div id="source_code">
+      <pre><code id="source_code_pre"></code></pre>
+    </div>
+  </div>
+  <div id="dragbar_h1"></div>
+  <div id="footer">
+    <div id="error_list" class="error_list_v">
+      <!--
+            <menupopup id="tidyTreeContextMenu">
+                <menuitem id="tidy-view_source-tree-copy" label="&tidy.menu.copy.label;" oncommand="oTidyViewSource.onTreeCopy();" />
+                <menuitem id="tidy-view_source-tree-selectall" label="&tidy.menu.selectall.label;" oncommand="oTidyViewSource.onTreeSelectAll();" />
+                <menuseparator/>
+                <menuitem id="tidy-view_source-tree-hide" label="&tidy.view_source.tree.hide;" oncommand="oTidyViewSource.onTreeHide();" />
+            </menupopup>
+-->
+      <table id="error_list_table">
+        <thead>
+          <tr>
+            <th id="col_icon" style="width: 100px;">Type</th>
+            <th id="col_line" style="width: 65px;">Line</th>
+            <th id="col_column" style="width: 65px;">Column</th>
+            <th id="col_data" style="width: auto;">HTML errors and warnings</th>
+            <th id="col_hide" style="width: 24px;"></th>
+          </tr>
+        </thead>
+        <tbody id="error_list_tbody">
+        </tbody>
+      </table>
+    </div>
+    <div id="dragbar_v1"></div>
+    <div id="error_detail" class="error_detail_v">
+      <table style="width:100%; border: 0">
+        <thead>
+          <tr>
+            <th style="text-align: left">Help</th>
+            <th style="text-align: right">
+              <input type="button" value="Clean up..." onclick="tidyCleanup()">&nbsp;
+              <input type="button" value="Edit Help..." onclick="tidyHtmlPedia()">&nbsp;
+              <img src="../skin/menu_16.png" onclick="oTidyUtil.onHamburger()">&nbsp;
+            </th>
+          </tr>
+        </thead>
+      </table>
+      <iframe id="error_iframe" src="help/en-US/tidy_start.html"></iframe>
+    </div>
+  </div>
+
+  <!-- The Modal -->
+  <div id="tidy.option.modal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <iframe id="tidy.iframe.option" style="height: 100%; width: 100%">options</iframe>
+    </div>
+  </div>
+
+  <!-- The Modal -->
+  <div id="tidy.gotoline.modal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content2" style="text-align: center">
+      Enter line number:<br><br>
+      <input type="text" id="tidy.line"><br><br>
+      <input type="button" value="OK" onclick="tidyGoToLine()">&nbsp;&nbsp;
+      <input type="button" value="Cancel" onclick="tidyGoToLineClose()">&nbsp;&nbsp;
+    </div>
+  </div>
+
+  <!-- The Modal -->
+  <div id="tidy.confirm.modal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content3" style="text-align: center">
+      Enter line number:<br><br>
+      <input type="text" id="tidy.confirm"><br><br>
+      <input type="button" value="OK" id="tidy.confirm.ok" onclick="tidyConfirm()">&nbsp;&nbsp;
+      <input type="button" value="Cancel" onclick="tidyConfirmClose()">&nbsp;&nbsp;
+    </div>
+  </div>
+
+  <script type="text/javascript" src="highlight.pack.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+  <script type="text/javascript" src="tidy_emscripten.js"></script>
+  <script type="text/javascript" src="tidy_lib.js"></script>
+  <script type="text/javascript" src="tidy_platform_fake.js"></script>
+  <script type="text/javascript" src="tidy_util.js"></script>
+  <script type="text/javascript" src="tidy_view_source.js"></script>
+</body>
+
+</html>

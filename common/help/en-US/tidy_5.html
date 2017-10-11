@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Tidy 5 - Htmlpedia</title>
+    <link rel="stylesheet" type="text/css" href="tidy_help2.css" media="screen, projection"/>
+  </head>
+<body>
+  <div id="bodyContent">
+<h2> named entity &amp;apos; defined only in XML/XHTML </h2>
+<h3> Cause: </h3>
+<p>The apostrophe entity (&amp;apos;) is defined only in XML and XHTML. This means that you cannot use it in regular HTML.
+</p><p>Also, some browsers do not support the &amp;apos; entity.
+</p>
+<h3> Example: </h3>
+<table class='bad' title='Bad'><tr><td width='22' valign='top'><img src='../../../skin/error.png' alt='Good'/></td><td>Bob&amp;apos;s car</td></tr></table>
+<table class='good' title='Good'><tr><td width='22' valign='top'><img src='../../../skin/good.png' alt='Good'/></td><td>Bob&amp;#39;s car</td></tr></table>
+<h3> Solution: </h3>
+<p>Replace "&amp;apos;" with "&amp;#39;".
+</p>
+<h3> References: </h3>
+<ul><li> W3C on &amp;apos;: <a href="http://www.w3.org/TR/xhtml1/#C_16">http://www.w3.org/TR/xhtml1/#C_16</a>
+</li></ul>
+  </div>
+</body>
+</html>

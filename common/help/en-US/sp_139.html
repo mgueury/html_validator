@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Sp 139 - Htmlpedia</title>
+    <link rel="stylesheet" type="text/css" href="tidy_help2.css" media="screen, projection"/>
+  </head>
+<body>
+  <div id="bodyContent">
+<h2> Non SGML character number ... </h2>
+<h3> Cause: </h3>
+<p>You have used an illegal character in your text.  This is commonly caused by pasting text from word processors into HTML documents - the "curly quotes" are not part of the HTML character set.
+</p><p>HTML uses the standard <a href="http://www.unicode.org/">UNICODE Consortium</a> character repertoire, and it leaves undefined (among others) 65 character codes (0 to 31 inclusive and 127 to 159 inclusive) that are sometimes used for typographical quote marks and similar in
+proprietary character sets. The validator has found one of these undefined characters in your document. The character may appear on your browser as a curly quote, or a trademark symbol, or some other fancy glyph; on a different computer, however, it will likely appear as a completely different character, or nothing at all.
+</p><p>This error can also be triggered by invisible formatting characters embedded in documents by some word processors. If you use a word processor to edit your HTML documents, be sure to use the "Save as ASCII" or similar command to save the document without formatting information.
+</p>
+<h3> Example: </h3>
+<table class='bad' title='Bad'><tr><td width='22' valign='top'><img src='../../../skin/error.png' alt='Good'/></td><td>&lt;p&gt;&#8220;But I don&#8217;t want to go among mad people,&#8221; Alice remarked.&lt;/p&gt;</td></tr></table>
+<table class='bad' title='Bad'><tr><td width='22' valign='top'><img src='../../../skin/error.png' alt='Good'/></td><td>&lt;p&gt;&amp;#8220;But I don&amp;#8217;t want to go among mad people,&amp;#8221; Alice remarked.&lt;/p&gt;</td></tr></table>
+<h3> Solution: </h3>
+<p>Your best bet is to replace the character with the nearest equivalent ASCII character, or to use an appropriate <a href="http://www.htmlpedia.org/wiki/Character_Entity">Character Entity</a>.  Be aware that if you choose to use entities, they may not look equally good in all fonts.  (For example, the curly quotes in Times New Roman are nice and curly, whereas the ones in Arial are just straight, slanted lines.)
+</p>
+<h3> References: </h3>
+<ul><li> W3 validator: <a href="http://validator.w3.org/">http://validator.w3.org/</a>
+</li><li> <a href="http://ppewww.ph.gla.ac.uk/%7Eflavell/charset/">HTML Character Set Issues</a> by <a href="http://ppewww.ph.gla.ac.uk/%7Eflavell/aflavell.html">Alan Flavell</a>
+</li><li> <a href="http://www.alistapart.com/articles/emen/">The Trouble With EM ân EN (and Other Shady Characters)</a> by Peter K Sheerin
+</li></ul>
+  </div>
+</body>
+</html>

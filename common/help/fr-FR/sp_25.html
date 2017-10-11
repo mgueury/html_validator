@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Sp 25 - Htmlpedia</title>
+    <link rel="stylesheet" type="text/css" href="tidy_help2.css" media="screen, projection"/>
+  </head>
+  <body>
+    <div id="bodyContent">
+      <h2>Sp 25&nbsp;: L'entité <code>...</code> n'est pas définie et il n'y a pas d'entité par défaut</h2>
+      <h3> Cause&nbsp;: </h3>
+      <p>Vous n'avez pas terminé l'une des entités que vous avez écrites.
+      </p>
+      <h3> Exemple&nbsp;: </h3>
+        <table class='bad' title='Bad'>
+          <tr>
+            <td width='22' valign='top'>
+              <img src='../../../skin/error.png' alt='Error'/>
+            </td>
+            <td>
+              <code>
+                &lt;a href="http://www.domain.com/cgi?x=123&amp;y=456"&gt;
+              </code>
+            </td>
+          </tr>
+        </table>
+        <table class='good' title='Good'>
+          <tr>
+            <td width='22' valign='top'>
+              <img src='../../../skin/good.png' alt='Good'/>
+            </td>
+            <td>
+              <code>
+                &lt;a href="http://www.domain.com/cgi?x=123&amp;amp;y=456"&gt;
+              </code>
+            </td>            
+          </tr>
+        </table>
+
+      <h3> Solution&nbsp;: </h3>
+      <p>Terminez l'entité correctement.
+      </p>
+      <h3> Références&nbsp;: </h3>
+      <ul>
+        <li> W3 validator: <a href="http://validator.w3.org/">http://validator.w3.org/</a>
+        </li>
+      </ul>
+      <p>.
+      </p>
+    </div>
+  </body>
+</html>

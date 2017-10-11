@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Tidy 62 - Htmlpedia</title>
+    <link rel="stylesheet" type="text/css" href="tidy_help2.css" media="screen, projection"/>
+  </head>
+<body>
+  <div id="bodyContent">
+<h2> &lt;...&gt; converting backslash in URI to slash </h2>
+<h3> Cause: </h3>
+<p>An attribute of type URI contains a backslash, it is converted to a slash.
+</p>
+<h3> Example: </h3>
+<table class='bad' title='Bad'><tr><td width='22' valign='top'><img src='../../../skin/error.png' alt='Good'/></td><td>&lt;a href="http://www.domain.com\dir"&gt;<br/>
+</td></tr></table>
+<table class='good' title='Good'><tr><td width='22' valign='top'><img src='../../../skin/good.png' alt='Good'/></td><td>&lt;a href="http://www.domain.com/dir"&gt;<br/>
+</td></tr></table>
+<h3> Solution: </h3>
+<p>Use / in URI in place of \
+</p>
+<h3> References: </h3>
+<ul><li> None
+</li></ul>
+  </div>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Aide de tidy - Tidy [46]</title>
+    <link rel="stylesheet" type="text/css" href="tidy_help2.css" media="screen, projection"/>
+  </head>
+  <body>
+    <div id="bodyContent">
+      <h2> Aide de tidy - Tidy [46]&nbsp;: Eléments <code>...</code> trop nombreux</h2>
+      <h3> Cause&nbsp;: </h3>
+      <p>Un élément a été défini plusieurs fois.
+      </p>
+      <h3> Exemple&nbsp;: </h3>
+        <table class='bad' title='Bad'>
+          <tr>
+            <td width='22' valign='top'>
+              <img src='../../../skin/error.png' alt='Error'/>
+            </td>
+            <td>
+              <code>
+                &lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"&gt;<br />
+                &lt;html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"&gt;<br>
+                &lt;head&gt;<br />
+                &lt;title&gt;Titre&lt;/title&gt;<br />
+                &lt;title&gt;Titre&lt;/title&gt;<br />
+                &lt;/head&gt;<br />
+                ...
+              </code>
+            </td>
+          </tr>
+        </table>
+        <table class='good' title='Good'>
+          <tr>
+            <td width='22' valign='top'>
+              <img src='../../../skin/good.png' alt='Good'/>
+            </td>
+            <td>
+              <code>
+                &lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"&gt;<br />
+                &lt;html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"&gt;<br>&lt;head&gt;<br />
+                &lt;title&gt;Titre&lt;/title&gt;<br />
+                &lt;/head&gt;<br />
+                ...
+              </code>
+            </td>            
+          </tr>
+        </table>
+
+      <h3> Solution&nbsp;: </h3>
+      <p>Supprimez les éléments qui ont été déclarés plusieurs fois.
+      </p>
+      <h3> Références&nbsp;: </h3>
+      <ul>
+        <li> <acronym title="HyperText Markup Language">HTML</acronym> spécification : <a href="http://www.la-grange.net/w3c/html4.01/">(fr)</a> | <a href="http://www.w3.org/TR/html4/">(en)</a>
+        </li>
+      </ul>
+      <p>.
+      </p>
+    </div>
+  </body>
+</html>

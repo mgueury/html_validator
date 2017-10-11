@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Aide de tidy - Tidy [23]</title>
+    <link rel="stylesheet" type="text/css" href="tidy_help2.css" media="screen, projection"/>
+  </head>
+  <body>
+    <div id="bodyContent">
+      <h2> Aide de tidy - Tidy [23]&nbsp;: Élimination des <code>&lt;...&gt;</code> vides</h2>
+      <h3> Cause&nbsp;: </h3>
+      <p>Une balise est vide ou bien elle contient juste des espaces. Les espaces sont ignorés, c'est pourquoi ils sont éliminés du HTML. Cette balise est probablement vide ou bien l'apparition du message est due à une erreur précédente. Tidy essaye de corriger les balises de cette page.</p>
+<p>Cela peut également être dû à une balise implicitement fermée par une autre qui la suit immédiatement.
+      </p>
+      <h3> Exemple&nbsp;: </h3>
+        <table class='bad' title='Bad'>
+          <tr>
+            <td width='22' valign='top'>
+              <img src='../../../skin/error.png' alt='Error'/>
+            </td>
+            <td>
+              <code>
+                &lt;p&gt;&lt;/p&gt;<br />
+                &lt;p&gt; &lt;/p&gt;<br />
+                &lt;p&gt;<br />
+                &lt;/p&gt;<br />
+                &lt;p&gt;&lt;table&gt;...&lt;/p&gt;
+              </code>
+            </td>
+          </tr>
+        </table>
+        <table class='good' title='Good'>
+          <tr>
+            <td width='22' valign='top'>
+              <img src='../../../skin/good.png' alt='Good'/>
+            </td>
+            <td>
+              <code>
+                &lt;p&gt;Voici du texte&lt;/p&gt;
+              </code>
+            </td>            
+          </tr>
+        </table>
+
+      <h3> Solution&nbsp;: </h3>
+      <p>Corrigez les erreurs survenues plus haut dans le code. Supprimez la balise vide si cela est nécessaire ou bien ajoutez du texte dedans.
+      </p>
+      <h3> Références&nbsp;: </h3>
+      <ul>
+        <li> <acronym title="HyperText Markup Language">HTML</acronym> spécification : <a href="http://www.la-grange.net/w3c/html4.01/">(fr)</a> | <a href="http://www.w3.org/TR/html4/">(en)</a>
+        </li>
+      </ul>
+      <p>.
+      </p>
+    </div>
+  </body>
+</html>

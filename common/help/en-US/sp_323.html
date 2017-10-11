@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Sp 323 - Htmlpedia</title>
+    <link rel="stylesheet" type="text/css" href="tidy_help2.css" media="screen, projection"/>
+  </head>
+<body>
+  <div id="bodyContent">
+<h2> DTD did not contain element declaration for document type name </h2>
+<h3> Cause: </h3>
+<p>Part of the <a href="http://www.htmlpedia.org/wiki/Doctype">Doctype</a> tag is missing or invalid (note it is case-sensitive).
+</p>
+<h3> Example: </h3>
+<p>In XHTML,
+</p>
+<table class='bad' title='Bad'><tr><td width='22' valign='top'><img src='../../../skin/error.png' alt='Good'/></td><td>&lt;!DOCTYPE      PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"&gt;</td></tr></table>
+<table class='bad' title='Bad'><tr><td width='22' valign='top'><img src='../../../skin/error.png' alt='Good'/></td><td>&lt;!DOCTYPE foo  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"&gt;</td></tr></table>
+<table class='bad' title='Bad'><tr><td width='22' valign='top'><img src='../../../skin/error.png' alt='Good'/></td><td>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"&gt;</td></tr></table>
+<table class='good' title='Good'><tr><td width='22' valign='top'><img src='../../../skin/good.png' alt='Good'/></td><td>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"&gt;</td></tr></table>
+<h3> Solution: </h3>
+<p>Make sure the <a href="http://www.htmlpedia.org/wiki/Doctype">Doctype</a> is valid.
+</p>
+<h3> References: </h3>
+<ul><li> DOCTYPE Declaration: <a href="http://www.htmlpedia.org/wiki/Doctype">Doctype</a>
+</li><li> <a href="http://www.w3.org/QA/2002/04/valid-dtd-list.html">W3C list of valid doctypes</a>
+</li></ul>
+  </div>
+</body>
+</html>

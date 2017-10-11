@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Sp 76 - Htmlpedia</title>
+    <link rel="stylesheet" type="text/css" href="tidy_help2.css" media="screen, projection"/>
+  </head>
+<body>
+  <div id="bodyContent">
+<h2> Element ... undefined </h2>
+<h3> Cause: </h3>
+<p>You have used the element named above in your document, but the document type you are using does not define an element of that name. This error is often caused by:
+</p>
+<ul><li> incorrect use of the "Strict" <a href="http://www.htmlpedia.org/wiki/DTD">document type</a> with a document that uses frames (e.g. you must use the "Frameset" document type to get the "&lt;frameset&gt;" element)
+</li><li> by using vendor proprietary extensions such as "&lt;spacer&gt;" or "&lt;marquee&gt;" (this is usually fixed by using CSS to achieve the desired effect instead).
+</li><li> by using upper-case tags in XHTML (in XHTML attributes and elements must be all lower-case).
+</li></ul>
+<p>For most tags, the reason is that there is other ways to achieve the same result with standard tags or with <a href="http://www.htmlpedia.org/wiki/CSS">CSS</a>.
+</p>
+<h3> Example 1: </h3>
+<table class='bad' title='Bad'><tr><td width='22' valign='top'><img src='../../../skin/error.png' alt='Good'/></td><td>&lt;nobr&gt;there is no wrapping here&lt;/nobr&gt;</td></tr></table>
+<table class='good' title='Good'><tr><td width='22' valign='top'><img src='../../../skin/good.png' alt='Good'/></td><td>&lt;table&gt;&lt;tr&gt;&lt;td nowrap&gt;there is no wrapping here&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;<br/> 
+<p>&lt;span style="white-space: nowrap;"&gt;there is no wrapping here&lt;/span&gt; 
+</p>
+</td></tr></table>
+<p>NOBR is not approved by the W3C; &lt;nobr&gt; turns off wordwrapping between the start and end NOBR tag.
+There are several ways to replace a NOBR with a standard tag&nbsp;:
+</p>
+<ul><li> You can use the nowrap attribute of the TR and TD tag in a table. In that case, the &lt;br /&gt; element to force line breaks where desired.
+</li><li> The best solution is to use a cascaded style sheet with the attribute: <a href="http://www.w3.org/TR/CSS1#white-space">white-space: nowrap;</a>.
+</li></ul>
+<h3> Example 2: </h3>
+<table class='bad' title='Bad'><tr><td width='22' valign='top'><img src='../../../skin/error.png' alt='Good'/></td><td>&lt;object width="400" height="300"&gt;&lt;param name="movie" value="movie.swf"/&gt;
+<p>&lt;embed src="movie.swf" width="400" height="300"/&gt; 
+</p>
+&lt;/object&gt;</td></tr></table>
+<table class='good' title='Good'><tr><td width='22' valign='top'><img src='../../../skin/good.png' alt='Good'/></td><td>&lt;object width="400" height="300" type="application/x-shockwave-flash" data="movie.swf"&gt;
+<p>&lt;param name="movie" value="movie.swf" /&gt;
+</p>
+&lt;/object&gt;</td></tr></table>	
+<p>EMBED does not exist in HTML. It is a proprietary tag.
+</p>
+<h3> Example 3: </h3>
+<table class='bad' title='Bad'><tr><td width='22' valign='top'><img src='../../../skin/error.png' alt='Good'/></td><td>&lt;script type=&quot;text/javascript&quot;&gt;
+<p>function count(items){
+</p><p>&nbsp;&nbsp;&nbsp;for (var i=0;i&lt;items.length;i++){ do something}
+</p><p>}
+</p>
+&lt;/script&gt;</td></tr></table>
+<table class='good' title='Good'><tr><td width='22' valign='top'><img src='../../../skin/good.png' alt='Good'/></td><td>&lt;script type=&quot;text/javascript&quot;&gt;
+<p>/* &lt;![CDATA[  */
+</p><p>function count(items){
+</p><p>&nbsp;&nbsp;&nbsp;for (var i=0;i&lt;items.length;i++){ do something}
+</p><p>}
+</p><p>/*  ]]&gt; */
+</p>
+&lt;/script&gt;</td></tr></table>
+<h3> Solution: </h3>
+<p>Replace the tag with the equivalent in standard HTML.
+</p><p>Contents of javascript tags begin with "&lt;![CDATA["  and end with "]]&gt;"
+</p>
+<h3> References: </h3>
+<ul><li> <a href="http://www.w3.org/TR/CSS1#white-space">http://www.w3.org/TR/CSS1#white-space</a>
+</li><li> <a href="http://www.w3.org/TR/html401/index/elements.html">http://www.w3.org/TR/html401/index/elements.html</a>
+</li><li> <a href="http://artikel.fabrice-pascal.de/xhtmlembed/">http://artikel.fabrice-pascal.de/xhtmlembed/</a>
+</li></ul>
+  </div>
+</body>
+</html>

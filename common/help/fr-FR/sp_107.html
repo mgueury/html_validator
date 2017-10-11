@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Sp 107 - Htmlpedia</title>
+    <link rel="stylesheet" type="text/css" href="tidy_help2.css" media="screen, projection"/>
+  </head>
+  <body>
+    <div id="bodyContent">
+      <h2>Sp 107&nbsp;: le signe '=' (VI delimiter) et la valeur peuvent être omis uniquement si le SHORTTAG YES est indiqué</h2>
+      <h3> Cause&nbsp;: </h3>
+      <p>Vous avez donné un attribut sans affectation de valeur (signe égal et valeur). "VI delimiter" est un nom technique pour désigner le signe égal. La cause est donc l'utilisation des attributs abbrégés. Les formes abrégées d'attributs sont interdites.
+      </p>
+      <h3> Exemple&nbsp;: </h3>
+        <table class='bad' title='Bad'>
+          <tr>
+            <td width='22' valign='top'>
+              <img src='../../../skin/error.png' alt='Error'/>
+            </td>
+            <td>
+              <code>
+                &lt;option value="page.html" selected&gt; &lt;/option&gt;<br />
+                &lt;option value="page.html" checked&gt; &lt;/option&gt;
+              </code>
+            </td>
+          </tr>
+        </table>
+        <table class='good' title='Good'>
+          <tr>
+            <td width='22' valign='top'>
+              <img src='../../../skin/good.png' alt='Good'/>
+            </td>
+            <td>
+              <code>
+                &lt;option value="page.html" selected="selected"&gt; &lt;/option&gt;<br />
+                &lt;option value="page.html" checked="checked"&gt; &lt;/option&gt;
+              </code>
+            </td>            
+          </tr>
+        </table>
+
+      <h3> Solution&nbsp;: </h3>
+      <p>Certaines balises en HTML possédaient des attributs autonomes qui pouvaient être utilisés sans valeurs associées, comme c'était par exemple le cas pour la balise input avec laquelle on pouvait utiliser les attributs "checked", "disabled" et "readonly". Une pratique courante en HTML consistait donc à les déclarer de manière abrégée, afin d'économiser le nombre de caractères, en spécifiant directement un attribut sans valeur associée dans une balise HTML.En XHTML, cette pratique est révolue. Dorénavant, afin de rendre le code valide, il faut l'inscrire de manière complète, c'est-à-dire en spécifiant l'attribut et sa valeur associée, même si cela représente une répétition.
+      </p>
+      <h3> Références&nbsp;: </h3>
+      <ul>
+        <li> Spécification du XHTML&nbsp;:<a href="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd</a>
+        </li>
+      </ul>
+      <p>.
+      </p>
+    </div>
+  </body>
+</html>

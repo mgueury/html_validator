@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Tidy 12 - Htmlpedia</title>
+    <link rel="stylesheet" type="text/css" href="tidy_help2.css" media="screen, projection"/>
+  </head>
+<body>
+  <div id="bodyContent">
+<h2> missing &lt;...&gt; </h2>
+<h3> Cause: </h3>
+<p>A tag is missing in a mandatory context.
+</p>
+<h3> Example: </h3>
+<p>missing &lt;tr&gt;
+</p>
+<table class='bad' title='Bad'><tr><td width='22' valign='top'><img src='../../../skin/error.png' alt='Good'/></td><td>&lt;table&gt;<br/>
+<p>&nbsp;&lt;td&gt;abc&lt;/td&gt;<br/>
+&lt;/table&gt; 
+</p>
+</td></tr></table>
+<table class='good' title='Good'><tr><td width='22' valign='top'><img src='../../../skin/good.png' alt='Good'/></td><td>&lt;table&gt;<br/>
+<p>&nbsp;&lt;tr&gt;<br/>
+&nbsp;&nbsp;&lt;td&gt;abc&lt;/td&gt;<br/>
+&nbsp;&lt;/tr&gt;<br/>
+&lt;/table&gt; 
+</p>
+</td></tr></table>
+<h3> Solution: </h3>
+<p>Check in which context should the <a href="http://www.w3.org/TR/html4/index/elements.html">tag</a> be defined.
+</p>
+<h3> References: </h3>
+<ul><li> W3c tags: <a href="http://www.w3.org/TR/html4/index/elements.html">http://www.w3.org/TR/html4/index/elements.html</a>
+</li></ul>
+  </div>
+</body>
+</html>

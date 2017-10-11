@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Sp 141 - Htmlpedia</title>
+    <link rel="stylesheet" type="text/css" href="tidy_help2.css" media="screen, projection"/>
+  </head>
+<body>
+  <div id="bodyContent">
+<h2> ID ... already defined </h2>
+<h3> Cause: </h3>
+<p>An "id" is a unique identifier. Each time this attribute is used in a document
+it must have a different value. If you are using this attribute as a hook for
+style sheets it may be more appropriate to use classes (which group elements)
+than id (which are used to identify exactly one element).
+</p>
+<h3> Example: </h3>
+<table class='bad' title='Bad'><tr><td width='22' valign='top'><img src='../../../skin/error.png' alt='Good'/></td><td>&lt;span id="name1"&gt; &lt;span id="name1"&gt;</td></tr></table>
+<table class='good' title='Good'><tr><td width='22' valign='top'><img src='../../../skin/good.png' alt='Good'/></td><td>&lt;span id="name1"&gt; &lt;span id="name2"&gt;</td></tr></table>
+<h3> Solution: </h3>
+<p>Use an unique ID or a class name.
+</p>
+<h3> References: </h3>
+<ul><li> W3 validator: <a href="http://validator.w3.org/">http://validator.w3.org/</a>
+</li></ul>
+  </div>
+</body>
+</html>

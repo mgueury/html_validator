@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Access 4.3.1.1 - Htmlpedia</title>
+    <link rel="stylesheet" type="text/css" href="tidy_help2.css" media="screen, projection"/>
+  </head>
+<body>
+  <div id="bodyContent">
+<h2> Access: [4.3.1.1]: language not identified (Priority 3) </h2>
+<h3> Cause: </h3>
+<p>Identify the primary language of each document to ensure that clients automatically
+retrieve web pages in their preferred language. Language can be specified either
+through <a href="http://www.htmlpedia.org/wiki/HTTP_Headers">HTTP headers</a> or html markup (i.e. '&lt;html lang="en"&gt;').  In <a href="http://www.htmlpedia.org/wiki/XHTML">XHTML</a>, you should specify the language using the <a href="/w/index.php?title=XML&amp;action=edit" class="new">XML</a> <a href="http://www.htmlpedia.org/wiki/Namespace">namespace</a> (in XHTML 1.0 you can optionally keep using the plain (HTML namespaced) "lang" attribute, but it is disallowed in versions 1.1+). As a last resort, it is possible to specify the language using a <a href="/w/index.php?title=Meta_Tag&amp;action=edit" class="new">meta tag</a>.
+</p>
+<h3> Example: </h3>
+<table class='bad' title='Bad'><tr><td width='22' valign='top'><img src='../../../skin/error.png' alt='Good'/></td><td><pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+	&lt;title&gt;aert1.0/4.3.1 - The HTML element does not contain a lang attribute&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre></td></tr></table>
+<table class='good' title='Good'><tr><td width='22' valign='top'><img src='../../../skin/good.png' alt='Good'/></td><td><pre>
+&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"&gt;
+&lt;head&gt;
+	&lt;title&gt;Language identified.&lt;/title&gt;
+	&lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8" /&gt;
+	&lt;meta http-equiv="Content-Language" content="EN" /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre></td></tr></table>
+<h3> Solution: </h3>
+<p>Specify the language of your document using at least one of the following:
+</p>
+<ul><li> The "lang" attribute of the "html" element. (HTML 4 and XHTML 1.0)
+</li><li> The "lang" attribute of the "html" element using the XML namespace (i.e., xml:lang). (XHTML 1.0+)
+</li><li> The "lang" attribute not supported in XHTML 1.1+
+</li><li> A meta tag. (HTML 4 and XHTML)
+</li></ul>
+<h3> References: </h3>
+<ul><li> W3C WAI: <a href="http://www.w3.org/WAI/">http://www.w3.org/WAI/</a>
+</li><li> HTML Techniques for WAI 1.0: <a href="http://www.w3.org/TR/WCAG10-HTML-TECHS/">http://www.w3.org/TR/WCAG10-HTML-TECHS/</a>
+</li></ul>
+  </div>
+</body>
+</html>

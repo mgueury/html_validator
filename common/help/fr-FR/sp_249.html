@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Sp 249 - Htmlpedia</title>
+    <link rel="stylesheet" type="text/css" href="tidy_help2.css" media="screen, projection"/>
+  </head>
+  <body>
+    <div id="bodyContent">
+      <h2>Sp 249&nbsp;: Les DTD particuliers ne sont pas autorisés</h2>
+      <h3> Cause&nbsp;: </h3>
+      <p>Les DTD particuliers ne sont autorisés que si le flag CONCUR a la valeur YES ou si le flag EXPLICIT a la valeur YES.
+      Ce message peut apparaître lorsque deux DTD sont déclarés dans un seul document.
+      </p>
+      <h3> Exemple&nbsp;: </h3>
+        <table class='error' title='Bad'>
+          <tr>
+            <td width='22' valign='top'>
+              <img src='../../../skin/error.png' alt='error'/>
+            </td>
+            <td>
+              <code>
+                &lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd" &gt;
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd"&gt;
+&lt;html&gt;
+....
+              </code>
+            </td>            
+          </tr>
+        </table>
+        <table class='good' title='Good'>
+          <tr>
+            <td width='22' valign='top'>
+              <img src='../../../skin/good.png' alt='Good'/>
+            </td>
+            <td>
+              <code>
+                &lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd" &gt;
+&lt;html&gt;
+....
+              </code>
+            </td>            
+          </tr>
+        </table>
+
+      <h3> Solution&nbsp;: </h3>
+      <p>Supprimez l'un des DTD déclarés.
+      </p>
+      <h3> Références&nbsp;: </h3>
+      <ul>
+        <li> W3 validator: <a href="http://validator.w3.org/">http://validator.w3.org/</a>
+        </li>
+      </ul>
+      <p>.
+      </p>
+    </div>
+  </body>
+</html>

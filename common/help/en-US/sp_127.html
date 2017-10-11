@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Sp 127 - Htmlpedia</title>
+    <link rel="stylesheet" type="text/css" href="tidy_help2.css" media="screen, projection"/>
+  </head>
+<body>
+  <div id="bodyContent">
+<h2> Required attribute ... not specified </h2>
+<h3> Cause: </h3>
+<p>An attribute is required on an element that you've used, but you have omitted it. For instance, in most HTML and XHTML document types, the <code>type</code> attribute is required on the <code>script</code> element and the <code>alt</code> attribute is required for the <code>img</code> element.
+</p>
+<h3> Example: </h3>
+<p>Sample: required attribute type not specified. The <a href="http://www.w3.org/TR/html4/interact/scripts.html#edef-SCRIPT">&lt;script&gt;</a> element has a required attribute <code>type</code>. (The <code>language</code> attribute is <a href="http://www.htmlpedia.org/wiki/Deprecation">deprecated</a>.)
+</p>
+<table class='bad' title='Bad'><tr><td width='22' valign='top'><img src='../../../skin/error.png' alt='Good'/></td><td>&lt;script language="JavaScript"&gt;</td></tr></table>
+<table class='good' title='Good'><tr><td width='22' valign='top'><img src='../../../skin/good.png' alt='Good'/></td><td>&lt;script type="text/javascript"&gt;</td></tr></table>
+<p>Sample: required attribute type not specified. The <a href="http://www.w3.org/TR/html4/present/styles.html#edef-STYLE">&lt;style&gt;</a> element has a required attribute <code>type</code>.
+</p>
+<table class='bad' title='Bad'><tr><td width='22' valign='top'><img src='../../../skin/error.png' alt='Good'/></td><td>&lt;style&gt;</td></tr></table>
+<table class='good' title='Good'><tr><td width='22' valign='top'><img src='../../../skin/good.png' alt='Good'/></td><td>&lt;style type="text/css"&gt;</td></tr></table>
+<p>Sample: required attribute alt not specified. The <a href="http://www.w3.org/TR/html4/struct/objects.html#edef-IMG">&lt;img&gt;</a> element has a required attribute <code>alt</code>.
+</p>
+<table class='bad' title='Bad'><tr><td width='22' valign='top'><img src='../../../skin/error.png' alt='Good'/></td><td>&lt;img src="image.png" width="100" height="50"&gt;</td></tr></table>
+<table class='good' title='Good'><tr><td width='22' valign='top'><img src='../../../skin/good.png' alt='Good'/></td><td>&lt;img src="image.png" width="100" height="50" alt="Short description of the image"&gt;</td></tr></table>
+<h3> Solution: </h3>
+<p>Check the definition of the <a href="http://www.w3.org/TR/html4/index/elements.html">element</a>. Look for the required attributes and add any that are not present.
+</p>
+<h3> References: </h3>
+<ul><li> <a href="http://www.w3.org/TR/html4/index/elements.html">Elements in HTML 4.01</a>
+</li></ul>
+  </div>
+</body>
+</html>
