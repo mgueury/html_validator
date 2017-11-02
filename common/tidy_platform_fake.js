@@ -20,15 +20,27 @@ function isNewInstall() {
   var last_version = pref.getPref('version');
   pref.setPref('version', cur_version);
   console.log("current_version: " + cur_version + "/ last_version: " + last_version);
+
+  var sBrowser = "";
+  if (typeof chrome !== "undefined") {
+    if (typeof browser !== "undefined") {
+      sBrowser = "Firefox";
+    } else {
+      sBrowser = "Chrome";
+    }
+  } else {
+    sBrowser = "Edge";
+  }
+
   if (!last_version) {
     // is install
     chrome.tabs.create({
-      url: "http://users.skynet.be/mgueury/mozilla/new_webextension.html",
+      url: "http://users.skynet.be/mgueury/mozilla/new_webextension.html?version=" + cur_version + "&browser=" + sBrowser,
       active: true
     });
   } else if (last_version !== cur_version) {
     chrome.tabs.create({
-      url: "http://users.skynet.be/mgueury/mozilla/new_webextension.html",
+      url: "http://users.skynet.be/mgueury/mozilla/new_webextension.html?version=" + cur_version + "&browser=" + sBrowser,
       active: true
     });
   }

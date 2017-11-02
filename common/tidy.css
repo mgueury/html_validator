@@ -49,7 +49,6 @@ tr:hover .tidy_icon_white {
 }
 
 
-
 /* -------------------------------------
 / Splitters
 / -------------------------------------*/
@@ -73,6 +72,7 @@ body {
   background-color: white;
 }
 
+
 /*
 .tidy_viewsource_body
 {
@@ -84,6 +84,10 @@ body {
 code, pre, table {
   padding: 0;
   margin: 0;
+}
+
+code {
+  line-height: 130%;
 }
 
 iframe {
@@ -107,8 +111,7 @@ h2 {
   overflow-y: auto;
 }
 
-.source_h
-{
+.source_h {
   float: left;
   display: inline-block;
   vertical-align: top;
@@ -243,19 +246,25 @@ h2 {
   cursor: row-resize;
 }
 
+
 /* -------------------------------------
 / View Source
 / -------------------------------------*/
 
+
 /* Used for highlight of lines */
+
 .error {
   background-color: #DDF
 }
 
+
 /* Used for the line/col highlight */
+
 .focus {
   background-color: #F99
 }
+
 
 /* -------------------------------------
 / Welcome
@@ -281,8 +290,8 @@ h2 {
 / Options
 / -------------------------------------*/
 
-.label {0
-  min-width: 20em;
+.label {
+  0 min-width: 20em;
   display: inline-block;
   margin-bottom: 0.4em;
 }
@@ -459,6 +468,7 @@ h2 {
   border: 1px solid #888;
   width: 40em;
 }
+
 
 /* The Close Button */
 

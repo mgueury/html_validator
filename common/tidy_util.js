@@ -1132,8 +1132,8 @@ TidyUtil.prototype = {
    *
    */
   insertHtmlAndLines: function(html, source_name, line_name) {
-    if (html) {
-      var source_pre = document.getElementById(source_name);
+    var source_pre = document.getElementById(source_name);
+    if (html!=null) {
       source_pre.textContent = html;
       // Hightlight also the line numbers, else there is a difff in margin
       hljs.highlightBlock(source_pre);
@@ -1159,7 +1159,7 @@ TidyUtil.prototype = {
         pre.style.display = "none";
       }
     } else {
-      source_pre.textContent = '<Empty>';
+      source_pre.textContent = 'No html content';
     }
   },
 
@@ -1335,56 +1335,58 @@ TidyResult.prototype = {
     };
     var accessLevel = oTidyUtil.getIntPref("accessibility-check");
 
-    var reg5 = /^\s*<\!doctype html>/i;
-    var reg5_leg = /^\s*<\!doctype html system .about:legacy-compat.>/i;
-    // /i is for case insensitive
-    // /s at the beginning to skip the spaces
-    if (aAlgorithm != "online" && aAlgorithm != "cse" && (aHtml.match(reg5) || aHtml.match(reg5_leg))) {
-      this.bHTML5 = true;
-      /*
-      if (window.oTidyViewSource) {
-        // XXXXXXXXXXXXXX TODO ADD A DIALOG BOX TO ASK YES/NO
-        aAlgorithm = "online";
-      } else {
-        error = {
-          value: "HTML5 detected: validation cancelled"
-        };
-        return error;
+    if (aHtml!=null) {
+      var reg5 = /^\s*<\!doctype html>/i;
+      var reg5_leg = /^\s*<\!doctype html system .about:legacy-compat.>/i;
+      // /i is for case insensitive
+      // /s at the beginning to skip the spaces
+      if (aAlgorithm != "online" && aAlgorithm != "cse" && (aHtml.match(reg5) || aHtml.match(reg5_leg))) {
+        this.bHTML5 = true;
+        /*
+        if (window.oTidyViewSource) {
+          // XXXXXXXXXXXXXX TODO ADD A DIALOG BOX TO ASK YES/NO
+          aAlgorithm = "online";
+        } else {
+          error = {
+            value: "HTML5 detected: validation cancelled"
+          };
+          return error;
+        }
+        */
       }
-      */
-    }
-    this.algorithm = aAlgorithm;
-    if (aAlgorithm == "tidy") {
-      this.tidy_Filter(aHtml, oTidyUtil.getPrefParam(), accessLevel, error, nbError, nbWarning, nbAccessWarning, nbHidden);
-      // oTidyUtil.tidy.getErrorsInHTML(aHtml, oTidyUtil.getPrefParam(), accessLevel, error, nbError, nbWarning, nbAccessWarning, nbHidden);
-      //alert(error.value);
-    } else if (aAlgorithm == "sp") {
-      this.sp_Filter(aHtml, oTidyUtil.getPrefParam(), accessLevel, error, nbError, nbWarning, nbAccessWarning, nbHidden);
-      if (!error.value) {
-        error = {
-          value: "No error"
-        };
-      }
-    } else if (aAlgorithm == "online") {
-      if (window.oTidyViewSource) {
-        this.validateOnline(aHtml, aDocType, oTidyUtil.getPrefParam(), accessLevel, error, nbError, nbWarning, nbAccessWarning, nbHidden);
-      } else {
-        //XXXXXXXXXXXXXXXXXXXXXXX
-        error = {
-          value: "online disabled"
-        };
-        return error;
-      }
-    } else // serial
-    {
-      this.algorithm = "sp";
-      this.sp_Filter(aHtml, oTidyUtil.getPrefParam(), accessLevel, error, nbError, nbWarning, nbAccessWarning, nbHidden);
-      if (nbWarning.value == 0 && nbError.value == 0) {
-        this.algorithm = "tidy";
+      this.algorithm = aAlgorithm;
+      if (aAlgorithm == "tidy") {
         this.tidy_Filter(aHtml, oTidyUtil.getPrefParam(), accessLevel, error, nbError, nbWarning, nbAccessWarning, nbHidden);
-        if (nbWarning.value == 0 && nbError.value == 0 && nbAccessWarning.value == 0) {
-          // Promote to serial if all is perfect
-          this.algorithm = "serial";
+        // oTidyUtil.tidy.getErrorsInHTML(aHtml, oTidyUtil.getPrefParam(), accessLevel, error, nbError, nbWarning, nbAccessWarning, nbHidden);
+        //alert(error.value);
+      } else if (aAlgorithm == "sp") {
+        this.sp_Filter(aHtml, oTidyUtil.getPrefParam(), accessLevel, error, nbError, nbWarning, nbAccessWarning, nbHidden);
+        if (!error.value) {
+          error = {
+            value: "No error"
+          };
+        }
+      } else if (aAlgorithm == "online") {
+        if (window.oTidyViewSource) {
+          this.validateOnline(aHtml, aDocType, oTidyUtil.getPrefParam(), accessLevel, error, nbError, nbWarning, nbAccessWarning, nbHidden);
+        } else {
+          //XXXXXXXXXXXXXXXXXXXXXXX
+          error = {
+            value: "online disabled"
+          };
+          return error;
+        }
+      } else // serial
+      {
+        this.algorithm = "sp";
+        this.sp_Filter(aHtml, oTidyUtil.getPrefParam(), accessLevel, error, nbError, nbWarning, nbAccessWarning, nbHidden);
+        if (nbWarning.value == 0 && nbError.value == 0) {
+          this.algorithm = "tidy";
+          this.tidy_Filter(aHtml, oTidyUtil.getPrefParam(), accessLevel, error, nbError, nbWarning, nbAccessWarning, nbHidden);
+          if (nbWarning.value == 0 && nbError.value == 0 && nbAccessWarning.value == 0) {
+            // Promote to serial if all is perfect
+            this.algorithm = "serial";
+          }
         }
       }
     }
@@ -1502,6 +1504,7 @@ TidyResult.prototype = {
    */
   validateOnline: function(aHtml, aDocType, PrefConfig, accessLevel, error, nbError, nbWarning, nbAccessWarning, nbHidden) {
     error.value = null;
+    error.async = true;
 
     // Validate only in view source
     if (!window.oTidyViewSource) {
@@ -1523,7 +1526,6 @@ TidyResult.prototype = {
 
     //Send the proper header information along with the request
     http.setRequestHeader("Content-type", "multipart/form-data; boundary=" + boundary);
-    http.setRequestHeader("Connection", "close");
     http.setRequestHeader("Accept", "*/*");
 
     /*

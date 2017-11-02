@@ -120,6 +120,8 @@ TidyLib.prototype = {
       aConfig.push("-utf8");
       aConfig.push("-access");
       aConfig.push(aAccessLevel.toString());
+      aConfig.push("--tab-size");
+      aConfig.push("1");
       aConfig.push("input.html");
       console.log(aConfig);
       Module.callMain(aConfig);

@@ -89,7 +89,8 @@ function tidyGoToLineClose() {
 
 //---------------------------------------------------------------
 var confirmLine;
-function tidyConfirmOpen( s, line ) {
+
+function tidyConfirmOpen(s, line) {
   document.getElementById('tidy.confirm.modal').style.display = "block";
   var l = document.getElementById("tidy.confirm")
   l.innerHTML = s;
@@ -483,10 +484,16 @@ TidyViewSource.prototype = {
     } else {
       error = res.validate(aHtml, aDocType);
     }
+
     if (error) {
-      var aDocType2 = aDocType;
-      this.parseError(error, res, aDocType);
-      res.updateIcon();
+      // For online validation, the result is asynchronous. Clear the list to give a visual feedback
+      if (error.async) {
+        this.clear();
+      } else {
+        var aDocType2 = aDocType;
+        this.parseError(error, res, aDocType);
+        res.updateIcon();
+      }
     }
   },
 
@@ -523,16 +530,22 @@ TidyViewSource.prototype = {
         row.init("W3c Online Validation", 0, 0, 0, unsorted--, null, null, null, "info", oTidyUtil.getString("tidy_cap_info"));
         this.addRow(row);
 
-        for (var i = 0; i < error.messages.length; i++) {
-          row = new TidyResultRow();
-          row.online2row(error.messages[i]);
-          if (!row.skip) {
-            this.addRow(row);
+        if (error.messages) {
+          for (var i = 0; i < error.messages.length; i++) {
+            row = new TidyResultRow();
+            row.online2row(error.messages[i]);
+            if (!row.skip) {
+              this.addRow(row);
+            }
+            if (row.line > 0) {
+              if (!colorLines[row.line]) nbColorLines++;
+              colorLines[row.line] = true;
+            }
           }
-          if (row.line > 0) {
-            if (!colorLines[row.line]) nbColorLines++;
-            colorLines[row.line] = true;
-          }
+        } else {
+          // Show a message when there is no response from the server. (ex: no connection to Internet, proxy no set, ...)
+          row.init("No response from the server", 0, 0, 0, unsorted--, null, null, null, "error", oTidyUtil.getString("tidy_cap_error"));
+          this.addRow(row);
         }
       } else {
         var rows = error.value.split('\n');
@@ -700,21 +713,21 @@ TidyViewSource.prototype = {
   onTreeHideConfirmed: function(line) {
     // The inout arguments need to be JavaScript objects
     var errorId = this.aRow[line].errorId;
-      if (this.tidyResult.algorithm == "tidy") {
-        oTidyUtil.addToFilterArray('t' + errorId);
-      } else if (this.tidyResult.algorithm == "online") {
-        oTidyUtil.addToFilterArray('o' + errorId);
-      } else {
-        oTidyUtil.addToFilterArray('s' + errorId); // SP
-      }
-      oTidyUtil.saveFilterArrayInPref();
+    if (this.tidyResult.algorithm == "tidy") {
+      oTidyUtil.addToFilterArray('t' + errorId);
+    } else if (this.tidyResult.algorithm == "online") {
+      oTidyUtil.addToFilterArray('o' + errorId);
+    } else {
+      oTidyUtil.addToFilterArray('s' + errorId); // SP
+    }
+    oTidyUtil.saveFilterArrayInPref();
 
-      // rebuild the filter array
-      oTidyUtil.buildFilterArray();
-      // remove the color from the lines
-      oTidyViewSource.removeColorFromLines();
-      // revalidate with the new options
-      oTidyViewSource.validateHtmlFromNode();
+    // rebuild the filter array
+    oTidyUtil.buildFilterArray();
+    // remove the color from the lines
+    oTidyViewSource.removeColorFromLines();
+    // revalidate with the new options
+    oTidyViewSource.validateHtmlFromNode();
   },
 
   /** __ onTreeCopy ____________________________________________________
