@@ -254,8 +254,8 @@ h2 {
 
 /* Used for highlight of lines */
 
-.error {
-  background-color: #DDF
+.hl_error {
+  background-color: #DDF;
 }
 
 

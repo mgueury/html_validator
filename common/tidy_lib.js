@@ -115,7 +115,9 @@ TidyLib.prototype = {
   getErrorsInHTML: function(aHtml, aConfig, aAccessLevel, aError, aNbError, aNbWarning, aNbAccessWarning, aNbHidden) {
     report = "";
     try {
-      FS.writeFile('/input.html', aHtml, { encoding: "utf8" } );
+      FS.writeFile('/input.html', aHtml, {
+        encoding: "utf8"
+      });
       aConfig.push("-qe");
       aConfig.push("-utf8");
       aConfig.push("-access");
@@ -153,7 +155,9 @@ TidyLib.prototype = {
   cleanupHTML: function(aHtml, aConfig, aAccessLevel, aCleanupHTML) {
     try {
       report = "";
-      FS.writeFile('/input.html', aHtml, { encoding: "utf8" } );
+      FS.writeFile('/input.html', aHtml, {
+        encoding: "utf8"
+      });
       aConfig.push("-utf8");
       aConfig.push("-o");
       aConfig.push("output.html");
@@ -232,12 +236,14 @@ TidyLib.prototype = {
   updateIconBadgeTitle: function(aIcon, aBadge, aTitle) {
     // port.postMessage({
     console.log("updateIcon: " + aIcon);
-    chrome.runtime.sendMessage({
-      tabId: chrome.devtools.inspectedWindow.tabId,
-      path: aIcon,
-      badge: aBadge,
-      title: aTitle
-    });
+    if (typeof chrome != 'undefined') {
+      chrome.runtime.sendMessage({
+        tabId: chrome.devtools.inspectedWindow.tabId,
+        path: aIcon,
+        badge: aBadge,
+        title: aTitle
+      });
+    }
   },
 
   /** __ writeFile ________________________________________________________________

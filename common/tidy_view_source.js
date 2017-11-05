@@ -918,21 +918,62 @@ TidyViewSource.prototype = {
     var res = "";
     var currentLine = 1;
     var bFirstCharacter = true;
+    var tagLevel = 0;
+    var tagList = [];
+    var tagInProgress = false;
+
+    function add_text(tag) {
+      for (l = 1; l <= tagLevel; l++) {
+        res += "</span>";
+      }
+      // console.log('add_text('+tagLevel+'): ' + tag);
+      res += tag;
+      for (l = 1; l <= tagLevel; l++) {
+        res += tagList[l];
+      }
+    }
+
+    // console.log('start: ' + s);
     for (var i = 0, len = s.length; i < len; i++) {
-      var c = s[i];
       if (bFirstCharacter && colorLines[currentLine]) {
-        res += "<span class='error'>";
+        add_text("<span class='hl_error'>");
       }
       bFirstCharacter = false;
+
+      var c = s[i];
+      if (c == '<') {
+        var c2 = s[i + 1];
+        if (c2 == '/') {
+          tagList[tagLevel] = null;
+          tagLevel--;
+          // console.log('end  line' + currentLine +' tag(' + tagLevel + ') ');
+        } else {
+          tagInProgress = true;
+          tagList[tagLevel+1] = c;
+        }
+      } else if (tagInProgress) {
+        tagList[tagLevel+1] += c;
+        if (c == '>') {
+          tagLevel++;
+          tagInProgress = false;
+          // console.log('start line' + currentLine +' tag(' + tagLevel + ') ' + tagList[tagLevel]);
+        }
+      }
       if (c == '\n') {
         if (colorLines[currentLine]) {
-          res += "</span>";
+          add_text("</span>");
         }
         currentLine++;
         bFirstCharacter = true;
       }
       res += c;
     }
+    // Last line
+    if (colorLines[currentLine]) {
+      add_text("</span>");
+    }
+
+    // console.log('end: ' + res);
     document.getElementById("source_code_pre").innerHTML = res;
   },
 
