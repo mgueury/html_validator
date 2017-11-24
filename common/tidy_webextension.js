@@ -121,8 +121,9 @@ function updateWindow(panelWindow) {
   _window = panelWindow;
 
   // Release queued data
-  var callback;
-  while (callback = callbackQueue.shift()) {
+  var callback = callbackQueue.shift();
+  while (callback) {
     callback();
+    callback = callbackQueue.shift()
   }
 }

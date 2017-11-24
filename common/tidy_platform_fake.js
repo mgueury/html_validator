@@ -33,22 +33,25 @@ function isNewInstall() {
       sBrowser = "Edge";
     }
 
-    chrome.runtime.getPlatformInfo(function(info) {
-      // Display host OS in the console
-      console.log(info.os);
-      if (!last_version) {
-        // is install
-        chrome.tabs.create({
-          url: "http://users.skynet.be/mgueury/mozilla/new_webextension.html?version=" + cur_version + "&browser=" + sBrowser+ "&platform=" + info.os,
-          active: true
-        });
-      } else if (last_version != cur_version) {
-        chrome.tabs.create({
-          url: "http://users.skynet.be/mgueury/mozilla/new_webextension.html?version=" + cur_version + "&browser=" + sBrowser+ "&platform=" + info.os,
-          active: true
-        });
-      }
-    });
+    // In devtools, chrome.runtime is not accessible
+    if (typeof chrome != 'undefined' && typeof chrome.runtime != 'undefined') {
+      chrome.runtime.getPlatformInfo(function(info) {
+        // Display host OS in the console
+        console.log(info.os);
+        if (!last_version) {
+          // is install
+          chrome.tabs.create({
+            url: "http://users.skynet.be/mgueury/mozilla/new_webextension.html?version=" + cur_version + "&browser=" + sBrowser + "&platform=" + info.os,
+            active: true
+          });
+        } else if (last_version != cur_version) {
+          chrome.tabs.create({
+            url: "http://users.skynet.be/mgueury/mozilla/new_webextension.html?version=" + cur_version + "&browser=" + sBrowser + "&platform=" + info.os,
+            active: true
+          });
+        }
+      });
+    }
     return last_version != cur_version;
   } else {
     // Browser mode
@@ -62,7 +65,8 @@ TidyPref.prototype = {
   /*
     dummy preference system for HTML fake
   */
-  html: '<html>\n<title>Main</title>\n</abc>\n<body>\ntext<br>\ntext<br>\ntext<br>\ntext<br>\ntext<br>\ntext<br>\ntext<br>\ntext<br>\ntext<br>\n123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890</def><br>\n</body>\n',
+  html: null,
+  // '<html>\n<title>Main</title>\n</abc>\n<body>\ntext<br>\ntext<br>\ntext<br>\ntext<br>\ntext<br>\ntext<br>\ntext<br>\ntext<br>\ntext<br>\n123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890</def><br>\n</body>\n',
 
   prefs: {
     "abc": "123"

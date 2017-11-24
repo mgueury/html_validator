@@ -785,11 +785,15 @@ TidyViewSource.prototype = {
   validateHtmlFromNode: function() {
     oTidyUtil.debug_log('<validateHtmlFromNode>');
     var html = oTidyUtil.pref.getHtml();
-    oTidyUtil.insertHtmlAndLines(html, 'source_code_pre', 'source_line_pre');
+    // html is not defined in FF57 at startup
+    if( html )
+    {
+      oTidyUtil.insertHtmlAndLines(html, 'source_code_pre', 'source_line_pre');
 
-    // Todo XXXXXXXXXXXXXXXXX
-    var docType = "text/html";
-    this.validateHtml(html, docType);
+      // Todo XXXXXXXXXXXXXXXXX
+      var docType = "text/html";
+      this.validateHtml(html, docType);
+    }
   },
 
   /** __ cleanup ___________________________________________

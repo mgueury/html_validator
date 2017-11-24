@@ -7,7 +7,7 @@
 //  Licence : see licence.txt
 //*************************************************************************
 
-chrome.devtools.panels.create("HTML validator", "skintidy_devtools.png", "common/tidy_view_source_horiz.html", function(extensionPanel) {
+chrome.devtools.panels.create("HTML validator", "skin/disabled.png", "common/tidy_view_source_horiz.html", function(extensionPanel) {
 
   var _window, callbackQueue = [];
   // Connect to the background page

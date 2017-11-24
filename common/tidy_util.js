@@ -65,8 +65,8 @@ function TidyUtil() {
   // XXXXXXXXXXXXXXXXXXXXXXXXX
   this.pref = new TidyPref();
 
-  this.bNewInstall = this.isNewInstall();
-  if (this.bNewInstall) {
+/*
+  if (false) {
     try {
       // It it an new install but is it an upgrade ?
       if (this.getIntPref("highlight_max") > -1) {
@@ -77,6 +77,7 @@ function TidyUtil() {
     this.setBoolPref("browser_enable", true);
     this.setBoolPref("warning_line_number", true);
   }
+*/
 
   // Check if the preferences exists
   this.setDefaultValueBool("show-warnings", true);
@@ -438,25 +439,6 @@ TidyUtil.prototype = {
   bUpgrade: false,
   bTranslation: false,
   iTotalTimer: 0,
-
-  isNewInstall: function() {
-    try {
-      // XXXXXXXXXXXXXXXXXXXX
-      var curVersion = "xxxx_todo_xxxx";
-      var prefVersion = this.getCharPref("version");
-      this.debug_log('<isNewInstall>Current version: ' + curVersion);
-
-      if (curVersion.localeCompare(prefVersion)) {
-        //  The 2 version are different
-        this.setCharPref("version", curVersion);
-        return true;
-      }
-    } catch (ex) {
-      tidyShowExceptionInConsole(ex);
-      return true;
-    }
-    return false;
-  },
 
   getPrefParam: function() {
     var aConfig = [];
@@ -1299,7 +1281,7 @@ TidyResult.prototype = {
   updateIcon: function() {
     var icon = "skin/" + this.getIcon() + ".png";
     var badge = "";
-    var title = "Html Validator\n " + this.iNbError + " error" + (this.iNbError > 0 ? "s" : "") + " / " + this.iNbWarning + " warning" + (this.iNbWarning > 0 ? "s" : "");
+    var title = "Html Validator\n " + this.iNbError + " error" + (this.iNbError > 1 ? "s" : "") + " / " + this.iNbWarning + " warning" + (this.iNbWarning > 1 ? "s" : "");
     if (this.iNbError > 0) {
       badge = this.iNbError;
     } else if (this.iNbWarning > 0) {
