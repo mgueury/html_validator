@@ -90,6 +90,8 @@ tidy_pref.getHtml = function() {
   }
 }
 
+tidy_pref.load( tidy_pref.isNewInstall );
+
 function TidyPref() {};
 
 TidyPref.prototype = {
