@@ -12,7 +12,10 @@
 var oTidyOptions;
 
 function onLoadTidyOptions() {
-  onLoadTidyUtil();
+  onLoadTidyUtil(onLoadTidyOptions2);
+}
+
+function onLoadTidyOptions2() {
   oTidyOptions = new TidyOptions();
   oTidyOptions.start();
 }

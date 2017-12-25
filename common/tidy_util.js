@@ -15,8 +15,20 @@ var oTidyUtil;
 
 //-------------------------------------------------------------
 
-function onLoadTidyUtil() {
-  oTidyUtil = new TidyUtil();
+function onLoadTidyUtil(callback) {
+  if (callback) {
+    var f = function() {
+      tidy_pref.isNewInstall();
+      oTidyUtil = new TidyUtil();
+      callback();
+    }
+    tidy_pref.load(f); // Ask to be call back when the preferences are loaded
+  } else {
+    tidy_pref.isNewInstall();
+    oTidyUtil = new TidyUtil();
+    var f = function() {}
+    tidy_pref.load(f);
+  }
 }
 
 function onUnloadTidyUtil() {
@@ -65,19 +77,19 @@ function TidyUtil() {
   // XXXXXXXXXXXXXXXXXXXXXXXXX
   this.pref = new TidyPref();
 
-/*
-  if (false) {
-    try {
-      // It it an new install but is it an upgrade ?
-      if (this.getIntPref("highlight_max") > -1) {
-        this.bUpgrade = true;
-      }
-    } catch (ex) {}
-    // this.setBoolPref( "browser_hide", false );
-    this.setBoolPref("browser_enable", true);
-    this.setBoolPref("warning_line_number", true);
-  }
-*/
+  /*
+    if (false) {
+      try {
+        // It it an new install but is it an upgrade ?
+        if (this.getIntPref("highlight_max") > -1) {
+          this.bUpgrade = true;
+        }
+      } catch (ex) {}
+      // this.setBoolPref( "browser_hide", false );
+      this.setBoolPref("browser_enable", true);
+      this.setBoolPref("warning_line_number", true);
+    }
+  */
 
   // Check if the preferences exists
   this.setDefaultValueBool("show-warnings", true);
@@ -594,7 +606,7 @@ TidyUtil.prototype = {
     // List of the hidden errors and warnings
     var filterString = this.getCharPref("filter");
     //alert("filterString.length"+filterString.length);
-    if (filterString.length > 0) //here is the bug
+    if (filterString && filterString.length > 0) //here is the bug
     {
       var filterHideArray = filterString.split(',');
       for (var o in filterHideArray) {
@@ -692,10 +704,13 @@ TidyUtil.prototype = {
   /** __ debug_log  ___________________________________________________________
    */
   debug_log: function(s) {
+    console.log('<TidyDebugLog>' + s);
+    /*
     if (this.debug) {
       console.log('<TidyDebugLog>' + s);
       oTidyUtil.tidy.log(s);
     }
+    */
   },
 
   /** __ debug_start_timer  ___________________________________________________________
@@ -1115,7 +1130,7 @@ TidyUtil.prototype = {
    */
   insertHtmlAndLines: function(html, source_name, line_name) {
     var source_pre = document.getElementById(source_name);
-    if (html!=null) {
+    if (html != null) {
       source_pre.textContent = html;
       // Hightlight also the line numbers, else there is a difff in margin
       hljs.highlightBlock(source_pre);
@@ -1317,7 +1332,7 @@ TidyResult.prototype = {
     };
     var accessLevel = oTidyUtil.getIntPref("accessibility-check");
 
-    if (aHtml!=null) {
+    if (aHtml != null) {
       var reg5 = /^\s*<\!doctype html>/i;
       var reg5_leg = /^\s*<\!doctype html system .about:legacy-compat.>/i;
       // /i is for case insensitive

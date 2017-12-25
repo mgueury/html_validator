@@ -29,6 +29,7 @@ function TidyLib() {
 
 TidyLib.prototype = {
   m_bDebug: false,
+  m_bWaiting : true,
 
 
   init: function() {
@@ -101,6 +102,7 @@ TidyLib.prototype = {
     return new Promise(resolve => setTimeout(resolve, ms));
   },
 
+  // Wait that the Module is ready
   waitRunning: async function(callBack) {
     var i = 0;
     while (Module.currentStatus != "Running..." && Module.currentStatus != "") {
@@ -109,6 +111,7 @@ TidyLib.prototype = {
       i++;
     }
     console.log('</waitRunning>: ' + i);
+    this.m_bWaiting = false;
     callBack();
   },
 

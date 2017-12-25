@@ -116,7 +116,7 @@ h2 {
   display: inline-block;
   vertical-align: top;
   width: calc(100vw/2);
-  overflow: scroll;
+  overflow-y: auto;
   height: 100vh;
 }
 
@@ -146,9 +146,11 @@ h2 {
 }
 
 .source_line {
+  position: sticky;
+  left: 0px;
   float: left;
-  text-align: right;
   margin-right: 0.8em;
+  text-align: right;
   border-right: solid 1px #777;
 }
 

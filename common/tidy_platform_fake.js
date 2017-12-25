@@ -1,21 +1,30 @@
 // FAKE
 
 var tidy_pref = {};
+// I expect that this gives new errors.
+// 0.985 // tidy_pref.prefs = null;
 tidy_pref.prefs = {};
+tidy_pref.html = null;
+// '<html>\n<title>Main</title>\n</abc>\n<body>\ntext<br>\ntext<br>\ntext<br>\ntext<br>\ntext<br>\ntext<br>\ntext<br>\ntext<br>\ntext<br>\n123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890</def><br>\n</body>\n',
+
 tidy_pref.load = function(callback) {
   if (typeof chrome != 'undefined' && typeof chrome.storage != 'undefined') {
-    chrome.storage.sync.get(null, function(items) {
+    // Webextension mode
+    chrome.storage.local.get(null, function(items) {
       console.log("items:" + JSON.stringify(items))
       tidy_pref.prefs = items;
       callback();
     });
+  } else {
+    // Html mode
+    callback();
   }
 };
-tidy_pref.load(isNewInstall);
+
 
 // Check if this is a new install/update. If yes, show a popup
-function isNewInstall() {
-  if (typeof chrome != 'undefined') {
+tidy_pref.isNewInstall = function() {
+  if (typeof chrome != 'undefined' && typeof chrome.runtime != 'undefined' && typeof chrome.runtime.getManifest == 'function') {
     var cur_version = chrome.runtime.getManifest().version;
     var pref = new TidyPref();
     var last_version = pref.getPref('version');
@@ -34,7 +43,7 @@ function isNewInstall() {
     }
 
     // In devtools, chrome.runtime is not accessible
-    if (typeof chrome != 'undefined' && typeof chrome.runtime != 'undefined') {
+    try {
       chrome.runtime.getPlatformInfo(function(info) {
         // Display host OS in the console
         console.log(info.os);
@@ -51,6 +60,8 @@ function isNewInstall() {
           });
         }
       });
+    } catch (e) {
+      console.log("getPlatformInfo not accessible in devtools");
     }
     return last_version != cur_version;
   } else {
@@ -59,14 +70,29 @@ function isNewInstall() {
   }
 }
 
+/** __ setHtml ___________________________________________
+ *
+ */
+tidy_pref.setHtml = function(aHtml) {
+  console.log("<setHtml>");
+  tidy_pref.html = aHtml;
+},
+
+/** __ getHtml ___________________________________________
+ *
+ * Remove the color added to the lines
+ */
+tidy_pref.getHtml = function() {
+  if (typeof chrome != 'undefined') {
+    return tidy_pref.html;
+  } else {
+    return '<html>\n<title>Sub</title>\n</abc>\n<body>\ntext<br>\ntext<br>\ntext<br>\ntext<br>\ntext<br>\ntext<br>\ntext<br>\ntext<br>\ntext<br>\n12345</def><br>\n</body>\n';
+  }
+}
+
 function TidyPref() {};
 
 TidyPref.prototype = {
-  /*
-    dummy preference system for HTML fake
-  */
-  html: null,
-  // '<html>\n<title>Main</title>\n</abc>\n<body>\ntext<br>\ntext<br>\ntext<br>\ntext<br>\ntext<br>\ntext<br>\ntext<br>\ntext<br>\ntext<br>\n123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890</def><br>\n</body>\n',
 
   prefs: {
     "abc": "123"
@@ -78,7 +104,7 @@ TidyPref.prototype = {
       var p = {};
       p[s] = value;
       tidy_pref.prefs[s] = value;
-      chrome.storage.sync.set(p, function() {});
+      chrome.storage.local.set(p, function() {});
     } else {
       localStorage.setItem(s, value);
     }
@@ -99,7 +125,7 @@ TidyPref.prototype = {
    */
   prefHasUserValue: function(name) {
     var value = this.getPref(name);
-    if (value) {
+    if (typeof value != 'undefined') {
       return true;
     }
     return false;
@@ -141,26 +167,5 @@ TidyPref.prototype = {
    */
   getCharPref: function(name) {
     return this.getPref(name);
-  },
-
-  /** __ setHtml ___________________________________________
-   *
-   */
-  setHtml: function(aHtml) {
-    this.html = aHtml;
-  },
-
-  /** __ getHtml ___________________________________________
-   *
-   * Remove the color added to the lines
-   */
-  getHtml: function() {
-    if (oTidyViewSource.currentFrame == "sub") {
-      return '<html>\n<title>Sub</title>\n</abc>\n<body>\ntext<br>\ntext<br>\ntext<br>\ntext<br>\ntext<br>\ntext<br>\ntext<br>\ntext<br>\ntext<br>\n12345</def><br>\n</body>\n';
-    } else if (oTidyViewSource.currentFrame == "subsub") {
-      return '<!doctype html>\n<html>\n<head>\n<title>SubSub</title>\n</head>\n<body>\ntext<br>\n</body>\n</html>\n';
-    } else {
-      return this.html
-    }
-  },
+  }
 }

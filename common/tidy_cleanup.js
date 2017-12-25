@@ -12,7 +12,10 @@
 var oTidyCleanup;
 
 function onLoadTidyCleanup() {
-  onLoadTidyUtil();
+  onLoadTidyUtil(onLoadTidyCleanup2);
+}
+
+function onLoadTidyCleanup2() {
   oTidyCleanup = new TidyCleanup();
 
   // XXXXXXXXXXXXXXXXXXXXXXXXX

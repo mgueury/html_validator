@@ -18,7 +18,7 @@ chrome.devtools.panels.create("HTML validator", "skin/disabled.png", "common/tid
   extensionPanel.onShown.addListener(function tmp(panelWindow) {
     console.log("tidy: <extensionPanel.onShown>");
     extensionPanel.onShown.removeListener(tmp); // Run once only
-    updateWindow(panelWindow);
+    tidyWxUpdateWindow(panelWindow);
     console.log("tidy: </extensionPanel.onShown>");
   });
 
@@ -29,10 +29,11 @@ chrome.devtools.panels.create("HTML validator", "skin/disabled.png", "common/tid
       if (request.tabId == null || request.tabId == chrome.devtools.inspectedWindow.tabId) {
         // The message sent by the background page contains the name of the current URL
         if (typeof request.html == "string") {
-          // This is the WA for FF57
-          updateHtml(request.html);
+          // Firefox 57 WA
+          tidyWxUpdateHtml(request.html);
         } else {
-          updateHtmlReport(request.url, false);
+          // Chrome
+          tidyWxUpdateHtmlReport(request.url, false);
         }
       }
     }

@@ -11,10 +11,13 @@
 
 var otidyWelcome;
 
-function onLoadtidyWelcome() {
-  onLoadTidyUtil();
+function onLoadTidyWelcome() {
+  onLoadTidyUtil(onLoadTidyWelcome2);
+}
+
+function onLoadTidyWelcome2() {
   otidyWelcome = new tidyWelcome();
-  otidyWelcome.start();
+  // otidyWelcome.start();
 }
 
 function onUnloadtidyWelcome() {
@@ -44,7 +47,7 @@ tidyWelcome.prototype = {}
 
 window.onload = function(e)
 {
-   onLoadTidyUtil();
+   onLoadTidyWelcome();
 
    // Initialise the javascript link (else there is an error refuse to execute inline handler because it violates the security policies)
    tidyUtilSetOnclick( "tidy_welcome_tidy", function(){ tidyWelcomeChoose('tidy') });

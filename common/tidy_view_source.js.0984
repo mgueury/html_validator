@@ -14,17 +14,7 @@
 var oTidyViewSource;
 
 function onLoadTidyViewSource() {
-  /// XXXXXXXXXXXXXXXX
-  // oTidyViewSource = new TidyViewSource();
-  onLoadTidyUtil(onLoadTidyViewSource2);
-/*
-  OK
   onLoadTidyUtil();
-  onLoadTidyViewSource2();
-*/
-}
-
-function onLoadTidyViewSource2() {
   oTidyViewSource = new TidyViewSource();
   oTidyViewSource.start();
 
@@ -37,70 +27,8 @@ function onLoadTidyViewSource2() {
     }
   }
 
-  // Initialise the javascript link (else there is an error refuse to execute inline handler because it violates the security policies)
-  document.getElementById("body").onresize = viewSourceResize;
-  tidyUtilSetOnclick("tidy_hamburger", function() {
-    oTidyUtil.onHamburger()
-  });
-  tidyUtilSetOnclick("tidy_hamburger2", function() {
-    oTidyUtil.onHamburger()
-  });
-  tidyUtilSetOnclick("tidy_cleanup", function() {
-    tidyCleanup()
-  });
-  tidyUtilSetOnclick("tidy_cleanup2", function() {
-    tidyCleanup()
-  });
-  tidyUtilSetOnclick("tidy_online", function() {
-    tidyOnline()
-  });
-  tidyUtilSetOnclick("tidy_online2", function() {
-    oTidyViewSource.bForceOnline = true;
-    tidyValidateHtml();
-  });
-  tidyUtilSetOnclick("tidy_gotoline_open", function() {
-    tidyGoToLineOpen()
-  });
-  tidyUtilSetOnclick("tidy_wrapline", function() {
-    tidyWrapLine()
-  });
-  tidyUtilSetOnclick("tidy_optionopen", function() {
-    tidyOptionOpen()
-  });
-  tidyUtilSetOnclick("tidy_hmlpedia", function() {
-    tidyHtmlPedia()
-  });
-  tidyUtilSetOnclick("tidy_gotoline_ok", function() {
-    tidyGoToLine()
-  });
-  tidyUtilSetOnclick("tidy_gotoline_close", function() {
-    tidyGoToLineClose()
-  });
-  tidyUtilSetOnclick("tidy_confirm_ok", function() {
-    tidyConfirm()
-  });
-  tidyUtilSetOnclick("tidy_confirm_close", function() {
-    tidyConfirmClose()
-  });
-  /*
-    document.getElementById("source").onscroll = function(ev) {
-      // When scrolling left, keep the line numbers always visible
-      var s = document.getElementById("source");
-      var sl = document.getElementById("source_line");
-      sl.style.left = s.scrollLeft + "px";
-    };
-  */
-  document.getElementById("select_frame").onchange = function() {
-    oTidyViewSource.changeFrame()
-  };
-  // Wait that the library is ready before to continue
-  oTidyUtil.tidy.waitRunning(tidyValidateHtml);
-
   // Register the onLoad trigger, when the page is loaded -> validate
   // getBrowser().addEventListener("load", tidyValidateHtml, true);
-
-  // Call the webextension
-  tidyWxCallbackQueue();
 }
 
 function onUnloadTidyViewSource() {
@@ -206,7 +134,7 @@ function tidyHtmlPedia() {
 }
 
 function tidyOnline() {
-  var sHtml = tidy_pref.getHtml();
+  var sHtml = oTidyUtil.pref.getHtml();
   oTidyUtil.onlineHtmlValidate(sHtml);
   oTidyUtil.closeHamburger();
 }
@@ -222,36 +150,25 @@ function tidyViewSourceLoadExplainError() {
 
 function tidySelectAll() {}
 
-/** __ tidyUtilAddOption  ___________________________________________
- */
-function tidyUtilAddOption(select, sUrl) {
-  var option = document.createElement("option");
-  option.value = sUrl;
-  // The text is limited to 40 characters
-  var s = sUrl;
-  if (s.length > 40) {
-    var s1 = s.substring(0, 18);
-    var s2 = s.substring(s.length - 18);
-    s = s1 + '...' + s2;
-  }
-  option.text = s;
-  select.add(option);
-}
 
 /** __ tidyUtilUpdateDocList  ___________________________________________
  */
-function tidyUtilUpdateDocList(docList, main_url) {
+function tidyUtilUpdateDocList(docList) {
   // currentFrame is used in getHtml to get the current frame.
   var select = document.getElementById("select_frame");
   select.options.length = 0;
-  // add the main_url on the top
-  if (main_url) {
-    tidyUtilAddOption(select, main_url);
-  }
   for (i = 0; i < docList.length; i++) {
-    if (docList[i] != main_url) {
-      tidyUtilAddOption(select, docList[i]);
+    var option = document.createElement("option");
+    option.value = docList[i];
+    // The text is limited to 40 characters
+    var s = docList[i];
+    if (s.length > 40) {
+      var s1 = s.substring(0, 18);
+      var s2 = s.substring(s.length - 18);
+      s = s1 + '...' + s2;
     }
+    option.text = s;
+    select.add(option);
   }
 }
 
@@ -574,18 +491,6 @@ TidyViewSource.prototype = {
   validateHtml: function(aHtml, aDocType) {
     oTidyUtil.debug_log('<validateHtml>' + aDocType);
 
-    if (oTidyUtil.tidy.m_bWaiting) {
-      console.log("<validateHtml>Cancel : Waiting for Module");
-
-      /*
-      // No need to clear, this happens only at startup
-      row = new TidyResultRow();
-      row.init("W3c Online Validation", 0, 0, 0, unsorted--, null, null, null, "info", oTidyUtil.getString("tidy_cap_info"));
-      this.addRow(row);
-      */
-      return;
-    }
-
     // Set the initialization flag
     this.bIsValidated = true;
 
@@ -901,20 +806,16 @@ TidyViewSource.prototype = {
    */
   validateHtmlFromNode: function() {
     oTidyUtil.debug_log('<validateHtmlFromNode>');
-    var html = tidy_pref.getHtml();
+    var html = oTidyUtil.pref.getHtml();
     // html is not defined in FF57 at startup
-    if (html) {
-      // Reset the scrolling
-      var s = document.getElementById("source");
-      s.scrollLeft = 0;
-      s.scrollTop = 0;
+    if( html )
+    {
       oTidyUtil.insertHtmlAndLines(html, 'source_code_pre', 'source_line_pre');
+
+      // Todo XXXXXXXXXXXXXXXXX
       var docType = "text/html";
       this.validateHtml(html, docType);
-    } else {
-      oTidyUtil.debug_log('<validateHtmlFromNode>No html');
     }
-    oTidyUtil.debug_log('</validateHtmlFromNode>');
   },
 
   /** __ cleanup ___________________________________________
@@ -923,7 +824,7 @@ TidyViewSource.prototype = {
    */
   cleanup: function() {
     oTidyUtil.debug_log('<cleanup>');
-    var html = tidy_pref.getHtml();
+    var html = oTidyUtil.pref.getHtml();
     this.cleanupDialog(html);
   },
 
@@ -1074,10 +975,10 @@ TidyViewSource.prototype = {
           // console.log('end  line' + currentLine +' tag(' + tagLevel + ') ');
         } else {
           tagInProgress = true;
-          tagList[tagLevel + 1] = c;
+          tagList[tagLevel+1] = c;
         }
       } else if (tagInProgress) {
-        tagList[tagLevel + 1] += c;
+        tagList[tagLevel+1] += c;
         if (c == '>') {
           tagLevel++;
           tagInProgress = false;
@@ -1109,7 +1010,7 @@ TidyViewSource.prototype = {
     // XXXXXXXXXXXXXXXX Todo
     var url = document.getElementById("select_frame").value;
     // Call tidy_devtools
-    tidyWxUpdateHtmlReport(url, true);
+    updateHtmlReport(url, true);
   },
 
   /** __ removeColorFromLines ___________________________________________
@@ -1387,6 +1288,57 @@ window.onmouseup = function(e) {
 
 window.onload = function(e) {
   onLoadTidyViewSource();
+
+  // Initialise the javascript link (else there is an error refuse to execute inline handler because it violates the security policies)
+  document.getElementById("body").onresize = viewSourceResize;
+  tidyUtilSetOnclick("tidy_hamburger", function() {
+    oTidyUtil.onHamburger()
+  });
+  tidyUtilSetOnclick("tidy_hamburger2", function() {
+    oTidyUtil.onHamburger()
+  });
+  tidyUtilSetOnclick("tidy_cleanup", function() {
+    tidyCleanup()
+  });
+  tidyUtilSetOnclick("tidy_cleanup2", function() {
+    tidyCleanup()
+  });
+  tidyUtilSetOnclick("tidy_online", function() {
+    tidyOnline()
+  });
+  tidyUtilSetOnclick("tidy_online2", function() {
+    oTidyViewSource.bForceOnline = true;
+    tidyValidateHtml();
+  });
+  tidyUtilSetOnclick("tidy_gotoline_open", function() {
+    tidyGoToLineOpen()
+  });
+  tidyUtilSetOnclick("tidy_wrapline", function() {
+    tidyWrapLine()
+  });
+  tidyUtilSetOnclick("tidy_optionopen", function() {
+    tidyOptionOpen()
+  });
+  tidyUtilSetOnclick("tidy_hmlpedia", function() {
+    tidyHtmlPedia()
+  });
+  tidyUtilSetOnclick("tidy_gotoline_ok", function() {
+    tidyGoToLine()
+  });
+  tidyUtilSetOnclick("tidy_gotoline_close", function() {
+    tidyGoToLineClose()
+  });
+  tidyUtilSetOnclick("tidy_confirm_ok", function() {
+    tidyConfirm()
+  });
+  tidyUtilSetOnclick("tidy_confirm_close", function() {
+    tidyConfirmClose()
+  });
+  document.getElementById("select_frame").onchange = function() {
+    oTidyViewSource.changeFrame()
+  };
+  // Wait that the library is ready before to continue
+  oTidyUtil.tidy.waitRunning(tidyValidateHtml);
 }
 
 // Init syntax highlighting

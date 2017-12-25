@@ -20,42 +20,49 @@ function updateIcon(newIcon) {
   });
 }
 
-function updateHtml(html) {
-  console.log("tidy: <updateHtml>");
+function tidyWxUpdateHtml(html) {
+  console.log("tidy: <tidyWxUpdateHtml>");
   if (typeof oTidyViewSource != 'undefined') {
-    oTidyUtil.pref.setHtml(html);
+    console.log("tidy: <tidyWxUpdateHtml>oTidyViewSource exists");
+    tidy_pref.setHtml(html);
     oTidyViewSource.validateHtmlFromNode()
   } else {
     if (_window) {
-      console.log("tidy: <updateHtml>2");
-      _window.oTidyUtil.pref.setHtml(html);
-      _window.oTidyViewSource.validateHtmlFromNode();
+      console.log("tidy: <tidyWxUpdateHtml>_window exists");
+      _window.tidy_pref.setHtml(html);
+      if (_window.oTidyViewSource) {
+        _window.oTidyViewSource.validateHtmlFromNode();
+      }
     } else {
-      console.log("tidy: <updateHtml>3");
+      console.log("tidy: <tidyWxUpdateHtml>oTidyViewSource does not exist. Add to queue");
+      // For Firefox 57
+      lastHtml = html;
+      //
       callbackQueue.push(function() {
-        updateHtml(html);
+        tidyWxUpdateHtml(html);
       });
     }
   }
-  console.log("tidy: </updateHtml>");
+  console.log("tidy: </tidyWxUpdateHtml>");
 }
 
-function updateDocList(docList) {
-  console.log("tidy: <updateDocList>");
+function tidyWxUpdateDocList(docList, url) {
+  console.log("tidy: <tidyWxUpdateDocList>");
   if (_window) {
-    console.log("tidy: <updateDocList>2");
-    _window.oTidyViewSource.updateDocList(docList);
+    console.log("tidy: <tidyWxUpdateDocList>2");
+    // It is possible that the window is there but that the pref are not loaded yet.
+    _window.tidyUtilUpdateDocList(docList, url);
   } else {
-    console.log("tidy: <updateDocList>3");
+    console.log("tidy: <tidyWxUpdateDocList>3");
     callbackQueue.push(function() {
-      updateDocList(docList);
+      tidyWxUpdateDocList(docList, url);
     });
   }
-  console.log("tidy: </updateDocList>");
+  console.log("tidy: </tidyWxUpdateDocList>");
 }
 
-function updateHtmlReport(url, bChangeFrame) {
-  console.log("tidy: <updateHtmlReport>" + url);
+function tidyWxUpdateHtmlReport(url, bChangeFrame) {
+  console.log("tidy: <tidyWxUpdateHtmlReport>" + url);
 
   // If the url is not specified. Use the URL of the tab.
   if (typeof url == 'undefined') {
@@ -79,7 +86,7 @@ function updateHtmlReport(url, bChangeFrame) {
               console.log("inside inspectedWindow.getResources 3: found");
               resource.getContent(function(content, encoding) {
                 var body = content;
-                updateHtml(body);
+                tidyWxUpdateHtml(body);
               });
               bFound = true;
             }
@@ -89,7 +96,7 @@ function updateHtmlReport(url, bChangeFrame) {
         i++;
       }
       if (!bChangeFrame) {
-        updateDocList(docList);
+        tidyWxUpdateDocList(docList, url);
       }
       if (!bFound) {
         // Found nothing neither with inspectedWindow.getResources
@@ -104,26 +111,34 @@ function updateHtmlReport(url, bChangeFrame) {
           });
         });
         updateIcon('skin/question.png');
-        updateHtml(body);
+        tidyWxUpdateHtml(body);
       }
     });
   } else {
     // In Firefox 57, the chrome.devtools.inspectedWindow.getResources is not yet available
     // Let's be stupid and get the HTML from the DOM ?
     // var body = "<html>Firefox 57</html>";
-    // updateHtml(null);
-    updateDocList(docList);
+    // tidyWxUpdateHtml(null);
+    tidyWxUpdateDocList(docList);
   }
-  console.log("tidy: </updateHtmlReport>");
+  console.log("tidy: </tidyWxUpdateHtmlReport>");
 }
 
-function updateWindow(panelWindow) {
+function tidyWxUpdateWindow(panelWindow) {
   _window = panelWindow;
+  if (_window.tidy_pref) {
+    tidyWxCallbackQueue();
+  }
+}
 
+function tidyWxCallbackQueue() {
   // Release queued data
+  console.log("tidy: <tidyWxCallbackQueue>callbackQueue size = " + callbackQueue.length);
   var callback = callbackQueue.shift();
   while (callback) {
+    console.log("tidy: <tidyWxCallbackQueue>callback");
     callback();
     callback = callbackQueue.shift()
   }
+  console.log("tidy: </tidyWxCallbackQueue>");
 }
