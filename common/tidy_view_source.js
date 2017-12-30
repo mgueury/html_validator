@@ -17,11 +17,11 @@ function onLoadTidyViewSource() {
   /// XXXXXXXXXXXXXXXX
   // oTidyViewSource = new TidyViewSource();
   onLoadTidyUtil(onLoadTidyViewSource2);
-/*
-  OK
-  onLoadTidyUtil();
-  onLoadTidyViewSource2();
-*/
+  /*
+    OK
+    onLoadTidyUtil();
+    onLoadTidyViewSource2();
+  */
 }
 
 function onLoadTidyViewSource2() {
@@ -997,7 +997,13 @@ TidyViewSource.prototype = {
     document.getElementById("source_code_pre").innerHTML = res;
     af = document.getElementsByClassName('focus');
     if (af.length == 1) {
-      af[0].scrollIntoView();
+      // scroll the element in the top/left corner of the container
+      var container = document.getElementById("source");
+      const element = af[0];
+      const x = element.offsetLeft - container.offsetLeft - container.clientWidth / 8;
+      const y = element.offsetTop - container.offsetTop - container.clientHeight / 8;
+      container.scrollLeft = x;
+      container.scrollTop = y;
     }
   },
 
