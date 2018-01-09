@@ -646,6 +646,13 @@ TidyViewSource.prototype = {
         row = new TidyResultRow();
         row.init("W3c Online Validation", 0, 0, 0, unsorted--, null, null, null, "info", oTidyUtil.getString("tidy_cap_info"));
         this.addRow(row);
+        var online_url = oTidyUtil.getCharPref("online_url")
+        if( online_url!= tidy_pref.online_default_url )
+        {
+          row = new TidyResultRow();
+          row.init("W3c validator URL: " + online_url, 0, 0, 0, unsorted--, null, null, null, "info", oTidyUtil.getString("tidy_cap_info"));
+          this.addRow(row);
+        }
 
         if (error.messages) {
           for (var i = 0; i < error.messages.length; i++) {
@@ -912,7 +919,12 @@ TidyViewSource.prototype = {
       var docType = "text/html";
       this.validateHtml(html, docType);
     } else {
-      oTidyUtil.debug_log('<validateHtmlFromNode>No html');
+      oTidyUtil.debug_log('<validateHtmlFromNode>No HTML');
+      // add an info line
+      this.clear();
+      var row = new TidyResultRow();
+      row.init("No HTML", 0, 0, 4, 0, null, null, null, "info", oTidyUtil.getString("tidy_cap_info"));
+      this.addRow(row);
     }
     oTidyUtil.debug_log('</validateHtmlFromNode>');
   },

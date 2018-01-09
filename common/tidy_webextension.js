@@ -101,15 +101,7 @@ function tidyWxUpdateHtmlReport(url, bChangeFrame) {
       if (!bFound) {
         // Found nothing neither with inspectedWindow.getResources
         // https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Extending_the_developer_tools
-        var body = 'Please reload the page.';
-        const scriptToAttach = "document.body.innerHTML = 'Hi from the devtools';";
-        window.addEventListener("click", () => {
-          browser.runtime.sendMessage({
-            from: "tidy_webextension",
-            tabId: chrome.devtools.inspectedWindow.tabId,
-            script: scriptToAttach
-          });
-        });
+        var body = null; 
         updateIcon('skin/question.png');
         tidyWxUpdateHtml(body);
       }

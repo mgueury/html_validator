@@ -123,7 +123,7 @@ function TidyUtil() {
   this.setDefaultValueBool("force_frame_revalidation", false);
   this.setDefaultValueChar("version", "0.0");
   // this.setDefaultValueBool( "warning_line_number",   true );
-
+  this.setDefaultValueChar("online_url", tidy_pref.online_default_url);
   // this.setDefaultValueChar("algorithm", "serial"); // tidy, sp, serial
   this.setDefaultValueChar("algorithm", "tidy"); // tidy, sp, serial
 
@@ -1030,7 +1030,7 @@ TidyUtil.prototype = {
     var formElement = doc.createElement("form")
     formElement.setAttribute("method", "post");
     formElement.setAttribute("enctype", "multipart/form-data");
-    formElement.setAttribute("action", "http://validator.w3.org/nu/");
+    formElement.setAttribute("action", this.getCharPref("online_url"));
     formElement.setAttribute("style", "display: none;");
 
     var text = doc.createElement("text")
@@ -1517,7 +1517,7 @@ TidyResult.prototype = {
       "--" + boundary + "--\r\n";
 
     var http = new XMLHttpRequest();
-    var url = "http://validator.w3.org/nu/";
+    var url = oTidyUtil.getCharPref("online_url");
     var params = "output=json";
     http.open("POST", url, true);
 
@@ -1535,29 +1535,36 @@ TidyResult.prototype = {
     http.result = this;
     http.onreadystatechange = function() {
       //Call a function when the state changes.
-      if (http.readyState == 4 && http.status == 200) {
+      if (http.readyState == 4) {
 
         var error = null;
-        try {
-          error = JSON.parse(http.responseText);
-        } catch (ex) {
-          tidyShowExceptionInConsole(ex);
-          // Init a dummy error message with the exception
+        if (http.status == 200) {
+          try {
+            error = JSON.parse(http.responseText);
+          } catch (ex) {
+            tidyShowExceptionInConsole(ex);
+            // Init a dummy error message with the exception
+            error = {
+              messages: new Array()
+            };
+            error.messages = new Array();
+            error.messages[0] = {
+              type: "error",
+              message: "Online parser error"
+            };
+            error.messages[1] = {
+              type: "error",
+              message: "Go to menu: HTML Validator/W3c Online validator to see the error"
+            };
+          }
+        } else {
           error = {
             messages: new Array()
           };
           error.messages = new Array();
           error.messages[0] = {
-            line: 0,
-            column: 0,
             type: "error",
-            message: "Online parser error"
-          };
-          error.messages[1] = {
-            line: 0,
-            column: 0,
-            type: "error",
-            message: "Go to menu: HTML Validator/W3c Online validator to see the error"
+            message: "Can not contact the url: " + oTidyUtil.getCharPref("online_url")
           };
         }
 
@@ -1807,6 +1814,7 @@ TidyResultRow.prototype = {
 
   online2row: function(d) {
     /*
+              "firstColumn": 1,
               "lastLine": 7,
               "lastColumn": 2871,
               "message": "Attribute width not allowed on element div at this point.",
@@ -1814,8 +1822,12 @@ TidyResultRow.prototype = {
               "explanation": "\n<div class=\"ve html5\"><dl xmlns=\"http://www.w3.org/1999/xhtml\"><dt>Element-specific attributes for element <a href=\"http://www.whatwg.org/specs/web-apps/current-work/#the-div-element\"><code>div</code></a>:</dt>\n   <dd><a href=\"http://www.whatwg.org/specs/web-apps/current-work/#global-attributes\">Global attributes</a></dd>\n   </dl></div>\n",
               "type": "error"
     */
-    this.line = d.lastLine;
-    this.column = d.lastColumn;
+    if (d.lastLine) {
+      this.line = d.lastLine;
+    }
+    if (d.firstColumn) {
+      this.column = d.firstColumn;
+    }
     // The errorID is always hmtl5, it is useless.
     // Using a very dummy and stupid algorithm until fixed.
     //  this.errorId = d.messageid;

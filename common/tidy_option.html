@@ -21,8 +21,11 @@
     <span class="label">Algorithm</span>
     <select id="tidy.options.algorithm">
               <option value="tidy">Tidy</option>
+        <!--
+              To readd when OpenSP is re-added
               <option value="sp">SGML Parser</option>
               <option value="serial">Serial</option>
+        -->
               <option value="online">Online</option>
     </select>
     <input type="button" id="tidy.options.welcome" value="Choose...">
@@ -35,6 +38,10 @@
               <option value="2">2</option>
               <option value="3">3</option>
     </select>
+    <br>
+    <span class="label">W3c Online URL</span>
+    <input type="text" id="tidy.options.online_url">
+    <input type="button" id="tidy.options.online_default_url" value="Default">
     <br>
     <h3>Browser</h3>
     <span class="label"><input type="checkbox" id="tidy.options.browser_enable">Enable validation in the Browser</span>

@@ -418,7 +418,7 @@ window.onload = function(e) {
   tidyUtilSetOnclick("tidy_refresh", function() {
     oTidyCleanup.onRefresh()
   });
-  tidyUtilSetOnclick("tidy.cleanup.ok", function() {
+  tidyUtilSetOnclick("tidy_cleanup_ok", function() {
     oTidyCleanup.onOk()
   });
 

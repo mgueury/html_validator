@@ -68,6 +68,7 @@ TidyOptions.prototype = {
     oTidyUtil.initCheckbox("highlight_line");
     oTidyUtil.initCheckbox("show_line_number");
     oTidyUtil.initCheckbox("show-warnings");
+    oTidyUtil.initCharTextbox("online_url");
 
     // Filter List
     for (var o in oTidyUtil.filterArrayTidy) {
@@ -153,6 +154,7 @@ TidyOptions.prototype = {
     oTidyUtil.saveCheckbox("highlight_line");
     oTidyUtil.saveCheckbox("show_line_number");
     oTidyUtil.saveCheckbox("show-warnings");
+    oTidyUtil.saveCharTextbox("online_url");
 
     // Icon: Convert the combobox to value
     var icon = new Array("icon_text", "icon_only");
@@ -205,6 +207,14 @@ TidyOptions.prototype = {
   onCloseModal: function(name) {
     document.getElementById(name).style.display = "none";
     this.setAlgorithm();
+  },
+
+  /**
+   * Close a modal dialog
+   */
+  onOnlineDefaultUrl: function() {
+    document.getElementById("tidy.options.online_url").value = tidy_pref.online_default_url;
+    this.setAlgorithm();
   }
 }
 
@@ -217,4 +227,5 @@ window.onload = function(e)
    // XXX seems to be calling the function....
    tidyUtilSetOnclick( "tidy.options.welcome", function(){ oTidyOptions.onOpenModal('tidy.welcome.modal') });
    tidyUtilSetOnclick( "tidy.options.filter.remove", function(){ oTidyOptions.onFilterRemove() });
+   tidyUtilSetOnclick( "tidy.options.online_default_url", function(){ oTidyOptions.onOnlineDefaultUrl() });
 }

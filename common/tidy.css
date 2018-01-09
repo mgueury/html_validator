@@ -315,6 +315,10 @@ h2 {
   z-index: 2;
 }
 
+#tidy_cleanup_ok {
+  float: right;
+}
+
 #tidy_cleanup_tab {
   display: =inline-block;
 }
