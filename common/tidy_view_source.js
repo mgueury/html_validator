@@ -643,6 +643,24 @@ TidyViewSource.prototype = {
       var colorLines = new Array();
       var nbColorLines = 0;
       if (res.algorithm == "online") {
+        // Sometimes the W3c Validator choose the CR at the end of a line instead of the 1rst character in a line.
+        // a) get the number of columns for each line.
+        var html = tidy_pref.getHtml();
+        var currentLine = 1;
+        var col = 0;
+        var aCol = [];
+        for (var i = 0, len = html.length; i < len; i++) {
+          var c = html[i];
+          col ++;
+          if (c == '\n') {
+            aCol[currentLine]=col;
+            col=0;
+            currentLine++;
+          }
+        }
+        // Last line
+        aCol[currentLine]=col;
+
         row = new TidyResultRow();
         row.init("W3c Online Validation", 0, 0, 0, unsorted--, null, null, null, "info", oTidyUtil.getString("tidy_cap_info"));
         this.addRow(row);
@@ -656,6 +674,16 @@ TidyViewSource.prototype = {
 
         if (error.messages) {
           for (var i = 0; i < error.messages.length; i++) {
+            // Check if an error is a CR
+            // If yes, move the message to the next line, column 1
+            var line=error.messages[i].firstLine;
+            var col=error.messages[i].firstColumn;
+            if( aCol[line]>=col )
+            {
+              error.messages[i].firstLine++;
+              error.messages[i].firstColumn=1;
+            }
+
             row = new TidyResultRow();
             row.online2row(error.messages[i]);
             if (!row.skip) {

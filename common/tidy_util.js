@@ -1822,7 +1822,9 @@ TidyResultRow.prototype = {
               "explanation": "\n<div class=\"ve html5\"><dl xmlns=\"http://www.w3.org/1999/xhtml\"><dt>Element-specific attributes for element <a href=\"http://www.whatwg.org/specs/web-apps/current-work/#the-div-element\"><code>div</code></a>:</dt>\n   <dd><a href=\"http://www.whatwg.org/specs/web-apps/current-work/#global-attributes\">Global attributes</a></dd>\n   </dl></div>\n",
               "type": "error"
     */
-    if (d.lastLine) {
+    if (d.firstLine) {
+      this.line = d.firstLine;
+    } else if (d.lastLine) {
       this.line = d.lastLine;
     }
     if (d.firstColumn) {
