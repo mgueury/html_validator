@@ -5,12 +5,13 @@ var tidy_pref = {};
 // 0.985 // tidy_pref.prefs = null;
 tidy_pref.prefs = {};
 tidy_pref.html = null;
+tidy_pref.frames = null;
 // '<html>\n<title>Main</title>\n</abc>\n<body>\ntext<br>\ntext<br>\ntext<br>\ntext<br>\ntext<br>\ntext<br>\ntext<br>\ntext<br>\ntext<br>\n123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890</def><br>\n</body>\n',
 
-tidy_pref.load = function(callback) {
+tidy_pref.load = function (callback) {
   if (typeof chrome != 'undefined' && typeof chrome.storage != 'undefined') {
     // Webextension mode
-    chrome.storage.local.get(null, function(items) {
+    chrome.storage.local.get(null, function (items) {
       console.log("items:" + JSON.stringify(items))
       tidy_pref.prefs = items;
       callback();
@@ -21,9 +22,8 @@ tidy_pref.load = function(callback) {
   }
 };
 
-
 // Check if this is a new install/update. If yes, show a popup
-tidy_pref.isNewInstall = function() {
+tidy_pref.isNewInstall = function () {
   if (typeof chrome != 'undefined' && typeof chrome.runtime != 'undefined' && typeof chrome.runtime.getManifest == 'function') {
     var cur_version = chrome.runtime.getManifest().version;
     var pref = new TidyPref();
@@ -44,7 +44,7 @@ tidy_pref.isNewInstall = function() {
 
     // In devtools, chrome.runtime is not accessible
     try {
-      chrome.runtime.getPlatformInfo(function(info) {
+      chrome.runtime.getPlatformInfo(function (info) {
         // Display host OS in the console
         console.log(info.os);
         if (!last_version) {
@@ -71,28 +71,65 @@ tidy_pref.isNewInstall = function() {
 }
 
 /** __ setHtml ___________________________________________
- *
  */
-tidy_pref.setHtml = function(aHtml) {
+tidy_pref.setHtml = function (aHtml) {
   console.log("<setHtml>");
   tidy_pref.html = aHtml;
 },
 
-/** __ getHtml ___________________________________________
- *
- * Remove the color added to the lines
- */
-tidy_pref.getHtml = function() {
-  if (typeof chrome != 'undefined') {
-    return tidy_pref.html;
-  } else {
-    return '<html>\n<title>Sub</title>\n</abc>\n<body>\ntext<br>\ntext<br>\ntext<br>\ntext<br>\ntext<br>\ntext<br>\ntext<br>\ntext<br>\ntext<br>\n12345</def><br>\n</body>\n';
+  /** __ getHtml ___________________________________________
+   */
+  tidy_pref.getHtml = function () {
+    if (typeof chrome != 'undefined') {
+      return tidy_pref.html;
+    } else {
+      return '<html>\n<title>Sub</title>\n</abc>\n<body>\ntext<br>\ntext<br>\ntext<br>\ntext<br>\ntext<br>\ntext<br>\ntext<br>\ntext<br>\ntext<br>\n12345</def><br>\n</body>\n';
+    }
   }
+
+/** __ setFrames ___________________________________________
+ */
+tidy_pref.setFrames = function (aFrames) {
+  console.log("<setFrames>");
+  tidy_pref.frames = aFrames;
 }
 
-tidy_pref.load( tidy_pref.isNewInstall );
+/** __ getFrames ___________________________________________
+ */
+tidy_pref.getFrames = function () {
+  console.log("<getFrames>");
+  return tidy_pref.frames;
+}
 
-function TidyPref() {};
+/** __ getFrameUrl ___________________________________________
+ */
+tidy_pref.getFrameUrl = function () {
+  var urls = [];
+  if (tidy_pref.frames != null) {
+    for (const frame of tidy_pref.frames) {
+      urls.push(frame.url);
+    }
+  }
+  return urls;
+}
+
+/** __ getFrameId ___________________________________________
+ */
+tidy_pref.getFrameId = function (url) {
+  var frameId = 0;
+  if (tidy_pref.frames != null) {
+    for (const frame of tidy_pref.frames) {
+      if (url == frame.url) {
+        return frame.frameId;
+      }
+    }
+  }
+  return frameId;
+}
+
+tidy_pref.load(tidy_pref.isNewInstall);
+
+function TidyPref() { };
 
 TidyPref.prototype = {
 
@@ -100,13 +137,13 @@ TidyPref.prototype = {
     "abc": "123"
   },
 
-  setPref: function(name, value) {
+  setPref: function (name, value) {
     var s = "tidy_pref_" + name;
     if (typeof chrome != 'undefined' && typeof chrome.storage != 'undefined') {
       var p = {};
       p[s] = value;
       tidy_pref.prefs[s] = value;
-      chrome.storage.local.set(p, function() {});
+      chrome.storage.local.set(p, function () { });
     } else {
       localStorage.setItem(s, value);
     }
@@ -114,7 +151,7 @@ TidyPref.prototype = {
   },
   /** __ getIntPref _______________________________________________________
    */
-  getPref: function(name) {
+  getPref: function (name) {
     var s = "tidy_pref_" + name;
     if (typeof chrome != 'undefined' && typeof chrome.storage != 'undefined') {
       return tidy_pref.prefs[s];
@@ -125,7 +162,7 @@ TidyPref.prototype = {
 
   /** __ prefHasUserValue ___________________________________________
    */
-  prefHasUserValue: function(name) {
+  prefHasUserValue: function (name) {
     var value = this.getPref(name);
     if (typeof value != 'undefined') {
       return true;
@@ -135,25 +172,25 @@ TidyPref.prototype = {
 
   /** __ setBoolPref _______________________________________________________
    */
-  setBoolPref: function(name, value) {
+  setBoolPref: function (name, value) {
     this.setPref(name, value);
   },
 
   /** __ setIntPref _______________________________________________________
    */
-  setIntPref: function(name, value) {
+  setIntPref: function (name, value) {
     this.setPref(name, value);
   },
 
   /** __ setCharPref _______________________________________________________
    */
-  setCharPref: function(name, value) {
+  setCharPref: function (name, value) {
     this.setPref(name, value);
   },
 
   /** __ getBoolPref _______________________________________________________
    */
-  getBoolPref: function(name) {
+  getBoolPref: function (name) {
     var val = this.getPref(name)
     var bool = val == 'true' || val == true;
     return bool;
@@ -161,13 +198,13 @@ TidyPref.prototype = {
 
   /** __ getIntPref _______________________________________________________
    */
-  getIntPref: function(name) {
+  getIntPref: function (name) {
     return Number(this.getPref(name));
   },
 
   /** __ getCharPref _______________________________________________________
    */
-  getCharPref: function(name) {
+  getCharPref: function (name) {
     return this.getPref(name);
   }
 }

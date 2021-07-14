@@ -17,7 +17,7 @@ var oTidyUtil;
 
 function onLoadTidyUtil(callback) {
   if (callback) {
-    var f = function() {
+    var f = function () {
       tidy_pref.isNewInstall();
       oTidyUtil = new TidyUtil();
       callback();
@@ -26,7 +26,7 @@ function onLoadTidyUtil(callback) {
   } else {
     tidy_pref.isNewInstall();
     oTidyUtil = new TidyUtil();
-    var f = function() {}
+    var f = function () { }
     tidy_pref.load(f);
   }
 }
@@ -86,7 +86,6 @@ function TidyUtil() {
         }
       } catch (ex) {}
       // this.setBoolPref( "browser_hide", false );
-      this.setBoolPref("browser_enable", true);
       this.setBoolPref("warning_line_number", true);
     }
   */
@@ -95,8 +94,6 @@ function TidyUtil() {
   this.setDefaultValueBool("show-warnings", true);
   this.setDefaultValueInt("show-errors", 6);
   this.setDefaultValueInt("accessibility-check", -1);
-  this.setDefaultValueBool("viewsource_enable", true);
-  this.setDefaultValueBool("viewsource_enable_once", false);
 
   this.setDefaultValueBool("indent", false);
   this.setDefaultValueInt("indent-spaces", 2);
@@ -111,14 +108,10 @@ function TidyUtil() {
   this.setDefaultValueChar("output-encoding", "utf8");
 
   this.setDefaultValueBool("debug", false);
-  this.setDefaultValueChar("browser_icon", "icon_only");
-  this.setDefaultValueBool("browser_enable", true);
   // this.setDefaultValueBool( "browser_hide",          false );
   this.setDefaultValueBool("highlight_line", true);
   this.setDefaultValueInt("highlight_max", 100);
-  this.setDefaultValueBool("show_line_number", true);
   this.setDefaultValueChar("disabled_action", "viewsource");
-  this.setDefaultValueChar("dbclick_action", "viewsource");
   this.setDefaultValueBool("background", false);
   this.setDefaultValueBool("force_frame_revalidation", false);
   this.setDefaultValueChar("version", "0.0");
@@ -146,7 +139,7 @@ function TidyUtil() {
       // XXXXXXXXXXXX
       var lang = "en";
       this.defaultLanguage = lang.length == 2 ? lang + "-" + lang.toUpperCase() : lang;
-    } catch (ex) {}
+    } catch (ex) { }
   }
 }
 
@@ -442,7 +435,6 @@ TidyUtil.prototype = {
   tidy: null,
   debug: false,
   filterArrayTidy: null,
-  filterArraySP: null,
   filterArrayOnline: null,
   tidyFaqUrl: null,
   permManager: null,
@@ -451,8 +443,9 @@ TidyUtil.prototype = {
   bUpgrade: false,
   bTranslation: false,
   iTotalTimer: 0,
+  editor: null, // Monaco Editor
 
-  getPrefParam: function() {
+  getPrefParam: function () {
     var aConfig = [];
 
     this.prefConfigBool("show-warnings", aConfig);
@@ -481,88 +474,88 @@ TidyUtil.prototype = {
 
   //-------------------------------------------------------------------------
 
-  getBoolPref: function(pref) {
+  getBoolPref: function (pref) {
     return (this.pref.getBoolPref(pref));
   },
-  setBoolPref: function(name, value) {
+  setBoolPref: function (name, value) {
     this.pref.setBoolPref(name, value);
   },
-  getIntPref: function(pref) {
+  getIntPref: function (pref) {
     return (this.pref.getIntPref(pref));
   },
-  setIntPref: function(name, value) {
+  setIntPref: function (name, value) {
     this.pref.setIntPref(name, value);
   },
-  getCharPref: function(pref) {
+  getCharPref: function (pref) {
     return (this.pref.getCharPref(pref));
   },
-  setCharPref: function(name, value) {
+  setCharPref: function (name, value) {
     this.pref.setCharPref(name, value);
   },
 
   //-------------------------------------------------------------------------
 
-  prefConfigBool: function(pref, aConfig) {
+  prefConfigBool: function (pref, aConfig) {
     aConfig.push("--" + pref);
     aConfig.push(this.pref.getBoolPref(pref) ? "yes" : "no");
   },
-  prefConfigInt: function(pref, aConfig) {
+  prefConfigInt: function (pref, aConfig) {
     aConfig.push("--" + pref);
     aConfig.push(this.pref.getIntPref(pref).toString());
   },
-  prefConfigChar: function(pref, aConfig) {
+  prefConfigChar: function (pref, aConfig) {
     aConfig.push("--" + pref);
     aConfig.push(this.pref.getCharPref(pref));
   },
 
   //-------------------------------------------------------------------------
 
-  initCheckbox: function(name) {
+  initCheckbox: function (name) {
     var control_name = "tidy.options." + name
     document.getElementById(control_name).checked = this.pref.getBoolPref(name);
   },
-  saveCheckbox: function(name) {
+  saveCheckbox: function (name) {
     var control_name = "tidy.options." + name
     this.pref.setBoolPref(name, document.getElementById(control_name).checked);
   },
-  initTextbox: function(name) {
+  initTextbox: function (name) {
     var control_name = "tidy.options." + name
     document.getElementById(control_name).value = this.pref.getIntPref(name);
   },
-  saveTextbox: function(name) {
+  saveTextbox: function (name) {
     var control_name = "tidy.options." + name
     this.pref.setIntPref(name, document.getElementById(control_name).value);
   },
-  initCharTextbox: function(name) {
+  initCharTextbox: function (name) {
     var control_name = "tidy.options." + name
     document.getElementById(control_name).value = this.pref.getCharPref(name);
   },
-  saveCharTextbox: function(name) {
+  saveCharTextbox: function (name) {
     var control_name = "tidy.options." + name
     this.pref.setCharPref(name, document.getElementById(control_name).value);
   },
-  initComboBox: function(name) {
+  initComboBox: function (name) {
     var control_name = "tidy.options." + name
     document.getElementById(control_name).value = this.pref.getCharPref(name);
   },
-  saveComboBox: function(name) {
+  saveComboBox: function (name) {
     var control_name = "tidy.options." + name
     this.pref.setCharPref(name, document.getElementById(control_name).value);
   },
 
   //-------------------------------------------------------------------------
 
-  setDefaultValueBool: function(name, value) {
+  setDefaultValueBool: function (name, value) {
     if (!this.pref.prefHasUserValue(name)) {
       this.pref.setBoolPref(name, value);
     }
   },
-  setDefaultValueInt: function(name, value) {
+  setDefaultValueInt: function (name, value) {
     if (!this.pref.prefHasUserValue(name)) {
       this.pref.setIntPref(name, value);
     }
   },
-  setDefaultValueChar: function(name, value) {
+  setDefaultValueChar: function (name, value) {
     if (!this.pref.prefHasUserValue(name)) {
       this.pref.setCharPref(name, value);
     }
@@ -573,10 +566,9 @@ TidyUtil.prototype = {
   /**
    * resetFilterArray
    */
-  resetFilterArray: function() {
+  resetFilterArray: function () {
     // List of the shown errors and warnings
     this.filterArrayTidy = new Array();
-    this.filterArraySP = new Array();
     this.filterArrayOnline = new Array();
     // Reset the fast filter in the tidylib
     this.tidy.resetFilter();
@@ -585,12 +577,10 @@ TidyUtil.prototype = {
   /**
    * addToFilterArray
    */
-  addToFilterArray: function(id) {
+  addToFilterArray: function (id) {
     var shortId = id.substring(1);
 
-    if (id[0] == 's') {
-      this.filterArraySP[shortId] = false;
-    } else if (id[0] == 'o') {
+    if (id[0] == 'o') {
       this.filterArrayOnline[shortId] = false;
     } else if (id[0] == 't') {
       this.filterArrayTidy[shortId] = false;
@@ -600,7 +590,7 @@ TidyUtil.prototype = {
   /**
    * Build the Filter array
    */
-  buildFilterArray: function() {
+  buildFilterArray: function () {
     this.resetFilterArray();
 
     // List of the hidden errors and warnings
@@ -618,7 +608,7 @@ TidyUtil.prototype = {
   /**
    * Save the filter array in pref
    */
-  saveFilterArrayInPref: function() {
+  saveFilterArrayInPref: function () {
     var value = "";
     var bFirst = true;
 
@@ -626,12 +616,6 @@ TidyUtil.prototype = {
     for (var o in this.filterArrayTidy) {
       if (this.filterArrayTidy[o] == false) {
         value = value + "t" + o + ",";
-      }
-    }
-    // SP
-    for (var o in this.filterArraySP) {
-      if (this.filterArraySP[o] == false) {
-        value = value + "s" + o + ",";
       }
     }
     // Online
@@ -648,7 +632,7 @@ TidyUtil.prototype = {
    *
    * Show the faq URL (called by a timer)
    */
-  showFaq: function() {
+  showFaq: function () {
     if (this.bNewInstall || this.bUpgrade) {
       oTidyUtil.tidy.log('showFaq');
 
@@ -666,7 +650,6 @@ TidyUtil.prototype = {
           if (addonbar && addonbar.collapsed) {
             // if addon bar not visible, add it in the navbar
             toolbarId = "nav-bar";
-            this.setCharPref("browser_icon", "icon_only");
           } else {
             // if addon bar is visible, add it there
             toolbarId = "addon-bar";
@@ -703,7 +686,7 @@ TidyUtil.prototype = {
 
   /** __ debug_log  ___________________________________________________________
    */
-  debug_log: function(s) {
+  debug_log: function (s) {
     console.log('<TidyDebugLog>' + s);
     /*
     if (this.debug) {
@@ -715,7 +698,7 @@ TidyUtil.prototype = {
 
   /** __ debug_start_timer  ___________________________________________________________
    */
-  debug_start_timer: function(title) {
+  debug_start_timer: function (title) {
     if (this.debug) {
       this.debug_log('<TIMER> ' + title);
       return new Date().getTime();
@@ -724,7 +707,7 @@ TidyUtil.prototype = {
 
   /** __ debug_stop_timer  ___________________________________________________________
    */
-  debug_stop_timer: function(title, start) {
+  debug_stop_timer: function (title, start) {
     if (this.debug) {
       var stop = new Date().getTime();
       var time = stop - start;
@@ -737,7 +720,7 @@ TidyUtil.prototype = {
    *
    * Call the cleanup dialog box
    */
-  cleanupDialog: function(aResult, aHtml, aWinArg) {
+  cleanupDialog: function (aResult, aHtml, aWinArg) {
     if (aResult == null || (aResult.algorithm != "tidy" && aResult.algorithm != "serial")) {
       aResult = new TidyResult();
       aResult.validate_with_algorithm(aHtml, "tidy");
@@ -776,7 +759,7 @@ TidyUtil.prototype = {
    *
    * Call the permission dialog box
    */
-  permDialog: function() {
+  permDialog: function () {
     // XXXXXXXXXXXXXXXXXX
     /*
     var params =
@@ -796,7 +779,7 @@ TidyUtil.prototype = {
 
   /** __ getString ___________________________________________________________
    */
-  getString: function(aName) {
+  getString: function (aName) {
     /*
     if (this.stringBundle == null) {
         this.stringBundle = document.getElementById("tidy.string.bundle");
@@ -814,80 +797,17 @@ TidyUtil.prototype = {
 
   },
 
-  /** __ isPerm....... ___________________________________________________________
-   */
-  // XXXXXXXXXXXXXXX
-  /*
-  isPermAllowed: function(uri)
-  {
-    if( this.permManager && uri )
-      return (this.permManager.testPermission(uri, "tidy") == Components.interfaces.nsIPermissionManager.ALLOW_ACTION );
-    else
-      return false;
-  },
-
-  isPermDenied: function(uri)
-  {
-    if( this.permManager && uri )
-      return (this.permManager.testPermission(uri, "tidy") == Components.interfaces.nsIPermissionManager.DENY_ACTION );
-    else
-      return false;
-  },
-
-  /** __ addPermList ___________________________________________________________
-   */
-  // XXXXXXXXXXXXXXX
-  /*
-  addPermList: function(uri)
-  {
-    var browser_enable = this.getBoolPref( "browser_enable" );
-    var bAllow = ( browser_enable  && !this.isPermDenied( uri ) ) || this.isPermAllowed( uri );
-
-    if( uri )
-    {
-      if( !bAllow )
-      {
-        if( this.isPermDenied( uri ) )
-          this.permManager.remove(uri.host, "tidy");
-        else
-          this.permManager.add(uri, "tidy", Components.interfaces.nsIPermissionManager.ALLOW_ACTION);
-      }
-      else
-      {
-        if( this.isPermAllowed( uri ) )
-          this.permManager.remove(uri.host, "tidy");
-        else
-          this.permManager.add(uri, "tidy", Components.interfaces.nsIPermissionManager.DENY_ACTION);
-      }
-    }
-  },
-  */
-
   /** __ isInDomainList ___________________________________________________________
    */
-  isInDomainList: function(doc) {
-    // XXXXXXXXXXXXXXXXXXXXXX
-    /*
-    try
+  isInDomainList: function (doc) {
+    if( doc.location.protocol=="about:" )
     {
-      if( doc.location.protocol=="about:" )
-      {
-        return false;
-      }
-
-      if( doc.location.protocol=="file:" )
-      {
-        return true;
-      }
-
-      if( this.isPermDenied( this.getDocURI(doc) ) )
-      {
-        return false;
-      }
+      return false;
     }
-    catch(ex)
-    {}
-    */
+    if( doc.location.protocol=="chrome:" )
+    {
+      return false;
+    }
     return true;
   },
 
@@ -910,7 +830,7 @@ TidyUtil.prototype = {
    *
    * Load the translation from the tidy.properties file in the tidy lib
    */
-  translation: function() {
+  translation: function () {
     if (this.tidy.initTranslation()) {
       var f = "/sgml.soc";
       var f2 = "/xml.soc";
@@ -949,16 +869,16 @@ TidyUtil.prototype = {
    *
    * Load the translation from the tidy.properties file in the tidy lib
    */
-  getErrors: function(ahtml, config, nbError, nbWarning, nbAccessWarning, nbHidden) {
+  getErrors: function (ahtml, config, nbError, nbWarning, nbAccessWarning, nbHidden) {
     // TODO
   },
 
   /** __ sortArray _____________________________________________________________
    *
    */
-  sortArray: function(array, col, descending) {
+  sortArray: function (array, col, descending) {
     array.sort(
-      function(l1, l2) {
+      function (l1, l2) {
         var v1 = l1[col];
         var v2 = l2[col];
         if (l1.errorId < 0) {
@@ -1000,7 +920,7 @@ TidyUtil.prototype = {
    * Show the splah before online validation
    */
 
-  onlineSplash: function(title) {
+  onlineSplash: function (title) {
     var page = window.open("about:blank");
     var doc = page.document;
     var body = doc.body;
@@ -1024,13 +944,13 @@ TidyUtil.prototype = {
    *
    * Validate the HTML online to W3C Validator
    */
-  onlineHtmlValidate: function(html) {
+  onlineHtmlValidate: function (html) {
     var doc = this.onlineSplash("Contacting the W3C HTML Validator");
 
     var formElement = doc.createElement("form")
     formElement.setAttribute("method", "post");
     formElement.setAttribute("enctype", "multipart/form-data");
-    formElement.setAttribute("action", "http://validator.w3.org/nu/");
+    formElement.setAttribute("action", "https://validator.w3.org/nu/");
     formElement.setAttribute("style", "display: none;");
 
     var text = doc.createElement("text")
@@ -1051,7 +971,7 @@ TidyUtil.prototype = {
    *
    * Validate the CSS online to W3C CSS Validator
    */
-  onlineCssValidate: function(url) {
+  onlineCssValidate: function (url) {
     var doc = this.onlineSplash("Contacting the W3C CSS Validator");
 
     var formElement = doc.createElement("form")
@@ -1077,7 +997,7 @@ TidyUtil.prototype = {
    *
    * Get the document.body.innerHTML enveloped in a dummy html/body tags
    */
-  getDocInnerHtml: function(doc) {
+  getDocInnerHtml: function (doc) {
     var sHtml = "";
     var isXhtml = false;
     if (doc.doctype) {
@@ -1114,47 +1034,38 @@ TidyUtil.prototype = {
   /** __ writeFile ________________________________________________________________
    *
    */
-  writeFile: function(file, content) {
+  writeFile: function (file, content) {
     this.tidy.writeFile(file, content);
   },
 
   /** __ readFile ________________________________________________________________
    *
    */
-  readFile: function(file) {
+  readFile: function (file) {
     return (this.tidy.readFile(file));
   },
 
   /** __ insertHtmlAndLines ________________________________________________________________
    *
    */
-  insertHtmlAndLines: function(html, source_name, line_name) {
-    var source_pre = document.getElementById(source_name);
+  insertHtmlAndLines: function (html, source_name, bMinimap) {
+    var source = document.getElementById(source_name);
     if (html != null) {
-      source_pre.textContent = html;
-      // Hightlight also the line numbers, else there is a difff in margin
-      hljs.highlightBlock(source_pre);
-
-      var pre = document.getElementById(line_name);
-      // Hide the line number if the pref says so
-      if (this.getBoolPref("show_line_number")) {
-        pre.style.display = "block";
-        while (pre.firstChild) {
-          pre.removeChild(pre.firstChild);
-        }
-        var nbLines = html.split('\n').length;
-        for (i = 1; i <= nbLines; i++) {
-          var a = document.createElement("a");
-          a.name = "l" + i;
-          pre.appendChild(a);
-          var t = document.createTextNode(i);
-          a.appendChild(t);
-          var lf = document.createTextNode("\n");
-          pre.appendChild(lf);
-        }
+      // XXXXXXX
+      console.log('before monaco');
+      if (this.editor == null) {
+        this.editor = monaco.editor.create(source, {
+          value: html,
+          language: 'html',
+          automaticLayout: true,
+          minimap: {
+            enabled: bMinimap
+          }
+        });
       } else {
-        pre.style.display = "none";
+        this.editor.getModel().setValue(html);
       }
+      console.log('after monaco');
     } else {
       source_pre.textContent = 'No html content';
     }
@@ -1163,7 +1074,7 @@ TidyUtil.prototype = {
   /** __ onHamburger ________________________________________________________________
    *
    */
-  onHamburger: function() {
+  onHamburger: function () {
     var menu = document.getElementById("menu");
     if (menu.style.width == "20em") {
       menu.style.width = "0px";
@@ -1172,7 +1083,7 @@ TidyUtil.prototype = {
     }
   },
 
-  closeHamburger: function() {
+  closeHamburger: function () {
     var menu = document.getElementById("menu");
     menu.style.width = "0px";
   }
@@ -1203,7 +1114,7 @@ TidyResult.prototype = {
 
   /** __ getPluralString ______________________________________________________
    */
-  getPluralString: function(nb, s) {
+  getPluralString: function (nb, s) {
     if (nb == 0) {
       return "tidy_0_" + s + "s";
     } else if (nb == 1) {
@@ -1217,7 +1128,7 @@ TidyResult.prototype = {
    *
    * Build a error string for a page
    */
-  getErrorString: function() {
+  getErrorString: function () {
     var str;
     if (this.bUConvFailed) {
       str = oTidyUtil.getString('tidy_invalid_char');
@@ -1252,7 +1163,7 @@ TidyResult.prototype = {
    *
    * Build a error icon for a page
    */
-  getIcon: function() {
+  getIcon: function () {
     var icon = "good";
     if (this.bUConvFailed)
     // Normally bUConvFailed page are not validated. But in the case of a SUM of page. The sum is validated
@@ -1285,7 +1196,7 @@ TidyResult.prototype = {
    *
    * Build a error icon for a page
    */
-  getErrorIcon: function() {
+  getErrorIcon: function () {
     return "../skin/" + this.getIcon();
   },
 
@@ -1293,7 +1204,7 @@ TidyResult.prototype = {
    *
    * Build a error icon for a page
    */
-  updateIcon: function() {
+  updateIcon: function () {
     var icon = "skin/" + this.getIcon() + ".png";
     var badge = "";
     var title = "Html Validator\n " + this.iNbError + " error" + (this.iNbError > 1 ? "s" : "") + " / " + this.iNbWarning + " warning" + (this.iNbWarning > 1 ? "s" : "");
@@ -1307,14 +1218,28 @@ TidyResult.prototype = {
 
   /** __ validate _______________________________________________________
    */
-  validate: function(aHtml, aDocType) {
+  validate: function (aHtml, aDocType) {
     return this.validate_with_algorithm(aHtml, aDocType, oTidyUtil.getCharPref("algorithm"));
   },
 
   /** __ validate_with_algorithm ________________________________________
    */
-  validate_with_algorithm: function(aHtml, aDocType, aAlgorithm) {
+  validate_with_algorithm: function (aHtml, aDocType, aAlgorithm) {
     // The inout arguments need to be JavaScript objects
+
+    // Activate the button if it is on the screen
+    var button_online = document.getElementById('tidy_online2');
+    var button_offline = document.getElementById('tidy_offline');
+    if (button_online) {
+      if (aAlgorithm == "online") {
+        button_online.classList.add("button_activated");
+        button_offline.classList.remove("button_activated");
+      } else {
+        button_offline.classList.add("button_activated");
+        button_online.classList.remove("button_activated");
+      }
+    }
+
     var nbError = {
       value: 0
     };
@@ -1356,13 +1281,6 @@ TidyResult.prototype = {
         this.tidy_Filter(aHtml, oTidyUtil.getPrefParam(), accessLevel, error, nbError, nbWarning, nbAccessWarning, nbHidden);
         // oTidyUtil.tidy.getErrorsInHTML(aHtml, oTidyUtil.getPrefParam(), accessLevel, error, nbError, nbWarning, nbAccessWarning, nbHidden);
         //alert(error.value);
-      } else if (aAlgorithm == "sp") {
-        this.sp_Filter(aHtml, oTidyUtil.getPrefParam(), accessLevel, error, nbError, nbWarning, nbAccessWarning, nbHidden);
-        if (!error.value) {
-          error = {
-            value: "No error"
-          };
-        }
       } else if (aAlgorithm == "online") {
         if (window.oTidyViewSource) {
           this.validateOnline(aHtml, aDocType, oTidyUtil.getPrefParam(), accessLevel, error, nbError, nbWarning, nbAccessWarning, nbHidden);
@@ -1373,7 +1291,8 @@ TidyResult.prototype = {
           };
           return error;
         }
-      } else // serial
+      } 
+      /* else // serial
       {
         this.algorithm = "sp";
         this.sp_Filter(aHtml, oTidyUtil.getPrefParam(), accessLevel, error, nbError, nbWarning, nbAccessWarning, nbHidden);
@@ -1386,6 +1305,7 @@ TidyResult.prototype = {
           }
         }
       }
+      */
     }
     // alert( "error: " + nbError.value + " / warning : " + nbWarning.value );
 
@@ -1411,7 +1331,7 @@ TidyResult.prototype = {
 
   /** __ tidy_Filter _______________________________________________________
    */
-  tidy_Filter: function(aHtml, PrefConfig, accessLevel, error, nbError, nbWarning, nbAccessWarning, nbHidden) {
+  tidy_Filter: function (aHtml, PrefConfig, accessLevel, error, nbError, nbWarning, nbAccessWarning, nbHidden) {
     error.value = ".";
     oTidyUtil.tidy.getErrorsInHTML(aHtml, oTidyUtil.getPrefParam(), accessLevel, error, nbError, nbWarning, nbAccessWarning, nbHidden);
 
@@ -1450,56 +1370,9 @@ TidyResult.prototype = {
     }
   },
 
-  /** __ sp_Filter _______________________________________________________
-   */
-  sp_Filter: function(aHtml, PrefConfig, accessLevel, error, nbError, nbWarning, nbAccessWarning, nbHidden) {
-    error.value = ".";
-    oTidyUtil.tidy.spGetErrorsInHTML(aHtml, oTidyUtil.getPrefParam(), accessLevel, error, nbError, nbWarning, nbAccessWarning, nbHidden);
-
-    // Filter enabled for OpenSP ?
-    if (oTidyUtil.filterArraySP.length > 0) {
-      try {
-        // XXX maybe try to combine this with ViewSource.validateHtml
-        // More than 500 errors, we skip the filter
-        // Without this, it can cause sometimes an error in the UI: Script: chrome://tidy/content/tidyUtil.js:1161 (Stop) (Continue Script)
-        if (nbError.value + nbWarning.value < 500 || oTidyViewSource != null) {
-          var tmperror = {
-            value: ""
-          };
-          var rows = error.value.split('\n');
-          var isLastSkip = false;
-          for (var o in rows) {
-            var row = new TidyResultRow();
-            row.parse("sp", rows[o], 0);
-            if (row.type == 0 && isLastSkip) //in case the preceding error is followed by a 'start tag was here' info message and that error has been hidden
-            {
-              //alert("info message to hide detected");
-            } else {
-              isLastSkip = row.skip;
-              if (row.skip) {
-                if (row.type == 4) {
-                  nbHidden.value++;
-                  nbError.value--;
-                } else if (row.type == 1) {
-                  nbHidden.value++;
-                  nbWarning.value--;
-                }
-              } else {
-                tmperror.value += rows[o] + "\r\n";
-              }
-            }
-          }
-          error.value = tmperror.value;
-        }
-      } catch (e) {
-        // do nothing, we get this exception if nbError.value+nbWarning.value>500 && oTidyViewSource does not exist
-      }
-    }
-  },
-
   /** __ validateOnline _______________________________________________________
    */
-  validateOnline: function(aHtml, aDocType, PrefConfig, accessLevel, error, nbError, nbWarning, nbAccessWarning, nbHidden) {
+  validateOnline: function (aHtml, aDocType, PrefConfig, accessLevel, error, nbError, nbWarning, nbAccessWarning, nbHidden) {
     error.value = null;
     error.async = true;
 
@@ -1517,7 +1390,7 @@ TidyResult.prototype = {
       "--" + boundary + "--\r\n";
 
     var http = new XMLHttpRequest();
-    var url = "http://validator.w3.org/nu/";
+    var url = "https://validator.w3.org/nu/";
     var params = "output=json";
     http.open("POST", url, true);
 
@@ -1533,10 +1406,11 @@ TidyResult.prototype = {
     */
 
     http.result = this;
-    http.onreadystatechange = function() {
+    http.onreadystatechange = function () {
       //Call a function when the state changes.
       if (http.readyState == 4 && http.status == 200) {
 
+        console.log( "http.responseText: " + http.responseText );
         var error = null;
         try {
           error = JSON.parse(http.responseText);
@@ -1582,80 +1456,6 @@ TidyResult.prototype = {
     http.send(message);
   },
 
-  /*
-    sp_Filter : function( aHtml, PrefConfig, accessLevel, error, nbError, nbWarning, nbAccessWarning, nbHidden )
-    {
-      oTidyUtil.tidy.spGetErrorsInHTML( aHtml, oTidyUtil.getPrefParam(), accessLevel, error, nbError, nbWarning, nbAccessWarning, nbHidden );
-
-      // Filter enabled for OpenSP ?
-      if( oTidyUtil.filterArraySP.length>0 )
-      {
-        // Without this, it can cause sometimes an error in the UI: Script: chrome://tidy/content/tidyUtil.js:1161 (Stop) (Continue Script)
-        try
-        {
-          if( nbError.value+nbWarning.value<500 || oTidyViewSource!=null )
-          {
-            // XXXXXXXXX  Todo  This should maybe use TidyResultRow parse to improve the code
-            var tmperror ={value:""};
-            var rows = error.value.split('\n');
-            var num=0;
-            var isLastSkip=false;
-            for (var o in rows)
-            {
-              var d = rows[o];
-              var pos = d.search(".html:");
-              var d1 = d.substring(pos+6);
-              pos = d1.search(" ");
-              var d2 = d1.substring(0,pos);
-              var ds = d2.split(':');
-              num = ds[2];
-              if (o<rows.length-1)
-              {
-                if(num==" start tag was here" && isLastSkip==true) //in case the preceding error is followed by a 'start tag was here' info message and that error has been hidden
-                {
-                  //alert("info message to hide detected");
-                }
-                else
-                {
-                  isLastSkip=false;
-                  var nums = num.split(".");
-                  num = nums[1];
-                  if( oTidyUtil.filterArraySP[num]==false )
-                  {
-                    isLastSkip=true;
-                    nbHidden.value++;
-                    if (ds[3]='E')
-                    {
-                      nbError.value--;
-                    }
-                    else if( ds[3]='W' )
-                    {
-                      nbWarning.value--;
-                    }
-                  }
-                  if (!isLastSkip)
-                  {
-                    tmperror.value += d + "\r\n";
-                  }
-                }
-              }
-            }
-            error.value = tmperror.value;
-          }
-          else
-          {
-            // more than 500 errors, we skip the filter
-            nbHidden.value = 0;
-          }
-        }
-        catch(e)
-        {
-          // do nothing, we get this exception if nbError.value+nbWarning.value>500 && oTidyViewSource does not exist
-        }
-      }
-    }
-    */
-
 }
 
 //-------------------------------------------------------------
@@ -1664,7 +1464,7 @@ TidyResult.prototype = {
 // Contains and parse the structure of a result row
 //-------------------------------------------------------------
 
-function TidyResultRow() {}
+function TidyResultRow() { }
 
 TidyResultRow.prototype = {
   data: "",
@@ -1682,7 +1482,7 @@ TidyResultRow.prototype = {
 
   /** __ isMessageHidable ______________________________________________
    */
-  isMessageHidable: function() {
+  isMessageHidable: function () {
     if (this.type != 0) {
       return true;
     }
@@ -1691,7 +1491,7 @@ TidyResultRow.prototype = {
 
   /** __ init ______________________________________________________
    */
-  init: function(_data, _line, _column, _type, _errorId, _arg1, _arg2, _arg3, _icon, _icon_text) {
+  init: function (_data, _line, _column, _type, _errorId, _arg1, _arg2, _arg3, _icon, _icon_text) {
     this.data = _data + "\r\n";
     this.line = parseInt(_line);
     this.column = parseInt(_column);
@@ -1706,7 +1506,7 @@ TidyResultRow.prototype = {
 
   /** __ parse ______________________________________________________
    */
-  parse: function(algorithm, d, unsorted) {
+  parse: function (algorithm, d, unsorted) {
     if (d.search("\r") >= 0) {
       d = d.substring(0, d.search("\r"));
     }
@@ -1765,7 +1565,7 @@ TidyResultRow.prototype = {
 
   /** __ parseIcon  ______________________________________________________
    */
-  parseIcon: function(d) {
+  parseIcon: function (d) {
     if (this.type == 4) {
       this.icon = "error";
       this.icon_text = oTidyUtil.getString("tidy_cap_error");
@@ -1793,20 +1593,23 @@ TidyResultRow.prototype = {
 
   // Get a number from a string that hope to be unique
   // Note: this algorithm is really dumb and bad :)
-  string2number: function(string) {
+  // It seems that error parameters are always in special quote “input”, “alt”
+  // Replace first by ... to get more consistant numbers
+  online_string2number: function (s) {
     var id;
     var res = 0;
-    var lMessageLength = string.length;
-    for (var i = 0; i < string.length; i++) {
-      id = string.charCodeAt(i);
+    s = s.replace(/\u201C.*?\u201D/gi, "...");
+    for (var i = 0; i < s.length; i++) {
+      id = s.charCodeAt(i);
       res += id;
     }
-    // alert( "String : " + string + " / " + res );
+    // alert( "String : " + s + " / " + res );
     return res;
   },
 
-  online2row: function(d) {
+  online2row: function (d) {
     /*
+              "firstColumn": 1,
               "lastLine": 7,
               "lastColumn": 2871,
               "message": "Attribute width not allowed on element div at this point.",
@@ -1815,11 +1618,11 @@ TidyResultRow.prototype = {
               "type": "error"
     */
     this.line = d.lastLine;
-    this.column = d.lastColumn;
+    this.column = d.firstColumn;
     // The errorID is always hmtl5, it is useless.
     // Using a very dummy and stupid algorithm until fixed.
     //  this.errorId = d.messageid;
-    this.errorId = this.string2number(d.message);
+    this.errorId = this.online_string2number(d.message);
     this.data = d.message;
     this.explanation = d.explanation;
 
@@ -1850,7 +1653,7 @@ TidyResultRow.prototype = {
 
   /** __ cse2row ______________________________________________________
    */
-  cse2row: function(d) {
+  cse2row: function (d) {
     /*
       "messagetype":"ERROR",
       "messagenumber":1,
@@ -1878,7 +1681,7 @@ TidyResultRow.prototype = {
 
   /** __ getString ______________________________________________________
    */
-  getString: function() {
+  getString: function () {
     var s = "";
     if (this.line > 0) {
       s += "line " + this.line;
@@ -1913,7 +1716,7 @@ TidyItemQueue.prototype = {
 // TidyFifoQueue (Implemented as a list of TidyItemQueue)
 //-------------------------------------------------------------
 
-function TidyFifoQueue() {}
+function TidyFifoQueue() { }
 
 TidyFifoQueue.prototype = {
   firstItem: null,
@@ -1922,7 +1725,7 @@ TidyFifoQueue.prototype = {
 
   /** __ push ______________________________________________________
    */
-  push: function(item) {
+  push: function (item) {
     try {
       if (this.firstItem == null) {
         this.firstItem = item;
@@ -1946,7 +1749,7 @@ TidyFifoQueue.prototype = {
    * RemoveItem at the  beginning of the list
    * Return null if no item
    */
-  pop: function() {
+  pop: function () {
     var item = this.firstItem;
     if (this.firstItem != null) {
       this.firstItem = this.firstItem.nextItem;
@@ -1961,7 +1764,7 @@ TidyFifoQueue.prototype = {
    *
    * Remove all
    */
-  clear: function() {
+  clear: function () {
     this.firstItem = null;
     this.lastItem = null;
   }

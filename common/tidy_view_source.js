@@ -28,71 +28,58 @@ function onLoadTidyViewSource2() {
   oTidyViewSource = new TidyViewSource();
   oTidyViewSource.start();
 
-  // Hide the validator here to avoid a "splash" effect
-  if (!oTidyUtil.getBoolPref("viewsource_enable")) {
-    if (oTidyUtil.getBoolPref("viewsource_enable_once")) {
-      oTidyUtil.setBoolPref("viewsource_enable_once", false);
-    } else {
-      oTidyViewSource.hideValidator(true);
-    }
-  }
-
   // Initialise the javascript link (else there is an error refuse to execute inline handler because it violates the security policies)
   document.getElementById("body").onresize = viewSourceResize;
-  tidyUtilSetOnclick("tidy_hamburger", function() {
+  tidyUtilSetOnclick("tidy_hamburger", function () {
     oTidyUtil.onHamburger()
   });
-  tidyUtilSetOnclick("tidy_hamburger2", function() {
+  tidyUtilSetOnclick("tidy_hamburger2", function () {
     oTidyUtil.onHamburger()
   });
-  tidyUtilSetOnclick("tidy_cleanup", function() {
+  tidyUtilSetOnclick("tidy_cleanup2", function () {
     tidyCleanup()
   });
-  tidyUtilSetOnclick("tidy_cleanup2", function() {
-    tidyCleanup()
-  });
-  tidyUtilSetOnclick("tidy_online", function() {
+  tidyUtilSetOnclick("tidy_online_page", function () {
     tidyOnline()
   });
-  tidyUtilSetOnclick("tidy_online2", function() {
+  tidyUtilSetOnclick("tidy_offline", function () {
+    oTidyViewSource.bForceOnline = false;
+    tidyValidateHtml();
+  });
+  tidyUtilSetOnclick("tidy_online2", function () {
     oTidyViewSource.bForceOnline = true;
     tidyValidateHtml();
   });
-  tidyUtilSetOnclick("tidy_gotoline_open", function() {
+  tidyUtilSetOnclick("tidy_gotoline_open", function () {
     tidyGoToLineOpen()
   });
-  tidyUtilSetOnclick("tidy_wrapline", function() {
+  tidyUtilSetOnclick("tidy_wrapline", function () {
     tidyWrapLine()
   });
-  tidyUtilSetOnclick("tidy_optionopen", function() {
+  tidyUtilSetOnclick("tidy_optionopen", function () {
     tidyOptionOpen()
   });
-  tidyUtilSetOnclick("tidy_hmlpedia", function() {
+  tidyUtilSetOnclick("tidy_hmlpedia", function () {
     tidyHtmlPedia()
   });
-  tidyUtilSetOnclick("tidy_gotoline_ok", function() {
-    tidyGoToLine()
-  });
-  tidyUtilSetOnclick("tidy_gotoline_close", function() {
-    tidyGoToLineClose()
-  });
-  tidyUtilSetOnclick("tidy_confirm_ok", function() {
+  tidyUtilSetOnclick("tidy_confirm_ok", function () {
     tidyConfirm()
   });
-  tidyUtilSetOnclick("tidy_confirm_close", function() {
+  tidyUtilSetOnclick("tidy_confirm_close", function () {
     tidyConfirmClose()
   });
-  /*
-    document.getElementById("source").onscroll = function(ev) {
-      // When scrolling left, keep the line numbers always visible
-      var s = document.getElementById("source");
-      var sl = document.getElementById("source_line");
-      sl.style.left = s.scrollLeft + "px";
-    };
-  */
-  document.getElementById("select_frame").onchange = function() {
-    oTidyViewSource.changeFrame()
+  document.getElementById("frame_url").onchange = function () {
+    oTidyViewSource.refreshHtml()
   };
+  document.getElementById("html_origin").onchange = function () {
+    oTidyViewSource.refreshHtml()
+  };
+
+  // Hide "Html Origin" on Firefox
+  if (!chrome.devtools.inspectedWindow.getResources) {
+    document.getElementById("th_html_origin").style.display = "none";
+  }
+
   // Wait that the library is ready before to continue
   oTidyUtil.tidy.waitRunning(tidyValidateHtml);
 
@@ -109,7 +96,7 @@ function onUnloadTidyViewSource() {
   oTidyViewSource = null;
 }
 
-function tidyValidateHtml(event) {
+function tidyValidateHtml() {
   oTidyViewSource.validateHtmlFromNode();
 }
 
@@ -129,34 +116,13 @@ function tidyOptionClose() {
   oTidyUtil.closeHamburger();
   // rebuild the filter array
   oTidyUtil.buildFilterArray();
-  // remove the color from the lines
-  oTidyViewSource.removeColorFromLines();
   // revalidate with the new options
   oTidyViewSource.validateHtmlFromNode();
 }
 
 function tidyGoToLineOpen() {
-  document.getElementById('tidy.gotoline.modal').style.display = "block";
-  var line = document.getElementById("tidy.line")
-  line.focus();
-  line.value = "";
-  // Go to line when pressing enter
-  line.addEventListener("keydown", function(e) {
-    if (e.keyCode === 13) { //checks whether the pressed key is "Enter"
-      tidyGoToLine();
-    }
-  });
-}
-
-function tidyGoToLine() {
-  var line = Number(document.getElementById('tidy.line').value);
-  tidyGoToLineClose();
-  oTidyUtil.closeHamburger();
-  window.location = "#l" + line;
-}
-
-function tidyGoToLineClose() {
-  document.getElementById('tidy.gotoline.modal').style.display = "none";
+  oTidyUtil.editor.focus()
+  oTidyUtil.editor.trigger('', 'editor.action.gotoLine');
 }
 
 //---------------------------------------------------------------
@@ -180,16 +146,11 @@ function tidyConfirmClose() {
 //---------------------------------------------------------------
 
 function tidyWrapLine() {
-  var code = document.getElementById('source_code_pre');
-  var source_line = document.getElementsByClassName('source_line')[0];
-  if (code.style.whiteSpace == "pre-wrap") {
-    code.style.whiteSpace = "pre";
-    code.style.wordWrap = "initial";
-    source_line.style.display = "block";
+  oTidyViewSource.bWrapLine = !oTidyViewSource.bWrapLine;
+  if (oTidyViewSource.bWrapLine) {
+    oTidyUtil.editor.updateOptions({ wordWrap: "on" })
   } else {
-    code.style.whiteSpace = "pre-wrap";
-    code.style.wordWrap = "break-word";
-    source_line.style.display = "none";
+    oTidyUtil.editor.updateOptions({ wordWrap: "off" })
   }
   oTidyUtil.closeHamburger();
 }
@@ -201,7 +162,7 @@ function tidyCleanup() {
 
 function tidyHtmlPedia() {
   var help = oTidyViewSource.currentHelpPage.substring(0, oTidyViewSource.currentHelpPage.lastIndexOf('.'));
-  var url = "http://www.htmlpedia.org/wiki/" + help;
+  var url = "https://www.htmlpedia.org/wiki/" + help;
   window.open(url, "_blank");
 }
 
@@ -220,14 +181,16 @@ function tidyViewSourceLoadExplainError() {
   oTidyUtil.selectionOn(document.getElementById("tidy-explain-error"));
 }
 
-function tidySelectAll() {}
+function tidySelectAll() { }
 
 /** __ tidyUtilAddOption  ___________________________________________
  */
 function tidyUtilAddOption(select, sUrl) {
   var option = document.createElement("option");
   option.value = sUrl;
+  option.title = sUrl;
   // The text is limited to 40 characters
+  /*
   var s = sUrl;
   if (s.length > 40) {
     var s1 = s.substring(0, 18);
@@ -235,23 +198,43 @@ function tidyUtilAddOption(select, sUrl) {
     s = s1 + '...' + s2;
   }
   option.text = s;
+  */
+  option.text = sUrl;
   select.add(option);
 }
 
 /** __ tidyUtilUpdateDocList  ___________________________________________
  */
 function tidyUtilUpdateDocList(docList, main_url) {
-  // currentFrame is used in getHtml to get the current frame.
-  var select = document.getElementById("select_frame");
-  select.options.length = 0;
-  // add the main_url on the top
-  if (main_url) {
-    tidyUtilAddOption(select, main_url);
+  console.log("<tidyUtilUpdateDocList>: " + docList);
+  // Skip doclist change when changing HTML origin or frame
+  if( oTidyViewSource && oTidyViewSource.bSkipDocListChange ) {
+    console.log("<tidyUtilUpdateDocList> skip");
+    oTidyViewSource.bSkipDocListChange = false;
+    return;
   }
-  for (i = 0; i < docList.length; i++) {
-    if (docList[i] != main_url) {
-      tidyUtilAddOption(select, docList[i]);
+
+  // currentFrame is used in getHtml to get the current frame.
+  var frameUrl = document.getElementById("frame_url");
+  // For Firefox, get the doclist from the tidy_pref
+  if (docList == null) {
+    docList = tidy_pref.getFrameUrl();
+  }
+  if (docList != null) {
+    frameUrl.options.length = 0;
+    // add the main_url on the top
+
+    if (main_url) {
+      tidyUtilAddOption(frameUrl, main_url);
+    } else {
+
     }
+    for (i = 0; i < docList.length; i++) {
+      if (docList[i] != main_url) {
+        tidyUtilAddOption(frameUrl, docList[i]);
+      }
+    }
+    console.log("<tidyUtilUpdateDocList> length: " + docList.length);
   }
 }
 
@@ -293,12 +276,16 @@ TidyViewSource.prototype = {
   hScrollPos: 0,
   hScrollMax: 0,
   datapresent: "datapresent",
+  bWrapLine: false,
+
+  // Change of Frame in Firefox
+  bSkipDocListChange: false,
 
   /** __ start ________________________________________________________________
    *
    * Initialisation and termination functions
    */
-  start: function() {
+  start: function () {
     oTidyUtil.debug_log('TidyViewSource:initXUL');
 
     // Tree
@@ -336,7 +323,7 @@ TidyViewSource.prototype = {
     */
   },
 
-  stop: function() {
+  stop: function () {
     this.elementErrorListTbody = null;
   },
 
@@ -351,7 +338,7 @@ TidyViewSource.prototype = {
   get rowCount() {
     return this.rows;
   },
-  getCellText: function(row, col) {
+  getCellText: function (row, col) {
     var id = (col.id ? col.id : col); // Compatibility Firefox 1.0.x
     if (id == "col_line") {
       var line = this.aRow[row].line;
@@ -366,21 +353,21 @@ TidyViewSource.prototype = {
     }
     return null;
   },
-  setCellText: function(row, column, text) {},
-  setTree: function(tree) {
+  setCellText: function (row, column, text) { },
+  setTree: function (tree) {
     this.tree = tree;
   },
-  isContainer: function(index) {
+  isContainer: function (index) {
     return false;
   },
-  isSeparator: function(index) {
+  isSeparator: function (index) {
     return false;
   },
-  isSorted: function() {},
-  getLevel: function(index) {
+  isSorted: function () { },
+  getLevel: function (index) {
     return 0;
   },
-  getImageSrc: function(row, col) {
+  getImageSrc: function (row, col) {
     var id = (col.id ? col.id : col);
     if (id == "col_icon" && this.aRow[row].icon != null) {
       return "../skin/" + this.aRow[row].icon + ".png";
@@ -388,7 +375,7 @@ TidyViewSource.prototype = {
       return null;
     }
   },
-  getCellProperties: function(row, col) {
+  getCellProperties: function (row, col) {
     if (this.aRow[row].type == 4) // error
     {
       // XXXXXXXXXXXXXXXXXX
@@ -399,32 +386,32 @@ TidyViewSource.prototype = {
       return this.STYLE_SUMMARY;
     }
   },
-  getColumnProperties: function(column, elem) {},
-  getRowProperties: function(row) {},
+  getColumnProperties: function (column, elem) { },
+  getRowProperties: function (row) { },
 
-  isContainerOpen: function(index) {},
-  isContainerEmpty: function(index) {
+  isContainerOpen: function (index) { },
+  isContainerEmpty: function (index) {
     return false;
   },
-  canDropOn: function(index) {
+  canDropOn: function (index) {
     return false;
   },
-  canDropBeforeAfter: function(index, before) {
+  canDropBeforeAfter: function (index, before) {
     return false;
   },
-  drop: function(row, orientation) {
+  drop: function (row, orientation) {
     return false;
   },
-  getParentIndex: function(index) {
+  getParentIndex: function (index) {
     return 0;
   },
-  hasNextSibling: function(index, after) {
+  hasNextSibling: function (index, after) {
     return false;
   },
-  getProgressMode: function(row, column) {},
-  getCellValue: function(row, column) {},
-  toggleOpenState: function(index) {},
-  cycleHeader: function(col, elem) {
+  getProgressMode: function (row, column) { },
+  getCellValue: function (row, column) { },
+  toggleOpenState: function (index) { },
+  cycleHeader: function (col, elem) {
     var id = (col.id ? col.id : col); // Compatibility Firefox 1.0.x
     id = id.substring(4);
     if (id == "icon") id = "icon_text";
@@ -438,20 +425,20 @@ TidyViewSource.prototype = {
     oTidyUtil.sortArray(this.aRow, id, descending);
     this.tree.invalidate();
   },
-  selectionChanged: function() {},
-  cycleCell: function(row, column) {},
-  isEditable: function(row, column) {
+  selectionChanged: function () { },
+  cycleCell: function (row, column) { },
+  isEditable: function (row, column) {
     return false;
   },
-  performAction: function(action) {},
-  performActionOnRow: function(action, row) {},
-  performActionOnCell: function(action, row, column) {},
+  performAction: function (action) { },
+  performActionOnRow: function (action, row) { },
+  performActionOnCell: function (action, row, column) { },
 
   /** __ addRow ________________________________________________________________
    *
    * Tree utility function : add a row
    */
-  addRow: function(_row) {
+  addRow: function (_row) {
     // Add the row
     this.rows = this.aRow.push(_row);
     if (_row.data.length > this.hScrollMax) {
@@ -463,7 +450,7 @@ TidyViewSource.prototype = {
     // XXXXXXXXXXXXXXXX
 
     var pos = oTidyViewSource.aRow.length - 1;
-    tr.onclick = function() {
+    tr.onclick = function () {
       oTidyViewSource.onSelect(pos)
     };
 
@@ -495,7 +482,7 @@ TidyViewSource.prototype = {
     img = document.createElement("IMG");
     img.src = "../skin/hide_16.png";
     img.className = "tidy_icon_hide";
-    img.onclick = function() {
+    img.onclick = function () {
       oTidyViewSource.onTreeHide(pos);
     };
     td.appendChild(img);
@@ -511,7 +498,7 @@ TidyViewSource.prototype = {
    *
    * Tree utility function : notice the tree that the row count is changed
    */
-  rowCountChanged: function(index, count) {
+  rowCountChanged: function (index, count) {
     if (this.tree) {
       var lvr = this.tree.getLastVisibleRow();
       this.tree.rowCountChanged(index, count);
@@ -524,7 +511,7 @@ TidyViewSource.prototype = {
    *
    * Horizontal scrolling function
    */
-  sethScroll: function(max) {
+  sethScroll: function (max) {
     /*
     // Set the new maximum value and page increment to be 5 steps
     var maxpos = this.xulScrollBar.attributes.getNamedItem("maxpos");
@@ -539,7 +526,7 @@ TidyViewSource.prototype = {
    *
    * Horizontal scrolling function : call back function
    */
-  hScrollHandler: function() {
+  hScrollHandler: function () {
     var base = oTidyViewSource;
     var curpos = base.xulScrollBar.attributes.getNamedItem("curpos").value;
     if (curpos != base.hScrollPos) {
@@ -552,7 +539,7 @@ TidyViewSource.prototype = {
    *
    * Clear the tree
    */
-  clear: function() {
+  clear: function () {
     var oldrows = this.rows;
     if (oldrows > 0) {
       this.rows = 0;
@@ -571,7 +558,7 @@ TidyViewSource.prototype = {
    *
    * Validate the HTML and add the results in the tree
    */
-  validateHtml: function(aHtml, aDocType) {
+  validateHtml: function (aHtml, aDocType) {
     oTidyUtil.debug_log('<validateHtml>' + aDocType);
 
     if (oTidyUtil.tidy.m_bWaiting) {
@@ -618,7 +605,7 @@ TidyViewSource.prototype = {
    *
    * Parse the error of the validation
    */
-  parseError: function(error, res, aDocType) {
+  parseError: function (error, res, aDocType) {
     var unsorted = -1;
     var row;
 
@@ -689,6 +676,7 @@ TidyViewSource.prototype = {
 
     this.rowCountChanged(oldrows, (this.rows - oldrows));
 
+    console.log("before colorizeLines");
     if (oTidyUtil.getBoolPref("highlight_line") && nbColorLines <= oTidyUtil.getIntPref("highlight_max")) {
       this.colorizeLines(colorLines);
     }
@@ -708,7 +696,7 @@ TidyViewSource.prototype = {
    *
    * Select function
    */
-  onSelect: function(row) {
+  onSelect: function (row) {
     // A warning/error line is something like : 'line 10 column 20 ...'
     if (row < 0 || row >= this.rows) return;
 
@@ -778,7 +766,7 @@ TidyViewSource.prototype = {
    *
    * load an help file
    */
-  loadHelp: function(src) {
+  loadHelp: function (src) {
     function getHelp(fileName) {
       try {
         var req = new XMLHttpRequest();
@@ -819,7 +807,7 @@ TidyViewSource.prototype = {
    *
    * Hide a message when right clicking on it
    */
-  onTreeHide: function(line) {
+  onTreeHide: function (line) {
     // The inout arguments need to be JavaScript objects
     var data = this.aRow[line].data;
     var errorId = this.aRow[line].errorId;
@@ -827,7 +815,7 @@ TidyViewSource.prototype = {
     tidyConfirmOpen('Are you sure you want to hide the message :\n\n' + data, line);
   },
 
-  onTreeHideConfirmed: function(line) {
+  onTreeHideConfirmed: function (line) {
     // The inout arguments need to be JavaScript objects
     var errorId = this.aRow[line].errorId;
     if (this.tidyResult.algorithm == "tidy") {
@@ -841,8 +829,6 @@ TidyViewSource.prototype = {
 
     // rebuild the filter array
     oTidyUtil.buildFilterArray();
-    // remove the color from the lines
-    oTidyViewSource.removeColorFromLines();
     // revalidate with the new options
     oTidyViewSource.validateHtmlFromNode();
   },
@@ -851,7 +837,7 @@ TidyViewSource.prototype = {
    *
    * Copy the current error message in clipboard
    */
-  onTreeCopy: function(line) {
+  onTreeCopy: function (line) {
     var selection = line;
     var data = "",
       rStart = {},
@@ -891,7 +877,7 @@ TidyViewSource.prototype = {
    *
    * Select all
    */
-  onTreeSelectAll: function() {
+  onTreeSelectAll: function () {
     // return this.xulTree.view.selection.selectAll();
   },
 
@@ -899,20 +885,21 @@ TidyViewSource.prototype = {
    *
    * Get the HTML from the view source tree then validate it.
    */
-  validateHtmlFromNode: function() {
+  validateHtmlFromNode: function () {
     oTidyUtil.debug_log('<validateHtmlFromNode>');
     var html = tidy_pref.getHtml();
-    // html is not defined in FF57 at startup
+    // html is not defined in Firefox at startup
     if (html) {
-      // Reset the scrolling
-      var s = document.getElementById("source");
-      s.scrollLeft = 0;
-      s.scrollTop = 0;
-      oTidyUtil.insertHtmlAndLines(html, 'source_code_pre', 'source_line_pre');
+      oTidyUtil.insertHtmlAndLines(html, 'source', false);
       var docType = "text/html";
       this.validateHtml(html, docType);
     } else {
-      oTidyUtil.debug_log('<validateHtmlFromNode>No html');
+      oTidyUtil.debug_log('<validateHtmlFromNode>No HTML');
+      // add an info line
+      this.clear();
+      var row = new TidyResultRow();
+      row.init("No HTML (Cache is empty). Try to reload.", 0, 0, 4, 0, null, null, null, "info", oTidyUtil.getString("tidy_cap_info"));
+      this.addRow(row);
     }
     oTidyUtil.debug_log('</validateHtmlFromNode>');
   },
@@ -921,7 +908,7 @@ TidyViewSource.prototype = {
    *
    * Call content script to get back the html
    */
-  cleanup: function() {
+  cleanup: function () {
     oTidyUtil.debug_log('<cleanup>');
     var html = tidy_pref.getHtml();
     this.cleanupDialog(html);
@@ -931,7 +918,7 @@ TidyViewSource.prototype = {
    *
    * Call by the content script to show the cleanup dialog
    */
-  cleanupDialog: function(sHtml) {
+  cleanupDialog: function (sHtml) {
     oTidyUtil.cleanupDialog(oTidyViewSource.tidyResult, sHtml, window.arguments);
   },
 
@@ -942,71 +929,14 @@ TidyViewSource.prototype = {
    * @param line : (number) line
    * @param col  : (number) column
    */
-  goToLineCol: function(line, col, aToSelect) {
+  goToLineCol: function (line, col, aToSelect) {
+    console.log('goToLineCol:' + aToSelect)
     oTidyUtil.debug_log('<goToLineCol>');
-    // Simulate nagivation to anchor #l<lineNumber>
-    var anchor = "#l" + line;
-    location.hash = anchor;
-
-    // remove previous line/col "focus"
-    var af = document.getElementsByClassName('focus');
-    for (var i = 0; i < af.length; i++) {
-      // There should be only 1
-      var f = af[i];
-      var parent = f.parentElement;
-      var textnode = document.createTextNode(f.textContent);
-      parent.replaceChild(textnode, f);
-    }
-
-    // Hightlight the character at line/col in red
-    var s = document.getElementById("source_code_pre").innerHTML;
-    // Loop in all the characters of the html.
-    // Count the line and column.
-    // Skip when in html span tag (added for syntax color)
-    var res = "";
-    var currentLine = 1;
-    var currentCol = 0;
-    var bInTag = false;
-    for (var i = 0, len = s.length; i < len; i++) {
-      var c = s[i];
-      if (c == '<') {
-        bInTag = true;
-      } else if (c == '&') {
-        // Entity like &lt;
-        do {
-          i++;
-          var c2 = s[i];
-          c += c2;
-        } while (c2 != ';')
-      }
-      if (!bInTag) {
-        currentCol++;
-      }
-      if (!bInTag && currentLine == line && currentCol == col) {
-        res += "<span class='focus'>" + c + "</span>";
-      } else {
-        res += c;
-      }
-      if (c == '\n') {
-        currentLine++;
-        currentCol = 0;
-      } else if (c == '>') {
-        bInTag = false;
-      }
-    }
-    document.getElementById("source_code_pre").innerHTML = res;
-    af = document.getElementsByClassName('focus');
-    if (af.length == 1) {
-      // scroll the element in the top/left corner of the container
-      var container = document.getElementById("source");
-      const element = af[0];
-      const x = element.offsetLeft - container.offsetLeft - container.clientWidth / 8;
-      const y = element.offsetTop - container.offsetTop - container.clientHeight / 8;
-      container.scrollLeft = x;
-      container.scrollTop = y;
-    }
+    var pos = { lineNumber: line, column: col };
+    oTidyUtil.editor.revealPositionInCenter(pos);
+    oTidyUtil.editor.setPosition(pos);
+    oTidyUtil.editor.focus();
   },
-
 
   /** __ hideValidator ____________________________________________________
    *
@@ -1014,7 +944,7 @@ TidyViewSource.prototype = {
    *
    * @param bHide : (boolean) hide or not hide
    */
-  hideValidator: function(bHide) {
+  hideValidator: function (bHide) {
     var footer = document.getElementById("footer");
     var dragbar = document.getElementById("dragbar_h1");
     if (bHide) {
@@ -1038,107 +968,64 @@ TidyViewSource.prototype = {
    *
    * Color a array of lines
    */
-  colorizeLines: function(colorLines) {
+  colorizeLines: function (colorLines) {
 
     if (colorLines.length == 0) return;
-
-    var s = document.getElementById("source_code_pre").innerHTML;
-
-    // Loop in all the characters of the html.
-    // Count the line and add a color when before and after the line
-    var res = "";
-    var currentLine = 1;
-    var bFirstCharacter = true;
-    var tagLevel = 0;
-    var tagList = [];
-    var tagInProgress = false;
-
-    function add_text(tag) {
-      for (l = 1; l <= tagLevel; l++) {
-        res += "</span>";
-      }
-      // console.log('add_text('+tagLevel+'): ' + tag);
-      res += tag;
-      for (l = 1; l <= tagLevel; l++) {
-        res += tagList[l];
-      }
-    }
-
-    // console.log('start: ' + s);
-    for (var i = 0, len = s.length; i < len; i++) {
-      if (bFirstCharacter && colorLines[currentLine]) {
-        add_text("<span class='hl_error'>");
-      }
-      bFirstCharacter = false;
-
-      var c = s[i];
-      if (c == '<') {
-        var c2 = s[i + 1];
-        if (c2 == '/') {
-          tagList[tagLevel] = null;
-          tagLevel--;
-          // console.log('end  line' + currentLine +' tag(' + tagLevel + ') ');
-        } else {
-          tagInProgress = true;
-          tagList[tagLevel + 1] = c;
-        }
-      } else if (tagInProgress) {
-        tagList[tagLevel + 1] += c;
-        if (c == '>') {
-          tagLevel++;
-          tagInProgress = false;
-          // console.log('start line' + currentLine +' tag(' + tagLevel + ') ' + tagList[tagLevel]);
-        }
-      }
-      if (c == '\n') {
-        if (colorLines[currentLine]) {
-          add_text("</span>");
-        }
-        currentLine++;
-        bFirstCharacter = true;
-      }
-      res += c;
-    }
-    // Last line
-    if (colorLines[currentLine]) {
-      add_text("</span>");
-    }
-
-    // console.log('end: ' + res);
-    document.getElementById("source_code_pre").innerHTML = res;
+    console.log("colorizeLines");
+    var decoration = [];
+    colorLines.forEach(function (value, index) {
+      console.log(value, index);
+      var d = { range: new monaco.Range(index, 1, index, 1), options: { isWholeLine: true, linesDecorationsClassName: 'source_line_error', className: 'source_line_error' } };
+      decoration.push(d);
+    });
+    oTidyUtil.editor.deltaDecorations([], decoration);
   },
 
-  /** __ changeFrame  ___________________________________________
-   */
-  changeFrame: function() {
-    // currentFrame is used in getHtml to get the current frame.
-    // XXXXXXXXXXXXXXXX Todo
-    var url = document.getElementById("select_frame").value;
-    // Call tidy_devtools
-    tidyWxUpdateHtmlReport(url, true);
+  /** __ sendMessageRefreshHtml  ___________________________________________
+  */
+  sendMessageRefreshHtml: function (frameId) {
+    // Skip the doclist change when changing frame url
+    this.bSkipDocListChange = true;
+    console.log("<sendMessageRefreshHtml> bSkipDocListChange true");
+    chrome.runtime.sendMessage({
+      to: chrome.devtools.inspectedWindow.tabId,
+      tabId: chrome.devtools.inspectedWindow.tabId,
+      from: 'tidy_view_source.refresh',
+      frameId: frameId
+    });
   },
 
-  /** __ removeColorFromLines ___________________________________________
-   *
-   * Remove the color added to the lines
-   */
-  removeColorFromLines: function() {
-    /*
-    var doc = document;
-    var elem = null;
-
-    while ((elem = doc.getElementById("__firefox-tidy-id"))) {
-      var child = null;
-      var docfrag = doc.createDocumentFragment();
-      var next = elem.nextSibling;
-      var parent = elem.parentNode;
-      while ((child = elem.firstChild)) {
-        docfrag.appendChild(child);
+  /** __ refreshHtml  ___________________________________________
+  */
+  refreshHtml: function () {
+    var htmlOrigin = document.getElementById("html_origin").value;
+    var url = document.getElementById("frame_url").value;
+    if (chrome.webNavigation) {
+      // Chrome
+      if (htmlOrigin == "dom2string") {
+        // Send a message to the content page to get the html from DOM
+        chrome.webNavigation.getAllFrames({ "tabId": chrome.devtools.inspectedWindow.tabId },
+          function (details) {
+            // top page is frameId 0
+            var frameId = 0;
+            console.log("getAllFrames:" + details.length);
+            // Find the frameId from the URL
+            for (const detail of details) {
+              if (detail.url == url) {
+                frameId = detail.frameId;
+              }
+            }
+            oTidyViewSource.sendMessageRefreshHtml(frameId);
+          }
+        );
+      } else {
+        tidyWxChangeHtmlAndDoclist(url, true, htmlOrigin);
       }
-      parent.removeChild(elem);
-      parent.insertBefore(docfrag, next);
+    } else {
+      // Firefox
+      var frameId = tidy_pref.getFrameId(url);
+      this.sendMessageRefreshHtml(frameId);
     }
-    */
   },
 }
 
@@ -1200,40 +1087,6 @@ function tidyExplainErrorOnClick(event) {
   return true;
 }
 
-/*
-// Copy from viewsource.js
-function wrapLongLines()
-{
-  var myWrap = window.content.document.body;
-
-  if (myWrap.className != 'wrap')
-    myWrap.className = 'wrap';
-  else myWrap.className = '';
-
-  if (gPrefs){
-    try {
-      if (myWrap.className == '') {
-        gPrefs.setBoolPref("view_source.wrap_long_lines", false);
-      }
-      else {
-        gPrefs.setBoolPref("view_source.wrap_long_lines", true);
-        oTidyUtil.setBoolPref( "show_line_number", false );
-        oTidyViewSource.xulMenuShowLineNumber.setAttribute("checked", false );
-        if( oTidyUtil.getBoolPref("warning_line_number") )
-        {
-          // Show a warning the 1rst time line numbering is disabled
-          var promptService = Components.classes["@mozilla.org/embedcomp/prompt-service;1"]
-                              .getService(Components.interfaces.nsIPromptService);
-          var result = promptService.alert( window,oTidyUtil.getString("tidy_validator"),oTidyUtil.getString("tidy_wrap_msg") );
-          oTidyUtil.setBoolPref( 'warning_line_number', false );
-        }
-      }
-    } catch (ex) {
-    }
-  }
-}
-*/
-
 function onTidyViewSourceHelpLoad() {
   if (oTidyViewSource != null) {
     try {
@@ -1242,7 +1095,7 @@ function onTidyViewSourceHelpLoad() {
       var node = doc.getElementById("message");
       var t = doc.createTextNode(oTidyViewSource.sLastError);
       node.appendChild(t);
-    } catch (ex) {}
+    } catch (ex) { }
   }
 }
 
@@ -1333,19 +1186,19 @@ if (!isHorizontalMode) {
     var w = eErrorList.offsetWidth;
     dragbar_resize_v1(w);
   }
-  document.getElementById("dragbar_v1").onmousedown = function(e) {
+  document.getElementById("dragbar_v1").onmousedown = function (e) {
     e.preventDefault();
     debug("v1 mousedown " + i++);
-    window.onmousemove = function(e) {
+    window.onmousemove = function (e) {
       dragbar_resize_v1(e.pageX);
     };
     debug("v1 mouseDown : leaving");
   };
 
-  document.getElementById("dragbar_h1").onmousedown = function(e) {
+  document.getElementById("dragbar_h1").onmousedown = function (e) {
     e.preventDefault();
     debug("h1 mousedown " + i++);
-    window.onmousemove = function(e) {
+    window.onmousemove = function (e) {
       dragbar_resize_h1(e.pageY);
 
     };
@@ -1367,33 +1220,30 @@ if (!isHorizontalMode) {
     }
     dragbar_resize_v2(w);
   }
-  document.getElementById("dragbar_v2").onmousedown = function(e) {
+  document.getElementById("dragbar_v2").onmousedown = function (e) {
     e.preventDefault();
     debug("v2 mousedown " + i++);
-    window.onmousemove = function(e) {
+    window.onmousemove = function (e) {
       dragbar_resize_v2(e.pageX);
     };
     debug("v2 mouseDown : leaving");
   };
 
-  document.getElementById("dragbar_h2").onmousedown = function(e) {
+  document.getElementById("dragbar_h2").onmousedown = function (e) {
     e.preventDefault();
     debug("h2 mousedown " + i++);
-    window.onmousemove = function(e) {
+    window.onmousemove = function (e) {
       dragbar_resize_h2(e.pageY);
     };
     debug("h2 mouseDown : leaving");
   };
 }
 
-window.onmouseup = function(e) {
+window.onmouseup = function (e) {
   debug("onmouseup");
   window.onmousemove = null;
 };
 
-window.onload = function(e) {
+window.onload = function (e) {
   onLoadTidyViewSource();
 }
-
-// Init syntax highlighting
-hljs.initHighlightingOnLoad();

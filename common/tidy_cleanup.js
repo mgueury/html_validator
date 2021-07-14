@@ -26,7 +26,7 @@ function onLoadTidyCleanup2() {
   }
   var url = sessionStorage.getItem("tidy_url");
   oTidyCleanup.start();
-  window.setTimeout(function() {
+  window.setTimeout(function () {
     onTidyCleanupNewTitle(url)
   }, 200);
   // Wait that the library is ready before to continue
@@ -44,20 +44,8 @@ function onUnloadTidyCleanup() {
   oTidyCleanup = null;
 }
 
-function onTidyCleanupLoadCleanSource() {
-  oTidyUtil.selectionOn(oTidyCleanup.elementBrowserCleanSource);
-}
-
-function onTidyCleanupLoadCleanPage() {
-  oTidyUtil.selectionOn(oTidyCleanup.elementBrowserCleanPage);
-}
-
-function onTidyCleanupOrigSource() {
-  oTidyUtil.selectionOn(oTidyCleanup.elementBrowserOrigSource);
-}
-
-function onTidyCleanupLoadOrigPage() {
-  oTidyUtil.selectionOn(oTidyCleanup.elementBrowserOrigPage);
+function onTidyCleanupLoadSource() {
+  oTidyUtil.selectionOn(oTidyCleanup.elementBrowserSource);
 }
 
 function onTidyCleanupOnClick(event) {
@@ -74,46 +62,35 @@ function onTidyCleanupNewTitle(aUrl) {
 // CleanupHtml
 //-------------------------------------------------------------
 
-function TidyCleanup() {}
+function TidyCleanup() { }
 
 TidyCleanup.prototype = {
   // Force output
   forceCombo: null,
   // Browsers
-  elementBrowserCleanSource: null,
-  elementBrowserCleanSourceBrowserCleanPage: null,
-  elementBrowserCleanSourceBrowserOrigSource: null,
-  elementBrowserCleanSourceBrowserOrigPage: null,
+  elementBrowserSource: null,
+  elementBrowserDiff: null,
+  origHtml: null,
   cleanedHtml: null,
+  // Monaco
+  diffEditor: null,
 
   // Initialisation and termination functions
-  start: function() {
+  start: function () {
     this.forceCombo = document.getElementById("tidy.options.force_output");
 
-    this.elementBrowserCleanSource = document.getElementById("tidy.cleanup.clean.source");
-    this.elementBrowserOrigSource = document.getElementById("tidy.cleanup.orig.source");
-    this.elementBrowserCleanSource.addEventListener("load", onTidyCleanupLoadCleanSource, true);
-    this.elementBrowserOrigSource.addEventListener("load", onTidyCleanupOrigSource, true);
-    /*
-    this.elementBrowserCleanPage = document.getElementById("tidy.cleanup.clean.page");
-    this.elementBrowserOrigPage = document.getElementById("tidy.cleanup.orig.page");
-    this.elementBrowserCleanPage.addEventListener("load", onTidyCleanupLoadCleanPage, true);
-    this.elementBrowserOrigPage.addEventListener("load", onTidyCleanupLoadOrigPage, true);
+    this.elementBrowserSource = document.getElementById("tidy.cleanup.source");
+    this.elementBrowserSource.addEventListener("load", onTidyCleanupLoadSource, true);
+    this.elementBrowserDiff = document.getElementById("tidy.cleanup.diff");
 
-
-    this.elementBrowserCleanSource.docShell.allowJavascript = false;
-    this.elementBrowserCleanPage.docShell.allowJavascript = false;
-    this.elementBrowserOrigSource.docShell.allowJavascript = false;
-    this.elementBrowserOrigPage.docShell.allowJavascript = false;
-    */
-    // XXXXXXXXXXXXXXXXXXX
   },
 
-  cleanupHtml: function(aHtml, aUrl) {
+  cleanupHtml: function (aHtml, aUrl) {
     // The inout arguments need to be JavaScript objects
     var output = {
       value: "---"
     };
+    this.origHtml = aHtml;
 
     // The cleanup will write down the result in a file. So that it can be shown
     // element browser. $PROFILE_DIR/tidy_cleanup.html
@@ -151,8 +128,7 @@ TidyCleanup.prototype = {
       this.forceCombo.selectedIndex = 0; // "-";
     }
 
-    oTidyUtil.insertHtmlAndLines(output.value, 'source_code_pre', 'source_line_pre');
-    oTidyUtil.insertHtmlAndLines(aHtml, 'orig_source_code_pre', 'orig_source_line_pre');
+    oTidyUtil.insertHtmlAndLines(output.value, 'tidy.cleanup.source', false);
 
     // Save the cleaned html to allow copy to clipboard
     this.cleanedHtml = output.value;
@@ -177,13 +153,13 @@ TidyCleanup.prototype = {
   },
 
   // Cleanup the page
-  cleanup: function() {
+  cleanup: function () {
     var html = sessionStorage.getItem("tidy_html");
     var url = sessionStorage.getItem("tidy_url");
     this.cleanupHtml(html, url);
   },
 
-  savePref: function() {
+  savePref: function () {
     oTidyUtil.saveCheckbox("clean");
     oTidyUtil.saveCheckbox("indent");
     oTidyUtil.saveTextbox("indent-spaces");
@@ -205,29 +181,56 @@ TidyCleanup.prototype = {
     oTidyUtil.setBoolPref("output-xhtml", o_xhtml);
   },
 
-  onOk: function() {
+  onOk: function () {
     this.savePref();
 
     // Close the window
     window.close();
   },
 
-  onRefresh: function() {
+  onRefresh: function () {
     this.savePref();
     this.cleanup();
   },
 
-  onClickTab: function(tab) {
+  onClickTab: function (tab) {
+    document.getElementById("tab_clean").className = '';
+    document.getElementById("tab_orig").className = '';
+    document.getElementById("tab_diff").className = '';
+    document.getElementById("tidy_cleanup_sidebar").style.display = 'none';
+    // document.getElementById("tidy_clipboard").style.display = 'none';
+    this.elementBrowserDiff.style.display = 'none';
     if (tab == "tidy.cleanup.clean.source") {
-      this.elementBrowserCleanSource.style.display = 'block';
-      this.elementBrowserOrigSource.style.display = 'none';
+      this.elementBrowserSource.style.display = 'block';
+      this.elementBrowserDiff.style.display = 'none';
+      document.getElementById("tidy_cleanup_sidebar").style.display = 'block';
+      // document.getElementById("tidy_clipboard").style.display = 'block';
+      oTidyUtil.editor.getModel().setValue(this.cleanedHtml);
       document.getElementById("tab_clean").className = 'selected';
-      document.getElementById("tab_orig").className = '';
-    } else {
-      this.elementBrowserCleanSource.style.display = 'none';
-      this.elementBrowserOrigSource.style.display = 'block';
-      document.getElementById("tab_clean").className = '';
+    } else if (tab == "tidy.cleanup.orig.source") {
+      this.elementBrowserSource.style.display = 'block';
+      this.elementBrowserDiff.style.display = 'none';
+      oTidyUtil.editor.getModel().setValue(this.origHtml);
       document.getElementById("tab_orig").className = 'selected';
+    } else {
+      this.elementBrowserSource.style.display = 'none';
+      this.elementBrowserDiff.style.display = 'block';
+      document.getElementById("tab_diff").className = 'selected';
+
+      if (this.thisEditor == null) {
+        var originalModel = monaco.editor.createModel(this.origHtml);
+        var modifiedModel = monaco.editor.createModel(this.cleanedHtml);
+
+        this.diffEditor = monaco.editor.createDiffEditor(this.elementBrowserDiff);
+        this.diffEditor.setModel({
+          original: originalModel,
+          modified: modifiedModel
+        });
+        var navi = monaco.editor.createDiffNavigator(this.diffEditor, {
+          followsCaret: true, // resets the navigator state when the user selects something in the editor
+          ignoreCharChanges: true // jump from line to line
+        });
+      }
     }
   },
 
@@ -235,7 +238,7 @@ TidyCleanup.prototype = {
    *
    * copy Cleaned HTML to clipboard
    */
-  copyCleanedHtmlToClipboard: function() {
+  copyCleanedHtmlToClipboard: function () {
     var textArea = document.createElement("textarea");
 
     //
@@ -294,7 +297,7 @@ TidyCleanup.prototype = {
    *
    * Load the original source and page
    */
-  viewSource: function(html, url) {
+  viewSource: function (html, url) {
     /*
     var args = window.arguments[1];
     var url = args[0];
@@ -386,7 +389,7 @@ TidyCleanup.prototype = {
     return true;
   },
 
-  onOk: function() {
+  onOk: function () {
     // Close the window
     if (parent) {
       if (parent.tidyOptionClose) {
@@ -398,7 +401,7 @@ TidyCleanup.prototype = {
   },
 }
 
-window.onload = function(e) {
+window.onload = function (e) {
   try {
     onLoadTidyCleanup();
   } catch (e) {
@@ -406,19 +409,22 @@ window.onload = function(e) {
   }
 
   // Initialise the javascript link (else there is an error refuse to execute inline handler because it violates the security policies)
-  tidyUtilSetOnclick("tidy_tab_source", function() {
+  tidyUtilSetOnclick("tidy_tab_source", function () {
     oTidyCleanup.onClickTab('tidy.cleanup.clean.source')
   });
-  tidyUtilSetOnclick("tidy_tab_orig", function() {
+  tidyUtilSetOnclick("tidy_tab_orig", function () {
     oTidyCleanup.onClickTab('tidy.cleanup.orig.source')
   });
-  tidyUtilSetOnclick("tidy_clipboard", function() {
+  tidyUtilSetOnclick("tidy_tab_diff", function () {
+    oTidyCleanup.onClickTab('tidy.cleanup.diff.source')
+  });
+  tidyUtilSetOnclick("tidy_clipboard", function () {
     oTidyCleanup.copyCleanedHtmlToClipboard()
   });
-  tidyUtilSetOnclick("tidy_refresh", function() {
+  tidyUtilSetOnclick("tidy_refresh", function () {
     oTidyCleanup.onRefresh()
   });
-  tidyUtilSetOnclick("tidy.cleanup.ok", function() {
+  tidyUtilSetOnclick("tidy_cleanup_ok", function () {
     oTidyCleanup.onOk()
   });
 

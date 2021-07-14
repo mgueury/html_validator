@@ -76,17 +76,6 @@
   </div>
 
   <!-- The Modal -->
-  <div id="tidy.gotoline.modal" class="modal">
-    <!-- Modal content -->
-    <div class="modal-content2" style="text-align: center">
-      Enter line number:<br><br>
-      <input type="text" id="tidy.line"><br><br>
-      <input type="button" value="OK" onclick="tidyGoToLine()">&nbsp;&nbsp;
-      <input type="button" value="Cancel" onclick="tidyGoToLineClose()">&nbsp;&nbsp;
-    </div>
-  </div>
-
-  <!-- The Modal -->
   <div id="tidy.confirm.modal" class="modal">
     <!-- Modal content -->
     <div class="modal-content3" style="text-align: center">
@@ -96,6 +85,12 @@
       <input type="button" value="Cancel" onclick="tidyConfirmClose()">&nbsp;&nbsp;
     </div>
   </div>
+
+  <link rel="stylesheet" data-name="vs/editor/editor.main" href="monaco-editor/min/vs/editor/editor.main.css">
+  <script>var require = { paths: { 'vs': 'monaco-editor/min/vs' } };</script>
+  <script src="monaco-editor/min/vs/loader.js"></script>
+  <script src="monaco-editor/min/vs/editor/editor.main.nls.js"></script>
+  <script src="monaco-editor/min/vs/editor/editor.main.js"></script>
 
   <script type="text/javascript" src="highlight.pack.js"></script>
   <script>

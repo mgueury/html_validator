@@ -45,28 +45,14 @@ TidyOptions.prototype = {
   // Initialisation and termination functions
   start: function() {
     this.accessList = document.getElementById("tidy.options.accessibility-check");
-    this.browserIconList = document.getElementById("tidy.options.browser_icon");
     this.algorithmList = document.getElementById("tidy.options.algorithm");
     this.filterHideList = document.getElementById("tidy.options.filter.list.hide");
-    this.dbclickActionList = document.getElementById("tidy.options.dbclick_action");
-
-    var browser_icon = oTidyUtil.getCharPref("browser_icon");
-    this.browserIconList.selectedIndex = (browser_icon == "icon_text" ? 0 : 1);
 
     this.setAlgorithm();
 
     this.accessList.selectedIndex = oTidyUtil.getIntPref("accessibility-check") + 1;
 
-    this.dbclickActionList.selectedIndex = (oTidyUtil.getCharPref("dbclick_action") == "viewsource" ? 0 : 1);
-
-    if (!oTidyUtil.permManager) {
-      document.getElementById("tidy.options.perm_list").hidden = true;
-    }
-
-    oTidyUtil.initCheckbox("browser_enable");
-    oTidyUtil.initCheckbox("viewsource_enable");
     oTidyUtil.initCheckbox("highlight_line");
-    oTidyUtil.initCheckbox("show_line_number");
     oTidyUtil.initCheckbox("show-warnings");
 
     // Filter List
@@ -82,18 +68,6 @@ TidyOptions.prototype = {
         }
 
         this.filterAppend(desc, "t" + o);
-      }
-    }
-    for (var o in oTidyUtil.filterArraySP) {
-      if (oTidyUtil.filterArraySP[o] == false) {
-        // The inout arguments need to be JavaScript objects
-        var desc;
-        try {
-          desc = oTidyUtil.getString("sp_" + o);
-        } catch (e) {
-          desc = "SGML Parser " + o;
-        }
-        this.filterAppend(desc, "s" + o);
       }
     }
     for (var o in oTidyUtil.filterArrayOnline) {
@@ -148,27 +122,12 @@ TidyOptions.prototype = {
   onBrowserEnable: function() {},
 
   onOk: function() {
-    oTidyUtil.saveCheckbox("browser_enable");
-    oTidyUtil.saveCheckbox("viewsource_enable");
     oTidyUtil.saveCheckbox("highlight_line");
-    oTidyUtil.saveCheckbox("show_line_number");
     oTidyUtil.saveCheckbox("show-warnings");
-
-    // Icon: Convert the combobox to value
-    var icon = new Array("icon_text", "icon_only");
-    oTidyUtil.setCharPref("browser_icon", icon[this.browserIconList.selectedIndex]);
-
-    // Set icon_only if the validation is enabled in the browser
-    if (oTidyUtil.getCharPref("browser_icon") == "icon_hide" && oTidyUtil.getBoolPref("browser_enable")) {
-      oTidyUtil.setCharPref("browser_icon", "icon_only");
-    }
 
     // Algorithm
     var algo = new Array("tidy", "sp", "serial", "online");
     oTidyUtil.setCharPref("algorithm", algo[this.algorithmList.selectedIndex]);
-
-    // Double-click action
-    oTidyUtil.setCharPref("dbclick_action", (this.dbclickActionList.selectedIndex == 0 ? "viewsource" : "cleanup"));
 
     // Force output : convert the combobox to 2 settings of tidy
     oTidyUtil.setIntPref("accessibility-check", this.accessList.selectedIndex - 1);
@@ -215,6 +174,6 @@ window.onload = function(e)
    // Initialise the javascript link (else there is an error refuse to execute inline handler because it violates the security policies)
    tidyUtilSetOnclick( "tidy.options.ok", function(){ oTidyOptions.onOk() } );
    // XXX seems to be calling the function....
-   tidyUtilSetOnclick( "tidy.options.welcome", function(){ oTidyOptions.onOpenModal('tidy.welcome.modal') });
+   // tidyUtilSetOnclick( "tidy.options.welcome", function(){ oTidyOptions.onOpenModal('tidy.welcome.modal') });
    tidyUtilSetOnclick( "tidy.options.filter.remove", function(){ oTidyOptions.onFilterRemove() });
 }

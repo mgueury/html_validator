@@ -20,12 +20,10 @@
     <h3>General</h3>
     <span class="label">Algorithm</span>
     <select id="tidy.options.algorithm">
-              <option value="tidy">Tidy</option>
-              <option value="sp">SGML Parser</option>
-              <option value="serial">Serial</option>
+              <option value="tidy">Html Tidy (Offline)</option>
               <option value="online">Online</option>
     </select>
-    <input type="button" id="tidy.options.welcome" value="Choose...">
+    <!-- <input type="button" id="tidy.options.welcome" value="Choose..."> -->
     <br>
     <span class="label">Accessibility Level</span>
     <select id="tidy.options.accessibility-check">
@@ -36,28 +34,8 @@
               <option value="3">3</option>
     </select>
     <br>
-    <h3>Browser</h3>
-    <span class="label"><input type="checkbox" id="tidy.options.browser_enable">Enable validation in the Browser</span>
-    <input type="button" id="tidy.options.perm_list" value="Exceptions...">
-    <br>
-    <span class="label">Show in status-bar</span>
-    <select id="tidy.options.browser_icon">
-              <option value="icon_text">Icon and Text</option>
-              <option value="icon_only">Icon Only</option>
-    </select>
-    <br>
-    <span class="label">Double-click the status-bar icon starts:</span>
-    <select id="tidy.options.dbclick_action">
-              <option value="viewsource">Page Source...</option>
-              <option value="cleanup">Cleanup...</option>
-    </select>
-    <br>
-    <h3>View Source</h3>
-    <input type="checkbox" id="tidy.options.viewsource_enable"><span class="label">Enable Validation in the view source</span>
-    <br>
+    <h3>Developer Tools</h3>
     <input type="checkbox" id="tidy.options.highlight_line"><span class="label">Highlight lines with errors</span>
-    <br>
-    <input type="checkbox" id="tidy.options.show_line_number"><span class="label">Show line numbers</span>
     <br>
     <input type="checkbox" id="tidy.options.show-warnings"><span class="label">Show warnings</span>
     <br>

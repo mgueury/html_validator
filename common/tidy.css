@@ -105,6 +105,18 @@ h2 {
   z-index: 1;
 }
 
+#toolbar {
+  height: 2em;
+  border-bottom: 1px solid;
+}
+
+/* Blue button when activated for offline and online */
+.button_activated {
+  background-color: #55f;
+  border-color: #55f; 
+  color: white;
+}
+
 .source_v {
   width: 100vw;
   height: calc(100vh/2);
@@ -116,8 +128,9 @@ h2 {
   display: inline-block;
   vertical-align: top;
   width: calc(100vw/2);
-  overflow-y: auto;
-  height: 100vh;
+  overflow: hidden;
+  /* overflow-y: auto; */
+  height: calc(100vh - 2em - 1px);
 }
 
 .footer_v {
@@ -130,10 +143,10 @@ h2 {
 
 .footer_h {
   position: fixed;
-  top: 0;
+  /* top: 0; */
   right: 0;
   display: inline-block;
-  height: 100vh;
+  height: calc(100vh - 2em - 1px);
   width: calc(99.5vw/2);
 }
 
@@ -159,8 +172,14 @@ h2 {
   color: #777;
 }
 
-#select_frame {
-  display: block;
+.source_line_error {
+  background-color: #faa;
+}
+
+#frame_url {
+  display: inline-block;
+  text-overflow: ellipsis;
+  width: 25em;
 }
 
 .error_list_v {
@@ -228,7 +247,7 @@ h2 {
   display: inline-block;
   vertical-align: top;
   background-color: #aaa;
-  height: 100vh;
+  height: calc(100vh - 2em - 1px);
   cursor: col-resize;
 }
 
@@ -293,7 +312,7 @@ h2 {
 / -------------------------------------*/
 
 .label {
-  0 min-width: 20em;
+  min-width: 20em;
   display: inline-block;
   margin-bottom: 0.4em;
 }
@@ -315,10 +334,27 @@ h2 {
   z-index: 2;
 }
 
-#tidy_cleanup_tab {
-  display: =inline-block;
+#tidy_cleanup_ok {
+  z-index: 3;
+  position: fixed;
+  top: 0.8em;
+  right: 0.8em;  
 }
 
+#tidy_cleanup_tab {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+#tidy.cleanup.source {
+  flex: 2;
+}
+
+#tidy.cleanup.diff {
+  flex: 2;
+  display: none;
+}
 
 /* -------------------------------------
 / Help
