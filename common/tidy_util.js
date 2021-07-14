@@ -116,7 +116,7 @@ function TidyUtil() {
   this.setDefaultValueBool("force_frame_revalidation", false);
   this.setDefaultValueChar("version", "0.0");
   // this.setDefaultValueBool( "warning_line_number",   true );
-
+  this.setDefaultValueChar("online_url", tidy_pref.online_default_url);
   // this.setDefaultValueChar("algorithm", "serial"); // tidy, sp, serial
   this.setDefaultValueChar("algorithm", "tidy"); // tidy, sp, serial
 
@@ -951,6 +951,7 @@ TidyUtil.prototype = {
     formElement.setAttribute("method", "post");
     formElement.setAttribute("enctype", "multipart/form-data");
     formElement.setAttribute("action", "https://validator.w3.org/nu/");
+    // formElement.setAttribute("action", this.getCharPref("online_url"));
     formElement.setAttribute("style", "display: none;");
 
     var text = doc.createElement("text")
@@ -1408,30 +1409,37 @@ TidyResult.prototype = {
     http.result = this;
     http.onreadystatechange = function () {
       //Call a function when the state changes.
-      if (http.readyState == 4 && http.status == 200) {
+      if (http.readyState == 4) {
 
         console.log( "http.responseText: " + http.responseText );
         var error = null;
-        try {
-          error = JSON.parse(http.responseText);
-        } catch (ex) {
-          tidyShowExceptionInConsole(ex);
-          // Init a dummy error message with the exception
+        if (http.status == 200) {
+          try {
+            error = JSON.parse(http.responseText);
+          } catch (ex) {
+            tidyShowExceptionInConsole(ex);
+            // Init a dummy error message with the exception
+            error = {
+              messages: new Array()
+            };
+            error.messages = new Array();
+            error.messages[0] = {
+              type: "error",
+              message: "Online parser error"
+            };
+            error.messages[1] = {
+              type: "error",
+              message: "Go to menu: HTML Validator/W3c Online validator to see the error"
+            };
+          }
+        } else {
           error = {
             messages: new Array()
           };
           error.messages = new Array();
           error.messages[0] = {
-            line: 0,
-            column: 0,
             type: "error",
-            message: "Online parser error"
-          };
-          error.messages[1] = {
-            line: 0,
-            column: 0,
-            type: "error",
-            message: "Go to menu: HTML Validator/W3c Online validator to see the error"
+            message: "Can not contact the url: " + oTidyUtil.getCharPref("online_url")
           };
         }
 

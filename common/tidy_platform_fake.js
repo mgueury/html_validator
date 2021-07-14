@@ -4,6 +4,7 @@ var tidy_pref = {};
 // I expect that this gives new errors.
 // 0.985 // tidy_pref.prefs = null;
 tidy_pref.prefs = {};
+tidy_pref.online_default_url = "http://validator.w3.org/nu/";
 tidy_pref.html = null;
 tidy_pref.frames = null;
 // '<html>\n<title>Main</title>\n</abc>\n<body>\ntext<br>\ntext<br>\ntext<br>\ntext<br>\ntext<br>\ntext<br>\ntext<br>\ntext<br>\ntext<br>\n123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890</def><br>\n</body>\n',
