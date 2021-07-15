@@ -45,6 +45,21 @@ function call_dom2string(tabId, frameId) {
   });
 }
 
+function firefox_get_frames_then_call_dom2string(tabId) {
+  chrome.webNavigation.getAllFrames({ "tabId": tabId },
+    function (details) {
+      console.log("tidyBackground: getAllFrames:" + details.length);
+      tidyFrames = [];
+      for (const detail of details) {
+        tidyFrames.push({ url: detail.url, frameId: detail.frameId });
+      }
+      console.log("tidyBackground: getAllFrames:" + frames);
+      // 2)  calls dom2string to get the HTML source of the top page (frameId=0)
+      call_dom2string(tabId, 0);
+    }
+  );
+}
+
 // Fired when a connection is made from either an extension process or a content script (by runtime.connect).
 chrome.runtime.onConnect.addListener(function (port) {
   if (port.name !== "devtools") return;
@@ -75,18 +90,7 @@ chrome.runtime.onConnect.addListener(function (port) {
         if (request.bIsFirefox) {
           // In Firefox, chrome.webNavigation.getAllFrames does not exist in Devtools. 
           // 1) get a list of frames and store it in the global variable: tidyFrames
-          chrome.webNavigation.getAllFrames({ "tabId": request.tabId },
-            function (details) {
-              console.log("tidyBackground: getAllFrames:" + details.length);
-              tidyFrames = [];
-              for (const detail of details) {
-                tidyFrames.push( {url: detail.url, frameId: detail.frameId });
-              }
-              console.log("tidyBackground: getAllFrames:" + frames);
-              // 2)  calls dom2string to get the HTML source of the top page (frameId=0)
-              call_dom2string(request.tabId, 0);
-            }
-          );
+          firefox_get_frames_then_call_dom2string( request.tabId );
         }
       }
     }
@@ -125,7 +129,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
             tabId: tabs[0].id,
             title: "Html Validator"
           });
-          call_dom2string(tabId);
+          firefox_get_frames_then_call_dom2string(tabId);
         }
       });
     } else {
