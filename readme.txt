@@ -1,7 +1,16 @@
-Needed for review:
+HTML Validator Extension Source code
+Author: Marc Gueury
 
-Comment about permissions:
---------------------------
+Content
+-------
+- tidy_build_js.tgz contains the source code the HTML Tidy 5 used to create tidy_emscripten.js
+  See https://www.html-tidy.org/
+- The rest of the code is the code of the WebExtension.
+- The Monaco Editor files are from the version 0.24. 
+  See https://github.com/microsoft/monaco-editor/archive/refs/tags/v0.24.0.zip
+
+Comment about permissions used in the manifest
+----------------------------------------------
 - "<all_urls>"
   - Needed To be able to validate any page on internet
 - API: "clipboardWrite"
@@ -21,6 +30,5 @@ Old permissions
 ---------------
 - API: "tabs",
   - Not needed anymore. Seems to have been included in <all_urls>
-
 
 
