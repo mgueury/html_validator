@@ -1,6 +1,6 @@
 {
   "name": "HTML Validator",
-  "version": "0.9.9.0",
+  "version": "0.9.9.2",
   "manifest_version": 2,
   "description": "HTML Validator",
   "devtools_page": "tidy_devtools.html",

@@ -3,7 +3,7 @@
 // Demo: var serialized_html = DOMtoString(document);
 
 function Dom2String(doc) {
-    console.log("tidy_dom2string.Dom2String");
+    // console.log("tidy_dom2string.Dom2String");
     var html = '',
         node = doc.firstChild;
     while (node) {

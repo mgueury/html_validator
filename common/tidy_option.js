@@ -125,7 +125,6 @@ TidyOptions.prototype = {
   onOk: function() {
     oTidyUtil.saveCheckbox("highlight_line");
     oTidyUtil.saveCheckbox("show-warnings");
-    oTidyUtil.saveCharTextbox("online_url");
 
     // Algorithm
     var algo = new Array("tidy", "sp", "serial", "online");

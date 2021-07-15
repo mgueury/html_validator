@@ -1,6 +1,8 @@
 HTML Validator Extension Source code
 Author: Marc Gueury
 
+See also : https://www.gueury.com/mozilla/architecture.html
+
 Content
 -------
 - tidy_build_js.tgz contains the source code the HTML Tidy 5 used to create tidy_emscripten.js
