@@ -1,11 +1,11 @@
 {
   "name": "HTML Validator",
-  "version": "0.9.9.2",
+  "version": "0.9.9.4",
   "manifest_version": 2,
-  "description": "HTML Validator",
+  "description": "Add HTML Validator in Developer Tools",
   "devtools_page": "tidy_devtools.html",
   "options_page": "common/tidy_option.html",
-  "homepage_url": "http://users.skynet.be/mgueury/mozilla",
+  "homepage_url": "http://www.gueury.com/mozilla",
   "web_accessible_resources": ["*"],
   "background": {
     "scripts": ["common/tidy_platform_fake.js","tidy_background.js"]

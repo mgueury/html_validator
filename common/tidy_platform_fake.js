@@ -51,12 +51,12 @@ tidy_pref.isNewInstall = function () {
         if (!last_version) {
           // is install
           chrome.tabs.create({
-            url: "http://users.skynet.be/mgueury/mozilla/new_webextension.html?version=" + cur_version + "&browser=" + sBrowser + "&platform=" + info.os,
+            url: "https://www.gueury.com/mozilla/new_webextension.html?version=" + cur_version + "&browser=" + sBrowser + "&platform=" + info.os,
             active: true
           });
         } else if (last_version != cur_version) {
           chrome.tabs.create({
-            url: "http://users.skynet.be/mgueury/mozilla/new_webextension.html?version=" + cur_version + "&browser=" + sBrowser + "&platform=" + info.os,
+            url: "https://www.gueury.com/mozilla/new_webextension.html?version=" + cur_version + "&browser=" + sBrowser + "&platform=" + info.os,
             active: true
           });
         }

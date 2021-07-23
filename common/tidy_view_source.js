@@ -56,6 +56,9 @@ function onLoadTidyViewSource2() {
   tidyUtilSetOnclick("tidy_wrapline", function () {
     tidyWrapLine()
   });
+  tidyUtilSetOnclick("tidy_help", function () {
+    tidyHelp()
+  });
   tidyUtilSetOnclick("tidy_optionopen", function () {
     tidyOptionOpen()
   });
@@ -153,6 +156,11 @@ function tidyWrapLine() {
     oTidyUtil.editor.updateOptions({ wordWrap: "off" })
   }
   oTidyUtil.closeHamburger();
+}
+
+function tidyHelp() {
+  var url = "https://www.gueury.com/mozilla/user_guide.html";
+  window.open(url, "_blank");
 }
 
 function tidyCleanup() {
