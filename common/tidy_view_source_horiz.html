@@ -9,44 +9,51 @@
 <body class="tidy_viewsource_body" id="body">
   <div id="menu" class="sidenav">
     <a id="tidy_hamburger" href="#"><img src="../skin/close_24.png"></a>
+    <a id="tidy_menu_cleanup2" href="#">Clean up...</a>
+    <a id="tidy_menu_online_page" href="#">W3c Online...</a>    
     <a id="tidy_gotoline_open" href="#">Go to Line....</a>
     <a id="tidy_wrapline" href="#">Wrap Lines</a>
     <a id="tidy_optionopen" href="#">Options...</a>
     <a id="tidy_help" href="#">Help</a>
   </div>
-  <div id="toolbar">
-    <table id="footer_toolbar" style="width:100%; border: 0">
-      <tr>
-        <th style="text-align: left">
-          URL: <select id="frame_url">
+  <div id="content">
+    <div id="toolbar">
+      <table id="footer_toolbar" style="width:100%; border: 0">
+        <tr>
+          <th style="text-align: left">
+            URL: <select id="frame_url">
               <option value="main"></option>
             </select></th>
-       <th style="text-align: left" id="th_html_origin" >
-          HTML: <select id="html_origin">
-           <option value="server">Sent by Server</option>
-           <option value="dom2string">After Javascript Execution</option>
-       </select></th>
-       <th style="text-align: left">
-        MODE: 
-         <input id="tidy_offline" type="button" value="Offline">            
-         <input id="tidy_online2" type="button" value="W3c Online">
-       </th>            
-       <th style="text-align: right">
-          <input id="tidy_cleanup2" type="button" value="Clean up...">&nbsp;
-          <input id="tidy_online_page" type="button" value="W3c Online...">&nbsp;
-          <span><img id="tidy_hamburger2" src="../skin/menu_16.png">&nbsp;</span>
-        </th>
-      </tr>
-    </table>
-  </div>
-  <div id="validator">
-    <div id="source" class="source_h">
+          <th style="text-align: left" id="th_html_origin">
+            HTML: <select id="html_origin">
+              <option value="server">Sent by Server</option>
+              <option value="dom2string">After Javascript Execution</option>
+            </select></th>
+          <th style="text-align: left">
+            MODE:
+            <span>
+              <input id="tidy_offline" type="button" value="Offline">
+              <input id="tidy_online2" type="button" value="W3c Online">
+            </span>  
+          </th>
+          <th id="tidy_toolbar_button" style="text-align: right">
+            <input id="tidy_cleanup2" type="button" value="Clean up...">&nbsp;
+            <input id="tidy_online_page" type="button" value="W3c Online...">&nbsp;
+          </th>
+          <th style="text-align: right">
+            <span><img id="tidy_hamburger2" src="../skin/menu_16.png">&nbsp;</span>
+          </th>
+        </tr>
+      </table>
     </div>
-    <div id="dragbar_v2"></div>
-    <div id="footer" class="footer_h">
-      <div id="footer2" class="footer2_h">
-        <div id="error_list" class="error_list_h">
-          <!--
+    <div id="validator">
+      <div id="source" class="source_h">
+      </div>
+      <div id="dragbar_v2"></div>
+      <div id="footer" class="footer_h">
+        <div id="footer2" class="footer2_h">
+          <div id="error_list" class="error_list_h">
+            <!--
             <menupopup id="tidyTreeContextMenu">
                 <menuitem id="tidy-view_source-tree-copy" label="&tidy.menu.copy.label;" oncommand="oTidyViewSource.onTreeCopy();" />
                 <menuitem id="tidy-view_source-tree-selectall" label="&tidy.menu.selectall.label;" oncommand="oTidyViewSource.onTreeSelectAll();" />
@@ -54,33 +61,34 @@
                 <menuitem id="tidy-view_source-tree-hide" label="&tidy.view_source.tree.hide;" oncommand="oTidyViewSource.onTreeHide();" />
             </menupopup>
 -->
-          <table id="error_list_table">
+            <table id="error_list_table">
+              <thead>
+                <tr>
+                  <th id="col_icon" style="width: 100px;">Type</th>
+                  <th id="col_line" style="width: 65px;">Line</th>
+                  <th id="col_column" style="width: 65px;">Column</th>
+                  <th id="col_data" style="width: auto;">HTML errors and warnings</th>
+                  <th id="col_hide" style="width: 24px;"></th>
+                </tr>
+              </thead>
+              <tbody id="error_list_tbody">
+              </tbody>
+            </table>
+          </div>
+          <div id="dragbar_h2"></div>
+          <table style="width:100%; border: 0">
             <thead>
               <tr>
-                <th id="col_icon" style="width: 100px;">Type</th>
-                <th id="col_line" style="width: 65px;">Line</th>
-                <th id="col_column" style="width: 65px;">Column</th>
-                <th id="col_data" style="width: auto;">HTML errors and warnings</th>
-                <th id="col_hide" style="width: 24px;"></th>
+                <th style="text-align: left">Help</th>
+                <th style="text-align: right">
+                  <input id="tidy_hmlpedia" type="button" value="Edit Help...">&nbsp;
+                </th>
               </tr>
             </thead>
-            <tbody id="error_list_tbody">
-            </tbody>
           </table>
+          <!-- <iframe id="error_iframe" src="help/en-US/tidy_start.html"></iframe> -->
+          <div id="error_help"></div>
         </div>
-        <div id="dragbar_h2"></div>
-        <table style="width:100%; border: 0">
-          <thead>
-            <tr>
-              <th style="text-align: left">Help</th>
-              <th style="text-align: right">
-                <input id="tidy_hmlpedia" type="button" value="Edit Help...">&nbsp;
-              </th>
-            </tr>
-          </thead>
-        </table>
-        <!-- <iframe id="error_iframe" src="help/en-US/tidy_start.html"></iframe> -->
-        <div id="error_help"></div>
       </div>
     </div>
   </div>

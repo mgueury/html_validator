@@ -39,7 +39,13 @@ function onLoadTidyViewSource2() {
   tidyUtilSetOnclick("tidy_cleanup2", function () {
     tidyCleanup()
   });
+  tidyUtilSetOnclick("tidy_menu_cleanup2", function () {
+    tidyCleanup()
+  });  
   tidyUtilSetOnclick("tidy_online_page", function () {
+    tidyOnline()
+  });
+  tidyUtilSetOnclick("tidy_menu_online_page", function () {
     tidyOnline()
   });
   tidyUtilSetOnclick("tidy_offline", function () {
@@ -216,7 +222,7 @@ function tidyUtilAddOption(select, sUrl) {
 function tidyUtilUpdateDocList(docList, main_url) {
   console.log("<tidyUtilUpdateDocList>: " + docList);
   // Skip doclist change when changing HTML origin or frame
-  if( oTidyViewSource && oTidyViewSource.bSkipDocListChange ) {
+  if (oTidyViewSource && oTidyViewSource.bSkipDocListChange) {
     console.log("<tidyUtilUpdateDocList> skip");
     oTidyViewSource.bSkipDocListChange = false;
     return;
@@ -646,22 +652,21 @@ TidyViewSource.prototype = {
         var aCol = [];
         for (var i = 0, len = html.length; i < len; i++) {
           var c = html[i];
-          col ++;
+          col++;
           if (c == '\n') {
-            aCol[currentLine]=col;
-            col=0;
+            aCol[currentLine] = col;
+            col = 0;
             currentLine++;
           }
         }
         // Last line
-        aCol[currentLine]=col;
+        aCol[currentLine] = col;
 
         row = new TidyResultRow();
         row.init("W3c Online Validation", 0, 0, 0, unsorted--, null, null, null, "info", oTidyUtil.getString("tidy_cap_info"));
         this.addRow(row);
         var online_url = oTidyUtil.getCharPref("online_url")
-        if( online_url!= tidy_pref.online_default_url )
-        {
+        if (online_url != tidy_pref.online_default_url) {
           row = new TidyResultRow();
           row.init("W3c validator URL: " + online_url, 0, 0, 0, unsorted--, null, null, null, "info", oTidyUtil.getString("tidy_cap_info"));
           this.addRow(row);
@@ -671,12 +676,11 @@ TidyViewSource.prototype = {
           for (var i = 0; i < error.messages.length; i++) {
             // Check if an error is a CR
             // If yes, move the message to the next line, column 1
-            var line=error.messages[i].firstLine;
-            var col=error.messages[i].firstColumn;
-            if( aCol[line]>=col )
-            {
+            var line = error.messages[i].firstLine;
+            var col = error.messages[i].firstColumn;
+            if (aCol[line] >= col) {
               error.messages[i].firstLine++;
-              error.messages[i].firstColumn=1;
+              error.messages[i].firstColumn = 1;
             }
 
             row = new TidyResultRow();
@@ -1262,6 +1266,18 @@ if (!isHorizontalMode) {
       w = Math.max(w + diff, width / 2);
     }
     dragbar_resize_v2(w);
+
+    if (width < 1000) {
+      document.getElementById("tidy_toolbar_button").style.display = "none";
+      document.getElementById("tidy_menu_cleanup2").style.display = "block";
+      document.getElementById("tidy_menu_online_page").style.display = "block";
+    }
+    else {
+      document.getElementById("tidy_toolbar_button").style.display = "unset";
+      document.getElementById("tidy_menu_cleanup2").style.display = "none";
+      document.getElementById("tidy_menu_online_page").style.display = "none";
+    }
+
   }
   document.getElementById("dragbar_v2").onmousedown = function (e) {
     e.preventDefault();

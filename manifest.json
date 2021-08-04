@@ -1,6 +1,6 @@
 {
   "name": "HTML Validator",
-  "version": "0.9.9.4",
+  "version": "0.9.9.5",
   "manifest_version": 2,
   "description": "Add HTML Validator in Developer Tools",
   "devtools_page": "tidy_devtools.html",

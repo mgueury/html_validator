@@ -18,8 +18,7 @@ Comment about permissions used in the manifest
 - API: "clipboardWrite"
   - Needed To be able to copy the HTML of the cleanup page to the clipboard
 - API: "storage"
-  - I do not use storage API. But when not there the extension does not work
-    and seems to have issue to find some global variables.
+  - To store temporary global variables passed by the background page to the devtools page.
 - API: webnavigation: 
   - API used : chrome.webNavigation.getAllFrames
   - Needed to get the list of Frames to be able to select them:
