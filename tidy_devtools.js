@@ -19,6 +19,7 @@ var oTidyDevtools = function (extensionPanel) {
     extensionPanel.onShown.removeListener(tmp); // Run once only
     tidyWxUpdateWindow(panelWindow);
     console.log("tidy: </extensionPanel.onShown>");
+    return true;
   });
 
   // For page refresh
@@ -40,6 +41,7 @@ var oTidyDevtools = function (extensionPanel) {
           tidyWxChangeHtmlAndDoclist(request.url, false, null);
         }
       }
+      return true;
     }
   );
 

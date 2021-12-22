@@ -69,6 +69,7 @@ chrome.runtime.onConnect.addListener(function (port) {
   // Remove port when destroyed (eg when devtools instance is closed)
   port.onDisconnect.addListener(function (port) {
     delete ports[port.portId_];
+    return true;
   });
 
   port.onMessage.addListener(function (request) {
@@ -94,6 +95,7 @@ chrome.runtime.onConnect.addListener(function (port) {
         }
       }
     }
+    return true;
   });
 });
 
@@ -164,4 +166,5 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
       title: request.title.toString()
     });
   }
+  return true;
 });

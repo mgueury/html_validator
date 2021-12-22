@@ -54,7 +54,7 @@ TidyOptions.prototype = {
 
     oTidyUtil.initCheckbox("highlight_line");
     oTidyUtil.initCheckbox("show-warnings");
-    oTidyUtil.initCharTextbox("online_url");
+    // oTidyUtil.initCharTextbox("online_url");
 
     // Filter List
     for (var o in oTidyUtil.filterArrayTidy) {
