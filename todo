@@ -1,7 +1,0 @@
-Priority LOW:
-- Remove reference to tidy_background
-- manifest.json "<all_urls>" maybe not supported anymore ?
-
-Done:
-- replace manifest 2 by 3
-- replaced browser_action by action and chrome.browserAction by chrome.action
