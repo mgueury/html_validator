@@ -1,21 +1,24 @@
 {
   "name": "HTML Validator",
-  "version": "0.9.9.6",
-  "manifest_version": 2,
+  "version": "0.9.9.8",
+  "manifest_version": 3,
   "description": "Add HTML Validator in Developer Tools",
   "devtools_page": "tidy_devtools.html",
   "options_page": "common/tidy_option.html",
   "homepage_url": "http://www.gueury.com/mozilla",
-  "web_accessible_resources": ["*"],
+  "web_accessible_resources": [{
+    "resources": [ "*"],
+    "matches": ["<all_urls>"] 
+  }],
   "background": {
-    "scripts": ["common/tidy_platform_fake.js","tidy_background.js"]
+    "service_worker": "tidy_service_worker.js"
   },
   "icons": {
     "16": "skin/default_icon16.png",
     "48": "skin/default_icon48.png",
     "128": "skin/default_icon128.png"
   },
-  "browser_action": {
+  "action": {
     "default_icon": "skin/disabled.png",
     "default_title": "HTML validator",
     "default_popup": "tidy_popup.html"
@@ -25,17 +28,13 @@
     "js": ["tidy_content.js"]
   }],
   "permissions": [
-    "<all_urls>",
     "storage",
     "clipboardWrite",    
     "webNavigation"
   ],
-  "offline_enabled": true,
-  "applications": {
-    "gecko": {
-      "id": "{3b56bcc7-54e5-44a2-9b44-66c3ef58c13e}",
-      "strict_min_version": "57.0a1"
-    }
-  }
+  "host_permissions": [
+    "<all_urls>"
+  ],  
+  "offline_enabled": true
 }
 

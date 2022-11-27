@@ -430,4 +430,4 @@ window.onload = function (e) {
 
 }
 
-hljs.initHighlightingOnLoad();
+// hljs.initHighlightingOnLoad();
