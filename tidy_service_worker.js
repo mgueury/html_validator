@@ -36,15 +36,20 @@ function call_dom2string(tabId, frameId) {
   // Firefox WA - execute a content script to get the HTML
   console.log("tidy_background: call_dom2string");
   iLastTabId = tabId;
-  chrome.tabs.executeScript(tabId, {
-    frameId: frameId,
-    file: "tidy_dom2string.js"
+  chrome.scripting.executeScript({
+    target: {tabId: tabId},
+    files: ['tidy_dom2string.js'],
+  });
+/* chrome.tabs.executeScript(tabId, {
+      frameId: frameId,
+      file: "tidy_dom2string.js"
   }, function () {
     // If you try and inject into an extensions page or the webstore/NTP you'll get an error
     if (chrome.runtime.lastError) {
       console.log('Tidy_background: error injecting script : \n' + chrome.runtime.lastError.message);
     }
   });
+  */
 }
 
 function firefox_get_frames_then_call_dom2string(tabId) {
